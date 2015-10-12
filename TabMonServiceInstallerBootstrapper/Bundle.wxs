@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?define ApplicationName = "TabMon"?>
+<?define ProductVersion = "2.0"?>
+<?define Manufacturer = "Tableau"?>
+<?define AboutURL = "http://www.tableau.com"?>
+<?define ProductUpgradeCode = "d926f2c5-3ab6-4101-a292-f1cd325e23f6"?>
+<?define IconFile = "Resources\TabMon.ico"?>
+<?define LogoFile = "Resources\Logo.png"?>
+<?define LogoSideFile = "Resources\LogoSide.png"?>
+<?define LicenseFile = ""?> <!-- disables license box being shown -->
+<?define MainPackageFile = "Installers\TabMon.msi"?>
+<?define PostgresPackageFile = "Installers\postgresql.exe"?>
+<?define PostgresInitializer = "Installers\TabMonServiceInstallerDBInitializer.msi"?>
+<?define PostgresServiceName = "TabMon-Postgres"?>
+<?define PostgresUser = "tabmon"?>
+<?define PostgresPassword = "password"?>
+<?define PostgresPortNumber = "5432"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Bundle Name="$(var.ApplicationName)" Version="$(bal.Version($(var.ProductVersion)))" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.ProductUpgradeCode)" IconSourceFile="$(var.IconFile)" AboutUrl="$(var.AboutURL)">
+    <BootstrapperApplicationRef Id="WixExtendedBootstrapperApplication.HyperlinkLicense">
+      <Payload SourceFile="$(var.LogoSideFile)" />
+      <Payload SourceFile="$(var.LogoFile)" />
+    </BootstrapperApplicationRef>
+    
+    <!-- Theme Resource Locations-->
+    <WixVariable Id="WixExtbaLicenseUrl" Value="License.htm" />
+    <WixVariable Id="WixExtbaThemeXml" Value="Resources\BundleTheme.xml" />
+    <WixVariable Id="WixExtbaThemeWxl" Value="Resources\HyperlinkTheme.wxl" />
+
+    <!-- Install Locations -->
+    <Variable Name="InstallFolder" bal:Overridable="yes" Type="string" Value="[ProgramFilesFolder]$(var.ApplicationName)" />
+    <Variable Name="InstallFolder2" bal:Overridable="yes" Type="string" Value="[WindowsVolume]Postgres" />
+
+    <!-- Core Install Options -->
+    <Variable Name="OptionInstallPostgres" bal:Overridable="yes" Type="numeric" Persisted="yes" Value="1" />
+    <Variable Name="OptionCreateStartMenuShortcuts" bal:Overridable="yes" Type="numeric" Persisted="yes" Value="1" />
+
+    <!-- Postgres Configuration Options -->
+    <Variable Name="PostgresPort" bal:Overridable="yes" Type="string" Persisted="yes" Value="$(var.PostgresPortNumber)"/>
+    <Variable Name="PostgresUsername" bal:Overridable="yes" Type="string" Persisted="yes" Value="$(var.PostgresUser)"/>
+    <Variable Name="PostgresPassword" bal:Overridable="yes" Type="string" Persisted="yes" Value="$(var.PostgresPassword)"/>
+
+    <!-- Registry Key Search Results -->
+    <util:RegistrySearchRef Id="SearchForPowershell"/>
+
+    <!-- Install Chain -->
+    <Chain DisableSystemRestore="yes">
+      <PackageGroupRef Id="NetFx45Web" />
+      <RollbackBoundary />
+      <ExePackage
+        SourceFile="$(var.PostgresPackageFile)"
+        InstallCommand="--mode unattended --prefix &quot;[InstallFolder2]&quot; --extract-only 1" 
+        InstallCondition="OptionInstallPostgres" />
+      <RollbackBoundary />
+      <MsiPackage Id="MainPackage" SourceFile="$(var.MainPackageFile)" DisplayInternalUI="no" Compressed="yes" Vital="yes">
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder] "/>
+        <MsiProperty Name="INSTALLSHORTCUTS" Value="[OptionCreateStartMenuShortcuts]" />
+      </MsiPackage>
+      <RollbackBoundary />
+      <MsiPackage Id="PostgresInitializer" SourceFile="$(var.PostgresInitializer)" DisplayInternalUI="no" Compressed="yes" Vital="yes" InstallCondition="OptionInstallPostgres">
+        <MsiProperty Name="INSTALLFOLDER" Value="[InstallFolder]" />
+        <MsiProperty Name="POSTGRESFOLDER" Value="[InstallFolder2]" />
+        <MsiProperty Name="PORT" Value="[PostgresPort]"/>
+        <MsiProperty Name="USERNAME" Value="[PostgresUsername]"/>
+        <MsiProperty Name="PASSWORD" Value="[PostgresPassword]"/>
+      </MsiPackage>
+    </Chain>
+  </Bundle>
+
+  <!-- Dependency Management -->
+  <Fragment>
+    <util:RegistrySearch
+          Id='SearchForPowershell' 
+          Variable="HasPowershellVersion3" 
+          Result="exists"
+          Root="HKLM"
+          Key="SOFTWARE\Microsoft\PowerShell\3" />
+    <bal:Condition 
+      Message="Windows Management Framework 3.0 is required for installation.">
+      HasPowershellVersion3
+    </bal:Condition>
+  </Fragment>
+
+</Wix>

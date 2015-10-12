@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?define ApplicationName = "TabMon DB Initializer"?>
+<?define ProductVersion = "1.0.0.0"?>
+<?define Manufacturer = "Tableau"?>
+<?define ProductUpgradeCode = "0bb96ca5-a8db-4156-bcd4-276f362ee46c"?>
+<?define PostgresFolder = "C:\Postgres"?>
+<?define PostgresUser = "tabmon"?>
+<?define PostgresPortNumber = "5432"?>
+<?define DatabaseName = "TabMon"?>
+<?define PostgresServiceName = "TabMon-Postgres"?>
+<?define UserPassword = "password"?>
+<?define MergeFilePath = "Dependencies\Microsoft_VC120_CRT_x86.msm"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+  xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
+  xmlns:powershell="http://schemas.gardiner.net.au/PowerShellWixExtensionSchema">     
+
+	<Product Id="*" Name="$(var.ApplicationName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.ProductUpgradeCode)">
+		<Package InstallerVersion="405" Compressed="yes" InstallScope="perMachine" InstallPrivileges="elevated" Manufacturer="$(var.Manufacturer)" />
+
+    <!-- Upgrade parameters -->
+    <Upgrade Id="$(var.ProductUpgradeCode)">
+      <UpgradeVersion Minimum="$(var.ProductVersion)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED"/>
+      <UpgradeVersion Minimum="0.0.0" Maximum="$(var.ProductVersion)" IncludeMinimum="yes" IncludeMaximum="no" Property="OLDERVERSIONBEINGUPGRADED"/>
+    </Upgrade>
+    <Condition Message="A newer version of this software is already installed.">NOT NEWERVERSIONDETECTED</Condition>
+
+    <MediaTemplate EmbedCab="yes" />
+    
+		<Feature Id="ProductFeature" Title="TabMonServiceInstallerDBInitializer" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="TabMonServiceInstallerDBInitializer" />
+      </Directory>
+    </Directory>
+
+    <DirectoryRef Id="TARGETDIR">
+      <Merge Id="VCRedist" SourceFile="$(var.MergeFilePath)" DiskId="1" Language="0"/>
+    </DirectoryRef>  
+     
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="ProductComponent">        
+        <File Id="PGSetupPs1" Source="PGSetup.ps1" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+    
+    <Feature Id="VCRedist" Title="Visual C++ Redistributable Package 2013" AllowAdvertise="no" Display="hidden" Level="1">
+      <MergeRef Id="VCRedist"/>
+    </Feature>
+    
+    <InstallExecuteSequence>
+      <Custom Action="PowerShellScriptsDeferred" After="InstallFiles">NOT Installed</Custom>
+      <Custom Action="PowerShellScriptsElevatedDeferred" After="InstallFiles">NOT Installed</Custom>
+      <Custom Action="PowerShellFilesDeferred" After="InstallFiles">NOT Installed</Custom>
+      <Custom Action="PowerShellFilesElevatedDeferred" After="InstallFiles">NOT Installed</Custom>
+      <RemoveExistingProducts After="InstallInitialize" />
+    </InstallExecuteSequence>
+
+    <powershell:File Id="PSFile1" File="[#PGSetupPs1]" Arguments="-LogDir &quot;C:\TEMP&quot; -InstallDir &quot;[POSTGRESFOLDER]&quot; -Username [USERNAME] -Port [PORT] -DBName [DBNAME] -ServiceName $(var.PostgresServiceName) -Password [PASSWORD]" Elevated="yes" />
+    
+    <Property Id="POSTGRESFOLDER" Value="$(var.PostgresFolder)" />
+    <Property Id="USERNAME" Value="$(var.PostgresUser)" />
+    <Property Id="PORT" Value="$(var.PostgresPortNumber)" />
+    <Property Id="DBNAME" Value="$(var.DatabaseName)" />
+    <Property Id="PASSWORD" Value="$(var.UserPassword)" />
+
+	</Product>
+</Wix>
