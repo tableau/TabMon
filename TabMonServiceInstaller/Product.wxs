@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?define ApplicationName = "TabMon"?>
+<?define ProductVersion = "2.0.2"?>
+<?define Manufacturer = "Tableau"?>
+<?define HelpLink = "http://www.tableau.com"?>
+<?define UrlInfoAbout = "http://www.tableau.com"?>
+<?define ProductUpgradeCode = "8c39f7f6-ad31-4efd-96ae-1f6f1a5e4f3a"?>
+<?define IconFile = "..\TabMonService\Resources\TabMon.ico"?>
+<?define BinFolder = "..\TabMonService\bin\Release"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+  <Product Id="*" Name="$(var.ApplicationName)" Language="1033" Codepage="1252" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.ProductUpgradeCode)">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" InstallPrivileges="elevated" Manufacturer="$(var.Manufacturer)" />
+    <Media Id="1" Cabinet="TabMon.cab" EmbedCab="yes" />
+    <UIRef Id="CustomInstallDir" />
+    <Icon Id="ProductIcon" SourceFile="$(var.IconFile)" />
+    
+    <!-- Properties -->
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <Property Id="ARPPRODUCTICON" Value="ProductIcon" />
+    <Property Id="ARPHELPLINK" Value="$(var.HelpLink)" />
+    <Property Id="ARPURLINFOABOUT" Value="$(var.UrlInfoAbout)" />
+    <Property Id="ARPNOREPAIR" Value="1" />
+    <Property Id="INSTALLSHORTCUTS" Value="1" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1"/>
+    <Property Id="WixShellExecTarget" Value="[#UserGuide]" />
+    
+    <!-- Dependency management -->
+    <PropertyRef Id="NETFRAMEWORK45" />
+    <Condition Message="This application requires .NET Framework 4.5 or later. Please install the .NET Framework and then run this installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK45]]>
+    </Condition>
+
+    <!-- Upgrade parameters -->
+    <Upgrade Id="$(var.ProductUpgradeCode)">
+      <UpgradeVersion Minimum="$(var.ProductVersion)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED"/>
+      <UpgradeVersion Minimum="0.0.0" Maximum="$(var.ProductVersion)" IncludeMinimum="yes" IncludeMaximum="no" Property="OLDERVERSIONBEINGUPGRADED"/>
+    </Upgrade>
+    <Condition Message="A newer version of this software is already installed.">NOT NEWERVERSIONDETECTED</Condition>
+
+    <!-- Main directory structure -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="$(var.ApplicationName)">
+          <Directory Id="CONFIGFOLDER" Name="Config" />
+          <Directory Id="RESOURCESFOLDER" Name="Resources" />
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.ApplicationName)" />
+      </Directory>
+    </Directory>
+
+    <!-- Main Application Folder -->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="Executable" Guid="9fd4a8c4-6da6-49a8-91ab-e40db98efcde">
+        <!-- Main EXE file -->
+        <File Id="TabMonExe" Name="TabMon.exe" DiskId="1" Vital="yes" Source="$(var.BinFolder)\TabMon.exe" />
+        <File Id="AppConfig" Name="TabMon.exe.config" DiskId="1" Vital="yes" Source="$(var.BinFolder)\TabMon.exe.config" />
+      </Component>
+      <Component Id="Libraries" Guid="e73d533c-f440-4baf-b0ed-be1c6e329c79">
+        <!-- Required Libraries -->
+        <File Id="TabMonLibDLL" Name="TabMonLib.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\TabMonLib.dll" />
+        <File Id="DataTableWriterDLL" Name="DataTableWriter.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\DataTableWriter.dll" />
+        <File Id="CsvHelperDLL" Name="CsvHelper.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\CsvHelper.dll" />
+        <File Id="IKVMOpenJDKCorbaDLL" Name="IKVM.OpenJDK.Corba.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\IKVM.OpenJDK.Corba.dll" />
+        <File Id="IKVMOpenJDKCoreDLL" Name="IKVM.OpenJDK.Core.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\IKVM.OpenJDK.Core.dll" />
+        <File Id="IKVMOpenJDKManagementDLL" Name="IKVM.OpenJDK.Management.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\IKVM.OpenJDK.Management.dll" />
+        <File Id="IKVMOpenJDKMiscDLL" Name="IKVM.OpenJDK.Misc.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\IKVM.OpenJDK.Misc.dll" />
+        <File Id="IKVMOpenJDKNamingDLL" Name="IKVM.OpenJDK.Naming.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\IKVM.OpenJDK.Naming.dll" />
+        <File Id="IKVMOpenJDKRemotingDLL" Name="IKVM.OpenJDK.Remoting.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\IKVM.OpenJDK.Remoting.dll" />
+        <File Id="IKVMOpenJDKSecurityDLL" Name="IKVM.OpenJDK.Security.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\IKVM.OpenJDK.Security.dll" />
+        <File Id="IKVMOpenJDKTextDLL" Name="IKVM.OpenJDK.Text.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\IKVM.OpenJDK.Text.dll" />
+        <File Id="IKVMOpenJDKUtilDLL" Name="IKVM.OpenJDK.Util.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\IKVM.OpenJDK.Util.dll" />
+        <File Id="IKVMRuntimeDLL" Name="IKVM.Runtime.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\IKVM.Runtime.dll" />
+        <File Id="Log4NetDLL" Name="log4net.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\log4net.dll" />
+        <File Id="MonoSecurityDLL" Name="Mono.Security.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Mono.Security.dll" />
+        <File Id="NpgsqlDLL" Name="Npgsql.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Npgsql.dll" />
+        <File Id="TopshelfDLL" Name="Topshelf.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Topshelf.dll" />
+        <File Id="TopshelfLog4NetDLL" Name="Topshelf.Log4Net.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Topshelf.Log4Net.dll" />
+      </Component>
+      <Component Id="Utilities" Guid="93dd2c94-e909-4b30-a2ed-80e78d53ed5b">
+        <!-- Helper Utilities -->
+        <File Id="StartTabMonScript" Name="StartTabMonService.bat" DiskId="1" Vital="no" Source="$(var.BinFolder)\Util\StartTabMonService.bat" />
+        <File Id="StopTabMonScript" Name="StopTabMonService.bat" DiskId="1" Vital="no" Source="$(var.BinFolder)\Util\StopTabMonService.bat" />
+      </Component>
+      <Component Id="Documentation" Guid="c50f5944-a820-45e9-b5aa-edbc6330503a">
+        <!-- User Documentation -->
+        <File Id="UserGuide" Name="TabMon User Guide.pdf" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Documentation\UserGuide.pdf" />
+      </Component>
+    </DirectoryRef>
+
+    <!-- Config Files -->
+    <DirectoryRef Id="CONFIGFOLDER">
+      <Component Id="ConfigFiles" Guid="ff8c7249-3eb4-4420-9f56-3ff662fe03b0">
+        <File Id="CountersConfig" Name="Counters.config" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Config\Counters.config" />
+        <File Id="Log4NetConfig" Name="Log.config" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Config\Log.config" />
+        <File Id="TabMonConfig" Name="TabMon.config" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Config\TabMon.config" />
+      </Component>
+    </DirectoryRef>
+    
+    <!-- Resource Files -->
+    <DirectoryRef Id="RESOURCESFOLDER">
+      <Component Id="Resources" Guid="78a95b43-cb29-4680-8715-46ac81fc2eb7">
+        <File Id="CountersConfigXSD" Name="CountersConfig.xsd" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Resources\CountersConfig.xsd" />
+        <File Id="TabMonConfigXSD" Name="TabMonConfig.xsd" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Resources\TabMonConfig.xsd" />
+      </Component>
+    </DirectoryRef>
+
+    <!-- Start Menu Shortcuts -->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ProgramFilesShortcut" Guid="*">
+        <Condition>(INSTALLSHORTCUTS = 1)</Condition>
+        <Shortcut Id="StartApplicationStartMenuShortcut"
+                  Name="Start $(var.ApplicationName)"
+                  Description="Start Tableau Server performance monitoring agent"
+                  Target="[#StartTabMonScript]"
+                  Icon="ProductIcon"
+                  WorkingDirectory="INSTALLFOLDER"/>
+        <Shortcut Id="StopApplicationStartMenuShortcut"
+                  Name="Stop $(var.ApplicationName)"
+                  Description="Stop Tableau Server performance monitoring agent"
+                  Target="[#StopTabMonScript]"
+                  Icon="ProductIcon"
+                  WorkingDirectory="INSTALLFOLDER"/>
+        <Shortcut Id="UserGuideStartMenuShortcut"
+                  Name="TabMon User Guide"
+                  Description="Documentation on how to use TabMon Agent."
+                  Target="[#UserGuide]"
+                  WorkingDirectory="INSTALLFOLDER"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ApplicationName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <!-- Feature Definitions -->
+    <Feature Id='Complete' Title='$(var.ApplicationName)' Description='The complete package.' Display='expand' Level='1' ConfigurableDirectory='TARGETDIR'>
+      <Feature Id='MainProgram' Title="$(var.ApplicationName)" Description='$(var.ApplicationName) main program.' Level='1'>
+        <ComponentRef Id='Executable' />
+        <ComponentRef Id='Libraries' />
+        <ComponentRef Id='ConfigFiles' />
+        <ComponentRef Id='Resources' />
+        <ComponentRef Id='Utilities' />
+        <ComponentRef Id='Documentation' />
+        <ComponentRef Id='ProgramFilesShortcut' />
+      </Feature>
+    </Feature>
+
+    <!-- Custom Actions-->
+    <!-- Install/uninstall as a Windows service -->
+    <CustomAction Id="RunTopShelfServiceInstall" Directory="INSTALLFOLDER" Execute="deferred" Return="ignore" Impersonate="no" ExeCommand="[INSTALLFOLDER]TabMon.exe install"/>
+    <CustomAction Id="RunTopShelfServiceUninstall" Directory="INSTALLFOLDER" Execute="deferred" Return="ignore" Impersonate="no" ExeCommand="[INSTALLFOLDER]TabMon.exe uninstall"/>
+    <!-- Prompt user to launch user manual after installing -->
+    <CustomAction Id="LaunchUserGuide"
+                  BinaryKey="WixCA"
+                  DllEntry="WixShellExec"
+                  Impersonate="yes" />
+
+    <!-- Install Sequence -->
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallValidate"/>
+      <Custom Action="RunTopShelfServiceInstall" After="InstallFiles">NOT Installed</Custom>
+      <Custom Action="RunTopShelfServiceUninstall" After='InstallInitialize'>(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>
+    </InstallExecuteSequence>
+  </Product>
+</Wix>
