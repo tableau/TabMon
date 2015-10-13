@@ -8,11 +8,11 @@ TabMon can be run as both a console app and a Windows service.
 
 ## How do I set up TabMon?
 
-TabMon is deployed via a custom installer, which manages dependencies and also bundles Postgres for ease of setup for new users.  To get up and running, follow the instructions in the installation guide.
+TabMon is deployed via a custom installer, which manages dependencies and also bundles Postgres for ease of setup for new users.  To get up and running, follow the instructions in the [installation guide](https://github.com/tableau/TabMon/blob/master/TabMonService/Documentation/UserGuide.pdf).
 
 ## How do I analyze results from TabMon?
 
-The best way is to explore your results in Tableau!  A sample workbook has been created with some example dashboards & views to get you started.
+The best way is to explore your results in Tableau!  A [sample workbook](https://github.com/tableau/TabMon/blob/master/Sample%20Workbooks/TabMon%20Workbook.twb) has been created with some example dashboards & views to get you started.
 
 ## What do I need to build TabMon from source?
 
@@ -23,7 +23,7 @@ The current development requirements are:
 3. WiX Toolset Visual Studio Extension - Required to build the installer projects.
   * Available at http://www.wixtoolset.org
 
-See "Developer Notes.txt" for additional developer-specific notes.
+See [Developer Notes.txt](https://github.com/tableau/TabMon/blob/master/Developer%20Notes.txt) for additional developer-specific notes.
 
 ## Is TabMon supported?
 
