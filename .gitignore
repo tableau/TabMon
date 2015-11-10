@@ -4,6 +4,7 @@ DataTableWriter/bin/
 DataTableWriter/obj/
 /TabMon/bin/
 /TabMon/obj/
+TabMonConfigSectionGenerator/obj/
 TabMonService/bin/
 TabMonService/obj/
 TabMonServiceInstaller/bin/
@@ -15,6 +16,3 @@ TabMonServiceInstallerBootstrapper/obj/
 TabMonServiceInstallerBootstrapper/Installers/TabMon.msi
 TabMonServiceInstallerBootstrapper/Installers/TabMonServiceInstallerDBInitializer.msi
 TabMon.v12.suo
-
-
-
