@@ -16,7 +16,7 @@
 <?define PostgresPassword = "password"?>
 <?define PostgresPortNumber = "5432"?>
 
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+<Wix RequiredVersion="3.9.1208.0" xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <Bundle Name="$(var.ApplicationName)" Version="$(bal.Version($(var.ProductVersion)))" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.ProductUpgradeCode)" IconSourceFile="$(var.IconFile)" AboutUrl="$(var.AboutURL)">
