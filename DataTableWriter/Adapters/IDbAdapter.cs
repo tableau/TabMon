@@ -23,5 +23,6 @@ namespace DataTableWriter.Adapters
         void AddColumnsToTableToMatchSchema(string tableName, DataTable schema);
         bool ExistsColumn(string tableName, DataColumn column);
         void InsertRow(string tableName, DataRow row);
+        void IndexTable(string dbTableName, string column, bool isClusteredIndex = false);
     }
 }

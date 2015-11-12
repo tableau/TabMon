@@ -1,6 +1,7 @@
 ﻿using DataTableWriter.Adapters;
 using log4net;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Reflection;
@@ -117,6 +118,38 @@ namespace DataTableWriter
         }
 
         /// <summary>
+        /// Indexes a set of columns defined by the dictionary that is passed.
+        /// </summary>
+        /// <param name="adapter">Open adapter to the database.</param>
+        /// <param name="schema">The schema of the table the index will be created on.</param>
+        /// <param name="columns">A dictionary where keys are the column names and boolean statements for whether the index is clustered.</param>
+        /// <returns></returns>
+        public static bool CreateIndexes(IDbAdapter adapter, DataTable schema, Dictionary<string,bool> columns)
+        {
+            foreach(var column in columns)
+            {
+                if (adapter.ExistsTable(schema.TableName))
+                {
+                    try
+                    {
+                        adapter.IndexTable(schema.TableName, column.Key, column.Value);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(String.Format("Error creating index on column '{0}' for table {1}: {3}", column.Key ,schema.TableName, ex.Message));
+                        return false;
+                    }
+                }
+                else
+                {
+                    Log.Error(String.Format("Error creating index on column '{0}': Table {1} does not exist", column.Key, schema.TableName));
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
         /// Uses an in-memory schema to initialize a database table according to a set of initialization options.
         /// </summary>
         /// <param name="adapter">Open adapter to a database.</param>
@@ -127,6 +160,9 @@ namespace DataTableWriter
             if (tableInitializationOptions.CreateTableDynamically)
             {
                 CreateTable(adapter, schema);
+                var index = new Dictionary<string,bool>();
+                index.Add("timestamp",true);
+                CreateIndexes(adapter, schema, index);
             }
             if (tableInitializationOptions.UpdateDbTableToMatchSchema)
             {

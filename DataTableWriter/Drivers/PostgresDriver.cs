@@ -3,6 +3,7 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Text;
 
 namespace DataTableWriter.Drivers
 {
@@ -223,6 +224,25 @@ namespace DataTableWriter.Drivers
             }
             var paramNames = String.Join(",", paramNameList);
             return String.Format(@"INSERT INTO ""{0}"" ({1}) VALUES ({2});", tableName, columns, paramNames);
+        }
+
+        /// <summary>
+        /// Builds either a index or clustered index query for a pre-existing table. 
+        /// </summary>
+        /// <param name="tableName">The name of the table to create the index on.</param>
+        /// <param name="columnName">The name of the column that will be indexed</param>
+        /// <param name="isClusteredIndex">Flag to indicate whether the index is clustered or not.</param>
+        /// <returns>Postgres statement that indexes a designated table.</returns>
+        public string BuildQueryIndex(string tableName, string columnName, bool isClusteredIndex = false)
+        {
+            var indexName = columnName + "_index";
+            var indexString = new StringBuilder(String.Format(@"CREATE INDEX ""{0}"" ON ""{1}"" (""{2}"");", indexName, tableName, columnName));
+
+            if (isClusteredIndex)
+            {
+                indexString.Append(String.Format(@"CLUSTER ""{0}"" ON ""{1}""", indexName, tableName));
+            }
+            return indexString.ToString();
         }
 
         #endregion

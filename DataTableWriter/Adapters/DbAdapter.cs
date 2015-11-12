@@ -288,6 +288,32 @@ namespace DataTableWriter.Adapters
             }
         }
 
+        /// <summary>
+        /// Creates an index on a given column of a selected table.
+        /// </summary>
+        /// <param name="dbTableName">The name of the table to create the index on.</param>
+        /// <param name="column">The name of the column that will be indexed.</param>
+        /// <param name="isClusteredIndex">Flag to indicate whether the index is clustered or not.</param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities")]
+        public void IndexTable(string dbTableName, string column, bool isClusteredIndex = false)
+        {
+            using (var command = Connection.CreateCommand())
+            {
+                command.Connection = Connection;
+                command.CommandText = Driver.BuildQueryIndex(dbTableName, column, isClusteredIndex);
+
+                try
+                {
+                    Log.Debug(String.Format("Creating index on column '{0}'..", column));
+                    command.ExecuteNonQuery();
+                }
+                catch (DbException ex)
+                {
+                    Log.Error(String.Format("Could not create index on column '{0}': {1}", column, ex.Message));
+                }
+            }
+        }
+
         #endregion Public Methods
 
         #region IDisposable Methods
