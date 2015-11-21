@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dictionary.cs" />
     <Compile Include="Drivers\DbDriverFactory.cs" />
     <Compile Include="Drivers\PostgresDriver.cs" />
     <Compile Include="DbTableInitializationOptions.cs" />

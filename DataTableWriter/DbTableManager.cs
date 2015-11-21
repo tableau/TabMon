@@ -255,26 +255,26 @@ namespace DataTableWriter
                 try
                 {
                     Log.Debug(String.Format("Checking to see if clusters on indexes should be updated for table '{0}'..", schema.TableName));
-                    var dbIndexList = adapter.GetIndexes(schema.TableName.ToString());
-                    var indexesToCheck = from dbColumnName in dbIndexList
-                                         from columnNames in dbColumnName.IndexedColumns
-                                         join workingColumnName in columns
-                                         on columnNames equals workingColumnName.Key
+                    var dbIndexes = adapter.GetIndexes(schema.TableName.ToString());
+                    var indexesToCheck = from dbIndex in dbIndexes
+                                         from indexedColumn in dbIndex.IndexedColumns
+                                         join columnName in columns
+                                         on indexedColumn equals columnName.Key
                                          select new
                                          {
-                                             dbIndexName = dbColumnName.IndexName,
-                                             dbIsCluster = dbColumnName.IsClustered,
-                                             indexedColumn = workingColumnName.Key,
-                                             workingIsClustered = workingColumnName.Value
+                                             dbIndexName = dbIndex.IndexName,
+                                             dbIsCluster = dbIndex.IsClustered,
+                                             indexedColumn = columnName.Key,
+                                             isClustered = columnName.Value
                                          };
 
                     foreach (var index in indexesToCheck)
                     {
-                        if (index.dbIsCluster == false && index.workingIsClustered == true)
+                        if (index.dbIsCluster == false && index.isClustered == true)
                         {
                             adapter.ClusterIndex(schema.TableName, index.dbIndexName);
                         }
-                        else if (index.dbIsCluster == true && index.workingIsClustered == false)
+                        else if (index.dbIsCluster == true && index.isClustered == false)
                         {
                             adapter.DropIndex(index.dbIndexName);
                             adapter.CreateIndexOnTable(schema.TableName, index.indexedColumn, index.dbIndexName);
