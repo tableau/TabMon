@@ -64,6 +64,11 @@
 					<xs:documentation>Contains information about the results table.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="Indexes" type="tns:TabMon.Config.IndexesCT">
+				<xs:annotation>
+					<xs:documentation>Contains columns to be indexed upon table creation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:choice>
 		<xs:attribute name="type" use="required" type="xs:string">
 			<xs:annotation>
@@ -136,5 +141,26 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="TabMon.Config.IndexesCT">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="Index" type="tns:TabMon.Config.IndexCT">
+				<xs:annotation>
+					<xs:documentation>Represents an individual index.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="TabMon.Config.IndexCT">
+		<xs:attribute name="column" use="required" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>The column name to be indexed.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="clustered" use="required" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Whether the index is clustered or not.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 </xs:schema>

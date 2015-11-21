@@ -85,6 +85,11 @@
             <configurationElementMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Table" />
           </type>
         </elementProperty>
+        <elementProperty name="Indexes" isRequired="false" isKey="false" isDefaultCollection="false" xmlName="Indexes" isReadOnly="false" documentation="Contains columns to be indexed upon table creation.">
+          <type>
+            <configurationElementCollectionMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Indexes" />
+          </type>
+        </elementProperty>
       </elementProperties>
     </configurationElement>
     <configurationElement name="Host" namespace="TabMon.Config" documentation="Represents an individual host.">
@@ -177,6 +182,25 @@
         <configurationElementCollectionMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Cluster" />
       </itemType>
     </configurationElementCollection>
+    <configurationElementCollection name="Indexes" namespace="TabMon.Config" documentation="Contains columns to be indexed upon table creation." xmlItemName="Index" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
+      <itemType>
+        <configurationElementMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Index" />
+      </itemType>
+    </configurationElementCollection>
+    <configurationElement name="Index" namespace="TabMon.Config" documentation="Represents an individual index.">
+      <attributeProperties>
+        <attributeProperty name="Column" isRequired="true" isKey="true" isDefaultCollection="false" xmlName="column" isReadOnly="false" documentation="The column name to be indexed." defaultValue="&quot;&quot;">
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/String" />
+          </type>
+        </attributeProperty>
+        <attributeProperty name="Clustered" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="clustered" isReadOnly="false" documentation="Whether the index is clustered or not." defaultValue="false">
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Boolean" />
+          </type>
+        </attributeProperty>
+      </attributeProperties>
+    </configurationElement>
   </configurationElements>
   <propertyValidators>
     <validators>

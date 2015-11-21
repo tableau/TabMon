@@ -1,6 +1,8 @@
 ﻿using DataTableWriter.Connection;
 using DataTableWriter.Drivers;
+using DataTableWriter.Helpers;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace DataTableWriter.Adapters
@@ -23,6 +25,9 @@ namespace DataTableWriter.Adapters
         void AddColumnsToTableToMatchSchema(string tableName, DataTable schema);
         bool ExistsColumn(string tableName, DataColumn column);
         void InsertRow(string tableName, DataRow row);
-        void IndexTable(string dbTableName, string column, bool isClusteredIndex = false);
+        void CreateIndexOnTable(string dbTableName, string column, string indexName);
+        void ClusterIndex(string dbTableName, string indexName);
+        IList<IndexInfo> GetIndexes(string tableName);
+        void DropIndex(string indexName);
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dictionary.cs" />
     <Compile Include="Drivers\DbDriverFactory.cs" />
     <Compile Include="Drivers\PostgresDriver.cs" />
     <Compile Include="DbTableInitializationOptions.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Helpers\DataColumnEqualityComparer.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="Connection\IDbConnectionInfo.cs" />
+    <Compile Include="Helpers\IndexInfo.cs" />
     <Compile Include="Writers\DataTableCsvWriter.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Connection\DbConnectionInfo.cs" />
