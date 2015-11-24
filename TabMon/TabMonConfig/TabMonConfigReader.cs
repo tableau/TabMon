@@ -8,6 +8,7 @@ using DataTableWriter.Connection;
 using DataTableWriter.Drivers;
 using DataTableWriter.Writers;
 using TabMon.Helpers;
+using System.Collections.Generic;
 
 namespace TabMon.Config
 {
@@ -125,17 +126,25 @@ namespace TabMon.Config
                 DatabaseName = databaseConfig.Name
             };
 
+            var indexes = new Dictionary<string, bool>();
+            foreach (Index index in config.Database.Indexes)
+            {
+                indexes.Add(index.Column, index.Clustered);
+            }
+
             if (!dbConnInfo.Valid())
             {
                 throw new ConfigurationErrorsException("Missing required database connection information!");
             }
 
             var tableInitializationOptions = new DbTableInitializationOptions()
-                {
-                    CreateTableDynamically = true,
-                    UpdateDbTableToMatchSchema = true,
-                    UpdateSchemaToMatchDbTable = true
-                };
+            {
+                CreateTableDynamically = true,
+                UpdateDbTableToMatchSchema = true,
+                UpdateSchemaToMatchDbTable = true,
+                UpdateIndexes = databaseConfig.Indexes.Generate,
+                IndexesToGenerate = indexes
+            };
 
             Log.Info("Connecting to results database..");
             try
