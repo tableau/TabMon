@@ -256,6 +256,9 @@ namespace DataTableWriter
                 {
                     Log.Debug(String.Format("Checking to see if clusters on indexes should be updated for table '{0}'..", schema.TableName));
                     var dbIndexes = adapter.GetIndexes(schema.TableName.ToString());
+
+                    // For every column associated with an index in the DB, gather the Index Name from the DB, whether the DB index is clustered, 
+                    // the name of the indexed column in the config, and whether or not the index is clustered IF the column exists in both the config and DB.
                     var indexesToCheck = from dbIndex in dbIndexes
                                          from indexedColumn in dbIndex.IndexedColumns
                                          join columnName in columns
