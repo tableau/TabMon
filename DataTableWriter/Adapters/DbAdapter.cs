@@ -210,16 +210,14 @@ namespace DataTableWriter.Adapters
                 }
                 finally
                 {
-                    if(reader != null)
+                    if (reader != null)
                     {
                         reader.Close();
                     }
                 }
-                
             }
 
             return table;
-            
         }
 
         /// <summary>
@@ -300,24 +298,24 @@ namespace DataTableWriter.Adapters
         /// <summary>
         /// Creates an index on a given column of a selected table.
         /// </summary>
-        /// <param name="dbTableName">The name of the table to create the index on.</param>
-        /// <param name="column">The name of the column that will be indexed.</param>
+        /// <param name="tableName">The name of the table to create the index on.</param>
+        /// <param name="columnName">The name of the column that will be indexed.</param>
         /// <param name="isClusteredIndex">Flag to indicate whether the index is clustered or not.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities")]
-        public void CreateIndexOnTable(string dbTableName, string column, string indexName)
+        public void CreateIndexOnTable(string tableName, string columnName, string indexName)
         {
             using (var command = Connection.CreateCommand())
             {
                 command.Connection = Connection;
-                command.CommandText = Driver.BuildQueryIndex(dbTableName, column, indexName);
+                command.CommandText = Driver.BuildQueryIndex(tableName, columnName, indexName);
                 try
                 {
-                    Log.Debug(String.Format("Creating index '{0}' on column '{1}'..", indexName, column));
+                    Log.Debug(String.Format("Creating index '{0}' on column '{1}'..", indexName, columnName));
                     command.ExecuteNonQuery();
                 }
                 catch (DbException ex)
                 {
-                    Log.Error(String.Format("Could not create index '{0}' on column '{1}': {2}", indexName, column, ex.Message));
+                    Log.Error(String.Format("Could not create index '{0}' on column '{1}': {2}", indexName, columnName, ex.Message));
                 }
             }
         }
@@ -325,24 +323,23 @@ namespace DataTableWriter.Adapters
         /// <summary>
         /// Clusters a table on a given index.
         /// </summary>
-        /// <param name="dbTableName">The name of the table that the command will be run on.</param>
+        /// <param name="tableName">The name of the table that the command will be run on.</param>
         /// <param name="indexName">The name of the index to cluster on.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities")]
-        public void ClusterIndex(string dbTableName, string indexName)
+        public void ClusterIndex(string tableName, string indexName)
         {
             using (var command = Connection.CreateCommand())
             {
                 command.Connection = Connection;
-                command.CommandText = Driver.BuildQueryClusterIndex(dbTableName, indexName);
-
+                command.CommandText = Driver.BuildQueryClusterIndex(tableName, indexName);
                 try
                 {
-                    Log.Debug(String.Format(@"Clustering table '{0}' on index '{1}'.", dbTableName, indexName));
+                    Log.Debug(String.Format(@"Clustering table '{0}' on index '{1}'.", tableName, indexName));
                     command.ExecuteNonQuery();
                 }
                 catch (DbException ex)
                 {
-                    Log.Error(String.Format("Could not cluster on index '{0}' for table '{1}': {2}", indexName, dbTableName, ex.Message));
+                    Log.Error(String.Format("Could not cluster on index '{0}' for table '{1}': {2}", indexName, tableName, ex.Message));
                 }
             }
         }
@@ -351,7 +348,7 @@ namespace DataTableWriter.Adapters
         /// Gets all of the indexes on a given table.
         /// </summary>
         /// <param name="tableName">The name of the table to get the indexes from.</param>
-        /// <returns>An IList of all of the indexes.</returns>
+        /// <returns>A collection of all of the indexes.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities")]
         public IList<IndexInfo> GetIndexes(string tableName)
         {
@@ -371,8 +368,8 @@ namespace DataTableWriter.Adapters
                         var indexInfo = new IndexInfo();
                         indexInfo.IndexName = reader["index"].ToString();
                         indexInfo.IsClustered = Boolean.Parse(reader["isclustered"].ToString());
-                        var columnsList = reader["column_name"].ToString().Split(',');
-                        foreach (var columnName in columnsList)
+                        var columnNames = reader["column_name"].ToString().Split(',');
+                        foreach (var columnName in columnNames)
                         {
                             indexInfo.IndexedColumns.Add(columnName);
                         }
@@ -397,7 +394,7 @@ namespace DataTableWriter.Adapters
         /// <summary>
         /// Drops a given index.
         /// </summary>
-        /// <param name="indexName"></param>
+        /// <param name="indexName">The name of the index to drop.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities")]
         public void DropIndex(string indexName)
         {
@@ -405,7 +402,6 @@ namespace DataTableWriter.Adapters
             {
                 command.Connection = Connection;
                 command.CommandText = Driver.BuildQueryDropIndex(indexName);
-
                 try
                 {
                     Log.Debug(String.Format("Dropping index '{0}'..", indexName));

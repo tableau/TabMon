@@ -253,17 +253,17 @@ namespace DataTableWriter.Drivers
         /// </summary>
         /// <param name="tablename">The name of the table that the indexes are associated with.</param>
         /// <returns>Postgres statement that returns all indexes for a given table.</returns>
-        public string BuildQueryGetIndexes(string tablename)
+        public string BuildQueryGetIndexes(string tableName)
         {
             return String.Format(@"SELECT c.relname as ""index"", array_to_string(array_agg(a.attname), ', ') as ""column_name"", i.indisclustered as ""isclustered"" 
                                     FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace JOIN pg_catalog.pg_index i ON i.indexrelid = c.oid 
                                     JOIN pg_catalog.pg_class t ON i.indrelid = t.oid JOIN pg_catalog.pg_attribute a ON a.attrelid = t.oid WHERE c.relkind = 'i' 
                                     and n.nspname not in ('pg_catalog', 'pg_toast') and pg_catalog.pg_table_is_visible(c.oid) and t.relname = '{0}' 
-                                    and c.relname not like '%pkey' and a.attnum = ANY(i.indkey) GROUP BY c.relname, i.indisclustered;", tablename);
+                                    and c.relname not like '%pkey' and a.attnum = ANY(i.indkey) GROUP BY c.relname, i.indisclustered;", tableName);
         }
 
         /// <summary>
-        /// Builds a query to drop indexes.
+        /// Builds a query to drop an index.
         /// </summary>
         /// <param name="indexName">The name of the index to drop.</param>
         /// <returns>Postgres statement to drop a given index.</returns>

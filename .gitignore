@@ -16,3 +16,5 @@ TabMonServiceInstallerBootstrapper/obj/
 TabMonServiceInstallerBootstrapper/Installers/TabMon.msi
 TabMonServiceInstallerBootstrapper/Installers/TabMonServiceInstallerDBInitializer.msi
 TabMon.v12.suo
+.vs/TabMon/v14/
+TabMonConfigSectionGenerator/bin/

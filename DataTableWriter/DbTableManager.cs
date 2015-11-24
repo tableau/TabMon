@@ -19,7 +19,7 @@ namespace DataTableWriter
         #region Public Methods
 
         /// <summary>
-        /// Creates a table on a remote database server and indexes the table based on the config.
+        /// Creates a table on a remote database server and indexes the table.
         /// </summary>
         /// <param name="adapter">Open adapter to a database.</param>
         /// <param name="schema">The schema of the table to create.</param>
@@ -126,32 +126,30 @@ namespace DataTableWriter
         /// <param name="schema">The schema of the table the index will be created on.</param>
         /// <param name="columns">A dictionary where keys are the column names and boolean statements for whether the index is clustered.</param>
         /// <returns>Returns true if the index is created.</returns>
-        private static bool CreateIndexes(IDbAdapter adapter, DataTable schema, IDictionary<string,bool> columns)
+        private static bool CreateIndexes(IDbAdapter adapter, DataTable schema, IDictionary<string, bool> columns)
         {
-            if (adapter.ExistsTable(schema.TableName))
-            {
-                foreach (var column in columns)
-                {
-                    try
-                    {
-                        var indexName = column.Key + "_idx";
-                        adapter.CreateIndexOnTable(schema.TableName, column.Key, indexName);
-                        if (column.Value == true)
-                        {
-                            adapter.ClusterIndex(schema.TableName, indexName);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Error(String.Format("Error creating index on column '{0}' for table '{1}': {3}", column.Key, schema.TableName, ex.Message));
-                        return false;
-                    }
-                }
-            }
-            else
+            if (!adapter.ExistsTable(schema.TableName))
             {
                 Log.Error(String.Format("Error creating index: Table {0} does not exist", schema.TableName));
                 return false;
+            }
+
+            foreach (var column in columns)
+            {
+                try
+                {
+                    var indexName = column.Key + "_idx";
+                    adapter.CreateIndexOnTable(schema.TableName, column.Key, indexName);
+                    if (column.Value == true)
+                    {
+                        adapter.ClusterIndex(schema.TableName, indexName);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(String.Format("Error creating index on column '{0}' for table '{1}': {2}", column.Key, schema.TableName, ex.Message));
+                    return false;
+                }
             }
             return true;
         }
@@ -165,37 +163,41 @@ namespace DataTableWriter
         /// <returns>Returns true if we were successfully able to update the indexes.</returns>
         private static bool AddDbIndexesToMatch(IDbAdapter adapter, DataTable schema, IDictionary<string, bool> columns)
         {
-            if (adapter.ExistsTable(schema.TableName))
+            if (!adapter.ExistsTable(schema.TableName))
             {
-                try
-                {
-                    Log.Debug(String.Format("Checking to see if indexes should be added to table '{0}'..", schema.TableName));
-                    var dbIndexList = adapter.GetIndexes(schema.TableName.ToString());
-                    var indexesToCreate = new Dictionary<string, bool>();
-                    var existingIndexes = new List<string>();
-
-                    foreach(var listItem in dbIndexList)
-                    {
-                        existingIndexes.Add(listItem.IndexName);
-                    }
-
-                    foreach (var configEntry in columns)
-                    {
-                        var indexName  = configEntry.Key + "_idx";
-                        if (!existingIndexes.Contains(indexName))
-                        {
-                            indexesToCreate.Add(configEntry.Key, configEntry.Value);
-                        }
-                    }
-                    CreateIndexes(adapter, schema, indexesToCreate);
-                }
-                catch
-                {
-                    Log.Error(String.Format("Unable to update indexes for table '{0}'.", schema.TableName));
-                    return false;
-                }
+                Log.Error(String.Format("Error updating indexes: Table {0} does not exist", schema.TableName));
+                return false;
             }
-            return true;
+
+            try
+            {
+                Log.Debug(String.Format("Checking to see if indexes should be added to table '{0}'..", schema.TableName));
+                var dbIndexList = adapter.GetIndexes(schema.TableName.ToString());
+                var indexesToCreate = new Dictionary<string, bool>();
+                var existingIndexes = new List<string>();
+
+                foreach (var listItem in dbIndexList)
+                {
+                    existingIndexes.Add(listItem.IndexName);
+                }
+
+                foreach (var configEntry in columns)
+                {
+                    var indexName = configEntry.Key + "_idx";
+                    if (!existingIndexes.Contains(indexName))
+                    {
+                        indexesToCreate.Add(configEntry.Key, configEntry.Value);
+                    }
+                }
+                CreateIndexes(adapter, schema, indexesToCreate);
+
+                return true;
+            }
+            catch
+            {
+                Log.Error(String.Format("Unable to update indexes for table '{0}'.", schema.TableName));
+                return false;
+            }
         }
 
         /// <summary>
@@ -207,38 +209,41 @@ namespace DataTableWriter
         /// <returns>Returns true if the index(es) were properly removed.</returns>
         private static bool RemoveDBIndexesToMatch(IDbAdapter adapter, DataTable schema, IDictionary<string, bool> columns)
         {
-            if (adapter.ExistsTable(schema.TableName))
+            if (!adapter.ExistsTable(schema.TableName))
             {
-                try
-                {
-                    Log.Debug(String.Format("Checking to see if indexes should be removed from table '{0}'..", schema.TableName));
-                    var dbIndexes = adapter.GetIndexes(schema.TableName.ToString());
-                    var indexesToDrop = new HashSet<string>();
+                Log.Error(String.Format("Error updating indexes: Table {0} does not exist", schema.TableName));
+                return false;
+            }
 
-                    foreach (var dbIndex in dbIndexes)
+            try
+            {
+                Log.Debug(String.Format("Checking to see if indexes should be removed from table '{0}'..", schema.TableName));
+                var dbIndexes = adapter.GetIndexes(schema.TableName.ToString());
+                var indexesToDrop = new HashSet<string>();
+
+                foreach (var dbIndex in dbIndexes)
+                {
+                    foreach (var indexedColumn in dbIndex.IndexedColumns)
                     {
-                        foreach (var indexedColumn in dbIndex.IndexedColumns)
+                        if (!columns.Keys.Contains(indexedColumn))
                         {
-                            if (!columns.Keys.Contains(indexedColumn))
-                            {
-                                indexesToDrop.Add(dbIndex.IndexName);
-                            }
+                            indexesToDrop.Add(dbIndex.IndexName);
                         }
                     }
-                    
-                    foreach (var indexToDrop in indexesToDrop)
-                    {
-                        adapter.DropIndex(indexToDrop);
-                    }
-                    
                 }
-                catch (Exception ex)
+
+                foreach (var indexToDrop in indexesToDrop)
                 {
-                    Log.Error(String.Format("Unable to remove indexes from table '{0}'.", schema.TableName));
-                    return false;
+                    adapter.DropIndex(indexToDrop);
                 }
+
+                return true;
             }
-            return true;
+            catch (Exception ex)
+            {
+                Log.Error(String.Format("Unable to remove indexes from table '{0}': {1}", schema.TableName, ex.Message));
+                return false;
+            }
         }
 
         /// <summary>
@@ -250,47 +255,50 @@ namespace DataTableWriter
         /// <returns>Returns true if the clusters on indexes were properly updated.</returns>
         private static bool UpdateIndexClusters(IDbAdapter adapter, DataTable schema, IDictionary<string, bool> columns)
         {
-            if (adapter.ExistsTable(schema.TableName))
+            if (!adapter.ExistsTable(schema.TableName))
             {
-                try
+                Log.Error(String.Format("Error updating index cluster status: Table {0} does not exist", schema.TableName));
+                return false;
+            }
+
+            try
+            {
+                Log.Debug(String.Format("Checking to see if clusters on indexes should be updated for table '{0}'..", schema.TableName));
+                var dbIndexes = adapter.GetIndexes(schema.TableName);
+
+                // For every column associated with an index in the DB, gather the Index Name from the DB, whether the DB index is clustered, 
+                // the name of the indexed column in the config, and whether or not the index is clustered IF the column exists in both the config and DB.
+                var indexesToCheck = from dbIndex in dbIndexes
+                                     from indexedColumn in dbIndex.IndexedColumns
+                                     join columnName in columns
+                                     on indexedColumn equals columnName.Key
+                                     select new
+                                     {
+                                         dbIndexName = dbIndex.IndexName,
+                                         dbIsCluster = dbIndex.IsClustered,
+                                         indexedColumn = columnName.Key,
+                                         isClustered = columnName.Value
+                                     };
+
+                foreach (var index in indexesToCheck)
                 {
-                    Log.Debug(String.Format("Checking to see if clusters on indexes should be updated for table '{0}'..", schema.TableName));
-                    var dbIndexes = adapter.GetIndexes(schema.TableName.ToString());
-
-                    // For every column associated with an index in the DB, gather the Index Name from the DB, whether the DB index is clustered, 
-                    // the name of the indexed column in the config, and whether or not the index is clustered IF the column exists in both the config and DB.
-                    var indexesToCheck = from dbIndex in dbIndexes
-                                         from indexedColumn in dbIndex.IndexedColumns
-                                         join columnName in columns
-                                         on indexedColumn equals columnName.Key
-                                         select new
-                                         {
-                                             dbIndexName = dbIndex.IndexName,
-                                             dbIsCluster = dbIndex.IsClustered,
-                                             indexedColumn = columnName.Key,
-                                             isClustered = columnName.Value
-                                         };
-
-                    foreach (var index in indexesToCheck)
+                    if (index.dbIsCluster == false && index.isClustered == true)
                     {
-                        if (index.dbIsCluster == false && index.isClustered == true)
-                        {
-                            adapter.ClusterIndex(schema.TableName, index.dbIndexName);
-                        }
-                        else if (index.dbIsCluster == true && index.isClustered == false)
-                        {
-                            adapter.DropIndex(index.dbIndexName);
-                            adapter.CreateIndexOnTable(schema.TableName, index.indexedColumn, index.dbIndexName);
-                        }
+                        adapter.ClusterIndex(schema.TableName, index.dbIndexName);
+                    }
+                    else if (index.dbIsCluster == true && index.isClustered == false)
+                    {
+                        adapter.DropIndex(index.dbIndexName);
+                        adapter.CreateIndexOnTable(schema.TableName, index.indexedColumn, index.dbIndexName);
                     }
                 }
-                catch
-                {
-                    Log.Error(String.Format("Unable to update index clusters for table '{0}'.", schema.TableName));
-                    return false;
-                }
+                return true;
             }
-            return true;
+            catch
+            {
+                Log.Error(String.Format("Unable to update index cluster status for table '{0}'.", schema.TableName));
+                return false;
+            }
         }
 
         /// <summary>

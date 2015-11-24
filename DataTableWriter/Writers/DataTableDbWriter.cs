@@ -6,7 +6,6 @@ using System;
 using System.Data;
 using System.Data.Common;
 using System.Reflection;
-using System.Collections.Generic;
 
 namespace DataTableWriter.Writers
 {
@@ -20,6 +19,7 @@ namespace DataTableWriter.Writers
         protected bool isInitialized;
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private bool disposed;
+
         public DataTableDbWriter(DbDriverType driverType, IDbConnectionInfo connectionInfo, DbTableInitializationOptions tableInitializationOptions = default(DbTableInitializationOptions))
         {
             Adapter = new DbAdapter(driverType, connectionInfo);

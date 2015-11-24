@@ -127,7 +127,6 @@ namespace TabMon.Config
             };
 
             var indexes = new Dictionary<string, bool>();
-
             foreach (Index index in config.Database.Indexes)
             {
                 indexes.Add(index.Column, index.Clustered);

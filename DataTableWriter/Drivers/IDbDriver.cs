@@ -22,9 +22,9 @@ namespace DataTableWriter.Drivers
         string BuildQueryAddColumnToTable(string tableName, DataColumn column);
         string BuildQueryColumnNamesAndTypes(string tableName, bool excludeIdentityColumn = true);
         string BuildQueryInsertRow(string tableName, ICollection<string> columnList, IDataParameterCollection parameterList);
-        string BuildQueryIndex(string tableName, string column, string indexName);
+        string BuildQueryIndex(string tableName, string columnName, string indexName);
         string BuildQueryClusterIndex(string tableName, string indexName);
-        string BuildQueryGetIndexes(string tablename);
+        string BuildQueryGetIndexes(string tableName);
         string BuildQueryDropIndex(string indexName);
     }
 }
