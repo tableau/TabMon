@@ -85,7 +85,7 @@
             <configurationElementMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Table" />
           </type>
         </elementProperty>
-        <elementProperty name="Indexes" isRequired="false" isKey="false" isDefaultCollection="false" xmlName="Indexes" isReadOnly="false" documentation="Contains columns to be indexed upon table creation.">
+        <elementProperty name="Indexes" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="Indexes" isReadOnly="false" documentation="Contains columns to be indexed upon table creation.">
           <type>
             <configurationElementCollectionMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Indexes" />
           </type>
@@ -183,6 +183,13 @@
       </itemType>
     </configurationElementCollection>
     <configurationElementCollection name="Indexes" namespace="TabMon.Config" documentation="Contains columns to be indexed upon table creation." xmlItemName="Index" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
+      <attributeProperties>
+        <attributeProperty name="Generate" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="generate" isReadOnly="false" documentation="Whether TabMon will generate and validate indexes upon startup." defaultValue="true">
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Boolean" />
+          </type>
+        </attributeProperty>
+      </attributeProperties>
       <itemType>
         <configurationElementMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Index" />
       </itemType>

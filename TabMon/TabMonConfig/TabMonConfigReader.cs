@@ -139,13 +139,13 @@ namespace TabMon.Config
             }
 
             var tableInitializationOptions = new DbTableInitializationOptions()
-                {
-                    CreateTableDynamically = true,
-                    UpdateDbTableToMatchSchema = true,
-                    UpdateSchemaToMatchDbTable = true,
-                    UpdateIndexes = true,
-                    IndexesToGenerate = indexes
-                };
+            {
+                CreateTableDynamically = true,
+                UpdateDbTableToMatchSchema = true,
+                UpdateSchemaToMatchDbTable = true,
+                UpdateIndexes = databaseConfig.Indexes.Generate,
+                IndexesToGenerate = indexes
+            };
 
             Log.Info("Connecting to results database..");
             try

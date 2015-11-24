@@ -10,27 +10,25 @@
 
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// The TabMonConfig Configuration Section.
     /// </summary>
     public partial class TabMonConfig : global::System.Configuration.ConfigurationSection
     {
-        
         #region Singleton Instance
+
         /// <summary>
         /// The XML name of the TabMonConfig Configuration Section.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string TabMonConfigSectionName = "TabMonConfig";
-        
+
         /// <summary>
         /// The XML path of the TabMonConfig Configuration Section.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string TabMonConfigSectionPath = "TabMonConfig";
-        
+
         /// <summary>
         /// Gets the TabMonConfig instance.
         /// </summary>
@@ -42,15 +40,17 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.TabMonConfig)(global::System.Configuration.ConfigurationManager.GetSection(global::TabMon.Config.TabMonConfig.TabMonConfigSectionPath)));
             }
         }
-        #endregion
-        
+
+        #endregion Singleton Instance
+
         #region Xmlns Property
+
         /// <summary>
         /// The XML name of the <see cref="Xmlns"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string XmlnsPropertyName = "xmlns";
-        
+
         /// <summary>
         /// Gets the XML namespace of this Configuration Section.
         /// </summary>
@@ -59,7 +59,7 @@ namespace TabMon.Config
         /// the parser doesn't throw an exception because it encounters the unknown "xmlns" attribute.
         /// </remarks>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.XmlnsPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.XmlnsPropertyName, IsRequired = false, IsKey = false, IsDefaultCollection = false)]
         public string Xmlns
         {
             get
@@ -67,9 +67,11 @@ namespace TabMon.Config
                 return ((string)(base[global::TabMon.Config.TabMonConfig.XmlnsPropertyName]));
             }
         }
-        #endregion
-        
+
+        #endregion Xmlns Property
+
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -78,22 +80,24 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
-        
+
+        #endregion IsReadOnly override
+
         #region Database Property
+
         /// <summary>
         /// The XML name of the <see cref="Database"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string DatabasePropertyName = "Database";
-        
+
         /// <summary>
         /// Gets or sets contains configuration information for the results database.  Only required if OutputMode is "DB".
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Contains configuration information for the results database.  Only required if Ou" +
             "tputMode is \"DB\".")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.DatabasePropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.DatabasePropertyName, IsRequired = false, IsKey = false, IsDefaultCollection = false)]
         public virtual global::TabMon.Config.Database Database
         {
             get
@@ -105,21 +109,23 @@ namespace TabMon.Config
                 base[global::TabMon.Config.TabMonConfig.DatabasePropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion Database Property
+
         #region Clusters Property
+
         /// <summary>
         /// The XML name of the <see cref="Clusters"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string ClustersPropertyName = "Clusters";
-        
+
         /// <summary>
         /// Gets or sets contains definitions of which machines to monitor and their logical clustering.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Contains definitions of which machines to monitor and their logical clustering.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.ClustersPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.ClustersPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
         public virtual global::TabMon.Config.Clusters Clusters
         {
             get
@@ -131,21 +137,23 @@ namespace TabMon.Config
                 base[global::TabMon.Config.TabMonConfig.ClustersPropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion Clusters Property
+
         #region PollInterval Property
+
         /// <summary>
         /// The XML name of the <see cref="PollInterval"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string PollIntervalPropertyName = "PollInterval";
-        
+
         /// <summary>
         /// Gets or sets contains information about the polling frequency.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Contains information about the polling frequency.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.PollIntervalPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.PollIntervalPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
         public virtual global::TabMon.Config.PollInterval PollInterval
         {
             get
@@ -157,21 +165,23 @@ namespace TabMon.Config
                 base[global::TabMon.Config.TabMonConfig.PollIntervalPropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion PollInterval Property
+
         #region OutputMode Property
+
         /// <summary>
         /// The XML name of the <see cref="OutputMode"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string OutputModePropertyName = "OutputMode";
-        
+
         /// <summary>
         /// Gets or sets contains information about the result output mode.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Contains information about the result output mode.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.OutputModePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.OutputModePropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
         public virtual global::TabMon.Config.OutputMode OutputMode
         {
             get
@@ -183,29 +193,31 @@ namespace TabMon.Config
                 base[global::TabMon.Config.TabMonConfig.OutputModePropertyName] = value;
             }
         }
-        #endregion
+
+        #endregion OutputMode Property
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Represents a logical grouping of hosts.
     /// </summary>
-    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Host), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.Cluster.HostPropertyName)]
+    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Host), CollectionType = global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName = global::TabMon.Config.Cluster.HostPropertyName)]
     public partial class Cluster : global::System.Configuration.ConfigurationElementCollection
     {
-        
         #region Constants
+
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.Host"/> instances in this collection.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string HostPropertyName = "Host";
-        #endregion
-        
+
+        #endregion Constants
+
         #region Overrides
+
         /// <summary>
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -218,7 +230,7 @@ namespace TabMon.Config
                 return global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate;
             }
         }
-        
+
         /// <summary>
         /// Gets the name used to identify this collection of elements
         /// </summary>
@@ -230,7 +242,7 @@ namespace TabMon.Config
                 return global::TabMon.Config.Cluster.HostPropertyName;
             }
         }
-        
+
         /// <summary>
         /// Indicates whether the specified <see cref="global::System.Configuration.ConfigurationElement"/> exists in the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -243,7 +255,7 @@ namespace TabMon.Config
         {
             return (elementName == global::TabMon.Config.Cluster.HostPropertyName);
         }
-        
+
         /// <summary>
         /// Gets the element key for the specified configuration element.
         /// </summary>
@@ -256,7 +268,7 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Host)(element)).Name;
         }
-        
+
         /// <summary>
         /// Creates a new <see cref="global::TabMon.Config.Host"/>.
         /// </summary>
@@ -268,9 +280,11 @@ namespace TabMon.Config
         {
             return new global::TabMon.Config.Host();
         }
-        #endregion
-        
+
+        #endregion Overrides
+
         #region Indexer
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Host"/> at the specified index.
         /// </summary>
@@ -283,7 +297,7 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.Host)(base.BaseGet(index)));
             }
         }
-        
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Host"/> with the specified key.
         /// </summary>
@@ -296,9 +310,11 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.Host)(base.BaseGet(name)));
             }
         }
-        #endregion
-        
+
+        #endregion Indexer
+
         #region Add
+
         /// <summary>
         /// Adds the specified <see cref="global::TabMon.Config.Host"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -308,9 +324,11 @@ namespace TabMon.Config
         {
             base.BaseAdd(Host);
         }
-        #endregion
-        
+
+        #endregion Add
+
         #region Remove
+
         /// <summary>
         /// Removes the specified <see cref="global::TabMon.Config.Host"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -320,9 +338,11 @@ namespace TabMon.Config
         {
             base.BaseRemove(this.GetElementKey(Host));
         }
-        #endregion
-        
+
+        #endregion Remove
+
         #region GetItem
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Host"/> at the specified index.
         /// </summary>
@@ -332,7 +352,7 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Host)(base.BaseGet(index)));
         }
-        
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Host"/> with the specified key.
         /// </summary>
@@ -342,9 +362,11 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Host)(base.BaseGet(((object)(name)))));
         }
-        #endregion
-        
+
+        #endregion GetItem
+
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -353,22 +375,24 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
-        
+
+        #endregion IsReadOnly override
+
         #region Name Property
+
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string NamePropertyName = "name";
-        
+
         /// <summary>
         /// Gets or sets the name of the cluster.  Used to logically group multiple hosts.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The name of the cluster.  Used to logically group multiple hosts.")]
-        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Cluster.NamePropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="Primary")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters = "", MaxLength = 2147483647, MinLength = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Cluster.NamePropertyName, IsRequired = true, IsKey = true, IsDefaultCollection = false, DefaultValue = "Primary")]
         public virtual string Name
         {
             get
@@ -380,20 +404,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Cluster.NamePropertyName] = value;
             }
         }
-        #endregion
+
+        #endregion Name Property
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Contains configuration information for the results database.  Only required if OutputMode is "DB".
     /// </summary>
     public partial class Database : global::System.Configuration.ConfigurationElement
     {
-        
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -402,22 +426,24 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
-        
+
+        #endregion IsReadOnly override
+
         #region Type Property
+
         /// <summary>
         /// The XML name of the <see cref="Type"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string TypePropertyName = "type";
-        
+
         /// <summary>
         /// Gets or sets the type of database that this is.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The type of database that this is.")]
-        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.TypePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="Postgres")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters = "", MaxLength = 2147483647, MinLength = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.TypePropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = "Postgres")]
         public virtual string Type
         {
             get
@@ -429,22 +455,24 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.TypePropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion Type Property
+
         #region Name Property
+
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string NamePropertyName = "name";
-        
+
         /// <summary>
         /// Gets or sets the name of the instantiated database.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The name of the instantiated database.")]
-        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.NamePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="TabMon")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters = "", MaxLength = 2147483647, MinLength = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.NamePropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = "TabMon")]
         public virtual string Name
         {
             get
@@ -456,21 +484,23 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.NamePropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion Name Property
+
         #region Server Property
+
         /// <summary>
         /// The XML name of the <see cref="Server"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string ServerPropertyName = "Server";
-        
+
         /// <summary>
         /// Gets or sets contains information about the database server location.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Contains information about the database server location.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.ServerPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.ServerPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
         public virtual global::TabMon.Config.Server Server
         {
             get
@@ -482,21 +512,23 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.ServerPropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion Server Property
+
         #region User Property
+
         /// <summary>
         /// The XML name of the <see cref="User"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string UserPropertyName = "User";
-        
+
         /// <summary>
         /// Gets or sets contains information about the database user.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Contains information about the database user.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.UserPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.UserPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
         public virtual global::TabMon.Config.User User
         {
             get
@@ -508,21 +540,23 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.UserPropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion User Property
+
         #region Table Property
+
         /// <summary>
         /// The XML name of the <see cref="Table"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string TablePropertyName = "Table";
-        
+
         /// <summary>
         /// Gets or sets contains information about the results table.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Contains information about the results table.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.TablePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.TablePropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
         public virtual global::TabMon.Config.Table Table
         {
             get
@@ -534,21 +568,23 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.TablePropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion Table Property
+
         #region Indexes Property
+
         /// <summary>
         /// The XML name of the <see cref="Indexes"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string IndexesPropertyName = "Indexes";
-        
+
         /// <summary>
         /// Gets or sets contains columns to be indexed upon table creation.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Contains columns to be indexed upon table creation.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.IndexesPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.IndexesPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
         public virtual global::TabMon.Config.Indexes Indexes
         {
             get
@@ -560,20 +596,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.IndexesPropertyName] = value;
             }
         }
-        #endregion
+
+        #endregion Indexes Property
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Represents an individual host.
     /// </summary>
     public partial class Host : global::System.Configuration.ConfigurationElement
     {
-        
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -582,22 +618,24 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
-        
+
+        #endregion IsReadOnly override
+
         #region Name Property
+
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string NamePropertyName = "name";
-        
+
         /// <summary>
         /// Gets or sets the hostname or IP address of the host to monitor.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The hostname or IP address of the host to monitor.")]
-        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Host.NamePropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="localhost")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters = "", MaxLength = 2147483647, MinLength = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Host.NamePropertyName, IsRequired = true, IsKey = true, IsDefaultCollection = false, DefaultValue = "localhost")]
         public virtual string Name
         {
             get
@@ -609,20 +647,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Host.NamePropertyName] = value;
             }
         }
-        #endregion
+
+        #endregion Name Property
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Contains information about the database server location.
     /// </summary>
     public partial class Server : global::System.Configuration.ConfigurationElement
     {
-        
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -631,22 +669,24 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
-        
+
+        #endregion IsReadOnly override
+
         #region Host Property
+
         /// <summary>
         /// The XML name of the <see cref="Host"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string HostPropertyName = "host";
-        
+
         /// <summary>
         /// Gets or sets the hostname or IP address of the database server.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The hostname or IP address of the database server.")]
-        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Server.HostPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="localhost")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters = "", MaxLength = 2147483647, MinLength = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Server.HostPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = "localhost")]
         public virtual string Host
         {
             get
@@ -658,22 +698,24 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Server.HostPropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion Host Property
+
         #region Port Property
+
         /// <summary>
         /// The XML name of the <see cref="Port"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string PortPropertyName = "port";
-        
+
         /// <summary>
         /// Gets or sets the port number of the database server.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The port number of the database server.")]
-        [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange=false, MaxValue=2147483647, MinValue=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Server.PortPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false, DefaultValue=5432)]
+        [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange = false, MaxValue = 2147483647, MinValue = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Server.PortPropertyName, IsRequired = false, IsKey = false, IsDefaultCollection = false, DefaultValue = 5432)]
         public virtual int Port
         {
             get
@@ -685,20 +727,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Server.PortPropertyName] = value;
             }
         }
-        #endregion
+
+        #endregion Port Property
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Contains information about the database user.
     /// </summary>
     public partial class User : global::System.Configuration.ConfigurationElement
     {
-        
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -707,22 +749,24 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
-        
+
+        #endregion IsReadOnly override
+
         #region Login Property
+
         /// <summary>
         /// The XML name of the <see cref="Login"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string LoginPropertyName = "login";
-        
+
         /// <summary>
         /// Gets or sets the login for the database user.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The login for the database user.")]
-        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.User.LoginPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="tabmon")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters = "", MaxLength = 2147483647, MinLength = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.User.LoginPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = "tabmon")]
         public virtual string Login
         {
             get
@@ -734,21 +778,23 @@ namespace TabMon.Config
                 base[global::TabMon.Config.User.LoginPropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion Login Property
+
         #region Password Property
+
         /// <summary>
         /// The XML name of the <see cref="Password"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string PasswordPropertyName = "password";
-        
+
         /// <summary>
         /// Gets or sets the password of the database user.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The password of the database user.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.User.PasswordPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="password")]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.User.PasswordPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = "password")]
         public virtual string Password
         {
             get
@@ -760,20 +806,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.User.PasswordPropertyName] = value;
             }
         }
-        #endregion
+
+        #endregion Password Property
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Contains information about the results table.
     /// </summary>
     public partial class Table : global::System.Configuration.ConfigurationElement
     {
-        
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -782,22 +828,24 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
-        
+
+        #endregion IsReadOnly override
+
         #region Name Property
+
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string NamePropertyName = "name";
-        
+
         /// <summary>
         /// Gets or sets the name of the database table to write results to.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The name of the database table to write results to.")]
-        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Table.NamePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="countersamples")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters = "", MaxLength = 2147483647, MinLength = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Table.NamePropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = "countersamples")]
         public virtual string Name
         {
             get
@@ -809,20 +857,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Table.NamePropertyName] = value;
             }
         }
-        #endregion
+
+        #endregion Name Property
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Contains information about the polling frequency.
     /// </summary>
     public partial class PollInterval : global::System.Configuration.ConfigurationElement
     {
-        
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -831,22 +879,24 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
-        
+
+        #endregion IsReadOnly override
+
         #region Value Property
+
         /// <summary>
         /// The XML name of the <see cref="Value"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string ValuePropertyName = "value";
-        
+
         /// <summary>
         /// Gets or sets the interval between polling cycles, in seconds.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The interval between polling cycles, in seconds.")]
-        [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange=false, MaxValue=2147483647, MinValue=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.PollInterval.ValuePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=30)]
+        [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange = false, MaxValue = 2147483647, MinValue = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.PollInterval.ValuePropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = 30)]
         public virtual int Value
         {
             get
@@ -858,20 +908,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.PollInterval.ValuePropertyName] = value;
             }
         }
-        #endregion
+
+        #endregion Value Property
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Contains information about the result output mode.
     /// </summary>
     public partial class OutputMode : global::System.Configuration.ConfigurationElement
     {
-        
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -880,22 +930,24 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
-        
+
+        #endregion IsReadOnly override
+
         #region Value Property
+
         /// <summary>
         /// The XML name of the <see cref="Value"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string ValuePropertyName = "value";
-        
+
         /// <summary>
         /// Gets or sets the output mode.  "CSV" for local flat file output, or "DB" for database output.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The output mode.  \"CSV\" for local flat file output, or \"DB\" for database output.")]
-        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.OutputMode.ValuePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="db")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters = "", MaxLength = 2147483647, MinLength = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.OutputMode.ValuePropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = "db")]
         public virtual string Value
         {
             get
@@ -907,29 +959,31 @@ namespace TabMon.Config
                 base[global::TabMon.Config.OutputMode.ValuePropertyName] = value;
             }
         }
-        #endregion
+
+        #endregion Value Property
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Contains definitions of which machines to monitor and their logical clustering.  Each cluster may contain multiple hosts.
     /// </summary>
-    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Cluster), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.Clusters.ClusterPropertyName)]
+    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Cluster), CollectionType = global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName = global::TabMon.Config.Clusters.ClusterPropertyName)]
     public partial class Clusters : global::System.Configuration.ConfigurationElementCollection
     {
-        
         #region Constants
+
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.Cluster"/> instances in this collection.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string ClusterPropertyName = "Cluster";
-        #endregion
-        
+
+        #endregion Constants
+
         #region Overrides
+
         /// <summary>
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -942,7 +996,7 @@ namespace TabMon.Config
                 return global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate;
             }
         }
-        
+
         /// <summary>
         /// Gets the name used to identify this collection of elements
         /// </summary>
@@ -954,7 +1008,7 @@ namespace TabMon.Config
                 return global::TabMon.Config.Clusters.ClusterPropertyName;
             }
         }
-        
+
         /// <summary>
         /// Indicates whether the specified <see cref="global::System.Configuration.ConfigurationElement"/> exists in the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -967,7 +1021,7 @@ namespace TabMon.Config
         {
             return (elementName == global::TabMon.Config.Clusters.ClusterPropertyName);
         }
-        
+
         /// <summary>
         /// Gets the element key for the specified configuration element.
         /// </summary>
@@ -980,7 +1034,7 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Cluster)(element)).Name;
         }
-        
+
         /// <summary>
         /// Creates a new <see cref="global::TabMon.Config.Cluster"/>.
         /// </summary>
@@ -992,9 +1046,11 @@ namespace TabMon.Config
         {
             return new global::TabMon.Config.Cluster();
         }
-        #endregion
-        
+
+        #endregion Overrides
+
         #region Indexer
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Cluster"/> at the specified index.
         /// </summary>
@@ -1007,7 +1063,7 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.Cluster)(base.BaseGet(index)));
             }
         }
-        
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Cluster"/> with the specified key.
         /// </summary>
@@ -1020,9 +1076,11 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.Cluster)(base.BaseGet(name)));
             }
         }
-        #endregion
-        
+
+        #endregion Indexer
+
         #region Add
+
         /// <summary>
         /// Adds the specified <see cref="global::TabMon.Config.Cluster"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1032,9 +1090,11 @@ namespace TabMon.Config
         {
             base.BaseAdd(Cluster);
         }
-        #endregion
-        
+
+        #endregion Add
+
         #region Remove
+
         /// <summary>
         /// Removes the specified <see cref="global::TabMon.Config.Cluster"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1044,9 +1104,11 @@ namespace TabMon.Config
         {
             base.BaseRemove(this.GetElementKey(Cluster));
         }
-        #endregion
-        
+
+        #endregion Remove
+
         #region GetItem
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Cluster"/> at the specified index.
         /// </summary>
@@ -1056,7 +1118,7 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Cluster)(base.BaseGet(index)));
         }
-        
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Cluster"/> with the specified key.
         /// </summary>
@@ -1066,9 +1128,11 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Cluster)(base.BaseGet(((object)(name)))));
         }
-        #endregion
-        
+
+        #endregion GetItem
+
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -1077,29 +1141,31 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
+
+        #endregion IsReadOnly override
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Contains columns to be indexed upon table creation.
     /// </summary>
-    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Index), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.Indexes.IndexPropertyName)]
+    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Index), CollectionType = global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName = global::TabMon.Config.Indexes.IndexPropertyName)]
     public partial class Indexes : global::System.Configuration.ConfigurationElementCollection
     {
-        
         #region Constants
+
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.Index"/> instances in this collection.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string IndexPropertyName = "Index";
-        #endregion
-        
+
+        #endregion Constants
+
         #region Overrides
+
         /// <summary>
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1112,7 +1178,7 @@ namespace TabMon.Config
                 return global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate;
             }
         }
-        
+
         /// <summary>
         /// Gets the name used to identify this collection of elements
         /// </summary>
@@ -1124,7 +1190,7 @@ namespace TabMon.Config
                 return global::TabMon.Config.Indexes.IndexPropertyName;
             }
         }
-        
+
         /// <summary>
         /// Indicates whether the specified <see cref="global::System.Configuration.ConfigurationElement"/> exists in the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1137,7 +1203,7 @@ namespace TabMon.Config
         {
             return (elementName == global::TabMon.Config.Indexes.IndexPropertyName);
         }
-        
+
         /// <summary>
         /// Gets the element key for the specified configuration element.
         /// </summary>
@@ -1150,7 +1216,7 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Index)(element)).Column;
         }
-        
+
         /// <summary>
         /// Creates a new <see cref="global::TabMon.Config.Index"/>.
         /// </summary>
@@ -1162,9 +1228,11 @@ namespace TabMon.Config
         {
             return new global::TabMon.Config.Index();
         }
-        #endregion
-        
+
+        #endregion Overrides
+
         #region Indexer
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Index"/> at the specified index.
         /// </summary>
@@ -1177,7 +1245,7 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.Index)(base.BaseGet(index)));
             }
         }
-        
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Index"/> with the specified key.
         /// </summary>
@@ -1190,9 +1258,11 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.Index)(base.BaseGet(column)));
             }
         }
-        #endregion
-        
+
+        #endregion Indexer
+
         #region Add
+
         /// <summary>
         /// Adds the specified <see cref="global::TabMon.Config.Index"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1202,9 +1272,11 @@ namespace TabMon.Config
         {
             base.BaseAdd(Index);
         }
-        #endregion
-        
+
+        #endregion Add
+
         #region Remove
+
         /// <summary>
         /// Removes the specified <see cref="global::TabMon.Config.Index"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1214,9 +1286,11 @@ namespace TabMon.Config
         {
             base.BaseRemove(this.GetElementKey(Index));
         }
-        #endregion
-        
+
+        #endregion Remove
+
         #region GetItem
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Index"/> at the specified index.
         /// </summary>
@@ -1226,7 +1300,7 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Index)(base.BaseGet(index)));
         }
-        
+
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Index"/> with the specified key.
         /// </summary>
@@ -1236,9 +1310,11 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Index)(base.BaseGet(((object)(column)))));
         }
-        #endregion
-        
+
+        #endregion GetItem
+
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -1247,20 +1323,48 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
+
+        #endregion IsReadOnly override
+
+        #region Generate Property
+
+        /// <summary>
+        /// The XML name of the <see cref="Generate"/> property.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        internal const string GeneratePropertyName = "generate";
+
+        /// <summary>
+        /// Gets or sets whether TabMon will generate and validate indexes upon startup.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.ComponentModel.DescriptionAttribute("Whether TabMon will generate and validate indexes upon startup.")]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Indexes.GeneratePropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = true)]
+        public virtual bool Generate
+        {
+            get
+            {
+                return ((bool)(base[global::TabMon.Config.Indexes.GeneratePropertyName]));
+            }
+            set
+            {
+                base[global::TabMon.Config.Indexes.GeneratePropertyName] = value;
+            }
+        }
+
+        #endregion Generate Property
     }
 }
+
 namespace TabMon.Config
 {
-    
-    
     /// <summary>
     /// Represents an individual index.
     /// </summary>
     public partial class Index : global::System.Configuration.ConfigurationElement
     {
-        
         #region IsReadOnly override
+
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -1269,21 +1373,23 @@ namespace TabMon.Config
         {
             return false;
         }
-        #endregion
-        
+
+        #endregion IsReadOnly override
+
         #region Column Property
+
         /// <summary>
         /// The XML name of the <see cref="Column"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string ColumnPropertyName = "column";
-        
+
         /// <summary>
         /// Gets or sets the column name to be indexed.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The column name to be indexed.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Index.ColumnPropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="")]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Index.ColumnPropertyName, IsRequired = true, IsKey = true, IsDefaultCollection = false, DefaultValue = "")]
         public virtual string Column
         {
             get
@@ -1295,21 +1401,23 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Index.ColumnPropertyName] = value;
             }
         }
-        #endregion
-        
+
+        #endregion Column Property
+
         #region Clustered Property
+
         /// <summary>
         /// The XML name of the <see cref="Clustered"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string ClusteredPropertyName = "clustered";
-        
+
         /// <summary>
         /// Gets or sets whether the index is clustered or not.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Whether the index is clustered or not.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Index.ClusteredPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Index.ClusteredPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = false)]
         public virtual bool Clustered
         {
             get
@@ -1321,6 +1429,7 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Index.ClusteredPropertyName] = value;
             }
         }
-        #endregion
+
+        #endregion Clustered Property
     }
 }

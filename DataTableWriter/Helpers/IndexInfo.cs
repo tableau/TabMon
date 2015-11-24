@@ -2,6 +2,9 @@
 
 namespace DataTableWriter.Helpers
 {
+    /// <summary>
+    /// Helper class that stores the results of a database index query.
+    /// </summary>
     public class IndexInfo
     {
         public string IndexName { get; set; }

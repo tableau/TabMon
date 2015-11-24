@@ -64,7 +64,7 @@
 					<xs:documentation>Contains information about the results table.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="Indexes" type="tns:TabMon.Config.IndexesCT">
+			<xs:element minOccurs="1" name="Indexes" type="tns:TabMon.Config.IndexesCT">
 				<xs:annotation>
 					<xs:documentation>Contains columns to be indexed upon table creation.</xs:documentation>
 				</xs:annotation>
@@ -150,6 +150,11 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
+		<xs:attribute name="generate" use="required" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Whether TabMon will generate and validate indexes upon startup.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="TabMon.Config.IndexCT">
 		<xs:attribute name="column" use="required" type="xs:string">

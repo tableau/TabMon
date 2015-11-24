@@ -584,7 +584,7 @@ namespace TabMon.Config
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Contains columns to be indexed upon table creation.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.IndexesPropertyName, IsRequired = false, IsKey = false, IsDefaultCollection = false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.IndexesPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
         public virtual global::TabMon.Config.Indexes Indexes
         {
             get
@@ -1325,6 +1325,34 @@ namespace TabMon.Config
         }
 
         #endregion IsReadOnly override
+
+        #region Generate Property
+
+        /// <summary>
+        /// The XML name of the <see cref="Generate"/> property.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        internal const string GeneratePropertyName = "generate";
+
+        /// <summary>
+        /// Gets or sets whether TabMon will generate and validate indexes upon startup.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.ComponentModel.DescriptionAttribute("Whether TabMon will generate and validate indexes upon startup.")]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Indexes.GeneratePropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = true)]
+        public virtual bool Generate
+        {
+            get
+            {
+                return ((bool)(base[global::TabMon.Config.Indexes.GeneratePropertyName]));
+            }
+            set
+            {
+                base[global::TabMon.Config.Indexes.GeneratePropertyName] = value;
+            }
+        }
+
+        #endregion Generate Property
     }
 }
 
