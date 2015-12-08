@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
 <workbook source-platform='win' version='9.0' xml:base='http://alpo-dev' xmlns:user='http://www.tableausoftware.com/xml/user'>
-  <!-- build 9000.15.1009.1800                                -->
+  <!-- build 9000.15.0506.1800                                -->
   <repository-location derived-from='http://tab.databender.net/workbooks/TabZapII?rev=1.3' id='TabMon' path='/workbooks' revision='2.4' />
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
@@ -23,1375 +23,6 @@
       <column caption='Minute Interval' datatype='integer' name='[Parameter 3]' param-domain-type='any' role='measure' type='quantitative' value='5'>
         <calculation class='tableau' formula='5' />
       </column>
-    </datasource>
-    <datasource caption='TabMon' inline='true' name='alpodev (TabZap) (copy)' version='9.0'>
-      <connection class='postgres' dbname='TabMon' odbc-native-protocol='yes' port='5432' server='localhost' server-oauth='' username='tabmon' workgroup-auth-mode='prompt'>
-        <relation name='countersamples' table='[public].[countersamples]' type='table' />
-        <metadata-records>
-          <metadata-record class='column'>
-            <remote-name>id</remote-name>
-            <remote-type>3</remote-type>
-            <local-name>[id]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>id</remote-alias>
-            <ordinal>1</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>10</precision>
-            <contains-null>false</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>timestamp</remote-name>
-            <remote-type>7</remote-type>
-            <local-name>[timestamp]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>timestamp</remote-alias>
-            <ordinal>2</ordinal>
-            <local-type>datetime</local-type>
-            <aggregation>Year</aggregation>
-            <contains-null>false</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>cluster</remote-name>
-            <remote-type>130</remote-type>
-            <local-name>[cluster]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>cluster</remote-alias>
-            <ordinal>3</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <width>8190</width>
-            <contains-null>true</contains-null>
-            <cast-to-local-type>true</cast-to-local-type>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>machine</remote-name>
-            <remote-type>130</remote-type>
-            <local-name>[machine]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>machine</remote-alias>
-            <ordinal>4</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <width>8190</width>
-            <contains-null>false</contains-null>
-            <cast-to-local-type>true</cast-to-local-type>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>counter_type</remote-name>
-            <remote-type>130</remote-type>
-            <local-name>[counter_type]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>counter_type</remote-alias>
-            <ordinal>5</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <width>8190</width>
-            <contains-null>false</contains-null>
-            <cast-to-local-type>true</cast-to-local-type>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>source</remote-name>
-            <remote-type>130</remote-type>
-            <local-name>[source]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>source</remote-alias>
-            <ordinal>6</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <width>8190</width>
-            <contains-null>false</contains-null>
-            <cast-to-local-type>true</cast-to-local-type>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>category</remote-name>
-            <remote-type>130</remote-type>
-            <local-name>[category]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>category</remote-alias>
-            <ordinal>7</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <width>8190</width>
-            <contains-null>false</contains-null>
-            <cast-to-local-type>true</cast-to-local-type>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>%_free_space</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[%_free_space]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>%_free_space</remote-alias>
-            <ordinal>8</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>%_committed_bytes_in_use</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[%_committed_bytes_in_use]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>%_committed_bytes_in_use</remote-alias>
-            <ordinal>9</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>bytes_received/sec</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[bytes_received/sec]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>bytes_received/sec</remote-alias>
-            <ordinal>10</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>bytes_sent/sec</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[bytes_sent/sec]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>bytes_sent/sec</remote-alias>
-            <ordinal>11</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>%_disk_read_time</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[%_disk_read_time]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>%_disk_read_time</remote-alias>
-            <ordinal>12</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>%_disk_write_time</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[%_disk_write_time]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>%_disk_write_time</remote-alias>
-            <ordinal>13</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>current_disk_queue_length</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[current_disk_queue_length]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>current_disk_queue_length</remote-alias>
-            <ordinal>14</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>disk_write_bytes/sec</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[disk_write_bytes/sec]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>disk_write_bytes/sec</remote-alias>
-            <ordinal>15</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>disk_read_bytes/sec</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[disk_read_bytes/sec]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>disk_read_bytes/sec</remote-alias>
-            <ordinal>16</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>%_processor_time</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[%_processor_time]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>%_processor_time</remote-alias>
-            <ordinal>17</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>thread_count</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[thread_count]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>thread_count</remote-alias>
-            <ordinal>18</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>working_set</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[working_set]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>working_set</remote-alias>
-            <ordinal>19</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>processes</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[processes]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>processes</remote-alias>
-            <ordinal>20</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>average_request_latency</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[average_request_latency]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>average_request_latency</remote-alias>
-            <ordinal>21</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>requests_failed</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[requests_failed]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>requests_failed</remote-alias>
-            <ordinal>22</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>requests_processed</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[requests_processed]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>requests_processed</remote-alias>
-            <ordinal>23</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>average_batch_failure</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[average_batch_failure]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>average_batch_failure</remote-alias>
-            <ordinal>24</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>average_batch_size</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[average_batch_size]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>average_batch_size</remote-alias>
-            <ordinal>25</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>average_query_latency</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[average_query_latency]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>average_query_latency</remote-alias>
-            <ordinal>26</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>request_processed</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[request_processed]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>request_processed</remote-alias>
-            <ordinal>27</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>total_compilation_time</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[total_compilation_time]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>total_compilation_time</remote-alias>
-            <ordinal>28</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>heap_memory_usage\committed</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[heap_memory_usage\committed]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>heap_memory_usage\committed</remote-alias>
-            <ordinal>29</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>heap_memory_usage\used</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[heap_memory_usage\used]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>heap_memory_usage\used</remote-alias>
-            <ordinal>30</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>non_heap_memory_usage\committed</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[non_heap_memory_usage\committed]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>non_heap_memory_usage\committed</remote-alias>
-            <ordinal>31</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>non_heap_memory_usage\used</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[non_heap_memory_usage\used]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>non_heap_memory_usage\used</remote-alias>
-            <ordinal>32</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>external_abstract_query_cache_hits</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[external_abstract_query_cache_hits]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>external_abstract_query_cache_hits</remote-alias>
-            <ordinal>33</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>external_abstract_query_cache_misses</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[external_abstract_query_cache_misses]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>external_abstract_query_cache_misses</remote-alias>
-            <ordinal>34</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>external_query_cache_hits</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[external_query_cache_hits]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>external_query_cache_hits</remote-alias>
-            <ordinal>35</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>external_query_cache_misses</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[external_query_cache_misses]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>external_query_cache_misses</remote-alias>
-            <ordinal>36</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>in_process_abstract_query_cache_hits</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[in_process_abstract_query_cache_hits]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>in_process_abstract_query_cache_hits</remote-alias>
-            <ordinal>37</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>in_process_abstract_query_cache_misses</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[in_process_abstract_query_cache_misses]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>in_process_abstract_query_cache_misses</remote-alias>
-            <ordinal>38</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>in_process_query_cache_hits</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[in_process_query_cache_hits]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>in_process_query_cache_hits</remote-alias>
-            <ordinal>39</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>in_process_query_cache_misses</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[in_process_query_cache_misses]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>in_process_query_cache_misses</remote-alias>
-            <ordinal>40</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>visual_model_cache_hits</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[visual_model_cache_hits]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>visual_model_cache_hits</remote-alias>
-            <ordinal>41</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>visual_model_cache_misses</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[visual_model_cache_misses]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>visual_model_cache_misses</remote-alias>
-            <ordinal>42</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>visual_model_cache_partial_hits</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[visual_model_cache_partial_hits]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>visual_model_cache_partial_hits</remote-alias>
-            <ordinal>43</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>image_cache_hits</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[image_cache_hits]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>image_cache_hits</remote-alias>
-            <ordinal>44</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>image_cache_misses</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[image_cache_misses]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>image_cache_misses</remote-alias>
-            <ordinal>45</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>active_sessions</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[active_sessions]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>active_sessions</remote-alias>
-            <ordinal>46</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>requests_count</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[requests_count]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>requests_count</remote-alias>
-            <ordinal>47</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <precision>17</precision>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>instance</remote-name>
-            <remote-type>130</remote-type>
-            <local-name>[instance]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>instance</remote-alias>
-            <ordinal>48</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <width>8190</width>
-            <contains-null>true</contains-null>
-            <cast-to-local-type>true</cast-to-local-type>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>unit</remote-name>
-            <remote-type>130</remote-type>
-            <local-name>[unit]</local-name>
-            <parent-name>[countersamples]</parent-name>
-            <remote-alias>unit</remote-alias>
-            <ordinal>49</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <width>8190</width>
-            <contains-null>true</contains-null>
-            <cast-to-local-type>true</cast-to-local-type>
-            <attributes>
-              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
-              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='unique-constraint'>
-            <remote-name>public_countersamples_pkey</remote-name>
-            <remote-type>-1</remote-type>
-            <local-name>[id]</local-name>
-            <parent-name>[TabMon].[public].[countersamples]</parent-name>
-            <remote-alias></remote-alias>
-            <ordinal>1</ordinal>
-            <aggregation>None</aggregation>
-            <contains-null>true</contains-null>
-          </metadata-record>
-        </metadata-records>
-      </connection>
-      <aliases enabled='yes' />
-      <column caption='%RAM gradient' datatype='integer' name='[%CPU gradiant (copy)]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='IF sum([%_committed_bytes_in_use])&lt;=20 THEN 1 &#10;ELSEIF  sum([%_committed_bytes_in_use])&lt;=80 AND sum([%_committed_bytes_in_use])&gt;20 THEN 2&#10;Else 3&#10;END' />
-      </column>
-      <column datatype='real' name='[%_disk_read_time]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[%_disk_write_time]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' default-format='n#,##0.00' name='[%_free_space]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
-        <aliases>
-          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:\%_disk_read_time:qk]&quot;' value='Avg. %Disk Read Time' />
-          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:\%_disk_write_time:qk]&quot;' value='Avg. %Disk Write Time' />
-          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:bytes_received/sec:qk]&quot;' value='Avg. bytes rec/sec' />
-          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:bytes_sent/sec:qk]&quot;' value='Avg. bytes sent/sec' />
-          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:disk_read_bytes/sec:qk]&quot;' value='Avg. Disk Read bytes/sec' />
-          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:disk_write_bytes/sec:qk]&quot;' value='Avg. Disk Write bytes/sec' />
-          <alias key='&quot;[alpodev (TabZap) (copy)].[diff:avg:requests_failed:qk]&quot;' value='Failed Logins' />
-          <alias key='&quot;[alpodev (TabZap) (copy)].[diff:avg:requests_processed:qk]&quot;' value='Successful Logins' />
-          <alias key='&quot;[alpodev (TabZap) (copy)].[sum:current_disk_queue_length:qk]&quot;' value='Disk Queue Length' />
-        </aliases>
-      </column>
-      <column caption='External Query Hit Ratio' datatype='real' name='[Abstract Query Hit Ratio (copy)]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='[external_query_cache_hits]/([external_query_cache_hits]+[external_query_cache_misses])' />
-      </column>
-      <column caption='Timestamp (rounded)' datatype='datetime' name='[Calculation_1870401281195925504]' role='dimension' type='ordinal'>
-        <calculation class='tableau' formula='if [Parameters].[Parameter 2] = &quot;hour&quot; then DATETRUNC(&quot;hour&quot;, [timestamp])&#13;&#10;else DATETIME(INT(FLOAT([timestamp])*(1440/[Parameters].[Parameter 3]))/(1440/[Parameters].[Parameter 3]))&#13;&#10;end' />
-      </column>
-      <column caption='Timestamp_offset' datatype='datetime' name='[Calculation_217932008220680192]' role='dimension' type='ordinal'>
-        <calculation class='tableau' formula='[Calculation_1870401281195925504] - [Parameters].[Parameter 1 1]/24' />
-      </column>
-      <column caption='External Abstract Query Hit Ratio' datatype='real' name='[Calculation_2501960702151790594]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='[external_abstract_query_cache_hits]/([external_abstract_query_cache_hits]+[external_abstract_query_cache_misses])' />
-      </column>
-      <column caption='Visual Model Cache Hit Raio' datatype='real' name='[Calculation_2501960702164140035]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='([visual_model_cache_partial_hits]+[visual_model_cache_hits])/([visual_model_cache_hits]+[visual_model_cache_misses]+[visual_model_cache_partial_hits])' />
-      </column>
-      <column caption='Image Cache Hit Ratio' datatype='real' name='[Calculation_2501960702164504580]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='[image_cache_hits]/([image_cache_hits]+[image_cache_misses])' />
-      </column>
-      <column caption='%CPU gradiant' datatype='integer' name='[Calculation_2501960702173691909]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='IF avg([%_processor_time])&lt;=20 THEN 1 &#10;ELSEIF  avg([%_processor_time])&lt;=80 THEN 2&#10;Else 3&#10;END' />
-      </column>
-      <column caption='Machine Name' datatype='string' name='[Calculation_462111544483569664]' role='dimension' type='nominal'>
-        <calculation class='tableau' formula='LOWER([machine])' />
-      </column>
-      <column caption='Instance Group Name' datatype='string' name='[Calculation_473159436628262912]' role='dimension' type='nominal'>
-        <calculation class='tableau' formula='IF Contains([instance],&quot;backgrounder&quot;) THEN &quot;Backgrounder&quot;&#10;Elseif Contains([instance],&quot;postgres&quot;) THEN &quot;Postgres&quot;&#10;Elseif Contains([instance],&quot;tabprotosrv&quot;) THEN &quot;Tabprotosrv&quot;&#10;Elseif Contains([instance],&quot;searchserver&quot;) THEN &quot;Searchserver&quot;&#10;Elseif Contains([instance],&quot;backgrounder&quot;) THEN &quot;Backgrounder&quot;&#10;Elseif Contains([instance],&quot;dataserver&quot;) THEN &quot;Dataserver&quot;&#10;Elseif Contains([instance],&quot;filestore&quot;) THEN &quot;Filestore&quot;&#10;Elseif Contains([instance],&quot;httpd&quot;) THEN &quot;Gateway&quot;&#10;Elseif Contains([instance],&quot;tabsvc&quot;) THEN &quot;TabSVC&quot;&#10;Elseif Contains([instance],&quot;tdeserver&quot;) THEN &quot;TDEserver&quot;&#10;Elseif Contains([instance],&quot;vizportal&quot;) THEN &quot;Vizportal&quot;&#10;Elseif Contains([instance],&quot;vizql&quot;) THEN &quot;Vizql&quot;&#10;Elseif Contains([instance],&quot;vizqlserver&quot;) THEN &quot;Vizqlserver&quot;&#10;Elseif Contains([instance],&quot;zookeeper&quot;) THEN &quot;Zookeeper&quot;&#10;ELSE &quot;Non-Tableau Service&quot;&#10;END' />
-      </column>
-      <column caption='In Process Abstract Query Hit Ratio' datatype='real' name='[External Query Hit Ratio (copy)]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='[in_process_abstract_query_cache_hits]/([in_process_abstract_query_cache_hits]+[in_process_abstract_query_cache_misses])' />
-      </column>
-      <column caption='In Process Query Hit Ratio' datatype='real' name='[In Process Abstract Query Hit Ratio (copy)]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='[in_process_query_cache_hits]/([in_process_query_cache_hits]+[in_process_query_cache_misses])' />
-      </column>
-      <column datatype='string' name='[Instance (copy) (copy)]' role='dimension' type='nominal'>
-        <calculation class='tableau' formula='[instance]' />
-      </column>
-      <column datatype='string' name='[Instance (copy)]' role='dimension' type='nominal'>
-        <calculation class='tableau' formula='[instance]' />
-      </column>
-      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
-        <calculation class='tableau' formula='1' />
-      </column>
-      <column datatype='real' name='[active_sessions]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[bytes_received/sec]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[bytes_sent/sec]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='string' name='[category]' role='dimension' type='nominal'>
-      </column>
-      <column datatype='real' name='[current_disk_queue_length]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[disk_read_bytes/sec]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[disk_write_bytes/sec]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[external_abstract_query_cache_hits]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[external_abstract_query_cache_misses]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[external_query_cache_hits]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[external_query_cache_misses]' role='measure' type='quantitative'>
-      </column>
-      <column aggregation='Sum' caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal'>
-      </column>
-      <column datatype='real' name='[image_cache_hits]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[image_cache_misses]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[in_process_abstract_query_cache_hits]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[in_process_abstract_query_cache_misses]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[in_process_query_cache_hits]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[in_process_query_cache_misses]' role='measure' type='quantitative'>
-      </column>
-      <column caption='Instance' datatype='string' name='[instance]' role='dimension' type='nominal'>
-      </column>
-      <column caption='Machine' datatype='string' name='[machine]' role='dimension' type='nominal'>
-      </column>
-      <column datatype='real' name='[requests_failed]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[requests_processed]' role='measure' type='quantitative'>
-      </column>
-      <column caption='Timestamp' datatype='datetime' name='[timestamp]' role='dimension' type='ordinal'>
-      </column>
-      <column datatype='real' name='[visual_model_cache_hits]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[visual_model_cache_misses]' role='measure' type='quantitative'>
-      </column>
-      <column datatype='real' name='[visual_model_cache_partial_hits]' role='measure' type='quantitative'>
-      </column>
-      <column-instance column='[%_disk_read_time]' derivation='Avg' name='[avg:%_disk_read_time:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[%_disk_write_time]' derivation='Avg' name='[avg:%_disk_write_time:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[active_sessions]' derivation='Avg' name='[avg:active_sessions:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[bytes_received/sec]' derivation='Avg' name='[avg:bytes_received/sec:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[bytes_sent/sec]' derivation='Avg' name='[avg:bytes_sent/sec:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[disk_read_bytes/sec]' derivation='Avg' name='[avg:disk_read_bytes/sec:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[disk_write_bytes/sec]' derivation='Avg' name='[avg:disk_write_bytes/sec:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[requests_failed]' derivation='Avg' name='[avg:requests_failed:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[active_sessions]' derivation='Avg' name='[diff:avg:active_sessions:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[external_abstract_query_cache_hits]' derivation='Avg' name='[diff:avg:external_abstract_query_cache_hits:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[external_abstract_query_cache_misses]' derivation='Avg' name='[diff:avg:external_abstract_query_cache_misses:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[external_query_cache_hits]' derivation='Avg' name='[diff:avg:external_query_cache_hits:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[external_query_cache_misses]' derivation='Avg' name='[diff:avg:external_query_cache_misses:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[image_cache_hits]' derivation='Avg' name='[diff:avg:image_cache_hits:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[image_cache_misses]' derivation='Avg' name='[diff:avg:image_cache_misses:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[in_process_abstract_query_cache_hits]' derivation='Avg' name='[diff:avg:in_process_abstract_query_cache_hits:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[in_process_abstract_query_cache_misses]' derivation='Avg' name='[diff:avg:in_process_abstract_query_cache_misses:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[in_process_query_cache_hits]' derivation='Avg' name='[diff:avg:in_process_query_cache_hits:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[in_process_query_cache_misses]' derivation='Avg' name='[diff:avg:in_process_query_cache_misses:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[requests_failed]' derivation='Avg' name='[diff:avg:requests_failed:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[requests_processed]' derivation='Avg' name='[diff:avg:requests_processed:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[visual_model_cache_hits]' derivation='Avg' name='[diff:avg:visual_model_cache_hits:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[visual_model_cache_misses]' derivation='Avg' name='[diff:avg:visual_model_cache_misses:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[visual_model_cache_partial_hits]' derivation='Avg' name='[diff:avg:visual_model_cache_partial_hits:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[requests_processed]' derivation='Sum' name='[diff:sum:requests_processed:qk]' pivot='key' type='quantitative'>
-        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
-          <address>
-            <value>-1</value>
-          </address>
-        </table-calc>
-      </column-instance>
-      <column-instance column='[Calculation_462111544483569664]' derivation='None' name='[none:Calculation_462111544483569664:nk]' pivot='key' type='nominal' />
-      <column-instance column='[Calculation_473159436628262912]' derivation='None' name='[none:Calculation_473159436628262912:nk]' pivot='key' type='nominal' />
-      <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
-      <column-instance column='[current_disk_queue_length]' derivation='Sum' name='[sum:current_disk_queue_length:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[requests_failed]' derivation='Sum' name='[sum:requests_failed:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[requests_processed]' derivation='Sum' name='[sum:requests_processed:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[%CPU gradiant (copy)]' derivation='User' name='[usr:%CPU gradiant (copy):ok]' pivot='key' type='ordinal' />
-      <column-instance column='[Calculation_2501960702173691909]' derivation='User' name='[usr:Calculation_2501960702173691909:ok]' pivot='key' type='ordinal' />
-      <group caption='Action (Timestamp (rounded))' hidden='true' name='[Action (Timestamp (rounded))]' name-style='unqualified' user:auto-column='sheet_link'>
-        <groupfilter function='crossjoin'>
-          <groupfilter function='level-members' level='[Calculation_1870401281195925504]' />
-        </groupfilter>
-      </group>
-      <group caption='Action (Timestamp (rounded),Machine Name)' hidden='true' name='[Action (Timestamp (rounded),Machine Name)]' name-style='unqualified' user:auto-column='sheet_link'>
-        <groupfilter function='crossjoin'>
-          <groupfilter function='level-members' level='[Calculation_1870401281195925504]' />
-          <groupfilter function='level-members' level='[Calculation_462111544483569664]' />
-        </groupfilter>
-      </group>
-      <group caption='Action (Timestamp (rounded),Machine) 1' hidden='true' name='[Action (Timestamp (rounded),Machine) 1]' name-style='unqualified' user:auto-column='sheet_link'>
-        <groupfilter function='crossjoin'>
-          <groupfilter function='level-members' level='[Calculation_1870401281195925504]' />
-          <groupfilter function='level-members' level='[machine]' />
-        </groupfilter>
-      </group>
-      <group caption='Action (Timestamp (rounded),Machine)' hidden='true' name='[Action (Timestamp (rounded),Machine)]' name-style='unqualified' user:auto-column='sheet_link'>
-        <groupfilter function='crossjoin'>
-          <groupfilter function='level-members' level='[Calculation_1870401281195925504]' />
-          <groupfilter function='level-members' level='[Machine]' />
-        </groupfilter>
-      </group>
-      <layout dim-ordering='alphabetic' dim-percentage='0.250297' measure-ordering='alphabetic' measure-percentage='0.65599' show-structure='true' />
-      <style>
-        <style-rule element='mark'>
-          <encoding attr='color' field='[usr:Calculation_2501960702173691909:ok]' type='palette'>
-            <map to='#1f77b4'>
-              <bucket>2</bucket>
-            </map>
-            <map to='#7f7f7f'>
-              <bucket>1</bucket>
-            </map>
-            <map to='#d62728'>
-              <bucket>3</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[usr:%CPU gradiant (copy):ok]' type='palette'>
-            <map to='#1f77b4'>
-              <bucket>2</bucket>
-            </map>
-            <map to='#7f7f7f'>
-              <bucket>1</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>3</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[none:category:nk]' type='palette'>
-            <map to='#1f77b4'>
-              <bucket>&quot;Guest Login&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;Get View&quot;</bucket>
-            </map>
-            <map to='#7f7f7f'>
-              <bucket>&quot;Run Schedules&quot;</bucket>
-            </map>
-            <map to='#8c564b'>
-              <bucket>&quot;Run Extract Refreshes on Workbooks&quot;</bucket>
-            </map>
-            <map to='#9467bd'>
-              <bucket>&quot;Run Extract Refreshes on Data Sources&quot;</bucket>
-            </map>
-            <map to='#d62728'>
-              <bucket>&quot;Publish Workbook&quot;</bucket>
-            </map>
-            <map to='#e377c2'>
-              <bucket>&quot;Run Extract Tasks&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;User Login&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[none:Calculation_473159436628262912:nk]' type='palette'>
-            <map to='#1f77b4'>
-              <bucket>&quot;Backgrounder&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;Non-Tableau Service&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;Postgres&quot;</bucket>
-            </map>
-            <map to='#8c564b'>
-              <bucket>&quot;Vizql&quot;</bucket>
-            </map>
-            <map to='#9467bd'>
-              <bucket>&quot;TDEserver&quot;</bucket>
-            </map>
-            <map to='#98df8a'>
-              <bucket>&quot;Searchserver&quot;</bucket>
-            </map>
-            <map to='#aec7e8'>
-              <bucket>&quot;Dataserver&quot;</bucket>
-            </map>
-            <map to='#c49c94'>
-              <bucket>&quot;Zookeeper&quot;</bucket>
-            </map>
-            <map to='#c5b0d5'>
-              <bucket>&quot;Vizportal&quot;</bucket>
-            </map>
-            <map to='#d62728'>
-              <bucket>&quot;Tabprotosrv&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;Filestore&quot;</bucket>
-            </map>
-            <map to='#ff9896'>
-              <bucket>&quot;TabSVC&quot;</bucket>
-            </map>
-            <map to='#ffbb78'>
-              <bucket>&quot;Gataeway&quot;</bucket>
-            </map>
-            <map to='#ffbb78'>
-              <bucket>&quot;Gateway&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[none:Calculation_462111544483569664:nk]' type='palette'>
-            <map to='#1f77b4'>
-              <bucket>&quot;0dvpwalpodev04&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;0dvpwalpodev08&quot;</bucket>
-            </map>
-            <map to='#d62728'>
-              <bucket>&quot;openvm-hir7l7ba&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;0dvpwalpodev05&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[:Measure Names]' type='palette'>
-            <map to='#17becf'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:InProcessQueryCacheMisses:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:active_sessions:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:ActiveSessions:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:Bytes Received/sec:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:active_sessions:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:external_abstract_query_cache_hits:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ExternalAbstractQueryCacheHits:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:image_cache_hits:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ImageCacheMisses:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:in_process_abstract_query_cache_hits:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:RequestProcessed:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:requests_processed:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:visual_model_cache_hits:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:VisualModelCacheMisses:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:sum:requests_processed:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[sum:requests_processed:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[usr:Calculation_23643899510530048:qk]&quot;</bucket>
-            </map>
-            <map to='#1f77b4'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[usr:Calculation_576953334996271108:qk]&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:\% Disk Read Time:qk]&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:Calculation_23643899511377923:qk]&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:external_query_cache_hits:qk]&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ExternalQueryCacheHits:qk]&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:in_process_query_cache_hits:qk]&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:RequestsProcessed:qk]&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:visual_model_cache_partial_hits:qk]&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:VisualModelCacheHits:qk]&quot;</bucket>
-            </map>
-            <map to='#2ca02c'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[usr:Calculation_23643899511414788:qk]&quot;</bucket>
-            </map>
-            <map to='#7f7f7f'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:InProcessAbstractQueryCacheMisses:qk]&quot;</bucket>
-            </map>
-            <map to='#8c564b'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:Disk Write Bytes/sec:qk]&quot;</bucket>
-            </map>
-            <map to='#8c564b'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[sum:Disk Write Bytes/sec:qk]&quot;</bucket>
-            </map>
-            <map to='#9467bd'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:Disk Read Bytes/sec:qk]&quot;</bucket>
-            </map>
-            <map to='#bcbd22'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:InProcessQueryCacheHits:qk]&quot;</bucket>
-            </map>
-            <map to='#d62728'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:\% Disk Write Time:qk]&quot;</bucket>
-            </map>
-            <map to='#d62728'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:external_query_cache_misses:qk]&quot;</bucket>
-            </map>
-            <map to='#d62728'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ExternalQueryCacheMisses:qk]&quot;</bucket>
-            </map>
-            <map to='#d62728'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:in_process_query_cache_misses:qk]&quot;</bucket>
-            </map>
-            <map to='#d62728'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:requests_failed:qk]&quot;</bucket>
-            </map>
-            <map to='#e377c2'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:InProcessAbstractQueryCacheHits:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:Bytes Sent/sec:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:requests_failed:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:external_abstract_query_cache_misses:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ExternalAbstractQueryCacheMisses:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:image_cache_misses:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ImageCacheHits:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:in_process_abstract_query_cache_misses:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:RequestsFailed:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:visual_model_cache_misses:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:VisualModelCachePartialHits:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[none:Calculation_23643899510587393:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[sum:requests_failed:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[usr:Calculation_23643899510628354:qk]&quot;</bucket>
-            </map>
-            <map to='#ff7f0e'>
-              <bucket>&quot;[alpodev (TabZap) (copy)].[usr:Calculation_576953334996176898:qk]&quot;</bucket>
-            </map>
-          </encoding>
-        </style-rule>
-      </style>
-      <semantic-values>
-        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
-      </semantic-values>
-      <datasource-dependencies datasource='Parameters'>
-        <column caption='Time Offset' datatype='integer' name='[Parameter 1 1]' param-domain-type='any' role='measure' type='quantitative' value='-7'>
-          <calculation class='tableau' formula='-7' />
-        </column>
-        <column caption='Interval' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;minute&quot;'>
-          <calculation class='tableau' formula='&quot;minute&quot;' />
-          <members>
-            <member value='&quot;hour&quot;' />
-            <member value='&quot;minute&quot;' />
-          </members>
-        </column>
-        <column caption='Minute Interval' datatype='integer' name='[Parameter 3]' param-domain-type='any' role='measure' type='quantitative' value='5'>
-          <calculation class='tableau' formula='5' />
-        </column>
-      </datasource-dependencies>
     </datasource>
     <datasource caption='Server Auditing' inline='true' name='postgres.42271.475394699075' version='9.0'>
       <connection class='postgres' dbname='workgroup' odbc-native-protocol='yes' port='8060' server='localhost' server-oauth='' username='readonly' workgroup-auth-mode='prompt'>
@@ -3752,6 +2383,1375 @@
             </map>
             <map to='#ff7f0e'>
               <bucket>&quot;Publish&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Time Offset' datatype='integer' name='[Parameter 1 1]' param-domain-type='any' role='measure' type='quantitative' value='-7'>
+          <calculation class='tableau' formula='-7' />
+        </column>
+        <column caption='Interval' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;minute&quot;'>
+          <calculation class='tableau' formula='&quot;minute&quot;' />
+          <members>
+            <member value='&quot;hour&quot;' />
+            <member value='&quot;minute&quot;' />
+          </members>
+        </column>
+        <column caption='Minute Interval' datatype='integer' name='[Parameter 3]' param-domain-type='any' role='measure' type='quantitative' value='5'>
+          <calculation class='tableau' formula='5' />
+        </column>
+      </datasource-dependencies>
+    </datasource>
+    <datasource caption='TabMon' inline='true' name='alpodev (TabZap) (copy)' version='9.0'>
+      <connection class='postgres' dbname='TabMon' odbc-native-protocol='yes' port='5432' server='localhost' server-oauth='' username='tabmon' workgroup-auth-mode='prompt'>
+        <relation name='countersamples' table='[public].[countersamples]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>timestamp</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[timestamp]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>timestamp</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cluster</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[cluster]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>cluster</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>machine</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[machine]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>machine</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>counter_type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[counter_type]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>counter_type</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>source</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[source]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>source</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>%_free_space</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[%_free_space]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>%_free_space</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>%_committed_bytes_in_use</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[%_committed_bytes_in_use]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>%_committed_bytes_in_use</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bytes_received/sec</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[bytes_received/sec]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>bytes_received/sec</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bytes_sent/sec</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[bytes_sent/sec]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>bytes_sent/sec</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>%_disk_read_time</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[%_disk_read_time]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>%_disk_read_time</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>%_disk_write_time</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[%_disk_write_time]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>%_disk_write_time</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>current_disk_queue_length</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[current_disk_queue_length]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>current_disk_queue_length</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>disk_write_bytes/sec</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[disk_write_bytes/sec]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>disk_write_bytes/sec</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>disk_read_bytes/sec</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[disk_read_bytes/sec]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>disk_read_bytes/sec</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>%_processor_time</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[%_processor_time]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>%_processor_time</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>thread_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[thread_count]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>thread_count</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>working_set</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[working_set]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>working_set</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>processes</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[processes]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>processes</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>average_request_latency</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[average_request_latency]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>average_request_latency</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>requests_failed</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[requests_failed]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>requests_failed</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>requests_processed</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[requests_processed]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>requests_processed</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>average_batch_failure</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[average_batch_failure]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>average_batch_failure</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>average_batch_size</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[average_batch_size]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>average_batch_size</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>average_query_latency</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[average_query_latency]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>average_query_latency</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>request_processed</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[request_processed]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>request_processed</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_compilation_time</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[total_compilation_time]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>total_compilation_time</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>heap_memory_usage\committed</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[heap_memory_usage\committed]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>heap_memory_usage\committed</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>heap_memory_usage\used</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[heap_memory_usage\used]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>heap_memory_usage\used</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>non_heap_memory_usage\committed</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[non_heap_memory_usage\committed]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>non_heap_memory_usage\committed</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>non_heap_memory_usage\used</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[non_heap_memory_usage\used]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>non_heap_memory_usage\used</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>external_abstract_query_cache_hits</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[external_abstract_query_cache_hits]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>external_abstract_query_cache_hits</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>external_abstract_query_cache_misses</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[external_abstract_query_cache_misses]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>external_abstract_query_cache_misses</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>external_query_cache_hits</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[external_query_cache_hits]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>external_query_cache_hits</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>external_query_cache_misses</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[external_query_cache_misses]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>external_query_cache_misses</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>in_process_abstract_query_cache_hits</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[in_process_abstract_query_cache_hits]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>in_process_abstract_query_cache_hits</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>in_process_abstract_query_cache_misses</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[in_process_abstract_query_cache_misses]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>in_process_abstract_query_cache_misses</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>in_process_query_cache_hits</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[in_process_query_cache_hits]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>in_process_query_cache_hits</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>in_process_query_cache_misses</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[in_process_query_cache_misses]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>in_process_query_cache_misses</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>visual_model_cache_hits</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[visual_model_cache_hits]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>visual_model_cache_hits</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>visual_model_cache_misses</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[visual_model_cache_misses]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>visual_model_cache_misses</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>visual_model_cache_partial_hits</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[visual_model_cache_partial_hits]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>visual_model_cache_partial_hits</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>image_cache_hits</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[image_cache_hits]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>image_cache_hits</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>image_cache_misses</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[image_cache_misses]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>image_cache_misses</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>active_sessions</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[active_sessions]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>active_sessions</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>requests_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[requests_count]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>requests_count</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>instance</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[instance]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>instance</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[unit]</local-name>
+            <parent-name>[countersamples]</parent-name>
+            <remote-alias>unit</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='unique-constraint'>
+            <remote-name>public_countersamples_pkey</remote-name>
+            <remote-type>-1</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[TabMon].[public].[countersamples]</parent-name>
+            <remote-alias></remote-alias>
+            <ordinal>1</ordinal>
+            <aggregation>None</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='%RAM gradient' datatype='integer' name='[%CPU gradiant (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF sum([%_committed_bytes_in_use])&lt;=20 THEN 1 &#10;ELSEIF  sum([%_committed_bytes_in_use])&lt;=80 AND sum([%_committed_bytes_in_use])&gt;20 THEN 2&#10;Else 3&#10;END' />
+      </column>
+      <column datatype='real' name='[%_disk_read_time]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[%_disk_write_time]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' default-format='n#,##0.00' name='[%_free_space]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:\%_disk_read_time:qk]&quot;' value='Avg. %Disk Read Time' />
+          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:\%_disk_write_time:qk]&quot;' value='Avg. %Disk Write Time' />
+          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:bytes_received/sec:qk]&quot;' value='Avg. bytes rec/sec' />
+          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:bytes_sent/sec:qk]&quot;' value='Avg. bytes sent/sec' />
+          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:disk_read_bytes/sec:qk]&quot;' value='Avg. Disk Read bytes/sec' />
+          <alias key='&quot;[alpodev (TabZap) (copy)].[avg:disk_write_bytes/sec:qk]&quot;' value='Avg. Disk Write bytes/sec' />
+          <alias key='&quot;[alpodev (TabZap) (copy)].[diff:avg:requests_failed:qk]&quot;' value='Failed Logins' />
+          <alias key='&quot;[alpodev (TabZap) (copy)].[diff:avg:requests_processed:qk]&quot;' value='Successful Logins' />
+          <alias key='&quot;[alpodev (TabZap) (copy)].[sum:current_disk_queue_length:qk]&quot;' value='Disk Queue Length' />
+        </aliases>
+      </column>
+      <column caption='External Query Hit Ratio' datatype='real' name='[Abstract Query Hit Ratio (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[external_query_cache_hits]/([external_query_cache_hits]+[external_query_cache_misses])' />
+      </column>
+      <column caption='Timestamp (rounded)' datatype='datetime' name='[Calculation_1870401281195925504]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='if [Parameters].[Parameter 2] = &quot;hour&quot; then DATETRUNC(&quot;hour&quot;, [timestamp])&#13;&#10;else DATETIME(INT(FLOAT([timestamp])*(1440/[Parameters].[Parameter 3]))/(1440/[Parameters].[Parameter 3]))&#13;&#10;end' />
+      </column>
+      <column caption='Timestamp_offset' datatype='datetime' name='[Calculation_217932008220680192]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='[Calculation_1870401281195925504] - [Parameters].[Parameter 1 1]/24' />
+      </column>
+      <column caption='External Abstract Query Hit Ratio' datatype='real' name='[Calculation_2501960702151790594]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[external_abstract_query_cache_hits]/([external_abstract_query_cache_hits]+[external_abstract_query_cache_misses])' />
+      </column>
+      <column caption='Visual Model Cache Hit Raio' datatype='real' name='[Calculation_2501960702164140035]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='([visual_model_cache_partial_hits]+[visual_model_cache_hits])/([visual_model_cache_hits]+[visual_model_cache_misses]+[visual_model_cache_partial_hits])' />
+      </column>
+      <column caption='Image Cache Hit Ratio' datatype='real' name='[Calculation_2501960702164504580]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[image_cache_hits]/([image_cache_hits]+[image_cache_misses])' />
+      </column>
+      <column caption='%CPU gradiant' datatype='integer' name='[Calculation_2501960702173691909]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF avg([%_processor_time])&lt;=20 THEN 1 &#10;ELSEIF  avg([%_processor_time])&lt;=80 THEN 2&#10;Else 3&#10;END' />
+      </column>
+      <column caption='Machine Name' datatype='string' name='[Calculation_462111544483569664]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='LOWER([machine])' />
+      </column>
+      <column caption='Instance Group Name' datatype='string' name='[Calculation_473159436628262912]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF Contains([instance],&quot;backgrounder&quot;) THEN &quot;Backgrounder&quot;&#10;Elseif Contains([instance],&quot;postgres&quot;) THEN &quot;Postgres&quot;&#10;Elseif Contains([instance],&quot;tabprotosrv&quot;) THEN &quot;Tabprotosrv&quot;&#10;Elseif Contains([instance],&quot;searchserver&quot;) THEN &quot;Searchserver&quot;&#10;Elseif Contains([instance],&quot;backgrounder&quot;) THEN &quot;Backgrounder&quot;&#10;Elseif Contains([instance],&quot;dataserver&quot;) THEN &quot;Dataserver&quot;&#10;Elseif Contains([instance],&quot;filestore&quot;) THEN &quot;Filestore&quot;&#10;Elseif Contains([instance],&quot;httpd&quot;) THEN &quot;Gateway&quot;&#10;Elseif Contains([instance],&quot;tabsvc&quot;) THEN &quot;TabSVC&quot;&#10;Elseif Contains([instance],&quot;tdeserver&quot;) THEN &quot;TDEserver&quot;&#10;Elseif Contains([instance],&quot;vizportal&quot;) THEN &quot;Vizportal&quot;&#10;Elseif Contains([instance],&quot;vizql&quot;) THEN &quot;Vizql&quot;&#10;Elseif Contains([instance],&quot;vizqlserver&quot;) THEN &quot;Vizqlserver&quot;&#10;Elseif Contains([instance],&quot;zookeeper&quot;) THEN &quot;Zookeeper&quot;&#10;ELSE &quot;Non-Tableau Service&quot;&#10;END' />
+      </column>
+      <column caption='In Process Abstract Query Hit Ratio' datatype='real' name='[External Query Hit Ratio (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[in_process_abstract_query_cache_hits]/([in_process_abstract_query_cache_hits]+[in_process_abstract_query_cache_misses])' />
+      </column>
+      <column caption='In Process Query Hit Ratio' datatype='real' name='[In Process Abstract Query Hit Ratio (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[in_process_query_cache_hits]/([in_process_query_cache_hits]+[in_process_query_cache_misses])' />
+      </column>
+      <column datatype='string' name='[Instance (copy) (copy)]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[instance]' />
+      </column>
+      <column datatype='string' name='[Instance (copy)]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[instance]' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='real' name='[active_sessions]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[bytes_received/sec]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[bytes_sent/sec]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='string' name='[category]' role='dimension' type='nominal'>
+      </column>
+      <column datatype='real' name='[current_disk_queue_length]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[disk_read_bytes/sec]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[disk_write_bytes/sec]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[external_abstract_query_cache_hits]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[external_abstract_query_cache_misses]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[external_query_cache_hits]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[external_query_cache_misses]' role='measure' type='quantitative'>
+      </column>
+      <column aggregation='Sum' caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='real' name='[image_cache_hits]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[image_cache_misses]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[in_process_abstract_query_cache_hits]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[in_process_abstract_query_cache_misses]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[in_process_query_cache_hits]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[in_process_query_cache_misses]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Instance' datatype='string' name='[instance]' role='dimension' type='nominal'>
+      </column>
+      <column caption='Machine' datatype='string' name='[machine]' role='dimension' type='nominal'>
+      </column>
+      <column datatype='real' name='[requests_failed]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[requests_processed]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Timestamp' datatype='datetime' name='[timestamp]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='real' name='[visual_model_cache_hits]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[visual_model_cache_misses]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='real' name='[visual_model_cache_partial_hits]' role='measure' type='quantitative'>
+      </column>
+      <column-instance column='[%_disk_read_time]' derivation='Avg' name='[avg:%_disk_read_time:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[%_disk_write_time]' derivation='Avg' name='[avg:%_disk_write_time:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[active_sessions]' derivation='Avg' name='[avg:active_sessions:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[bytes_received/sec]' derivation='Avg' name='[avg:bytes_received/sec:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[bytes_sent/sec]' derivation='Avg' name='[avg:bytes_sent/sec:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[disk_read_bytes/sec]' derivation='Avg' name='[avg:disk_read_bytes/sec:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[disk_write_bytes/sec]' derivation='Avg' name='[avg:disk_write_bytes/sec:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[requests_failed]' derivation='Avg' name='[avg:requests_failed:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[active_sessions]' derivation='Avg' name='[diff:avg:active_sessions:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[external_abstract_query_cache_hits]' derivation='Avg' name='[diff:avg:external_abstract_query_cache_hits:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[external_abstract_query_cache_misses]' derivation='Avg' name='[diff:avg:external_abstract_query_cache_misses:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[external_query_cache_hits]' derivation='Avg' name='[diff:avg:external_query_cache_hits:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[external_query_cache_misses]' derivation='Avg' name='[diff:avg:external_query_cache_misses:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[image_cache_hits]' derivation='Avg' name='[diff:avg:image_cache_hits:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[image_cache_misses]' derivation='Avg' name='[diff:avg:image_cache_misses:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[in_process_abstract_query_cache_hits]' derivation='Avg' name='[diff:avg:in_process_abstract_query_cache_hits:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[in_process_abstract_query_cache_misses]' derivation='Avg' name='[diff:avg:in_process_abstract_query_cache_misses:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[in_process_query_cache_hits]' derivation='Avg' name='[diff:avg:in_process_query_cache_hits:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[in_process_query_cache_misses]' derivation='Avg' name='[diff:avg:in_process_query_cache_misses:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[requests_failed]' derivation='Avg' name='[diff:avg:requests_failed:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[requests_processed]' derivation='Avg' name='[diff:avg:requests_processed:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[visual_model_cache_hits]' derivation='Avg' name='[diff:avg:visual_model_cache_hits:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[visual_model_cache_misses]' derivation='Avg' name='[diff:avg:visual_model_cache_misses:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[visual_model_cache_partial_hits]' derivation='Avg' name='[diff:avg:visual_model_cache_partial_hits:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[requests_processed]' derivation='Sum' name='[diff:sum:requests_processed:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Calculation_462111544483569664]' derivation='None' name='[none:Calculation_462111544483569664:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_473159436628262912]' derivation='None' name='[none:Calculation_473159436628262912:nk]' pivot='key' type='nominal' />
+      <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+      <column-instance column='[current_disk_queue_length]' derivation='Sum' name='[sum:current_disk_queue_length:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[requests_failed]' derivation='Sum' name='[sum:requests_failed:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[requests_processed]' derivation='Sum' name='[sum:requests_processed:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[%CPU gradiant (copy)]' derivation='User' name='[usr:%CPU gradiant (copy):ok]' pivot='key' type='ordinal' />
+      <column-instance column='[Calculation_2501960702173691909]' derivation='User' name='[usr:Calculation_2501960702173691909:ok]' pivot='key' type='ordinal' />
+      <group caption='Action (Timestamp (rounded))' hidden='true' name='[Action (Timestamp (rounded))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_1870401281195925504]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Timestamp (rounded),Machine Name)' hidden='true' name='[Action (Timestamp (rounded),Machine Name)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_1870401281195925504]' />
+          <groupfilter function='level-members' level='[Calculation_462111544483569664]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Timestamp (rounded),Machine) 1' hidden='true' name='[Action (Timestamp (rounded),Machine) 1]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_1870401281195925504]' />
+          <groupfilter function='level-members' level='[machine]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Timestamp (rounded),Machine)' hidden='true' name='[Action (Timestamp (rounded),Machine)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_1870401281195925504]' />
+          <groupfilter function='level-members' level='[Machine]' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.250297' measure-ordering='alphabetic' measure-percentage='0.65599' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[usr:Calculation_2501960702173691909:ok]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>2</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>3</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:category:nk]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;Guest Login&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Get View&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>&quot;Run Schedules&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;Run Extract Refreshes on Workbooks&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;Run Extract Refreshes on Data Sources&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;Publish Workbook&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;Run Extract Tasks&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;User Login&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Calculation_473159436628262912:nk]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;Backgrounder&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Non-Tableau Service&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;Postgres&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;Vizql&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;TDEserver&quot;</bucket>
+            </map>
+            <map to='#98df8a'>
+              <bucket>&quot;Searchserver&quot;</bucket>
+            </map>
+            <map to='#aec7e8'>
+              <bucket>&quot;Dataserver&quot;</bucket>
+            </map>
+            <map to='#c49c94'>
+              <bucket>&quot;Zookeeper&quot;</bucket>
+            </map>
+            <map to='#c5b0d5'>
+              <bucket>&quot;Vizportal&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;Tabprotosrv&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;Filestore&quot;</bucket>
+            </map>
+            <map to='#ff9896'>
+              <bucket>&quot;TabSVC&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;Gataeway&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;Gateway&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Calculation_462111544483569664:nk]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;0dvpwalpodev04&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;0dvpwalpodev08&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;openvm-hir7l7ba&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;0dvpwalpodev05&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#17becf'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:InProcessQueryCacheMisses:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:active_sessions:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:ActiveSessions:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:Bytes Received/sec:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:active_sessions:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:external_abstract_query_cache_hits:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ExternalAbstractQueryCacheHits:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:image_cache_hits:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ImageCacheMisses:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:in_process_abstract_query_cache_hits:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:RequestProcessed:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:requests_processed:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:visual_model_cache_hits:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:VisualModelCacheMisses:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:sum:requests_processed:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[sum:requests_processed:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[usr:Calculation_23643899510530048:qk]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[usr:Calculation_576953334996271108:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:\% Disk Read Time:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:Calculation_23643899511377923:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:external_query_cache_hits:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ExternalQueryCacheHits:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:in_process_query_cache_hits:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:RequestsProcessed:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:visual_model_cache_partial_hits:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:VisualModelCacheHits:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[usr:Calculation_23643899511414788:qk]&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:InProcessAbstractQueryCacheMisses:qk]&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:Disk Write Bytes/sec:qk]&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[sum:Disk Write Bytes/sec:qk]&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:Disk Read Bytes/sec:qk]&quot;</bucket>
+            </map>
+            <map to='#bcbd22'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:InProcessQueryCacheHits:qk]&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:\% Disk Write Time:qk]&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:external_query_cache_misses:qk]&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ExternalQueryCacheMisses:qk]&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:in_process_query_cache_misses:qk]&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:requests_failed:qk]&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:InProcessAbstractQueryCacheHits:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:Bytes Sent/sec:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[avg:requests_failed:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:external_abstract_query_cache_misses:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ExternalAbstractQueryCacheMisses:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:image_cache_misses:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:ImageCacheHits:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:in_process_abstract_query_cache_misses:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:RequestsFailed:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:visual_model_cache_misses:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[diff:avg:VisualModelCachePartialHits:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[none:Calculation_23643899510587393:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[sum:requests_failed:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[usr:Calculation_23643899510628354:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[alpodev (TabZap) (copy)].[usr:Calculation_576953334996176898:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[usr:%CPU gradiant (copy):ok]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>2</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>3</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -6276,10 +6276,10 @@
             <column caption='Machine Name' datatype='string' name='[Calculation_462111544483569664]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='LOWER([machine])' />
             </column>
+            <column-instance column='[%_committed_bytes_in_use]' derivation='Avg' name='[avg:%_committed_bytes_in_use:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_1870401281195925504]' derivation='None' name='[none:Calculation_1870401281195925504:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_217932008220680192]' derivation='None' name='[none:Calculation_217932008220680192:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_462111544483569664]' derivation='None' name='[none:Calculation_462111544483569664:nk]' pivot='key' type='nominal' />
-            <column-instance column='[%_committed_bytes_in_use]' derivation='Sum' name='[sum:%_committed_bytes_in_use:qk]' pivot='key' type='quantitative' />
             <column-instance column='[%CPU gradiant (copy)]' derivation='User' name='[usr:%CPU gradiant (copy):ok]' pivot='key' type='ordinal' />
           </datasource-dependencies>
           <filter class='relative-date' column='[alpodev (TabZap) (copy)].[none:Calculation_217932008220680192:qk]' first-period='-23' include-future='true' include-null='false' last-period='0' period-type='hour' />
@@ -6297,9 +6297,9 @@
             <format attr='title' class='0' field='[alpodev (TabZap) (copy)].[none:Calculation_1870401281195925504:qk]' scope='cols' value='' />
             <format attr='subtitle' class='0' field='[alpodev (TabZap) (copy)].[none:Calculation_1870401281195925504:qk]' scope='cols' value='' />
             <format attr='auto-subtitle' class='0' field='[alpodev (TabZap) (copy)].[none:Calculation_1870401281195925504:qk]' scope='cols' value='false' />
-            <format attr='title' class='0' field='[alpodev (TabZap) (copy)].[sum:%_committed_bytes_in_use:qk]' scope='rows' value='% Committed Bytes In Use' />
-            <format attr='subtitle' class='0' field='[alpodev (TabZap) (copy)].[sum:%_committed_bytes_in_use:qk]' scope='rows' value='' />
-            <format attr='auto-subtitle' class='0' field='[alpodev (TabZap) (copy)].[sum:%_committed_bytes_in_use:qk]' scope='rows' value='true' />
+            <format attr='title' class='0' field='[alpodev (TabZap) (copy)].[avg:%_committed_bytes_in_use:qk]' scope='rows' value='% Committed Bytes In Use' />
+            <format attr='subtitle' class='0' field='[alpodev (TabZap) (copy)].[avg:%_committed_bytes_in_use:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[alpodev (TabZap) (copy)].[avg:%_committed_bytes_in_use:qk]' scope='rows' value='true' />
           </style-rule>
           <style-rule element='header'>
             <format attr='width' field='[alpodev (TabZap) (copy)].[none:Calculation_462111544483569664:nk]' value='128' />
@@ -6336,12 +6336,12 @@
                 <run fontcolor='#787878'>&#10;Machine Name:&#9;</run>
                 <run bold='true'>&lt;[alpodev (TabZap) (copy)].[none:Calculation_462111544483569664:nk]&gt;</run>
                 <run fontcolor='#787878'>&#10;Avg. % Committed Bytes In Use:&#9;</run>
-                <run bold='true'>&lt;[alpodev (TabZap) (copy)].[sum:%_committed_bytes_in_use:qk]&gt;</run>
+                <run bold='true'>&lt;[alpodev (TabZap) (copy)].[avg:%_committed_bytes_in_use:qk]&gt;</run>
               </formatted-text>
             </customized-tooltip>
           </pane>
         </panes>
-        <rows>([alpodev (TabZap) (copy)].[none:Calculation_462111544483569664:nk] * [alpodev (TabZap) (copy)].[sum:%_committed_bytes_in_use:qk])</rows>
+        <rows>([alpodev (TabZap) (copy)].[none:Calculation_462111544483569664:nk] * [alpodev (TabZap) (copy)].[avg:%_committed_bytes_in_use:qk])</rows>
         <cols>[alpodev (TabZap) (copy)].[none:Calculation_1870401281195925504:qk]</cols>
       </table>
     </worksheet>
@@ -7301,6 +7301,36 @@
         <zone mode='dropdown' name='Sheet 21' param='[alpodev (TabZap) (copy)].[none:Calculation_462111544483569664:nk]' type='filter' />
       </zones>
     </window>
+    <window auto-hidden='1' class='worksheet' maximized='1' name='Sheet 21'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[alpodev (TabZap) (copy)].[none:Calculation_1870401281195925504:qk]</field>
+          <field>[alpodev (TabZap) (copy)].[none:Calculation_217932008220680192:qk]</field>
+          <field>[alpodev (TabZap) (copy)].[none:Calculation_2501960702132207617:qk]</field>
+          <field>[alpodev (TabZap) (copy)].[none:Calculation_462111544483569664:nk]</field>
+          <field>[alpodev (TabZap) (copy)].[none:Calculation_473159436628262912:nk]</field>
+          <field>[alpodev (TabZap) (copy)].[usr:%CPU gradiant (copy):ok]</field>
+          <field>[alpodev (TabZap) (copy)].[yr:Calculation_1870401281195925504:ok]</field>
+        </color-one-way>
+      </highlight>
+    </window>
     <window auto-hidden='0' class='dashboard' maximized='0' name='Network'>
       <active id='10' />
       <zones>
@@ -7314,8 +7344,6 @@
       <active id='1' />
       <zones>
         <zone h='99500' id='1' name='Disk' show-title='true' w='84000' x='0' y='0'>
-          <viewpoint>
-          </viewpoint>
           <selection-collection>
             <node-selection select-tuples='false'>
               <oriented-node-reference orientation='horizontal'>
@@ -7347,8 +7375,6 @@
       <active id='11' />
       <zones>
         <zone h='33333' id='1' name='Active Sessions' show-title='true' w='84000' x='0' y='66667'>
-          <viewpoint>
-          </viewpoint>
           <selection-collection>
             <node-selection select-tuples='false'>
               <oriented-node-reference orientation='horizontal'>
@@ -7370,8 +7396,6 @@
       <active id='11' />
       <zones>
         <zone h='100000' id='1' name='Requests worksheet' show-title='true' w='84000' x='0' y='0'>
-          <viewpoint>
-          </viewpoint>
           <selection-collection>
             <node-selection select-tuples='false'>
               <oriented-node-reference orientation='vertical'>
@@ -7418,7 +7442,7 @@
         <zone name='Latency worksheet' pane-specification-id='1' param='[alpodev (TabZap) (copy)].[none:Calculation_462111544483569664:nk]' type='color' />
       </zones>
     </window>
-    <window auto-hidden='0' class='dashboard' maximized='1' name='Glossary '>
+    <window auto-hidden='0' class='dashboard' maximized='0' name='Glossary '>
       <active id='1' />
       <zones>
         <zone name='Glossary Worksheet '>
@@ -7995,41 +8019,6 @@
       <selection-collection>
       </selection-collection>
     </window>
-    <window class='hidden-worksheet' name='Sheet 21'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-            <card pane-specification-id='0' param='[alpodev (TabZap) (copy)].[usr:%CPU gradiant (copy):ok]' type='color' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-        </edge>
-      </cards>
-      <viewpoint>
-      </viewpoint>
-      <highlight>
-        <color-one-way>
-          <field>[alpodev (TabZap) (copy)].[none:Calculation_1870401281195925504:qk]</field>
-          <field>[alpodev (TabZap) (copy)].[none:Calculation_217932008220680192:qk]</field>
-          <field>[alpodev (TabZap) (copy)].[none:Calculation_2501960702132207617:qk]</field>
-          <field>[alpodev (TabZap) (copy)].[none:Calculation_462111544483569664:nk]</field>
-          <field>[alpodev (TabZap) (copy)].[none:Calculation_473159436628262912:nk]</field>
-          <field>[alpodev (TabZap) (copy)].[usr:%CPU gradiant (copy):ok]</field>
-          <field>[alpodev (TabZap) (copy)].[yr:Calculation_1870401281195925504:ok]</field>
-        </color-one-way>
-      </highlight>
-      <selection-collection>
-      </selection-collection>
-    </window>
     <window class='hidden-worksheet' name='Tableau Server Processes %CPU'>
       <cards>
         <edge name='left'>
@@ -8515,82 +8504,157 @@
       KI0CANANmkbtUvO3nP8PaGcjfP+J+xsAAAAASUVORK5CYII=
     </thumbnail>
     <thumbnail height='192' name='Memory' width='192'>
-      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
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 21' width='192'>
+      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
+      gYTe/h/jrrDiqo0gIAAAAABJRU5ErkJggg==
     </thumbnail>
     <thumbnail height='192' name='Network' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAACXBIWXMAAA7EAAAOxAGVKw4b
@@ -9184,229 +9248,22 @@
       /1Rs/2eKdlpsF4t2WnDUfwC2dQnIFW9pPQAAAABJRU5ErkJggg==
     </thumbnail>
     <thumbnail height='192' name='Glossary ' width='192'>
-      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
-      AABJRU5ErkJggg==
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7EAAAOxAGVKw4b
+      AAADBElEQVR4nO3VMW8UBBTA8cdBU5K2YiKF5WIMxsVEv71fwMlJhTDJLSagV6ul1GIN9O4c
+      THAwrHT4/37TG98b/nm3drvdbiBqcdMLwE0SAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0A
+      pAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECa
+      AEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmA
+      NAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgT
+      AGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQ
+      JgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkC
+      IE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDS
+      BECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0A
+      pAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECa
+      AEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmAtDvvpovn8833v87Xj47n9Pxq7t2d
+      efjpF/P4u2/ncrOYLz9fztvtYp4+fTzL5aP5+N7BbDbb2d3Zn83rs9k/OJqLq918cnBrtnuH
+      8/Bw5oef1nP79mKO9jazvTqft8dfzfJoN/fvH9/gyfCf/32A9W9nczhv5uTv7Rze/beP6+vr
+      WT1bzenLi/lodzVnr/6Y1S9/zunJi1mv17Nd7M/PT36cowcPZvVsNev1et68vpzj5WezN5vZ
+      Lvbn8tXZ/HXxck5+P//gR8L7/AP9pV4+X5kv6gAAAABJRU5ErkJggg==
     </thumbnail>
   </thumbnails>
 </workbook>
