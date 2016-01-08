@@ -3,6 +3,7 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Text;
 
 namespace DataTableWriter.Drivers
 {
@@ -223,6 +224,52 @@ namespace DataTableWriter.Drivers
             }
             var paramNames = String.Join(",", paramNameList);
             return String.Format(@"INSERT INTO ""{0}"" ({1}) VALUES ({2});", tableName, columns, paramNames);
+        }
+
+        /// <summary>
+        /// Builds a query to create an index.
+        /// </summary>
+        /// <param name="tableName">The name of the table to create the index on.</param>
+        /// <param name="columnName">The name of the column that will be indexed.</param>
+        /// <returns>Postgres statement to create an index.</returns>
+        public string BuildQueryIndex(string tableName, string columnName, string indexName)
+        {
+            return String.Format(@"CREATE INDEX ""{0}"" ON ""{1}"" (""{2}"");", indexName, tableName, columnName);
+        }
+
+        /// <summary>
+        /// Builds a query to Cluster an index.
+        /// </summary>
+        /// <param name="tableName">The name of the table to alter.</param>
+        /// <param name="indexName">The name of the index to cluster on.</param>
+        /// <returns>Postgres statement to cluster on a specific index.</returns>
+        public string BuildQueryClusterIndex(string tableName, string indexName)
+        {
+            return String.Format(@"ALTER TABLE ""{0}"" CLUSTER ON ""{1}"";", tableName, indexName);
+        }
+
+        /// <summary>
+        /// Builds a query to find all of the indexes on a given table.
+        /// </summary>
+        /// <param name="tablename">The name of the table that the indexes are associated with.</param>
+        /// <returns>Postgres statement that returns all indexes for a given table.</returns>
+        public string BuildQueryGetIndexes(string tableName)
+        {
+            return String.Format(@"SELECT c.relname as ""index"", array_to_string(array_agg(a.attname), ', ') as ""column_name"", i.indisclustered as ""isclustered"" 
+                                    FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace JOIN pg_catalog.pg_index i ON i.indexrelid = c.oid 
+                                    JOIN pg_catalog.pg_class t ON i.indrelid = t.oid JOIN pg_catalog.pg_attribute a ON a.attrelid = t.oid WHERE c.relkind = 'i' 
+                                    and n.nspname not in ('pg_catalog', 'pg_toast') and pg_catalog.pg_table_is_visible(c.oid) and t.relname = '{0}' 
+                                    and c.relname not like '%pkey' and a.attnum = ANY(i.indkey) GROUP BY c.relname, i.indisclustered;", tableName);
+        }
+
+        /// <summary>
+        /// Builds a query to drop an index.
+        /// </summary>
+        /// <param name="indexName">The name of the index to drop.</param>
+        /// <returns>Postgres statement to drop a given index.</returns>
+        public string BuildQueryDropIndex(string indexName)
+        {
+            return String.Format(@"DROP INDEX ""{0}"";", indexName);
         }
 
         #endregion

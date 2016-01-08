@@ -1,4 +1,6 @@
-﻿namespace DataTableWriter
+﻿using System.Collections.Generic;
+
+namespace DataTableWriter
 {
     /// <summary>
     /// Represents a configuration of database table initialization behaviors.
@@ -13,5 +15,11 @@
 
         // Update the in-memory schema to match the database table by copying it.
         public bool UpdateSchemaToMatchDbTable;
+
+        // Update the indexes in the database.
+        public bool UpdateIndexes;
+
+        // Collection of indexes to generate. The bool is whether or not this is a clustered index.
+        public IDictionary<string, bool> IndexesToGenerate;
     }
 }
