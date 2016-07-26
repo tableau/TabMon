@@ -72,7 +72,7 @@ namespace TabMon.Sampler
 
             generatedSchema.Columns.Add(BuildColumnMetadata("timestamp", "System.DateTime", false));
             generatedSchema.Columns.Add(BuildColumnMetadata("cluster", "System.String", true, 32));
-            generatedSchema.Columns.Add(BuildColumnMetadata("machine", "System.String", false, 16));
+            generatedSchema.Columns.Add(BuildColumnMetadata("machine", "System.String", false, 63));
             generatedSchema.Columns.Add(BuildColumnMetadata("counter_type", "System.String", false, 32));
             generatedSchema.Columns.Add(BuildColumnMetadata("source", "System.String", false, 32));
             generatedSchema.Columns.Add(BuildColumnMetadata("category", "System.String", false, 64));
