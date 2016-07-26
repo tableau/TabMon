@@ -83,7 +83,7 @@ namespace TabMon.Sampler
                     generatedSchema.Columns.Add(BuildColumnMetadata(counter.Counter, "System.Double", true));
                 }
             }
-            generatedSchema.Columns.Add(BuildColumnMetadata("instance", "System.String", true, 64));
+            generatedSchema.Columns.Add(BuildColumnMetadata("instance", "System.String", true, 128));
             generatedSchema.Columns.Add(BuildColumnMetadata("unit", "System.String", true, 32));
 
             Log.Debug(String.Format("Dynamically built result schema '{0}'. [{1} {2}]",
