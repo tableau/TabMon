@@ -62,7 +62,7 @@ namespace TabMon.Counters.Perfmon
                 var counter = new PerfmonCounter(host, categoryName, counterName, null, unitOfMeasurement);
                 counters.Add(counter);
             }
-            else
+            else if (category.CategoryType == PerformanceCounterCategoryType.MultiInstance)
             {
                 var instanceNames = new List<string>(category.GetInstanceNames());
 
@@ -100,6 +100,10 @@ namespace TabMon.Counters.Perfmon
                         }
                     }
                 }
+            }
+            else
+            {
+                Log.ErrorFormat("Unable to determine category type of PerfMon counter '{0}' in category '{1}' on host '{2}' is unknown; skipping loading it.", counterName, categoryName, host.Name);
             }
 
             return counters;
