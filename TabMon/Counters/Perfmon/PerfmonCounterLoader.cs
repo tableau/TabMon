@@ -56,7 +56,7 @@ namespace TabMon.Counters.Perfmon
             var category = new PerformanceCounterCategory(categoryName, host.Name);
 
             // Perfmon has both "single-instance" and "multi-instance" counter types -- we need to handle both appropriately.
-            if (!IsMultiInstance(category))
+            if (category.CategoryType == PerformanceCounterCategoryType.SingleInstance)
             {
                 // Just create it and add it to the list.
                 var counter = new PerfmonCounter(host, categoryName, counterName, null, unitOfMeasurement);
@@ -103,16 +103,6 @@ namespace TabMon.Counters.Perfmon
             }
 
             return counters;
-        }
-
-        /// <summary>
-        /// Returns true if a given PerfMon counter category has more than one associated instance.
-        /// </summary>
-        /// <param name="counterCategory">The PerfMon counter category to check.</param>
-        /// <returns>True if counterCategory has multiple child instances.</returns>
-        private static bool IsMultiInstance(PerformanceCounterCategory counterCategory)
-        {
-            return counterCategory.GetInstanceNames().Length > 1;
         }
     }
 }
