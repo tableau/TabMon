@@ -37,76 +37,62 @@ namespace TabMon.Counters.Perfmon
             }
             catch (UnauthorizedAccessException ex)
             {
-                Log.Error(String.Format("Error checking for existence of Perfmon counter '{0}' in category '{1}' on host '{2}': {3}",
-                                        counterName, categoryName, host.Name, ex.Message));
+                Log.ErrorFormat("Error checking for existence of Perfmon counter '{0}' in category '{1}' on host '{2}': {3}",
+                                counterName, categoryName, host.Name, ex.Message);
             }
             catch (Win32Exception ex)
             {
-                Log.Error(String.Format("Could not communicate with Perfmon on target host '{0}': {1}", host.Name, ex.Message));
+                Log.ErrorFormat("Could not communicate with Perfmon on target host '{0}': {1}", host.Name, ex.Message);
             }
 
             // If the requested counter does not exist, log it and bail out.
             if (!counterExists)
             {
-                Log.Debug(String.Format("Counter '{0}' in category '{1}' on host '{2}' does not exist.",
-                        counterName, categoryName, host.Name));
+                Log.DebugFormat("Counter '{0}' in category '{1}' on host '{2}' does not exist.",
+                                counterName, categoryName, host.Name);
                 return counters;
             }
 
             var category = new PerformanceCounterCategory(categoryName, host.Name);
 
             // Perfmon has both "single-instance" and "multi-instance" counter types -- we need to handle both appropriately.
-            if (category.CategoryType == PerformanceCounterCategoryType.SingleInstance)
+            switch (category.CategoryType)
             {
-                // Just create it and add it to the list.
-                var counter = new PerfmonCounter(host, categoryName, counterName, null, unitOfMeasurement);
-                counters.Add(counter);
-            }
-            else if (category.CategoryType == PerformanceCounterCategoryType.MultiInstance)
-            {
-                var instanceNames = new List<string>(category.GetInstanceNames());
-
-                // If we didn't specify any instance names to filter by, we just grab everything.
-                if (instanceFilters.Count == 0) 
-                {
-                    foreach (var instanceName in instanceNames)
+                case PerformanceCounterCategoryType.SingleInstance:
+                    counters.Add(new PerfmonCounter(host, categoryName, counterName, instance: null, unit: unitOfMeasurement));
+                    break;
+                case PerformanceCounterCategoryType.MultiInstance:
+                    foreach (var instanceName in category.GetInstanceNames())
                     {
-                        var builder = new PerfmonCounterBuilder();
-                        var counter = builder.CreateCounter(host)
-                                        .WithCategoryName(categoryName)
-                                        .WithCounterName(counterName)
-                                        .WithInstanceName(instanceName)
-                                        .WithUnit(unitOfMeasurement);
-                        counters.Add(counter);
-                    }
-                }
-                // If we did specify instance names to filter by, we loop over instance names, instantiating any counters that match our filters.
-                else
-                {
-                    foreach (var instanceFilter in instanceFilters)
-                    {
-                        var matchingInstances = instanceNames.Where(instanceName => instanceName.Contains(instanceFilter));
-
-                        foreach (var instanceName in matchingInstances)
+                        if (IsInstanceRequested(instanceName, instanceFilters))
                         {
-                            var builder = new PerfmonCounterBuilder();
-                            var counter = builder.CreateCounter(host)
-                                            .WithCategoryName(categoryName)
-                                            .WithCounterName(counterName)
-                                            .WithInstanceName(instanceName)
-                                            .WithUnit(unitOfMeasurement);
-
-                            counters.Add(counter);
+                            counters.Add(new PerfmonCounter(host, categoryName, counterName, instanceName, unitOfMeasurement));
                         }
                     }
-                }
-            }
-            else
-            {
-                Log.ErrorFormat("Unable to determine category type of PerfMon counter '{0}' in category '{1}' on host '{2}' is unknown; skipping loading it.", counterName, categoryName, host.Name);
+                    break;
+                default:
+                    Log.ErrorFormat("Unable to determine category type of PerfMon counter '{0}' in category '{1}' on host '{2}' is unknown; skipping loading it.", counterName, categoryName, host.Name);
+                    break;
             }
 
             return counters;
+        }
+
+        /// <summary>
+        /// Helper method that determines whether a given instance name matches a list of filter strings of instances that should be loaded.
+        /// We treat the absence of filter strings as a wildcard match.
+        /// </summary>
+        /// <param name="instanceName">The PerfMon counter instance name.</param>
+        /// <param name="instanceFilters">A collection of filter strings. If instance name contains one of these, we consider it to be requested.</param>
+        /// <returns>True if instanceName contains one of the instance filter strings, or if no filters are specified</returns>
+        private static bool IsInstanceRequested(string instanceName, ICollection<string> instanceFilters)
+        {
+            if (instanceFilters == null || instanceFilters.Count == 0)
+            {
+                return true;
+            }
+
+            return instanceFilters.Any(instanceName.Contains);
         }
     }
 }
