@@ -74,6 +74,9 @@ namespace TabMon.Counters.MBean
                 case "tableauhealth":
                     return new TableauHealthCounter(Client, Host, Source, Path, Category, Counter, Instance, Unit);
 
+                case "tableauinstrumentation":
+                    return new TableauInstrumentationCounter(Client, Host, Source, Path, Category, Counter, Instance, Unit);
+
                 case "jvmhealth":
                     return new JavaHealthCounter(Client, Host, Source, Path, Category, Counter, Instance, Unit);
 

@@ -107,6 +107,7 @@
     <Compile Include="CounterConfig\CounterConfigLoader.cs" />
     <Compile Include="CounterConfig\CounterConfigReaderFactory.cs" />
     <Compile Include="Counters\MBean\MBeanCounterBuilder.cs" />
+    <Compile Include="Counters\MBean\TableauInstrumentationCounter.cs" />
     <Compile Include="Counters\Perfmon\PerfmonCounterBuilder.cs" />
     <Compile Include="Counters\ICounterBuilder.cs" />
     <Compile Include="Counters\MBean\JMXConnectionInfo.cs" />
