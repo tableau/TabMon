@@ -112,13 +112,13 @@
       <Component Id="ProgramFilesShortcut" Guid="*">
         <Condition>(INSTALLSHORTCUTS = 1)</Condition>
         <Shortcut Id="StartApplicationStartMenuShortcut"
-                  Name="Start $(var.ApplicationName)"
+                  Name="Start $(var.ApplicationName) (Requires Run As Administrator)"
                   Description="Start Tableau Server performance monitoring agent"
                   Target="[#StartTabMonScript]"
                   Icon="ProductIcon"
                   WorkingDirectory="INSTALLFOLDER"/>
         <Shortcut Id="StopApplicationStartMenuShortcut"
-                  Name="Stop $(var.ApplicationName)"
+                  Name="Stop $(var.ApplicationName) (Requires Run As Administrator)"
                   Description="Stop Tableau Server performance monitoring agent"
                   Target="[#StopTabMonScript]"
                   Icon="ProductIcon"
