@@ -257,7 +257,7 @@ namespace DataTableWriter
         {
             if (!adapter.ExistsTable(schema.TableName))
             {
-                Log.Error(String.Format("Error updating index cluster status: Table {0} does not exist", schema.TableName));
+                Log.Error(String.Format("Error updating index cluster status: Table {0} does not exist..", schema.TableName));
                 return false;
             }
 
@@ -327,6 +327,11 @@ namespace DataTableWriter
                 RemoveDBIndexesToMatch(adapter, schema, tableInitializationOptions.IndexesToGenerate);
                 UpdateIndexClusters(adapter, schema, tableInitializationOptions.IndexesToGenerate);
             }
+        }
+
+        public static void PurgeExpiredData(IDbAdapter adapter, string tableName, int interval)
+        {
+            adapter.DeleteRowsOlderThan(tableName, interval);
         }
 
         #endregion

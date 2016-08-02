@@ -63,6 +63,7 @@
     <Compile Include="Writers\DataTableDbWriter.cs" />
     <Compile Include="Adapters\DbAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Writers\IPurgeableDatasource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

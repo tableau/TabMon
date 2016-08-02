@@ -69,6 +69,11 @@
 					<xs:documentation>Contains columns to be indexed upon table creation.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="1" name="PurgeOldData" type="tns:TabMon.PurgeOldDataCT">
+				<xs:annotation>
+					<xs:documentation>The PurgeOldData.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:choice>
 		<xs:attribute name="type" use="required" type="xs:string">
 			<xs:annotation>
@@ -165,6 +170,18 @@
 		<xs:attribute name="clustered" use="required" type="xs:boolean">
 			<xs:annotation>
 				<xs:documentation>Whether the index is clustered or not.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TabMon.PurgeOldDataCT">
+		<xs:attribute name="enabled" use="required" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The Enabled.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="thresholdDays" use="required" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>The ThresholdDays.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
