@@ -216,9 +216,6 @@
     <configurationElement name="PurgeOldData">
       <attributeProperties>
         <attributeProperty name="Enabled" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="enabled" isReadOnly="false" defaultValue="true">
-          <validator>
-            <stringValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/NonEmptyString" />
-          </validator>
           <type>
             <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Boolean" />
           </type>

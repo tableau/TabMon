@@ -430,6 +430,7 @@ namespace DataTableWriter.Adapters
                 try
                 {
                     Log.Debug(String.Format("Dropping rows from {0} older than {1} {2}..", tableName, threshold.ToString(), "day".Pluralize(threshold)));
+                    command.ExecuteNonQuery();
                 }
                 catch (DbException ex)
                 {

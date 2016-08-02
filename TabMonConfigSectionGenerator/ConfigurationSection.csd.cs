@@ -1409,7 +1409,6 @@ namespace TabMon
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The Enabled.")]
-        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.PurgeOldData.EnabledPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=true)]
         public virtual bool Enabled
         {

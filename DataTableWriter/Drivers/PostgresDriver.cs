@@ -280,7 +280,7 @@ namespace DataTableWriter.Drivers
         /// <returns>Postgres statement to drop rows older than X amount of days.</returns>
         public string BuildQueryDeleteRows(string tableName, int interval)
         {
-            return String.Format(@"DELETE FROM ""{0}"" WHERE timestamp < NOW() - INTERVAL '{1} {2}';", tableName, interval.ToString(), "day".Pluralize(interval));
+            return String.Format(@"DELETE FROM {0} WHERE timestamp < NOW() - INTERVAL '{1} {2}';", tableName, interval.ToString(), "day".Pluralize(interval));
         }
 
         #endregion
