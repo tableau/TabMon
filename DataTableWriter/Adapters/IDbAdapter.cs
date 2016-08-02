@@ -29,5 +29,6 @@ namespace DataTableWriter.Adapters
         void ClusterIndex(string tableName, string indexName);
         IList<IndexInfo> GetIndexes(string tableName);
         void DropIndex(string indexName);
+        void DeleteRowsOlderThan(string tableName, int threshold);
     }
 }

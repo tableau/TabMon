@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using DataTableWriter.Writers;
+using log4net;
 using log4net.Config;
 using System;
 using System.Collections.Generic;
@@ -86,7 +87,7 @@ namespace TabMon
 
             // Kick off the polling timer.
             Log.Info("TabMon initialized!  Starting performance counter polling..");
-            timer = new Timer(callback: Poll, state: null, dueTime: 0, period: options.PollInterval * 1000);
+            timer = new Timer(callback: OnTimer, state: null, dueTime: 0, period: options.PollInterval * 1000);
         }
 
         /// <summary>
@@ -128,15 +129,42 @@ namespace TabMon
         /// <summary>
         /// Polls the sampler's counters and writes the results to the writer object.
         /// </summary>
-        /// <param name="stateInfo"></param>
-        private void Poll(object stateInfo)
+        private void Poll()
         {
             var sampleResults = sampler.SampleAll();
-            lock (WriteLock)
+            options.Writer.Write(sampleResults);
+               
+        }
+
+        /// <summary>
+        /// Checks to see if data is purgeable then purges based off of threshold.
+        /// </summary>
+        private void PurgeExpiredData()
+        {
+            if (options.Writer is IPurgeableDatasource)
             {
-                options.Writer.Write(sampleResults);
+                var purgeableDatasource = options.Writer as IPurgeableDatasource;
+                try
+                {
+                    purgeableDatasource.PurgeExpiredData(options.TableName);
+                }
+                catch { }
             }
         }
+
+        /// <summary>
+        /// Handles all tasks involved in the pulling cycle.
+        /// </summary>
+        /// <param name="stateInfo"></param>
+        private void OnTimer(object stateInfo)
+        {
+            lock (WriteLock)
+            {
+                Poll();
+                PurgeExpiredData();
+            }
+        }
+
 
         #endregion Private Methods
 

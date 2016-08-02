@@ -143,7 +143,9 @@ namespace TabMon.Config
                 UpdateDbTableToMatchSchema = true,
                 UpdateSchemaToMatchDbTable = true,
                 UpdateIndexes = databaseConfig.Indexes.Generate,
-                IndexesToGenerate = indexes
+                IndexesToGenerate = indexes,
+                PurgeData = databaseConfig.PurgeOldData.Enabled,
+                PurgeDataThreshold = databaseConfig.PurgeOldData.ThresholdDays
             };
 
             Log.Info("Connecting to results database..");

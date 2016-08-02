@@ -10,13 +10,15 @@
 
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// The TabMonConfig Configuration Section.
     /// </summary>
     public partial class TabMonConfig : global::System.Configuration.ConfigurationSection
     {
-        #region Singleton Instance
 
+        #region Singleton Instance
         /// <summary>
         /// The XML name of the TabMonConfig Configuration Section.
         /// </summary>
@@ -40,11 +42,9 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.TabMonConfig)(global::System.Configuration.ConfigurationManager.GetSection(global::TabMon.Config.TabMonConfig.TabMonConfigSectionPath)));
             }
         }
-
-        #endregion Singleton Instance
+        #endregion
 
         #region Xmlns Property
-
         /// <summary>
         /// The XML name of the <see cref="Xmlns"/> property.
         /// </summary>
@@ -67,11 +67,9 @@ namespace TabMon.Config
                 return ((string)(base[global::TabMon.Config.TabMonConfig.XmlnsPropertyName]));
             }
         }
-
-        #endregion Xmlns Property
+        #endregion
 
         #region IsReadOnly override
-
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -80,11 +78,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Database Property
-
         /// <summary>
         /// The XML name of the <see cref="Database"/> property.
         /// </summary>
@@ -109,11 +105,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.TabMonConfig.DatabasePropertyName] = value;
             }
         }
-
-        #endregion Database Property
+        #endregion
 
         #region Clusters Property
-
         /// <summary>
         /// The XML name of the <see cref="Clusters"/> property.
         /// </summary>
@@ -137,11 +131,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.TabMonConfig.ClustersPropertyName] = value;
             }
         }
-
-        #endregion Clusters Property
+        #endregion
 
         #region PollInterval Property
-
         /// <summary>
         /// The XML name of the <see cref="PollInterval"/> property.
         /// </summary>
@@ -165,11 +157,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.TabMonConfig.PollIntervalPropertyName] = value;
             }
         }
-
-        #endregion PollInterval Property
+        #endregion
 
         #region OutputMode Property
-
         /// <summary>
         /// The XML name of the <see cref="OutputMode"/> property.
         /// </summary>
@@ -193,31 +183,29 @@ namespace TabMon.Config
                 base[global::TabMon.Config.TabMonConfig.OutputModePropertyName] = value;
             }
         }
-
-        #endregion OutputMode Property
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Represents a logical grouping of hosts.
     /// </summary>
     [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Host), CollectionType = global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName = global::TabMon.Config.Cluster.HostPropertyName)]
     public partial class Cluster : global::System.Configuration.ConfigurationElementCollection
     {
-        #region Constants
 
+        #region Constants
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.Host"/> instances in this collection.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string HostPropertyName = "Host";
-
-        #endregion Constants
+        #endregion
 
         #region Overrides
-
         /// <summary>
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -280,11 +268,9 @@ namespace TabMon.Config
         {
             return new global::TabMon.Config.Host();
         }
-
-        #endregion Overrides
+        #endregion
 
         #region Indexer
-
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Host"/> at the specified index.
         /// </summary>
@@ -310,11 +296,9 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.Host)(base.BaseGet(name)));
             }
         }
-
-        #endregion Indexer
+        #endregion
 
         #region Add
-
         /// <summary>
         /// Adds the specified <see cref="global::TabMon.Config.Host"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -324,11 +308,9 @@ namespace TabMon.Config
         {
             base.BaseAdd(Host);
         }
-
-        #endregion Add
+        #endregion
 
         #region Remove
-
         /// <summary>
         /// Removes the specified <see cref="global::TabMon.Config.Host"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -338,11 +320,9 @@ namespace TabMon.Config
         {
             base.BaseRemove(this.GetElementKey(Host));
         }
-
-        #endregion Remove
+        #endregion
 
         #region GetItem
-
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Host"/> at the specified index.
         /// </summary>
@@ -362,11 +342,9 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Host)(base.BaseGet(((object)(name)))));
         }
-
-        #endregion GetItem
+        #endregion
 
         #region IsReadOnly override
-
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -375,11 +353,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Name Property
-
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
@@ -404,20 +380,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Cluster.NamePropertyName] = value;
             }
         }
-
-        #endregion Name Property
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Contains configuration information for the results database.  Only required if OutputMode is "DB".
     /// </summary>
     public partial class Database : global::System.Configuration.ConfigurationElement
     {
-        #region IsReadOnly override
 
+        #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -426,11 +402,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Type Property
-
         /// <summary>
         /// The XML name of the <see cref="Type"/> property.
         /// </summary>
@@ -455,11 +429,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.TypePropertyName] = value;
             }
         }
-
-        #endregion Type Property
+        #endregion
 
         #region Name Property
-
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
@@ -484,11 +456,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.NamePropertyName] = value;
             }
         }
-
-        #endregion Name Property
+        #endregion
 
         #region Server Property
-
         /// <summary>
         /// The XML name of the <see cref="Server"/> property.
         /// </summary>
@@ -512,11 +482,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.ServerPropertyName] = value;
             }
         }
-
-        #endregion Server Property
+        #endregion
 
         #region User Property
-
         /// <summary>
         /// The XML name of the <see cref="User"/> property.
         /// </summary>
@@ -540,11 +508,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.UserPropertyName] = value;
             }
         }
-
-        #endregion User Property
+        #endregion
 
         #region Table Property
-
         /// <summary>
         /// The XML name of the <see cref="Table"/> property.
         /// </summary>
@@ -568,11 +534,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.TablePropertyName] = value;
             }
         }
-
-        #endregion Table Property
+        #endregion
 
         #region Indexes Property
-
         /// <summary>
         /// The XML name of the <see cref="Indexes"/> property.
         /// </summary>
@@ -596,20 +560,46 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Database.IndexesPropertyName] = value;
             }
         }
+        #endregion
 
-        #endregion Indexes Property
+        #region PurgeOldData Property
+        /// <summary>
+        /// The XML name of the <see cref="PurgeOldData"/> property.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        internal const string PurgeOldDataPropertyName = "PurgeOldData";
+
+        /// <summary>
+        /// Gets or sets the PurgeOldData.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.ComponentModel.DescriptionAttribute("The PurgeOldData.")]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.PurgeOldDataPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
+        public virtual global::TabMon.PurgeOldData PurgeOldData
+        {
+            get
+            {
+                return ((global::TabMon.PurgeOldData)(base[global::TabMon.Config.Database.PurgeOldDataPropertyName]));
+            }
+            set
+            {
+                base[global::TabMon.Config.Database.PurgeOldDataPropertyName] = value;
+            }
+        }
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Represents an individual host.
     /// </summary>
     public partial class Host : global::System.Configuration.ConfigurationElement
     {
-        #region IsReadOnly override
 
+        #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -618,11 +608,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Name Property
-
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
@@ -647,20 +635,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Host.NamePropertyName] = value;
             }
         }
-
-        #endregion Name Property
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Contains information about the database server location.
     /// </summary>
     public partial class Server : global::System.Configuration.ConfigurationElement
     {
-        #region IsReadOnly override
 
+        #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -669,11 +657,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Host Property
-
         /// <summary>
         /// The XML name of the <see cref="Host"/> property.
         /// </summary>
@@ -698,11 +684,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Server.HostPropertyName] = value;
             }
         }
-
-        #endregion Host Property
+        #endregion
 
         #region Port Property
-
         /// <summary>
         /// The XML name of the <see cref="Port"/> property.
         /// </summary>
@@ -727,20 +711,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Server.PortPropertyName] = value;
             }
         }
-
-        #endregion Port Property
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Contains information about the database user.
     /// </summary>
     public partial class User : global::System.Configuration.ConfigurationElement
     {
-        #region IsReadOnly override
 
+        #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -749,11 +733,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Login Property
-
         /// <summary>
         /// The XML name of the <see cref="Login"/> property.
         /// </summary>
@@ -778,11 +760,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.User.LoginPropertyName] = value;
             }
         }
-
-        #endregion Login Property
+        #endregion
 
         #region Password Property
-
         /// <summary>
         /// The XML name of the <see cref="Password"/> property.
         /// </summary>
@@ -806,20 +786,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.User.PasswordPropertyName] = value;
             }
         }
-
-        #endregion Password Property
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Contains information about the results table.
     /// </summary>
     public partial class Table : global::System.Configuration.ConfigurationElement
     {
-        #region IsReadOnly override
 
+        #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -828,11 +808,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Name Property
-
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
@@ -857,20 +835,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Table.NamePropertyName] = value;
             }
         }
-
-        #endregion Name Property
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Contains information about the polling frequency.
     /// </summary>
     public partial class PollInterval : global::System.Configuration.ConfigurationElement
     {
-        #region IsReadOnly override
 
+        #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -879,11 +857,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Value Property
-
         /// <summary>
         /// The XML name of the <see cref="Value"/> property.
         /// </summary>
@@ -908,20 +884,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.PollInterval.ValuePropertyName] = value;
             }
         }
-
-        #endregion Value Property
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Contains information about the result output mode.
     /// </summary>
     public partial class OutputMode : global::System.Configuration.ConfigurationElement
     {
-        #region IsReadOnly override
 
+        #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -930,11 +906,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Value Property
-
         /// <summary>
         /// The XML name of the <see cref="Value"/> property.
         /// </summary>
@@ -959,31 +933,29 @@ namespace TabMon.Config
                 base[global::TabMon.Config.OutputMode.ValuePropertyName] = value;
             }
         }
-
-        #endregion Value Property
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Contains definitions of which machines to monitor and their logical clustering.  Each cluster may contain multiple hosts.
     /// </summary>
     [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Cluster), CollectionType = global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName = global::TabMon.Config.Clusters.ClusterPropertyName)]
     public partial class Clusters : global::System.Configuration.ConfigurationElementCollection
     {
-        #region Constants
 
+        #region Constants
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.Cluster"/> instances in this collection.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string ClusterPropertyName = "Cluster";
-
-        #endregion Constants
+        #endregion
 
         #region Overrides
-
         /// <summary>
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1046,11 +1018,9 @@ namespace TabMon.Config
         {
             return new global::TabMon.Config.Cluster();
         }
-
-        #endregion Overrides
+        #endregion
 
         #region Indexer
-
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Cluster"/> at the specified index.
         /// </summary>
@@ -1076,11 +1046,9 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.Cluster)(base.BaseGet(name)));
             }
         }
-
-        #endregion Indexer
+        #endregion
 
         #region Add
-
         /// <summary>
         /// Adds the specified <see cref="global::TabMon.Config.Cluster"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1090,11 +1058,9 @@ namespace TabMon.Config
         {
             base.BaseAdd(Cluster);
         }
-
-        #endregion Add
+        #endregion
 
         #region Remove
-
         /// <summary>
         /// Removes the specified <see cref="global::TabMon.Config.Cluster"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1104,11 +1070,9 @@ namespace TabMon.Config
         {
             base.BaseRemove(this.GetElementKey(Cluster));
         }
-
-        #endregion Remove
+        #endregion
 
         #region GetItem
-
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Cluster"/> at the specified index.
         /// </summary>
@@ -1128,11 +1092,9 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Cluster)(base.BaseGet(((object)(name)))));
         }
-
-        #endregion GetItem
+        #endregion
 
         #region IsReadOnly override
-
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -1141,31 +1103,29 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Contains columns to be indexed upon table creation.
     /// </summary>
     [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Index), CollectionType = global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName = global::TabMon.Config.Indexes.IndexPropertyName)]
     public partial class Indexes : global::System.Configuration.ConfigurationElementCollection
     {
-        #region Constants
 
+        #region Constants
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.Index"/> instances in this collection.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         internal const string IndexPropertyName = "Index";
-
-        #endregion Constants
+        #endregion
 
         #region Overrides
-
         /// <summary>
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1228,11 +1188,9 @@ namespace TabMon.Config
         {
             return new global::TabMon.Config.Index();
         }
-
-        #endregion Overrides
+        #endregion
 
         #region Indexer
-
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Index"/> at the specified index.
         /// </summary>
@@ -1258,11 +1216,9 @@ namespace TabMon.Config
                 return ((global::TabMon.Config.Index)(base.BaseGet(column)));
             }
         }
-
-        #endregion Indexer
+        #endregion
 
         #region Add
-
         /// <summary>
         /// Adds the specified <see cref="global::TabMon.Config.Index"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1272,11 +1228,9 @@ namespace TabMon.Config
         {
             base.BaseAdd(Index);
         }
-
-        #endregion Add
+        #endregion
 
         #region Remove
-
         /// <summary>
         /// Removes the specified <see cref="global::TabMon.Config.Index"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -1286,11 +1240,9 @@ namespace TabMon.Config
         {
             base.BaseRemove(this.GetElementKey(Index));
         }
-
-        #endregion Remove
+        #endregion
 
         #region GetItem
-
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Index"/> at the specified index.
         /// </summary>
@@ -1310,11 +1262,9 @@ namespace TabMon.Config
         {
             return ((global::TabMon.Config.Index)(base.BaseGet(((object)(column)))));
         }
-
-        #endregion GetItem
+        #endregion
 
         #region IsReadOnly override
-
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -1323,11 +1273,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Generate Property
-
         /// <summary>
         /// The XML name of the <see cref="Generate"/> property.
         /// </summary>
@@ -1351,20 +1299,20 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Indexes.GeneratePropertyName] = value;
             }
         }
-
-        #endregion Generate Property
+        #endregion
     }
 }
-
 namespace TabMon.Config
 {
+
+
     /// <summary>
     /// Represents an individual index.
     /// </summary>
     public partial class Index : global::System.Configuration.ConfigurationElement
     {
-        #region IsReadOnly override
 
+        #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
@@ -1373,11 +1321,9 @@ namespace TabMon.Config
         {
             return false;
         }
-
-        #endregion IsReadOnly override
+        #endregion
 
         #region Column Property
-
         /// <summary>
         /// The XML name of the <see cref="Column"/> property.
         /// </summary>
@@ -1401,11 +1347,9 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Index.ColumnPropertyName] = value;
             }
         }
-
-        #endregion Column Property
+        #endregion
 
         #region Clustered Property
-
         /// <summary>
         /// The XML name of the <see cref="Clustered"/> property.
         /// </summary>
@@ -1429,7 +1373,82 @@ namespace TabMon.Config
                 base[global::TabMon.Config.Index.ClusteredPropertyName] = value;
             }
         }
+        #endregion
+    }
+}
+namespace TabMon
+{
 
-        #endregion Clustered Property
+
+    /// <summary>
+    /// The PurgeOldData Configuration Element.
+    /// </summary>
+    public partial class PurgeOldData : global::System.Configuration.ConfigurationElement
+    {
+
+        #region IsReadOnly override
+        /// <summary>
+        /// Gets a value indicating whether the element is read-only.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        public override bool IsReadOnly()
+        {
+            return false;
+        }
+        #endregion
+
+        #region Enabled Property
+        /// <summary>
+        /// The XML name of the <see cref="Enabled"/> property.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        internal const string EnabledPropertyName = "enabled";
+
+        /// <summary>
+        /// Gets or sets the Enabled.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.ComponentModel.DescriptionAttribute("The Enabled.")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters = "", MaxLength = 2147483647, MinLength = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.PurgeOldData.EnabledPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = true)]
+        public virtual bool Enabled
+        {
+            get
+            {
+                return ((bool)(base[global::TabMon.PurgeOldData.EnabledPropertyName]));
+            }
+            set
+            {
+                base[global::TabMon.PurgeOldData.EnabledPropertyName] = value;
+            }
+        }
+        #endregion
+
+        #region ThresholdDays Property
+        /// <summary>
+        /// The XML name of the <see cref="ThresholdDays"/> property.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        internal const string ThresholdDaysPropertyName = "thresholdDays";
+
+        /// <summary>
+        /// Gets or sets the ThresholdDays.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.ComponentModel.DescriptionAttribute("The ThresholdDays.")]
+        [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange = false, MaxValue = 2147483647, MinValue = 1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.PurgeOldData.ThresholdDaysPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false, DefaultValue = 30)]
+        public virtual int ThresholdDays
+        {
+            get
+            {
+                return ((int)(base[global::TabMon.PurgeOldData.ThresholdDaysPropertyName]));
+            }
+            set
+            {
+                base[global::TabMon.PurgeOldData.ThresholdDaysPropertyName] = value;
+            }
+        }
+        #endregion
     }
 }

@@ -415,6 +415,30 @@ namespace DataTableWriter.Adapters
             }
         }
 
+        /// <summary>
+        /// Deletes rows from a table.
+        /// </summary>
+        /// <param name="tableName">The name of the table to drop rows from.</param>
+        /// <param name="threshold">The interval for days to drop.</param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities")]
+        public void DeleteRowsOlderThan(string tableName, int threshold)
+        {
+            using (var command = Connection.CreateCommand())
+            {
+                command.Connection = Connection;
+                command.CommandText = Driver.BuildQueryDeleteRows(tableName, threshold);
+                try
+                {
+                    Log.Debug(String.Format("Dropping rows from {0} older than {1} {2}..", tableName, threshold.ToString(), "day".Pluralize(threshold)));
+                }
+                catch (DbException ex)
+                {
+                    Log.Error(String.Format("Unable to drop rows from table {0}: {1}", tableName, ex));
+                    throw;
+                }
+            }
+        }
+
         #endregion Public Methods
 
         #region IDisposable Methods
