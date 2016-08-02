@@ -409,7 +409,7 @@ namespace DataTableWriter.Adapters
                 }
                 catch (DbException ex)
                 {
-                    Log.Error(String.Format("Unable to drop index '{0}': {1}", indexName, ex));
+                    Log.Error(String.Format("Unable to drop index '{0}': {1}", indexName, ex.Message));
                     throw;
                 }
             }
@@ -429,12 +429,12 @@ namespace DataTableWriter.Adapters
                 command.CommandText = Driver.BuildQueryDeleteRows(tableName, threshold);
                 try
                 {
-                    Log.Debug(String.Format("Dropping rows from {0} older than {1} {2}..", tableName, threshold.ToString(), "day".Pluralize(threshold)));
+                    Log.DebugFormat("Dropping rows from {0} older than {1} {2}..", tableName, threshold, "day".Pluralize(threshold));
                     command.ExecuteNonQuery();
                 }
                 catch (DbException ex)
                 {
-                    Log.Error(String.Format("Unable to drop rows from table {0}: {1}", tableName, ex));
+                    Log.ErrorFormat("Unable to drop rows from table {0}: {1}", tableName, ex.Message);
                     throw;
                 }
             }
