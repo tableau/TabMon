@@ -25,7 +25,7 @@ namespace TabMon.Sampler
             this.hostsToSample = hostsToSample;
             this.tableName = tableName;
             persistentCounters = CounterConfigLoader.Load(hostsToSample, CounterLifecycleType.Persistent);
-            Log.InfoFormat("Successfully loaded {0} {1} from configuration file.", persistentCounters.Count, "counter".Pluralize(persistentCounters.Count));
+            Log.InfoFormat("Successfully loaded {0} persistent {1} from configuration file.", persistentCounters.Count, "counter".Pluralize(persistentCounters.Count));
         }
 
         #region Public Methods

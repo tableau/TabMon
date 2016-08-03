@@ -20,6 +20,7 @@ namespace TabMon.CounterConfig
         private const string PathToCountersConfig = @"Config\Counters.config";
         private const string PathToSchema = @"Resources\CountersConfig.xsd";
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        private static XmlDocument loadedConfigDocument; 
 
         /// <summary>
         /// Loads the Counters.config file, validates it against the XSD schema, and news up the appropriate CounterConfigReader object for each root counter type node.
@@ -33,35 +34,13 @@ namespace TabMon.CounterConfig
 
             var counters = new Collection<ICounter>();
 
-            // Load the document & validate against internal schema.
-            var settings = new XmlReaderSettings
-                {
-                    ValidationType = ValidationType.Schema
-                };
-
-            var doc = new XmlDocument();
-            try
+            if (loadedConfigDocument == null)
             {
-                settings.Schemas.Add("", PathToSchema);
-                var reader = XmlReader.Create(PathToCountersConfig, settings);
-                doc.Load(reader);
+                loadedConfigDocument = LoadConfig();
             }
-            catch (FileNotFoundException ex)
-            {
-                throw new ConfigurationErrorsException(String.Format("Could not find file '{0}'.", ex.Message));
-            }
-            catch (XmlException ex)
-            {
-                throw new ConfigurationErrorsException(String.Format("Malformed XML in' {0}': {1}", PathToCountersConfig, ex.Message));
-            }
-            catch (XmlSchemaValidationException ex)
-            {
-                throw new ConfigurationErrorsException(String.Format("Failed to validate '{0}': {1} (Line {2})", PathToCountersConfig, ex.Message, ex.LineNumber));
-            }
-            Log.Debug(String.Format("Successfully validated '{0}' against '{1}'.", PathToCountersConfig, PathToSchema));
 
             // Set the root element & begin loading counters.
-            var documentRoot = doc.DocumentElement.SelectSingleNode("/Counters");
+            var documentRoot = loadedConfigDocument.DocumentElement.SelectSingleNode("/Counters");
             var counterRootNodes = documentRoot.SelectNodes("child::*");
             foreach (XmlNode counterRootNode in counterRootNodes)
             {
@@ -80,6 +59,40 @@ namespace TabMon.CounterConfig
 
             Log.DebugFormat("Successfully loaded {0} {1} from configuration file.", counters.Count, "counter".Pluralize(counters.Count));
             return counters;
+        }
+
+        private static XmlDocument LoadConfig()
+        {
+            Log.DebugFormat(@"Loading performance counters from {0}..", Path.Combine(Directory.GetCurrentDirectory(), PathToCountersConfig));
+
+            var settings = new XmlReaderSettings
+            {
+                ValidationType = ValidationType.Schema
+            };
+
+            var doc = new XmlDocument();
+            try
+            {
+                settings.Schemas.Add("", PathToSchema);
+                var reader = XmlReader.Create(PathToCountersConfig, settings);
+                doc.Load(reader);
+            }
+            catch (FileNotFoundException ex)
+            {
+                throw new ConfigurationErrorsException(String.Format("Could not find file '{0}'.", ex.Message));
+            }
+            catch (XmlException ex)
+            {
+                throw new ConfigurationErrorsException(String.Format("Malformed XML in' {0}': {1}", PathToCountersConfig,
+                    ex.Message));
+            }
+            catch (XmlSchemaValidationException ex)
+            {
+                throw new ConfigurationErrorsException(String.Format("Failed to validate '{0}': {1} (Line {2})",
+                    PathToCountersConfig, ex.Message, ex.LineNumber));
+            }
+            Log.Debug(String.Format("Successfully validated '{0}' against '{1}'.", PathToCountersConfig, PathToSchema));
+            return doc;
         }
     }
 }
