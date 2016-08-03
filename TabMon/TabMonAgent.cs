@@ -24,7 +24,6 @@ namespace TabMon
         private CounterSampler sampler;
         private readonly TabMonOptions options;
         private bool disposed;
-        private const string PathToCountersConfig = @"Config\Counters.config";
         private const int WriteLockAcquisitionTimeout = 10; // In seconds.
         private static readonly object WriteLock = new object();
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -67,22 +66,16 @@ namespace TabMon
                 return;
             }
 
-            // Read Counters.config & create counters.
-            Log.Info(String.Format(@"Loading performance counters from {0}\{1}..", Directory.GetCurrentDirectory(), PathToCountersConfig));
-            ICollection<ICounter> counters;
+            // Spin up counter sampler.
             try
             {
-                counters = CounterConfigLoader.Load(PathToCountersConfig, options.Hosts);
+                sampler = new CounterSampler(options.Hosts, options.TableName);
             }
-            catch (ConfigurationErrorsException ex)
+            catch(Exception ex)
             {
-                Log.Error(String.Format("Failed to correctly load '{0}': {1}\nAborting..", PathToCountersConfig, ex.Message));
+                Log.ErrorFormat("Failed to initialize counter sampler using counters from configuration file: {0}\nAborting..", ex.Message);
                 return;
             }
-            Log.Debug(String.Format("Successfully loaded {0} {1} from configuration file.", counters.Count, "counter".Pluralize(counters.Count)));
-
-            // Spin up counter sampler.
-            sampler = new CounterSampler(counters, options.TableName);
 
             // Kick off the polling timer.
             Log.Info("TabMon initialized!  Starting performance counter polling..");

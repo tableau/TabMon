@@ -17,17 +17,20 @@ namespace TabMon.CounterConfig
     /// </summary>
     internal static class CounterConfigLoader
     {
+        private const string PathToCountersConfig = @"Config\Counters.config";
         private const string PathToSchema = @"Resources\CountersConfig.xsd";
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
         /// Loads the Counters.config file, validates it against the XSD schema, and news up the appropriate CounterConfigReader object for each root counter type node.
         /// </summary>
-        /// <param name="pathToConfig">The path to the Counters.config file.</param>
         /// <param name="hosts">The target hosts to load counters for.</param>
+        /// <param name="counterLifecycleType">The type of counter to load; e.g. ephemeral or persistent.</param>
         /// <returns>Collection of all valid counters in Counters.config across the set of given hosts.</returns>
-        public static ICollection<ICounter> Load(string pathToConfig, IEnumerable<Host> hosts)
+        public static ICollection<ICounter> Load(IEnumerable<Host> hosts, CounterLifecycleType counterLifecycleType)
         {
+            Log.DebugFormat(@"Loading {0} performance counters from {1}..", counterLifecycleType.ToString().ToLowerInvariant(), Path.Combine(Directory.GetCurrentDirectory(), PathToCountersConfig));
+
             var counters = new Collection<ICounter>();
 
             // Load the document & validate against internal schema.
@@ -40,7 +43,7 @@ namespace TabMon.CounterConfig
             try
             {
                 settings.Schemas.Add("", PathToSchema);
-                var reader = XmlReader.Create(pathToConfig, settings);
+                var reader = XmlReader.Create(PathToCountersConfig, settings);
                 doc.Load(reader);
             }
             catch (FileNotFoundException ex)
@@ -49,13 +52,13 @@ namespace TabMon.CounterConfig
             }
             catch (XmlException ex)
             {
-                throw new ConfigurationErrorsException(String.Format("Malformed XML in' {0}': {1}", pathToConfig, ex.Message));
+                throw new ConfigurationErrorsException(String.Format("Malformed XML in' {0}': {1}", PathToCountersConfig, ex.Message));
             }
             catch (XmlSchemaValidationException ex)
             {
-                throw new ConfigurationErrorsException(String.Format("Failed to validate '{0}': {1} (Line {2})", pathToConfig, ex.Message, ex.LineNumber));
+                throw new ConfigurationErrorsException(String.Format("Failed to validate '{0}': {1} (Line {2})", PathToCountersConfig, ex.Message, ex.LineNumber));
             }
-            Log.Debug(String.Format("Successfully validated '{0}' against '{1}'.", pathToConfig, PathToSchema));
+            Log.Debug(String.Format("Successfully validated '{0}' against '{1}'.", PathToCountersConfig, PathToSchema));
 
             // Set the root element & begin loading counters.
             var documentRoot = doc.DocumentElement.SelectSingleNode("/Counters");
@@ -63,17 +66,19 @@ namespace TabMon.CounterConfig
             foreach (XmlNode counterRootNode in counterRootNodes)
             {
                 var counterType = counterRootNode.Name;
-                Log.Debug(String.Format("Loading {0} counters..", counterType));
+                Log.DebugFormat("Loading {0} counters..", counterType);
                 var configReader = CounterConfigReaderFactory.CreateConfigReader(counterType);
 
                 foreach (var host in hosts)
                 {
-                    var countersInNode = configReader.LoadCounters(counterRootNode, host);
-                    Log.Info(String.Format("Loaded {0} {1} {2} on {3}.", countersInNode.Count, counterType, "counter".Pluralize(countersInNode.Count), host.Name));
+                    var countersInNode = configReader.LoadCounters(counterRootNode, host, counterLifecycleType);
+                    Log.DebugFormat("Loaded {0} {1} {2} {3} on {4}.",
+                                    countersInNode.Count, counterLifecycleType.ToString().ToLowerInvariant(), counterType, "counter".Pluralize(countersInNode.Count), host.Name);
                     counters.AddRange(countersInNode);
                 }
             }
 
+            Log.DebugFormat("Successfully loaded {0} {1} from configuration file.", counters.Count, "counter".Pluralize(counters.Count));
             return counters;
         }
     }

@@ -22,8 +22,9 @@ namespace TabMon.CounterConfig
         /// </summary>
         /// <param name="root">The root MBean counters config node.</param>
         /// <param name="host">The host to load counters for.</param>
+        /// <param name="lifeCycleTypeToLoad">A filter that indicates whether ephemeral or persistent counters should be loaded.</param>
         /// <returns>Collection of MBean counters specified in the root node's config.</returns>
-        public ICollection<ICounter> LoadCounters(XmlNode root, Host host)
+        public ICollection<ICounter> LoadCounters(XmlNode root, Host host, CounterLifecycleType lifeCycleTypeToLoad)
         {
             var counters = new Collection<ICounter>();
             var sourceNodes = root.SelectNodes("./Source");
@@ -49,8 +50,16 @@ namespace TabMon.CounterConfig
                     foreach (XmlNode counterNode in counterNodesForSource)
                     {
                         var counterName = counterNode.Attributes["name"].Value;
+
+                        CounterLifecycleType configuredCounterLifecycleType = GetConfiguredLifecycleType(counterNode);
+                        if (configuredCounterLifecycleType != lifeCycleTypeToLoad)
+                        {
+                            continue;
+                        }
+
                         var categoryName = counterNode.ParentNode.Attributes["name"].Value;
                         var path = counterNode.ParentNode.Attributes["path"].Value;
+
                         string unitOfMeasurement = null;
                         if (counterNode.Attributes.GetNamedItem("unit") != null)
                         {
@@ -93,6 +102,21 @@ namespace TabMon.CounterConfig
             }
 
             return counters;
+        }
+
+        private static CounterLifecycleType GetConfiguredLifecycleType(XmlNode counterNode)
+        {
+            if (counterNode.Attributes != null && counterNode.Attributes.GetNamedItem("ephemeral") != null)
+            {
+                bool isEphemeral;
+                Boolean.TryParse(counterNode.Attributes["ephemeral"].Value.ToLowerInvariant(), out isEphemeral);
+                if (isEphemeral)
+                {
+                    return CounterLifecycleType.Ephemeral;
+                }
+            }
+
+            return CounterLifecycleType.Persistent;
         }
     }
 }

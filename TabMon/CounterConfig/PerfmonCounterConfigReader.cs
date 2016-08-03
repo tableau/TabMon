@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Xml;
@@ -14,12 +15,13 @@ namespace TabMon.CounterConfig
     internal sealed class PerfmonCounterConfigReader : ICounterConfigReader
     {
         /// <summary>
-        /// Parses & loads a set of Perfmon counters for the given host using the XML tree.
+        /// Parses & loads all Perfmon counters for the given host using the XML tree.
         /// </summary>
         /// <param name="root">The root Perfmon counters config node.</param>
         /// <param name="host">The host to load counters for.</param>
+        /// <param name="lifeCycleTypeToLoad">A filter that indicates whether ephemeral or persistent counters should be loaded.</param>
         /// <returns>Collection of Perfmon counters specified in the root node's config.</returns>
-        public ICollection<ICounter> LoadCounters(XmlNode root, Host host)
+        public ICollection<ICounter> LoadCounters(XmlNode root, Host host, CounterLifecycleType lifeCycleTypeToLoad)
         {
             var counters = new Collection<ICounter>();
             var perfmonCounterNodes = root.SelectNodes("./*/Counter");
@@ -36,27 +38,54 @@ namespace TabMon.CounterConfig
                 }
 
                 // If any instance names are called out, shove them into a list of filters.
-                IList<string> instanceNameFilters = new List<string>();
+                var instanceFilters = new HashSet<string>();
                 if (counterNode.HasChildNodes)
                 {
                     var instanceNodes = counterNode.SelectNodes("./Instance");
-                    
+                    if (instanceNodes == null)
+                    {
+                        continue;
+                    }
+
                     foreach (var instanceNode in instanceNodes.Cast<XmlNode>().Where(instanceNode => instanceNode.Attributes.GetNamedItem("name") != null))
                     {
-                        instanceNameFilters.Add(instanceNode.Attributes["name"].Value);
+                        string instanceName = instanceNode.Attributes["name"].Value;
+                        CounterLifecycleType configuredCounterLifecycleType = GetConfiguredInstanceLifecycleType(instanceNode);
+                        if (configuredCounterLifecycleType == lifeCycleTypeToLoad)
+                        {
+                            instanceFilters.Add(instanceName);
+                        }
                     }
                 }
 
                 // Load an instance of this perfmon counter for each matching instance name that exists.
                 // If no instance name is specified, just load them all.
-                var counterInstances = PerfmonCounterLoader.LoadInstancesForCounter(host, categoryName, counterName, unitOfMeasurement, instanceNameFilters);
-                foreach (var counterInstance in counterInstances)
+                if (lifeCycleTypeToLoad == CounterLifecycleType.Persistent || instanceFilters.Count > 0)
                 {
-                    counters.Add(counterInstance);
+                    var counterInstances = PerfmonCounterLoader.LoadInstancesForCounter(host, categoryName, counterName, unitOfMeasurement, instanceFilters);
+                    foreach (var counterInstance in counterInstances)
+                    {
+                        counters.Add(counterInstance);
+                    }
                 }
             }
 
             return counters;
+        }
+
+        private static CounterLifecycleType GetConfiguredInstanceLifecycleType(XmlNode instanceNode)
+        {
+            if (instanceNode.Attributes != null && instanceNode.Attributes.GetNamedItem("ephemeral") != null)
+            {
+                bool isEphemeral;
+                Boolean.TryParse(instanceNode.Attributes["ephemeral"].Value.ToLowerInvariant(), out isEphemeral);
+                if (isEphemeral)
+                {
+                    return CounterLifecycleType.Ephemeral;
+                }
+            }
+
+            return CounterLifecycleType.Persistent;
         }
     }
 }

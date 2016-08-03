@@ -2,8 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Reflection;
+using TabMon.CounterConfig;
 using TabMon.Counters;
+using TabMon.Helpers;
 
 namespace TabMon.Sampler
 {
@@ -12,14 +15,17 @@ namespace TabMon.Sampler
     /// </summary>
     internal sealed class CounterSampler
     {
-        private readonly ICollection<ICounter> counters;
-        private readonly DataTable schema;
+        private readonly ICollection<ICounter> persistentCounters;
+        private readonly ICollection<Host> hostsToSample;
+        private readonly string tableName;
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public CounterSampler(ICollection<ICounter> counterCollection, string tableName)
+        public CounterSampler(ICollection<Host> hostsToSample, string tableName)
         {
-            counters = counterCollection;
-            schema = GenerateSchema(tableName);
+            this.hostsToSample = hostsToSample;
+            this.tableName = tableName;
+            persistentCounters = CounterConfigLoader.Load(hostsToSample, CounterLifecycleType.Persistent);
+            Log.InfoFormat("Successfully loaded {0} {1} from configuration file.", persistentCounters.Count, "counter".Pluralize(persistentCounters.Count));
         }
 
         #region Public Methods
@@ -33,26 +39,16 @@ namespace TabMon.Sampler
             Log.Info("Polling..");
             var pollTimestamp = DateTime.Now;
 
-            // Create a new empty table to store results of this sampling, using our existing column schema.
-            var dataTable = schema.Clone();
+            // Load any "ephemeral" counters which may have been instantiated between polling cycles.
+            var ephemeralCounters = CounterConfigLoader.Load(hostsToSample, CounterLifecycleType.Ephemeral);
+            Log.InfoFormat("Successfully loaded {0} ephemeral {1}.", ephemeralCounters.Count, "counter".Pluralize(ephemeralCounters.Count));
+            var allCounters = persistentCounters.Concat(ephemeralCounters).ToList();
 
-            // Sample all counters.
-            foreach (var counter in counters)
-            {
-                // Retrieve sample for this counter.
-                var counterSample = counter.Sample();
+            // Sample all persistent counters.
+            DataTable dataTable = SampleCounters(allCounters, pollTimestamp);
 
-                // Bail out if we were unable to sample.
-                if (counterSample == null) continue;
-
-                // Map sample result to schema and insert it into result table.
-                var row = MapToSchema(counterSample, dataTable);
-                row["timestamp"] = pollTimestamp;
-                dataTable.Rows.Add(row);
-            }
-
-            var numFailed = counters.Count - dataTable.Rows.Count;
-            Log.Info(String.Format("Finished polling {0} {1}. [{2} {3}]", counters.Count, "counter".Pluralize(counters.Count), numFailed, "failure".Pluralize(numFailed)));
+            var numFailed = allCounters.Count - dataTable.Rows.Count;
+            Log.Info(String.Format("Finished polling {0} {1}. [{2} {3}]", allCounters.Count, "counter".Pluralize(allCounters.Count), numFailed, "failure".Pluralize(numFailed)));
 
             return dataTable;
         }
@@ -61,12 +57,34 @@ namespace TabMon.Sampler
 
         #region Private Methods
 
+        private DataTable SampleCounters(ICollection<ICounter> counters, DateTime pollTimestamp)
+        {
+            // Create a new empty table to store results of this sampling.
+            var dataTable = GenerateSchema(tableName, counters);
+
+            foreach (var counter in counters)
+            {
+                // Retrieve sample for this counter.
+                var counterSample = counter.Sample();
+
+                if (counterSample != null)
+                {
+                    // Map sample result to schema and insert it into result table.
+                    var row = MapToSchema(counterSample, dataTable, pollTimestamp);
+                    dataTable.Rows.Add(row);
+                }
+            }
+
+            return dataTable;
+        }
+
         /// <summary>
         /// Generates a dynamic schema that can support all known counters.
         /// </summary>
         /// <param name="tableName">The name of the resulting data table.</param>
-        /// <returns>DataTable that can accomodate both metadata and sample results of all counters managed by this sampler.</returns>
-        private DataTable GenerateSchema(string tableName)
+        /// <param name="counters">The counters that the data table will need to be able to accomodate.</param>
+        /// <returns>DataTable that can accomodate both metadata and sample results of all input counters.</returns>
+        private DataTable GenerateSchema(string tableName, ICollection<ICounter> counters)
         {
             var generatedSchema = new DataTable(tableName);
 
@@ -86,8 +104,8 @@ namespace TabMon.Sampler
             generatedSchema.Columns.Add(BuildColumnMetadata("instance", "System.String", true, 128));
             generatedSchema.Columns.Add(BuildColumnMetadata("unit", "System.String", true, 32));
 
-            Log.Debug(String.Format("Dynamically built result schema '{0}'. [{1} {2}]",
-                      tableName, generatedSchema.Columns.Count, "column".Pluralize(generatedSchema.Columns.Count)));
+            Log.DebugFormat("Dynamically built result schema '{0}'. [{1} {2}]",
+                            tableName, generatedSchema.Columns.Count, "column".Pluralize(generatedSchema.Columns.Count));
             return generatedSchema;
         }
 
@@ -107,10 +125,7 @@ namespace TabMon.Sampler
                 return null;
             }
 
-            var column = new DataColumn(columnName.ToSnakeCase(), type)
-                {
-                    AllowDBNull = isNullable
-                };
+            var column = new DataColumn(columnName.ToSnakeCase(), type) { AllowDBNull = isNullable };
             if (maxLength >= 1)
             {
                 column.MaxLength = maxLength;
@@ -124,12 +139,14 @@ namespace TabMon.Sampler
         /// </summary>
         /// <param name="sample">The counter sample to map.</param>
         /// <param name="tableSchema">The DataTable to map the counter to.</param>
+        /// <param name="pollTimestamp">The timestamp that the poll occurred at.</param>
         /// <returns>DataRow with all fields from the sample correctly mapped.</returns>
-        private static DataRow MapToSchema(ICounterSample sample, DataTable tableSchema)
+        private static DataRow MapToSchema(ICounterSample sample, DataTable tableSchema, DateTime pollTimestamp)
         {
             var row = tableSchema.NewRow();
 
             var counter = sample.Counter;
+            row["timestamp"] = pollTimestamp;
             row["cluster"] = counter.Host.Cluster;
             row["machine"] = counter.Host.Name.ToLower();
             row["counter_type"] = counter.CounterType;
