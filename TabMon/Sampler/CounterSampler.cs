@@ -48,7 +48,7 @@ namespace TabMon.Sampler
             DataTable dataTable = SampleCounters(allCounters, pollTimestamp);
 
             var numFailed = allCounters.Count - dataTable.Rows.Count;
-            Log.Info(String.Format("Finished polling {0} {1}. [{2} {3}]", allCounters.Count, "counter".Pluralize(allCounters.Count), numFailed, "failure".Pluralize(numFailed)));
+            Log.InfoFormat("Finished polling {0} {1}. [{2} {3}]", allCounters.Count, "counter".Pluralize(allCounters.Count), numFailed, "failure".Pluralize(numFailed));
 
             return dataTable;
         }
