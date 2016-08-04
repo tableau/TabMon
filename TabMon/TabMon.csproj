@@ -141,9 +141,11 @@
   <ItemGroup>
     <Content Include="Config\TabMon.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\Log.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\CountersConfig.xsd">
       <SubType>Designer</SubType>
