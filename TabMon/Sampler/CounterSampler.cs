@@ -41,7 +41,7 @@ namespace TabMon.Sampler
 
             // Load any "ephemeral" counters which may have been instantiated between polling cycles.
             var ephemeralCounters = CounterConfigLoader.Load(hostsToSample, CounterLifecycleType.Ephemeral);
-            Log.InfoFormat("Successfully loaded {0} ephemeral {1}.", ephemeralCounters.Count, "counter".Pluralize(ephemeralCounters.Count));
+            Log.DebugFormat("Successfully loaded {0} ephemeral {1}.", ephemeralCounters.Count, "counter".Pluralize(ephemeralCounters.Count));
             var allCounters = persistentCounters.Concat(ephemeralCounters).ToList();
 
             // Sample all persistent counters.
