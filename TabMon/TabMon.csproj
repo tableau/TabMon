@@ -106,6 +106,7 @@
   <ItemGroup>
     <Compile Include="CounterConfig\CounterConfigLoader.cs" />
     <Compile Include="CounterConfig\CounterConfigReaderFactory.cs" />
+    <Compile Include="CounterConfig\CounterLifecycleType.cs" />
     <Compile Include="Counters\MBean\MBeanCounterBuilder.cs" />
     <Compile Include="Counters\MBean\TableauInstrumentationCounter.cs" />
     <Compile Include="Counters\Perfmon\PerfmonCounterBuilder.cs" />

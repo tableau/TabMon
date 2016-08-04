@@ -10,6 +10,6 @@ namespace TabMon.CounterConfig
     /// </summary>
     internal interface ICounterConfigReader
     {
-        ICollection<ICounter> LoadCounters(XmlNode root, Host host);
+        ICollection<ICounter> LoadCounters(XmlNode root, Host host, CounterLifecycleType lifeCycleTypeToLoad);
     }
 }

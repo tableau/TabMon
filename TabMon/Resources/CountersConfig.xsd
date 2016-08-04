@@ -15,6 +15,7 @@
                           <xs:element maxOccurs="unbounded" name="Instance">
                             <xs:complexType>
                               <xs:attribute name="name" type="xs:string" use="required" />
+                              <xs:attribute name="ephemeral" type="xs:string" use="optional" />
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>

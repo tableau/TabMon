@@ -25,7 +25,7 @@ namespace TabMon.Counters.Perfmon
         /// <param name="unitOfMeasurement">The unit of measurement that this counter reports in.  This is a piece of metadata we add in.</param>
         /// <param name="instanceFilters">A collection of search terms to use to filter out instances that do not match.</param>
         /// <returns>List of all matching Perfmon counters.</returns>
-        public static IList<PerfmonCounter> LoadInstancesForCounter(Host host, string categoryName, string counterName, string unitOfMeasurement, IList<string> instanceFilters)
+        public static IList<PerfmonCounter> LoadInstancesForCounter(Host host, string categoryName, string counterName, string unitOfMeasurement, ISet<string> instanceFilters)
         {
             IList<PerfmonCounter> counters = new List<PerfmonCounter>();
 

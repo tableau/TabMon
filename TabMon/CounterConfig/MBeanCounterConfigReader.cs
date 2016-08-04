@@ -22,10 +22,18 @@ namespace TabMon.CounterConfig
         /// </summary>
         /// <param name="root">The root MBean counters config node.</param>
         /// <param name="host">The host to load counters for.</param>
+        /// <param name="lifeCycleTypeToLoad">A filter that indicates whether ephemeral or persistent counters should be loaded.</param>
         /// <returns>Collection of MBean counters specified in the root node's config.</returns>
-        public ICollection<ICounter> LoadCounters(XmlNode root, Host host)
+        public ICollection<ICounter> LoadCounters(XmlNode root, Host host, CounterLifecycleType lifeCycleTypeToLoad)
         {
             var counters = new Collection<ICounter>();
+
+            // We currently don't support ephemeral counters for MBeans, so just short circuit out in this case.
+            if (lifeCycleTypeToLoad == CounterLifecycleType.Ephemeral)
+            {
+                return counters;
+            }
+
             var sourceNodes = root.SelectNodes("./Source");
 
             foreach (XmlNode sourceNode in sourceNodes)
@@ -51,6 +59,7 @@ namespace TabMon.CounterConfig
                         var counterName = counterNode.Attributes["name"].Value;
                         var categoryName = counterNode.ParentNode.Attributes["name"].Value;
                         var path = counterNode.ParentNode.Attributes["path"].Value;
+
                         string unitOfMeasurement = null;
                         if (counterNode.Attributes.GetNamedItem("unit") != null)
                         {
