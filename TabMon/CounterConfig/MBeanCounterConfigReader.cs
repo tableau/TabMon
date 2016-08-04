@@ -27,6 +27,13 @@ namespace TabMon.CounterConfig
         public ICollection<ICounter> LoadCounters(XmlNode root, Host host, CounterLifecycleType lifeCycleTypeToLoad)
         {
             var counters = new Collection<ICounter>();
+
+            // We currently don't support ephemeral counters for MBeans, so just short circuit out in this case.
+            if (lifeCycleTypeToLoad == CounterLifecycleType.Ephemeral)
+            {
+                return counters;
+            }
+
             var sourceNodes = root.SelectNodes("./Source");
 
             foreach (XmlNode sourceNode in sourceNodes)
@@ -50,13 +57,6 @@ namespace TabMon.CounterConfig
                     foreach (XmlNode counterNode in counterNodesForSource)
                     {
                         var counterName = counterNode.Attributes["name"].Value;
-
-                        CounterLifecycleType configuredCounterLifecycleType = GetConfiguredLifecycleType(counterNode);
-                        if (configuredCounterLifecycleType != lifeCycleTypeToLoad)
-                        {
-                            continue;
-                        }
-
                         var categoryName = counterNode.ParentNode.Attributes["name"].Value;
                         var path = counterNode.ParentNode.Attributes["path"].Value;
 
@@ -102,21 +102,6 @@ namespace TabMon.CounterConfig
             }
 
             return counters;
-        }
-
-        private static CounterLifecycleType GetConfiguredLifecycleType(XmlNode counterNode)
-        {
-            if (counterNode.Attributes != null && counterNode.Attributes.GetNamedItem("ephemeral") != null)
-            {
-                bool isEphemeral;
-                Boolean.TryParse(counterNode.Attributes["ephemeral"].Value.ToLowerInvariant(), out isEphemeral);
-                if (isEphemeral)
-                {
-                    return CounterLifecycleType.Ephemeral;
-                }
-            }
-
-            return CounterLifecycleType.Persistent;
         }
     }
 }
