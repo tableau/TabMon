@@ -8,6 +8,9 @@ using System.Text;
 
 namespace TabMon.Sampler
 {
+    /// <summary>
+    /// Compares dictionaries comprised of datatable metadata.
+    /// </summary>
     internal class CounterSampleDictionaryComparer : IEqualityComparer<IDictionary<string,string>>
     {
         private static IList<string> staticColumns = new[] { "Cluster", "Machine", "Source", "Category", "Instance", "Unit" };
@@ -35,6 +38,9 @@ namespace TabMon.Sampler
         }
     }
 
+    /// <summary>
+    /// Compresses a datatable based off the uniqueness of the metadata.
+    /// </summary>
     public static class CounterSamplerResultHelper
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
