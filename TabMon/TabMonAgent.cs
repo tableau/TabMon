@@ -125,8 +125,8 @@ namespace TabMon
         private void Poll()
         {
             var sampleResults = sampler.SampleAll();
-            options.Writer.Write(sampleResults);
-               
+            var compressedTable = CounterSamplerResultHelper.CompressTable(sampleResults);
+            options.Writer.Write(compressedTable);   
         }
 
         /// <summary>

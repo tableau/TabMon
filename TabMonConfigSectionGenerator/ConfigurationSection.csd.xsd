@@ -176,12 +176,12 @@
 	<xs:complexType name="TabMon.PurgeOldDataCT">
 		<xs:attribute name="enabled" use="required" type="xs:boolean">
 			<xs:annotation>
-				<xs:documentation>The Enabled.</xs:documentation>
+				<xs:documentation>Whether TabMon will purge data after a certain time.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="thresholdDays" use="required" type="xs:int">
 			<xs:annotation>
-				<xs:documentation>The ThresholdDays.</xs:documentation>
+				<xs:documentation>The age in days that a row has to exceed  before it is pruged.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>

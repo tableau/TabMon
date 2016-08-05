@@ -118,6 +118,7 @@
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\Host.cs" />
+    <Compile Include="Sampler\CounterSampleDataTableHelper.cs" />
     <Compile Include="Sampler\ICounterSample.cs" />
     <Compile Include="Counters\MBean\AbstractMBeanCounter.cs" />
     <Compile Include="Counters\ICounter.cs" />
@@ -142,9 +143,11 @@
   <ItemGroup>
     <Content Include="Config\TabMon.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\Log.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\CountersConfig.xsd">
       <SubType>Designer</SubType>

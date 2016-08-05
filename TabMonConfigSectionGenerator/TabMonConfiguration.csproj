@@ -68,6 +68,10 @@
     <Content Include="README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)ConfigurationSection.csd.cs $(SolutionDir)TabMon\TabMonConfig\TabMonConfigSection.cs /y
+copy $(ProjectDir)ConfigurationSection.csd.xsd $(SolutionDir)TabMon\Resources\TabMonConfig.xsd /y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
