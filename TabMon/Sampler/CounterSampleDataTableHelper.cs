@@ -13,7 +13,7 @@ namespace TabMon.Sampler
     /// </summary>
     internal class CounterSampleDictionaryComparer : IEqualityComparer<IDictionary<string,string>>
     {
-        private static IList<string> staticColumns = new[] { "Cluster", "Machine", "Source", "Category", "Instance", "Unit" };
+        private static readonly IList<string> staticColumns = new[] { "Cluster", "Machine", "Source", "Category", "Instance", "Unit" };
 
         public bool Equals(IDictionary<string,string> x, IDictionary<string,string> y)
         {
@@ -52,7 +52,6 @@ namespace TabMon.Sampler
         /// <returns>The compressed data table.</returns>
         public static DataTable CompressTable(DataTable table)
         {
-            Dictionary<string, string> testString = new Dictionary<string, string>();
             var distinctRowTypes = from DataRow dataRow in table.Rows
                                   orderby dataRow["Instance"].ToString()
                                   select new Dictionary<string, string>()
@@ -69,13 +68,11 @@ namespace TabMon.Sampler
 
             foreach (var distinctRow in distinctRows)
             {
-                DataRow[] foundRows;
-
                 // Builds the select statment based off of the values in the distinctRow dictionary
                 var selectString = BuildSelectString(distinctRow);
 
                 // Queries the data table for all rows that match the distinct row metadata
-                foundRows = table.Select(selectString);
+                DataRow[] foundRows = table.Select(selectString);
 
                 DataRow newRow = null;
                 foreach (var singleRow in foundRows)
