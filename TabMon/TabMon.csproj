@@ -117,6 +117,7 @@
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\Host.cs" />
+    <Compile Include="Sampler\CounterSampleDataTableHelper.cs" />
     <Compile Include="Sampler\ICounterSample.cs" />
     <Compile Include="Counters\MBean\AbstractMBeanCounter.cs" />
     <Compile Include="Counters\ICounter.cs" />

@@ -215,12 +215,12 @@
     </configurationElement>
     <configurationElement name="PurgeOldData">
       <attributeProperties>
-        <attributeProperty name="Enabled" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="enabled" isReadOnly="false" defaultValue="true">
+        <attributeProperty name="Enabled" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="enabled" isReadOnly="false" documentation="Whether TabMon will purge data after a certain time." defaultValue="true">
           <type>
             <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Boolean" />
           </type>
         </attributeProperty>
-        <attributeProperty name="ThresholdDays" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="thresholdDays" isReadOnly="false" defaultValue="30">
+        <attributeProperty name="ThresholdDays" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="thresholdDays" isReadOnly="false" documentation="The age in days that a row has to exceed  before it is pruged." defaultValue="30">
           <validator>
             <integerValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/PositiveInteger" />
           </validator>

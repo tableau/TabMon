@@ -1405,10 +1405,10 @@ namespace TabMon
         internal const string EnabledPropertyName = "enabled";
         
         /// <summary>
-        /// Gets or sets the Enabled.
+        /// Gets or sets whether TabMon will purge data after a certain time.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        [global::System.ComponentModel.DescriptionAttribute("The Enabled.")]
+        [global::System.ComponentModel.DescriptionAttribute("Whether TabMon will purge data after a certain time.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.PurgeOldData.EnabledPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=true)]
         public virtual bool Enabled
         {
@@ -1431,10 +1431,10 @@ namespace TabMon
         internal const string ThresholdDaysPropertyName = "thresholdDays";
         
         /// <summary>
-        /// Gets or sets the ThresholdDays.
+        /// Gets or sets the age in days that a row has to exceed  before it is pruged.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        [global::System.ComponentModel.DescriptionAttribute("The ThresholdDays.")]
+        [global::System.ComponentModel.DescriptionAttribute("The age in days that a row has to exceed  before it is pruged.")]
         [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange=false, MaxValue=2147483647, MinValue=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.PurgeOldData.ThresholdDaysPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=30)]
         public virtual int ThresholdDays
