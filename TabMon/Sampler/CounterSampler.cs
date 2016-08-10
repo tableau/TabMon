@@ -60,7 +60,7 @@ namespace TabMon.Sampler
         private DataTable SampleCounters(ICollection<ICounter> counters, DateTime pollTimestamp)
         {
             // Create a new empty table to store results of this sampling.
-            var dataTable = GenerateSchema(tableName, counters);
+            var dataTable = GenerateSchema(counters);
 
             foreach (var counter in counters)
             {
@@ -81,10 +81,9 @@ namespace TabMon.Sampler
         /// <summary>
         /// Generates a dynamic schema that can support all known counters.
         /// </summary>
-        /// <param name="tableName">The name of the resulting data table.</param>
         /// <param name="counters">The counters that the data table will need to be able to accomodate.</param>
         /// <returns>DataTable that can accomodate both metadata and sample results of all input counters.</returns>
-        private DataTable GenerateSchema(string tableName, ICollection<ICounter> counters)
+        private DataTable GenerateSchema(ICollection<ICounter> counters)
         {
             var generatedSchema = new DataTable(tableName);
 
