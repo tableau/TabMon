@@ -2,14 +2,11 @@
 using log4net;
 using log4net.Config;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Reflection;
 using System.Threading;
 using TabMon.Config;
-using TabMon.CounterConfig;
-using TabMon.Counters;
 using TabMon.Sampler;
 
 [assembly: CLSCompliant(true)]
