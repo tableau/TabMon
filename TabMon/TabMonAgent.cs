@@ -173,6 +173,7 @@ namespace TabMon
 
             if (disposing)
             {
+                timer.Dispose();
                 if (options.Writer != null)
                 {
                     options.Writer.Dispose();
