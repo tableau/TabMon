@@ -14,10 +14,10 @@ namespace TabMon.Counters.MBean
         private const string TableauInstrumentationJmxDomain = "com.tableausoftware.instrumentation";
         private const string TableauInstrumentationCounterType = "Tableau Server Instrumentation";
 
-        public TableauInstrumentationCounter(IMBeanClient mbeanClient, Host host, string sourceName, string path, string categoryName, string counterName, string instanceName, string unit)
+        public TableauInstrumentationCounter(IMBeanClient mbeanClient, Host host, string sourceName, string subDomain, string path, string categoryName, string counterName, string instanceName, string unit)
             : base(mbeanClient: mbeanClient,
                    counterType: TableauInstrumentationCounterType,
-                   jmxDomain: TableauInstrumentationJmxDomain,
+                   jmxDomain: TableauInstrumentationJmxDomain.JoinIfNotNull(".", subDomain),
                    host: host,
                    source: sourceName,
                    filter: path,

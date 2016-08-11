@@ -55,7 +55,7 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="TableauInstrumentation">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="TableauInstrumentation">
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element maxOccurs="unbounded" name="Category">
@@ -73,6 +73,7 @@
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
+                        <xs:attribute name="subdomain" type="xs:string" use="optional" />
                       </xs:complexType>
                     </xs:element>
                     <xs:element minOccurs="0" name="JVMHealth">
