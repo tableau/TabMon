@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?define ApplicationName = "TabMon"?>
-<?define ProductVersion = "2.0.2"?>
+<?define ProductVersion = "2.0.3"?>
 <?define Manufacturer = "Tableau"?>
 <?define HelpLink = "http://www.tableau.com"?>
 <?define UrlInfoAbout = "http://www.tableau.com"?>

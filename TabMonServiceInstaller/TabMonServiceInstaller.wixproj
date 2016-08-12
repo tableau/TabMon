@@ -48,14 +48,28 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
-      <WixToolPath>..\lib\wix\3.9\</WixToolPath>
-      <WixTargetsPath>$(WixToolPath)Wix.targets</WixTargetsPath>
-      <WixTasksPath>wixtasks.dll</WixTasksPath>
+    <WixToolPath>..\lib\wix\3.9\</WixToolPath>
+    <WixTargetsPath>$(WixToolPath)Wix.targets</WixTargetsPath>
+    <WixTasksPath>wixtasks.dll</WixTasksPath>
   </PropertyGroup>
   <Import Project="$(WixTargetsPath)" />
   <PropertyGroup>
     <PostBuildEvent>if not exist "$(SolutionDir)TabMonServiceInstallerBootstrapper\Installers\" mkdir "$(SolutionDir)TabMonServiceInstallerBootstrapper\Installers\"
 copy "$(ProjectDir)$(OutDir)%2a.msi" "$(SolutionDir)TabMonServiceInstallerBootstrapper\Installers\" /y</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Installer|x86' ">
+    <SuppressPdbOutput>True</SuppressPdbOutput>
+    <SuppressIces>ICE69</SuppressIces>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Installer|AnyCPU' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Installer|Any CPU' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.

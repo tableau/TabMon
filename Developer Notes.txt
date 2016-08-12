@@ -2,7 +2,7 @@
 		   TabMon Developer Notes
 ----------------------------------------------
 
-* Building using the "Release" configuration will also build the installers.  The primary generated installer of interest is the "InstallTabMon.exe" file which is built in the TabMonServiceInstallerBootstrapper project.  This deploys the main application and also bundles in Postgres and manages dependencies.
+* Building using the "Installer" configuration will also build the installers.  The primary generated installer of interest is the "InstallTabMon.exe" file which is built in the TabMonServiceInstallerBootstrapper project.  This deploys the main application and also bundles in Postgres and manages dependencies.
 * The application can be directly executed in console mode by selecting "Start" in Visual Studio.  This is extremely handy for debugging or testing changes.
 * Application logs are stored in the Logs\ folder alongside the executing assembly.
 * The required .NET (v4.5) and VC 2013 C++ runtimes are automatically installed by the installer if not already present.  The only external dependency required to install the application is Windows Management Framework 3.0.  Attempts to install TabMon without WMF3 will issue a warning.
