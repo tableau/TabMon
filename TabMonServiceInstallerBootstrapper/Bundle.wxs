@@ -83,5 +83,4 @@
       HasPowershellVersion3
     </bal:Condition>
   </Fragment>
-
 </Wix>
