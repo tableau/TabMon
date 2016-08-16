@@ -29,26 +29,18 @@ namespace TabMon.Counters.Perfmon
         {
             IList<PerfmonCounter> counters = new List<PerfmonCounter>();
 
-            // Check if counter exists.
-            var counterExists = false;
-            try
+            // If the requested category does not exist, log it and bail out.
+            if (!ExistsCategory(categoryName, host.Name))
             {
-                counterExists = PerformanceCounterCategory.CounterExists(counterName, categoryName, host.Name);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.ErrorFormat("Error checking for existence of Perfmon counter '{0}' in category '{1}' on host '{2}': {3}",
-                                counterName, categoryName, host.Name, ex.Message);
-            }
-            catch (Win32Exception ex)
-            {
-                Log.ErrorFormat("Could not communicate with Perfmon on target host '{0}': {1}", host.Name, ex.Message);
+                Log.WarnFormat("PerfMon counter category '{0}' on host '{1}' does not exist.",
+                                categoryName, host.Name);
+                return counters;
             }
 
             // If the requested counter does not exist, log it and bail out.
-            if (!counterExists)
+            if (!ExistsCounter(counterName, categoryName, host.Name))
             {
-                Log.DebugFormat("Counter '{0}' in category '{1}' on host '{2}' does not exist.",
+                Log.DebugFormat("PerfMon counter '{0}' in category '{1}' on host '{2}' does not exist.",
                                 counterName, categoryName, host.Name);
                 return counters;
             }
@@ -93,6 +85,50 @@ namespace TabMon.Counters.Perfmon
             }
 
             return instanceFilters.Any(instanceName.Contains);
+        }
+
+        /// <summary>
+        /// Indicates whether a performance counter category exists on a target machine.
+        /// </summary>
+        private static bool ExistsCategory(string categoryName, string machineName)
+        {
+            try
+            {
+                return PerformanceCounterCategory.Exists(categoryName, machineName);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.ErrorFormat("Error checking for existence of Perfmon counter category '{0}' on host '{1}': {2}",
+                                categoryName, machineName, ex.Message);
+                return false;
+            }
+            catch (Win32Exception ex)
+            {
+                Log.ErrorFormat("Could not communicate with Perfmon on target host '{0}': {1}", machineName, ex.Message);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Indicates whether a performance counter exists on a target machine.
+        /// </summary>
+        private static bool ExistsCounter(string counterName, string categoryName, string machineName)
+        {
+            try
+            {
+                return PerformanceCounterCategory.CounterExists(counterName, categoryName, machineName);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.ErrorFormat("Error checking for existence of Perfmon counter '{0}' in category '{1}' on host '{2}': {3}",
+                                counterName, categoryName, machineName, ex.Message);
+                return false;
+            }
+            catch (Win32Exception ex)
+            {
+                Log.ErrorFormat("Could not communicate with Perfmon on target host '{0}': {1}", machineName, ex.Message);
+                return false;
+            }
         }
     }
 }

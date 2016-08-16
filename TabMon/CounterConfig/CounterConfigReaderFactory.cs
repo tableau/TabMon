@@ -16,7 +16,7 @@ namespace TabMon.CounterConfig
         /// </summary>
         /// <param name="configReaderType">The name of the config reader to instantiate.</param>
         /// <returns>ICounterConfigReader object of the appropriate type,.  Null if no match is found.</returns>
-        static public ICounterConfigReader CreateConfigReader(string configReaderType)
+        public static ICounterConfigReader CreateConfigReader(string configReaderType)
         {
             ICounterConfigReader reader = null;
 
