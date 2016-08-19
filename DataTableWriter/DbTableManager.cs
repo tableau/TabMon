@@ -165,7 +165,7 @@ namespace DataTableWriter
         {
             if (!adapter.ExistsTable(schema.TableName))
             {
-                Log.Error(String.Format("Error updating indexes: Table {0} does not exist", schema.TableName));
+                Log.Error(String.Format("Error updating indexes: table {0} does not exist", schema.TableName));
                 return false;
             }
 
@@ -257,7 +257,7 @@ namespace DataTableWriter
         {
             if (!adapter.ExistsTable(schema.TableName))
             {
-                Log.Error(String.Format("Error updating index cluster status: Table {0} does not exist..", schema.TableName));
+                Log.Error(String.Format("Error updating index cluster status: table '{0}' does not exist..", schema.TableName));
                 return false;
             }
 

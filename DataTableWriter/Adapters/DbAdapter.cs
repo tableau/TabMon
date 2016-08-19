@@ -429,12 +429,12 @@ namespace DataTableWriter.Adapters
                 command.CommandText = Driver.BuildQueryDeleteRows(tableName, threshold);
                 try
                 {
-                    Log.DebugFormat("Dropping rows from {0} older than {1} {2}..", tableName, threshold, "day".Pluralize(threshold));
+                    Log.DebugFormat("Dropping rows from table '{0}' older than {1} {2}..", tableName, threshold, "day".Pluralize(threshold));
                     command.ExecuteNonQuery();
                 }
                 catch (DbException ex)
                 {
-                    Log.ErrorFormat("Unable to drop rows from table {0}: {1}", tableName, ex.Message);
+                    Log.ErrorFormat("Unable to drop rows from table '{0}': {1}", tableName, ex.Message);
                     throw;
                 }
             }
