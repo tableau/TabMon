@@ -80,7 +80,6 @@ namespace DataTableWriter.Writers
 
             try
             {
-                Log.DebugFormat("Attempting to delete data older than {0} {1} from table '{2}'.", tableInitializationOptions.PurgeDataThreshold.ToString(), "day".Pluralize(tableInitializationOptions.PurgeDataThreshold), table);
                 DbTableManager.PurgeExpiredData(Adapter, table, tableInitializationOptions.PurgeDataThreshold);
             }
             catch (DbException ex)
