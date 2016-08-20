@@ -36,7 +36,7 @@ namespace TabMon.Counters.MBean
             // Validated MBean object was found.
             if (objectNames.Count == 0)
             {
-                throw new ArgumentException("Unable to query MBean.");
+                return null;
             }
 
             ObjectName obj = objectNames.First();

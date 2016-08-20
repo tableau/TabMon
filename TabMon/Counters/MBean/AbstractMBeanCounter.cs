@@ -51,13 +51,17 @@ namespace TabMon.Counters.MBean
             try
             {
                 var value = GetAttributeValue(Counter);
-                return new CounterSample(this, value);
+                if (value != null)
+                {
+                    return new CounterSample(this, value);
+                }
             }
             catch (Exception ex)
             {
                 Log.Debug(String.Format(@"Error sampling counter {0}: {1}", this, ex.Message));
-                return null;
             }
+            
+            return null;
         }
 
         public override string ToString()
