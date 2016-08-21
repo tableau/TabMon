@@ -25,7 +25,6 @@ namespace TabMon.Sampler
             this.hostsToSample = hostsToSample;
             this.tableName = tableName;
             persistentCounters = CounterConfigLoader.Load(hostsToSample, CounterLifecycleType.Persistent);
-            Log.InfoFormat("Successfully loaded {0} persistent {1} from configuration file.", persistentCounters.Count, "counter".Pluralize(persistentCounters.Count));
         }
 
         #region Public Methods
@@ -41,14 +40,10 @@ namespace TabMon.Sampler
 
             // Load any "ephemeral" counters which may have been instantiated between polling cycles.
             var ephemeralCounters = CounterConfigLoader.Load(hostsToSample, CounterLifecycleType.Ephemeral);
-            Log.DebugFormat("Successfully loaded {0} ephemeral {1}.", ephemeralCounters.Count, "counter".Pluralize(ephemeralCounters.Count));
             var allCounters = persistentCounters.Concat(ephemeralCounters).ToList();
 
             // Sample all persistent counters.
             DataTable dataTable = SampleCounters(allCounters, pollTimestamp);
-
-            var numFailed = allCounters.Count - dataTable.Rows.Count;
-            Log.InfoFormat("Finished polling {0} {1}. [{2} {3}]", allCounters.Count, "counter".Pluralize(allCounters.Count), numFailed, "failure".Pluralize(numFailed));
 
             return dataTable;
         }
@@ -62,19 +57,27 @@ namespace TabMon.Sampler
             // Create a new empty table to store results of this sampling.
             var dataTable = GenerateSchema(counters);
 
+            // Tally number of failures for persistent counters.
+            int failureCount = 0;
+
             foreach (var counter in counters)
             {
                 // Retrieve sample for this counter.
                 var counterSample = counter.Sample();
 
-                if (counterSample != null)
+                if (counterSample != null && counterSample.SampleValue != null)
                 {
                     // Map sample result to schema and insert it into result table.
                     var row = MapToSchema(counterSample, dataTable, pollTimestamp);
                     dataTable.Rows.Add(row);
                 }
+                else if (counterSample == null || counterSample.Counter.LifecycleType == CounterLifecycleType.Persistent)
+                {
+                    failureCount++;
+                }
             }
 
+            Log.InfoFormat("Finished polling {0} {1}. [{2} {3}]", counters.Count, "counter".Pluralize(counters.Count), failureCount, "failure".Pluralize(failureCount));
             return dataTable;
         }
 

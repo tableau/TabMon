@@ -1,7 +1,8 @@
-﻿using javax.management;
-using System;
+﻿using System;
+using javax.management;
 using System.Collections.Generic;
 using System.Linq;
+using TabMon.CounterConfig;
 using TabMon.Helpers;
 
 namespace TabMon.Counters.MBean
@@ -16,6 +17,7 @@ namespace TabMon.Counters.MBean
 
         public TableauInstrumentationCounter(IMBeanClient mbeanClient, Host host, string sourceName, string subDomain, string path, string categoryName, string counterName, string instanceName, string unit)
             : base(mbeanClient: mbeanClient,
+                   lifecycleType: CounterLifecycleType.Ephemeral, 
                    counterType: TableauInstrumentationCounterType,
                    jmxDomain: TableauInstrumentationJmxDomain.JoinIfNotNull(".", subDomain),
                    host: host,
@@ -36,7 +38,7 @@ namespace TabMon.Counters.MBean
             // Validated MBean object was found.
             if (objectNames.Count == 0)
             {
-                return null;
+                throw new ArgumentException("Unable to query MBean.");
             }
 
             ObjectName obj = objectNames.First();

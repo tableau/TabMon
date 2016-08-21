@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using TabMon.CounterConfig;
 using TabMon.Helpers;
 
 namespace TabMon.Counters.Perfmon
@@ -20,12 +21,13 @@ namespace TabMon.Counters.Perfmon
         /// Loads all Perfmon counters on the target host matching the given parameters.
         /// </summary>
         /// <param name="host">The host to check counters on.</param>
+        /// <param name="lifecycleType">Indicates whether the counters should be loaded as persistent or ephemeral counters.</param>
         /// <param name="categoryName">The counter category.</param>
         /// <param name="counterName">The name of the counter.</param>
         /// <param name="unitOfMeasurement">The unit of measurement that this counter reports in.  This is a piece of metadata we add in.</param>
         /// <param name="instanceFilters">A collection of search terms to use to filter out instances that do not match.</param>
         /// <returns>List of all matching Perfmon counters.</returns>
-        public static IList<PerfmonCounter> LoadInstancesForCounter(Host host, string categoryName, string counterName, string unitOfMeasurement, ISet<string> instanceFilters)
+        public static IList<PerfmonCounter> LoadInstancesForCounter(Host host, CounterLifecycleType lifecycleType, string categoryName, string counterName, string unitOfMeasurement, ISet<string> instanceFilters)
         {
             IList<PerfmonCounter> counters = new List<PerfmonCounter>();
 
@@ -51,14 +53,14 @@ namespace TabMon.Counters.Perfmon
             switch (category.CategoryType)
             {
                 case PerformanceCounterCategoryType.SingleInstance:
-                    counters.Add(new PerfmonCounter(host, categoryName, counterName, instance: null, unit: unitOfMeasurement));
+                    counters.Add(new PerfmonCounter(host, lifecycleType, categoryName, counterName, instance: null, unit: unitOfMeasurement));
                     break;
                 case PerformanceCounterCategoryType.MultiInstance:
                     foreach (var instanceName in category.GetInstanceNames())
                     {
                         if (IsInstanceRequested(instanceName, instanceFilters))
                         {
-                            counters.Add(new PerfmonCounter(host, categoryName, counterName, instanceName, unitOfMeasurement));
+                            counters.Add(new PerfmonCounter(host, lifecycleType, categoryName, counterName, instanceName, unitOfMeasurement));
                         }
                     }
                     break;

@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Reflection;
+using TabMon.CounterConfig;
 using TabMon.Helpers;
 using TabMon.Sampler;
 
@@ -19,6 +20,7 @@ namespace TabMon.Counters.Perfmon
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         public Host Host { get; private set; }
+        public CounterLifecycleType LifecycleType { get; private set; }
         public string CounterType { get; private set; }
         public string Source { get; private set; }
         public string Category { get; private set; }
@@ -26,9 +28,10 @@ namespace TabMon.Counters.Perfmon
         public string Instance { get; private set; }
         public string Unit { get; private set; }
 
-        public PerfmonCounter(Host host, string counterCategory, string counterName, string instance, string unit)
+        public PerfmonCounter(Host host, CounterLifecycleType lifecycleType, string counterCategory, string counterName, string instance, string unit)
         {
             Host = host;
+            LifecycleType = lifecycleType;
             CounterType = PerfmonCounterType;
             Source = PerfmonSource;
             Category = counterCategory;
@@ -58,8 +61,12 @@ namespace TabMon.Counters.Perfmon
             }
             catch (Exception ex)
             {
-                Log.Debug(String.Format(@"Error sampling counter {0}: {1}", this, ex.Message));
-                return null;
+                if (LifecycleType == CounterLifecycleType.Persistent)
+                {
+                    Log.DebugFormat(@"Error sampling counter {0}: {1}", this, ex.Message);
+                }
+
+                return new Sampler.CounterSample(this, null);
             }
         }
 

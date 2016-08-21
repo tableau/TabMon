@@ -6,7 +6,7 @@
 <?define UrlInfoAbout = "http://www.tableau.com"?>
 <?define ProductUpgradeCode = "8c39f7f6-ad31-4efd-96ae-1f6f1a5e4f3a"?>
 <?define IconFile = "..\TabMonService\Resources\TabMon.ico"?>
-<?define BinFolder = "..\TabMonService\bin\Release"?>
+<?define BinFolder = "..\TabMonService\bin\Installer"?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
   <Product Id="*" Name="$(var.ApplicationName)" Language="1033" Codepage="1252" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.ProductUpgradeCode)">
@@ -98,14 +98,6 @@
         <File Id="TabMonConfig" Name="TabMon.config" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Config\TabMon.config" />
       </Component>
     </DirectoryRef>
-    
-    <!-- Resource Files -->
-    <DirectoryRef Id="RESOURCESFOLDER">
-      <Component Id="Resources" Guid="78a95b43-cb29-4680-8715-46ac81fc2eb7">
-        <File Id="CountersConfigXSD" Name="CountersConfig.xsd" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Resources\CountersConfig.xsd" />
-        <File Id="TabMonConfigXSD" Name="TabMonConfig.xsd" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Resources\TabMonConfig.xsd" />
-      </Component>
-    </DirectoryRef>
 
     <!-- Start Menu Shortcuts -->
     <DirectoryRef Id="ApplicationProgramsFolder">
@@ -139,7 +131,7 @@
         <ComponentRef Id='Executable' />
         <ComponentRef Id='Libraries' />
         <ComponentRef Id='ConfigFiles' />
-        <ComponentRef Id='Resources' />
+        <ComponentGroupRef Id="Resources" />
         <ComponentRef Id='Utilities' />
         <ComponentRef Id='Documentation' />
         <ComponentRef Id='ProgramFilesShortcut' />

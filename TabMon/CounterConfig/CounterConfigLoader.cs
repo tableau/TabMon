@@ -51,9 +51,12 @@ namespace TabMon.CounterConfig
                 foreach (var host in hosts)
                 {
                     var countersInNode = configReader.LoadCounters(counterRootNode, host, counterLifecycleType);
-                    Log.DebugFormat("Loaded {0} {1} {2} {3} on {4}.",
-                                    countersInNode.Count, counterLifecycleType.ToString().ToLowerInvariant(), counterType, "counter".Pluralize(countersInNode.Count), host.Name);
-                    counters.AddRange(countersInNode);
+                    if (countersInNode.Count > 0)
+                    {
+                        Log.DebugFormat("Loaded {0} {1} {2} {3} on {4}.",
+                                        countersInNode.Count, counterLifecycleType.ToString().ToLowerInvariant(), counterType, "counter".Pluralize(countersInNode.Count), host.Name);
+                        counters.AddRange(countersInNode);
+                    }
                 }
             }
 

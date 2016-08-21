@@ -62,7 +62,7 @@ namespace TabMon.CounterConfig
                 // If no instance name is specified, just load them all.
                 if (lifeCycleTypeToLoad == CounterLifecycleType.Persistent || instanceFilters.Count > 0)
                 {
-                    var counterInstances = PerfmonCounterLoader.LoadInstancesForCounter(host, categoryName, counterName, unitOfMeasurement, instanceFilters);
+                    var counterInstances = PerfmonCounterLoader.LoadInstancesForCounter(host, lifeCycleTypeToLoad, categoryName, counterName, unitOfMeasurement, instanceFilters);
                     foreach (var counterInstance in counterInstances)
                     {
                         counters.Add(counterInstance);
