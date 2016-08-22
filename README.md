@@ -12,7 +12,7 @@ TabMon is deployed via a custom installer, which manages dependencies and also b
 
 ## How do I analyze results from TabMon?
 
-The best way is to explore your results in Tableau!  A [sample workbook](https://github.com/tableau/TabMon/releases/download/v1.1/TabMonWorkbook.twb) has been created with some example dashboards & views to get you started.
+The best way is to explore your results in Tableau!  A [sample workbook](https://github.com/tableau/TabMon/blob/master/TabMon/Resources/Sample%20Workbooks) is included that contains some example dashboards & views to get you started.
 
 ## What do I need to build TabMon from source?
 
