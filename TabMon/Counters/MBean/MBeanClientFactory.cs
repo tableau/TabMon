@@ -22,6 +22,12 @@ namespace TabMon.Counters.MBean
         /// <returns>Collection of MBeanClients for open ports within the given range.</returns>
         public static ICollection<IMBeanClient> CreateClients(string hostname, int startPort, int endPort)
         {
+            // Validate port range.
+            if (!IsValidPortRange(startPort, endPort))
+            {
+                throw new ArgumentException("Invalid port range");
+            }
+
             Log.Debug(String.Format("Scanning JMX ports {0}-{1} on {2}..", startPort, endPort, hostname));
             ICollection<IMBeanClient> validClients = new List<IMBeanClient>();
 
@@ -45,6 +51,16 @@ namespace TabMon.Counters.MBean
             }
 
             return validClients;
+        }
+
+        private static bool IsValidPortRange(int startPort, int endPort)
+        {
+            return IsValidPort(startPort) && IsValidPort(endPort) && startPort <= endPort;
+        }
+
+        private static bool IsValidPort(int port)
+        {
+            return port > 0 && port <= 65535;
         }
     }
 }

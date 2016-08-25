@@ -11,6 +11,7 @@ namespace TabMon.Counters.MBean
         private IMBeanClient Client { get; set; }
         private Host Host { get; set; }
         private string Source { get; set; }
+        private string SubDomain { get; set; }
         private string Path { get; set; }
         private string Category { get; set; }
         private string Counter { get; set; }
@@ -33,6 +34,12 @@ namespace TabMon.Counters.MBean
         public MBeanBuilder WithSourceName(string source)
         {
             Source = source;
+            return this;
+        }
+
+        public MBeanBuilder WithSubDomain(string subDomain)
+        {
+            SubDomain = subDomain;
             return this;
         }
 
@@ -73,6 +80,9 @@ namespace TabMon.Counters.MBean
             {
                 case "tableauhealth":
                     return new TableauHealthCounter(Client, Host, Source, Path, Category, Counter, Instance, Unit);
+
+                case "tableauinstrumentation":
+                    return new TableauInstrumentationCounter(Client, Host, Source, SubDomain, Path, Category, Counter, Instance, Unit);
 
                 case "jvmhealth":
                     return new JavaHealthCounter(Client, Host, Source, Path, Category, Counter, Instance, Unit);

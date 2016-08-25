@@ -12,7 +12,7 @@ namespace DataTableWriter.Writers
     /// <summary>
     /// Contains functionality for writing DataTable objects to a database.
     /// </summary>
-    public class DataTableDbWriter : IDataTableWriter
+    public class DataTableDbWriter : IDataTableWriter, IPurgeableDatasource
     {
         protected IDbAdapter Adapter { get; set; }
         protected DbTableInitializationOptions tableInitializationOptions;
@@ -65,6 +65,28 @@ namespace DataTableWriter.Writers
                 catch (DbException) { }
             }
             Log.Debug(String.Format("Finished writing {0} {1}!", numRecordsWritten, "record".Pluralize(numRecordsWritten)));
+        }
+
+        public void PurgeExpiredData(string table)
+        {
+            if (tableInitializationOptions.PurgeData == false)
+            {
+                return;
+            }
+            if (!Adapter.IsConnectionOpen())
+            {
+                Adapter.OpenConnection();
+            }
+
+            try
+            {
+                DbTableManager.PurgeExpiredData(Adapter, table, tableInitializationOptions.PurgeDataThreshold);
+            }
+            catch (DbException ex)
+            {
+                Log.ErrorFormat("Unable to delete rows: {0}", ex.Message);
+                throw;
+            }
         }
 
         public void Dispose()

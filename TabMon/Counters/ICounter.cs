@@ -1,4 +1,5 @@
-﻿using TabMon.Helpers;
+﻿using TabMon.CounterConfig;
+using TabMon.Helpers;
 using TabMon.Sampler;
 
 namespace TabMon.Counters
@@ -9,6 +10,7 @@ namespace TabMon.Counters
     public interface ICounter
     {
         Host Host { get; }
+        CounterLifecycleType LifecycleType { get; }
         string CounterType { get; }
         string Source { get; }
         string Category { get; }

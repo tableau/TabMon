@@ -22,11 +22,13 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <SuppressPdbOutput>True</SuppressPdbOutput>
     <SuppressIces>ICE69</SuppressIces>
+    <LinkerAdditionalOptions>-b "$(SolutionDir)TabMon\Resources"</LinkerAdditionalOptions>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomExitDialog.wxs" />
     <Compile Include="CustomInstallDir.wxs" />
     <Compile Include="CustomInstallDirDlg.wxs" />
+    <Compile Include="Generated\ResourcesFilesFragment.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
@@ -47,15 +49,35 @@
     <Content Include="License.txt" />
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Generated\" />
+  </ItemGroup>
   <PropertyGroup>
-      <WixToolPath>..\lib\wix\3.9\</WixToolPath>
-      <WixTargetsPath>$(WixToolPath)Wix.targets</WixTargetsPath>
-      <WixTasksPath>wixtasks.dll</WixTasksPath>
+    <WixToolPath>..\lib\wix\3.9\</WixToolPath>
+    <WixTargetsPath>$(WixToolPath)Wix.targets</WixTargetsPath>
+    <WixTasksPath>wixtasks.dll</WixTasksPath>
   </PropertyGroup>
   <Import Project="$(WixTargetsPath)" />
   <PropertyGroup>
     <PostBuildEvent>if not exist "$(SolutionDir)TabMonServiceInstallerBootstrapper\Installers\" mkdir "$(SolutionDir)TabMonServiceInstallerBootstrapper\Installers\"
 copy "$(ProjectDir)$(OutDir)%2a.msi" "$(SolutionDir)TabMonServiceInstallerBootstrapper\Installers\" /y</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Installer|x86' ">
+    <SuppressPdbOutput>True</SuppressPdbOutput>
+    <SuppressIces>ICE69</SuppressIces>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Installer|AnyCPU' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Installer|Any CPU' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>"$(SolutionDir)lib\wix\3.9\heat.exe" dir "$(SolutionDir)TabMon\Resources" -cg Resources -gg -srd -dr RESOURCESFOLDER -out "$(ProjectDir)Generated\ResourcesFilesFragment.wxs"</PreBuildEvent>
   </PropertyGroup>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.

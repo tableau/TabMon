@@ -1,6 +1,7 @@
 ﻿using log4net;
 using System;
 using System.Reflection;
+using TabMon.CounterConfig;
 using TabMon.Helpers;
 using TabMon.Sampler;
 
@@ -15,6 +16,7 @@ namespace TabMon.Counters.MBean
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         public Host Host { get; private set; }
+        public CounterLifecycleType LifecycleType { get; private set; }
         public string CounterType { get; private set; }
         public string Source { get; private set; }
         public string Category { get; private set; }
@@ -25,10 +27,11 @@ namespace TabMon.Counters.MBean
         protected string JmxDomain { get; set; }
         protected string Path { get; set; }
 
-        protected AbstractMBeanCounter(IMBeanClient mbeanClient, string counterType, string jmxDomain, Host host, string source, string filter,
+        protected AbstractMBeanCounter(IMBeanClient mbeanClient, CounterLifecycleType lifecycleType, string counterType, string jmxDomain, Host host, string source, string filter,
                                        string category, string counter, string instance, string unit)
         {
             Host = host;
+            LifecycleType = lifecycleType;
             CounterType = counterType;
             Source = source;
             Category = category;
@@ -50,13 +53,16 @@ namespace TabMon.Counters.MBean
         {
             try
             {
-                var value = GetAttributeValue(Counter);
+                object value = GetAttributeValue(Counter);
                 return new CounterSample(this, value);
             }
             catch (Exception ex)
             {
-                Log.Debug(String.Format(@"Error sampling counter {0}: {1}", this, ex.Message));
-                return null;
+                if (LifecycleType == CounterLifecycleType.Persistent)
+                {
+                    Log.DebugFormat(@"Error sampling persistent counter {0}: {1}", this, ex.Message);
+                }
+                return new CounterSample(this, null);
             }
         }
 

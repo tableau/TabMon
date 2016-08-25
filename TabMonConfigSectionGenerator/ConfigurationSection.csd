@@ -90,6 +90,11 @@
             <configurationElementCollectionMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Indexes" />
           </type>
         </elementProperty>
+        <elementProperty name="PurgeOldData" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="PurgeOldData" isReadOnly="false">
+          <type>
+            <configurationElementMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/PurgeOldData" />
+          </type>
+        </elementProperty>
       </elementProperties>
     </configurationElement>
     <configurationElement name="Host" namespace="TabMon.Config" documentation="Represents an individual host.">
@@ -204,6 +209,23 @@
         <attributeProperty name="Clustered" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="clustered" isReadOnly="false" documentation="Whether the index is clustered or not." defaultValue="false">
           <type>
             <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Boolean" />
+          </type>
+        </attributeProperty>
+      </attributeProperties>
+    </configurationElement>
+    <configurationElement name="PurgeOldData">
+      <attributeProperties>
+        <attributeProperty name="Enabled" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="enabled" isReadOnly="false" documentation="Whether TabMon will purge data after a certain time." defaultValue="true">
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Boolean" />
+          </type>
+        </attributeProperty>
+        <attributeProperty name="ThresholdDays" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="thresholdDays" isReadOnly="false" documentation="The age in days that a row has to exceed  before it is pruged." defaultValue="30">
+          <validator>
+            <integerValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/PositiveInteger" />
+          </validator>
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Int32" />
           </type>
         </attributeProperty>
       </attributeProperties>
