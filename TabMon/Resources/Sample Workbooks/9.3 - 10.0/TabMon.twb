@@ -28,7 +28,7 @@
       </column>
     </datasource>
     <datasource caption='Server Auditing' inline='true' name='postgres.42271.475394699075' version='9.3'>
-      <connection class='postgres' dbname='workgroup' odbc-native-protocol='yes' port='8060' server='ls-prod-ts-1' server-oauth='' username='readonly' workgroup-auth-mode='prompt'>
+      <connection class='postgres' dbname='workgroup' odbc-native-protocol='yes' port='8060' server='localhost' server-oauth='' username='readonly' workgroup-auth-mode='prompt'>
         <relation join='left' type='join'>
           <clause type='join'>
             <expression op='='>
