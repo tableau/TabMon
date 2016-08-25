@@ -57,6 +57,16 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Installer|AnyCPU'">
+    <OutputPath>bin\Installer\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="IKVM.OpenJDK.Corba">
       <HintPath>..\packages\IKVM.OpenJDK.Corba.7.2.4630.5\lib\IKVM.OpenJDK.Corba.dll</HintPath>
@@ -106,8 +116,9 @@
   <ItemGroup>
     <Compile Include="CounterConfig\CounterConfigLoader.cs" />
     <Compile Include="CounterConfig\CounterConfigReaderFactory.cs" />
+    <Compile Include="CounterConfig\CounterLifecycleType.cs" />
     <Compile Include="Counters\MBean\MBeanCounterBuilder.cs" />
-    <Compile Include="Counters\Perfmon\PerfmonCounterBuilder.cs" />
+    <Compile Include="Counters\MBean\TableauInstrumentationCounter.cs" />
     <Compile Include="Counters\ICounterBuilder.cs" />
     <Compile Include="Counters\MBean\JMXConnectionInfo.cs" />
     <Compile Include="Counters\MBean\JMXConnectorProxy.cs" />
@@ -116,6 +127,7 @@
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\Host.cs" />
+    <Compile Include="Sampler\CounterSampleDataTableHelper.cs" />
     <Compile Include="Sampler\ICounterSample.cs" />
     <Compile Include="Counters\MBean\AbstractMBeanCounter.cs" />
     <Compile Include="Counters\ICounter.cs" />
@@ -140,11 +152,17 @@
   <ItemGroup>
     <Content Include="Config\TabMon.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\Log.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\CountersConfig.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Configurations\9.1\Counters.config">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -155,10 +173,32 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Configurations\9.0\Counters.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Configurations\9.3 - 10.0\Counters.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Configurations\9.2\Counters.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Sample Workbooks\9.0 - 9.1\TabMon.twb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Sample Workbooks\9.2\TabMon.twb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Sample Workbooks\9.3 - 10.0\TabMon.twb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\Counters.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

@@ -21,5 +21,11 @@ namespace DataTableWriter
 
         // Collection of indexes to generate. The bool is whether or not this is a clustered index.
         public IDictionary<string, bool> IndexesToGenerate;
+
+        // Determine whether to delete data older than a specific threshold.
+        public bool PurgeData;
+
+        // Threshold that determines when data should be purged.
+        public int PurgeDataThreshold;
     }
 }

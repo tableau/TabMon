@@ -1,5 +1,6 @@
-﻿using javax.management.openmbean;
-using System;
+﻿using System;
+using javax.management.openmbean;
+using TabMon.CounterConfig;
 using TabMon.Helpers;
 
 namespace TabMon.Counters.MBean
@@ -13,7 +14,7 @@ namespace TabMon.Counters.MBean
         private const string JavaHealthCounterType = "JVM Health";
 
         public JavaHealthCounter(IMBeanClient mbeanClient, Host host, string sourceName, string path, string categoryName, string counterName, string instanceName, string unit)
-            : base(mbeanClient: mbeanClient, counterType: JavaHealthCounterType, jmxDomain: JavaHealthJmxDomain, host: host, source: sourceName, filter: path, category: categoryName, counter: counterName, instance: instanceName, unit: unit) { }
+            : base(mbeanClient: mbeanClient, lifecycleType: CounterLifecycleType.Persistent, counterType: JavaHealthCounterType, jmxDomain: JavaHealthJmxDomain, host: host, source: sourceName, filter: path, category: categoryName, counter: counterName, instance: instanceName, unit: unit) { }
 
         #region Protected Methods
 
@@ -23,7 +24,7 @@ namespace TabMon.Counters.MBean
             var objectNames = MBeanClient.QueryObjects(JmxDomain, Path);
 
             // Validated MBean object was found.
-            if (objectNames.Count < 1)
+            if (objectNames.Count == 0)
             {
                 throw new ArgumentException("Unable to query MBean.");
             }

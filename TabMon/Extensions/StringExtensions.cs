@@ -1,5 +1,7 @@
 ﻿using System.Data.Entity.Design.PluralizationServices;
 using System.Globalization;
+using System.Linq;
+using System.Text;
 
 namespace TabMon
 {
@@ -42,6 +44,25 @@ namespace TabMon
                 }
             }
             return str.ToLower();
+        }
+
+        /// <summary>
+        /// Joins multiple strings together with a delimiter.  If a string segment is null, it will not be appended.
+        /// </summary>
+        public static string JoinIfNotNull(this string baseString, string separator, params string[] stringsToJoin)
+        {
+            if (stringsToJoin == null || stringsToJoin.Length == 0)
+            {
+                return baseString;
+            }
+
+            var result = new StringBuilder(baseString);
+            foreach (var joinStr in stringsToJoin.Where(joinStr => joinStr != null))
+            {
+                result.Append(separator + joinStr);
+            }
+
+            return result.ToString();
         }
     }
 }

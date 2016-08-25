@@ -272,6 +272,17 @@ namespace DataTableWriter.Drivers
             return String.Format(@"DROP INDEX ""{0}"";", indexName);
         }
 
+        /// <summary>
+        /// Builds a query to delete rows older than X amount of days.
+        /// </summary>
+        /// <param name="tableName">The name of the table to drop rows from.</param>
+        /// <param name="interval">The interval for days to drop.</param>
+        /// <returns>Postgres statement to drop rows older than X amount of days.</returns>
+        public string BuildQueryDeleteRows(string tableName, int interval)
+        {
+            return String.Format(@"DELETE FROM {0} WHERE timestamp < NOW() - INTERVAL '{1} {2}';", tableName, interval.ToString(), "day".Pluralize(interval));
+        }
+
         #endregion
     }
 }

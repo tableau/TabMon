@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?define ApplicationName = "TabMon"?>
-<?define ProductVersion = "2.0"?>
+<?define ProductVersion = "2.1"?>
 <?define Manufacturer = "Tableau"?>
 <?define AboutURL = "http://www.tableau.com"?>
 <?define ProductUpgradeCode = "d926f2c5-3ab6-4101-a292-f1cd325e23f6"?>
@@ -83,5 +83,4 @@
       HasPowershellVersion3
     </bal:Condition>
   </Fragment>
-
 </Wix>

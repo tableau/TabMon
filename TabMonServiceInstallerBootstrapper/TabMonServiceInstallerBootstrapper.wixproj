@@ -56,9 +56,21 @@
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
-      <WixToolPath>..\lib\wix\3.9\</WixToolPath>
-      <WixTargetsPath>$(WixToolPath)Wix.targets</WixTargetsPath>
-      <WixTasksPath>wixtasks.dll</WixTasksPath>
+    <WixToolPath>..\lib\wix\3.9\</WixToolPath>
+    <WixTargetsPath>$(WixToolPath)Wix.targets</WixTargetsPath>
+    <WixTasksPath>wixtasks.dll</WixTasksPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Installer|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Installer|AnyCPU' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Installer|Any CPU' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

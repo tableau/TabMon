@@ -1,14 +1,12 @@
-﻿using log4net;
+﻿using DataTableWriter.Writers;
+using log4net;
 using log4net.Config;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Reflection;
 using System.Threading;
 using TabMon.Config;
-using TabMon.CounterConfig;
-using TabMon.Counters;
 using TabMon.Sampler;
 
 [assembly: CLSCompliant(true)]
@@ -24,7 +22,6 @@ namespace TabMon
         private CounterSampler sampler;
         private readonly TabMonOptions options;
         private bool disposed;
-        private const string PathToCountersConfig = @"Config\Counters.config";
         private const int WriteLockAcquisitionTimeout = 10; // In seconds.
         private static readonly object WriteLock = new object();
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -67,26 +64,20 @@ namespace TabMon
                 return;
             }
 
-            // Read Counters.config & create counters.
-            Log.Info(String.Format(@"Loading performance counters from {0}\{1}..", Directory.GetCurrentDirectory(), PathToCountersConfig));
-            ICollection<ICounter> counters;
+            // Spin up counter sampler.
             try
             {
-                counters = CounterConfigLoader.Load(PathToCountersConfig, options.Hosts);
+                sampler = new CounterSampler(options.Hosts, options.TableName);
             }
-            catch (ConfigurationErrorsException ex)
+            catch(Exception ex)
             {
-                Log.Error(String.Format("Failed to correctly load '{0}': {1}\nAborting..", PathToCountersConfig, ex.Message));
+                Log.ErrorFormat("Failed to initialize counter sampler using counters from configuration file: {0}\nAborting..", ex.Message);
                 return;
             }
-            Log.Debug(String.Format("Successfully loaded {0} {1} from configuration file.", counters.Count, "counter".Pluralize(counters.Count)));
-
-            // Spin up counter sampler.
-            sampler = new CounterSampler(counters, options.TableName);
 
             // Kick off the polling timer.
             Log.Info("TabMon initialized!  Starting performance counter polling..");
-            timer = new Timer(callback: Poll, state: null, dueTime: 0, period: options.PollInterval * 1000);
+            timer = new Timer(callback: OnTimer, state: null, dueTime: 0, period: options.PollInterval * 1000);
         }
 
         /// <summary>
@@ -128,15 +119,42 @@ namespace TabMon
         /// <summary>
         /// Polls the sampler's counters and writes the results to the writer object.
         /// </summary>
-        /// <param name="stateInfo"></param>
-        private void Poll(object stateInfo)
+        private void Poll()
         {
             var sampleResults = sampler.SampleAll();
-            lock (WriteLock)
+            var compressedTable = CounterSamplerResultHelper.CompressTable(sampleResults);
+            options.Writer.Write(compressedTable);   
+        }
+
+        /// <summary>
+        /// Checks to see if data is purgeable then purges based off of threshold.
+        /// </summary>
+        private void PurgeExpiredData()
+        {
+            if (options.Writer is IPurgeableDatasource)
             {
-                options.Writer.Write(sampleResults);
+                var purgeableDatasource = options.Writer as IPurgeableDatasource;
+                try
+                {
+                    purgeableDatasource.PurgeExpiredData(options.TableName);
+                }
+                catch { }
             }
         }
+
+        /// <summary>
+        /// Handles all tasks involved in the pulling cycle.
+        /// </summary>
+        /// <param name="stateInfo"></param>
+        private void OnTimer(object stateInfo)
+        {
+            lock (WriteLock)
+            {
+                Poll();
+                PurgeExpiredData();
+            }
+        }
+
 
         #endregion Private Methods
 
@@ -155,6 +173,7 @@ namespace TabMon
 
             if (disposing)
             {
+                timer.Dispose();
                 if (options.Writer != null)
                 {
                     options.Writer.Dispose();

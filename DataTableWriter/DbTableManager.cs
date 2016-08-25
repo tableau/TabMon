@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace DataTableWriter
 {
@@ -120,6 +121,43 @@ namespace DataTableWriter
         }
 
         /// <summary>
+        /// Uses an in-memory schema to initialize a database table according to a set of initialization options.
+        /// </summary>
+        /// <param name="adapter">Open adapter to a database.</param>
+        /// <param name="schema">The schema to use to initialize.</param>
+        /// <param name="tableInitializationOptions">A set of options to determine initialization behavior.</param>
+        public static void InitializeTable(IDbAdapter adapter, DataTable schema, DbTableInitializationOptions tableInitializationOptions)
+        {
+            if (tableInitializationOptions.CreateTableDynamically)
+            {
+                CreateTable(adapter, schema, tableInitializationOptions.IndexesToGenerate);
+            }
+            if (tableInitializationOptions.UpdateDbTableToMatchSchema)
+            {
+                UpdateTableToMatchSchema(adapter, schema);
+            }
+            if (tableInitializationOptions.UpdateSchemaToMatchDbTable)
+            {
+                UpdateSchemaToMatchTable(adapter, schema);
+            }
+            if (tableInitializationOptions.UpdateIndexes)
+            {
+                AddDbIndexesToMatch(adapter, schema, tableInitializationOptions.IndexesToGenerate);
+                RemoveDBIndexesToMatch(adapter, schema, tableInitializationOptions.IndexesToGenerate);
+                UpdateIndexClusters(adapter, schema, tableInitializationOptions.IndexesToGenerate);
+            }
+        }
+
+        public static void PurgeExpiredData(IDbAdapter adapter, string tableName, int interval)
+        {
+            adapter.DeleteRowsOlderThan(tableName, interval);
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
         /// Indexes a set of columns defined by the dictionary that is passed.
         /// </summary>
         /// <param name="adapter">Open adapter to the database.</param>
@@ -138,7 +176,7 @@ namespace DataTableWriter
             {
                 try
                 {
-                    var indexName = column.Key + "_idx";
+                    var indexName = BuildIndexName(schema.TableName, column.Key);
                     adapter.CreateIndexOnTable(schema.TableName, column.Key, indexName);
                     if (column.Value == true)
                     {
@@ -165,7 +203,7 @@ namespace DataTableWriter
         {
             if (!adapter.ExistsTable(schema.TableName))
             {
-                Log.Error(String.Format("Error updating indexes: Table {0} does not exist", schema.TableName));
+                Log.Error(String.Format("Error updating indexes: table {0} does not exist", schema.TableName));
                 return false;
             }
 
@@ -183,7 +221,8 @@ namespace DataTableWriter
 
                 foreach (var configEntry in columns)
                 {
-                    var indexName = configEntry.Key + "_idx";
+                    var indexName = BuildIndexName(schema.TableName, configEntry.Key);
+
                     if (!existingIndexes.Contains(indexName))
                     {
                         indexesToCreate.Add(configEntry.Key, configEntry.Value);
@@ -257,7 +296,7 @@ namespace DataTableWriter
         {
             if (!adapter.ExistsTable(schema.TableName))
             {
-                Log.Error(String.Format("Error updating index cluster status: Table {0} does not exist", schema.TableName));
+                Log.Error(String.Format("Error updating index cluster status: table '{0}' does not exist..", schema.TableName));
                 return false;
             }
 
@@ -302,31 +341,38 @@ namespace DataTableWriter
         }
 
         /// <summary>
-        /// Uses an in-memory schema to initialize a database table according to a set of initialization options.
+        /// Builds the index name from the table name and column name.
         /// </summary>
-        /// <param name="adapter">Open adapter to a database.</param>
-        /// <param name="schema">The schema to use to initialize.</param>
-        /// <param name="tableInitializationOptions">A set of options to determine initialization behavior.</param>
-        public static void InitializeTable(IDbAdapter adapter, DataTable schema, DbTableInitializationOptions tableInitializationOptions)
+        /// <param name="tableName">The name of the table.</param>
+        /// <param name="columnName">The name of the column.</param>
+        /// <returns>A string that will be used for the index name.</returns>
+        private static string BuildIndexName(string tableName, string columnName)
         {
-            if (tableInitializationOptions.CreateTableDynamically)
+            StringBuilder indexName = new StringBuilder();
+            
+            if (tableName.Length > 29)
             {
-                CreateTable(adapter, schema, tableInitializationOptions.IndexesToGenerate);
+                indexName.Append(tableName.Substring(0, 29));
             }
-            if (tableInitializationOptions.UpdateDbTableToMatchSchema)
+            else
             {
-                UpdateTableToMatchSchema(adapter, schema);
+                indexName.Append(tableName);
             }
-            if (tableInitializationOptions.UpdateSchemaToMatchDbTable)
+
+            indexName.Append("_");
+
+            if (columnName.Length > 29)
             {
-                UpdateSchemaToMatchTable(adapter, schema);
+                indexName.Append(columnName.Substring(0, 29));
             }
-            if (tableInitializationOptions.UpdateIndexes)
+            else
             {
-                AddDbIndexesToMatch(adapter, schema, tableInitializationOptions.IndexesToGenerate);
-                RemoveDBIndexesToMatch(adapter, schema, tableInitializationOptions.IndexesToGenerate);
-                UpdateIndexClusters(adapter, schema, tableInitializationOptions.IndexesToGenerate);
+                indexName.Append(columnName);
             }
+
+            indexName.Append("_idx");
+
+            return indexName.ToString();
         }
 
         #endregion

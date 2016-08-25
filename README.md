@@ -2,7 +2,7 @@
 
 ## What is TabMon?
 
-TabMon is a performance monitoring agent that periodically samples target hosts for a set of Perfmon and MBean counters and writes out the results to a database in a Tableau-friendly format.  This information can then be used to monitor & analyze performance of a Tableau Server installation, in order to detect potential issues or assess scalabiliy & sizing.
+TabMon is a performance monitoring agent that periodically samples target hosts for a set of Perfmon and MBean counters and writes out the results to a database in a Tableau-friendly format.  This information can then be used to monitor & analyze performance of a Tableau Server installation, in order to detect potential issues or assess scalability & sizing.
 
 TabMon can be run as both a console app and a Windows service.
 
@@ -12,7 +12,7 @@ TabMon is deployed via a custom installer, which manages dependencies and also b
 
 ## How do I analyze results from TabMon?
 
-The best way is to explore your results in Tableau!  A [sample workbook](https://github.com/tableau/TabMon/releases/download/v1.0/TabMonWorkbook.twb) has been created with some example dashboards & views to get you started.
+The best way is to explore your results in Tableau!  A [sample workbook](https://github.com/tableau/TabMon/blob/master/TabMon/Resources/Sample%20Workbooks) is included that contains some example dashboards & views to get you started.
 
 ## What do I need to build TabMon from source?
 

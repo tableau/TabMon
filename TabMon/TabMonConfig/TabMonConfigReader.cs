@@ -1,14 +1,14 @@
 ﻿using DataTableWriter;
-using log4net;
-using System;
-using System.Configuration;
-using System.IO;
-using System.Reflection;
 using DataTableWriter.Connection;
 using DataTableWriter.Drivers;
 using DataTableWriter.Writers;
-using TabMon.Helpers;
+using log4net;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Reflection;
+using TabMon.Helpers;
 
 namespace TabMon.Config
 {
@@ -95,7 +95,7 @@ namespace TabMon.Config
             }
         }
 
-        #endregion
+        #endregion Public Methods
 
         #region Private Methods
 
@@ -143,7 +143,9 @@ namespace TabMon.Config
                 UpdateDbTableToMatchSchema = true,
                 UpdateSchemaToMatchDbTable = true,
                 UpdateIndexes = databaseConfig.Indexes.Generate,
-                IndexesToGenerate = indexes
+                IndexesToGenerate = indexes,
+                PurgeData = databaseConfig.PurgeOldData.Enabled,
+                PurgeDataThreshold = databaseConfig.PurgeOldData.ThresholdDays
             };
 
             Log.Info("Connecting to results database..");
@@ -182,6 +184,6 @@ namespace TabMon.Config
             }
         }
 
-        #endregion
+        #endregion Private Methods
     }
 }

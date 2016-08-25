@@ -26,5 +26,6 @@ namespace DataTableWriter.Drivers
         string BuildQueryClusterIndex(string tableName, string indexName);
         string BuildQueryGetIndexes(string tableName);
         string BuildQueryDropIndex(string indexName);
+        string BuildQueryDeleteRows(string tableName, int interval);
     }
 }
