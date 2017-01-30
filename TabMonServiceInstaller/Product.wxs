@@ -78,6 +78,7 @@
         <File Id="NpgsqlDLL" Name="Npgsql.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Npgsql.dll" />
         <File Id="TopshelfDLL" Name="Topshelf.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Topshelf.dll" />
         <File Id="TopshelfLog4NetDLL" Name="Topshelf.Log4Net.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Topshelf.Log4Net.dll" />
+        <File Id="NewtonsoftJSONDLL" Name="Newtonsoft.Json.dll" DiskId="1" Vital="yes" Source="$(var.BinFolder)\Newtonsoft.Json.dll" />
       </Component>
       <Component Id="Utilities" Guid="93dd2c94-e909-4b30-a2ed-80e78d53ed5b">
         <!-- Helper Utilities -->
