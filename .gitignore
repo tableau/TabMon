@@ -20,3 +20,4 @@ TabMon.v12.suo
 TabMonConfigSectionGenerator/bin/
 TabMonServiceInstaller/Generated/
 .user
+*.user
