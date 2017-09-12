@@ -190,8 +190,12 @@
     <Content Include="Resources\Sample Workbooks\9.3 - 10.0\TabMon.twb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\Configurations\10.2+\Counters.config" />
-    <None Include="Resources\Configurations\9.3 - 10.1\Counters.config" />
+    <Content Include="Resources\Configurations\10.2+\Counters.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Configurations\9.3 - 10.1\Counters.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\Counters.config">
