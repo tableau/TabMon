@@ -1,0 +1,20 @@
+# Site settings
+title: TabMon
+email: github@tableau.com
+
+description: A Tableau Server performance monitoring service.
+repository: d45/tableau.github.io
+baseurl: "/TabMon"
+#permalinks: pretty
+defaults:
+  -
+    scope:
+      path: "" # Apply to all files
+    values:
+      layout: "default"
+
+# Build settings
+github: [metadata]
+markdown: kramdown
+highlighter: rouge
+
