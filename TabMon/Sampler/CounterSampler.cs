@@ -36,7 +36,7 @@ namespace TabMon.Sampler
         public DataTable SampleAll()
         {
             Log.Info("Polling..");
-            var pollTimestamp = DateTime.Now;
+            var pollTimestamp = DateTime.UtcNow;
 
             // Load any "ephemeral" counters which may have been instantiated between polling cycles.
             var ephemeralCounters = CounterConfigLoader.Load(hostsToSample, CounterLifecycleType.Ephemeral);
