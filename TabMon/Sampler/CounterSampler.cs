@@ -150,7 +150,7 @@ namespace TabMon.Sampler
             var counter = sample.Counter;
             row["timestamp"] = pollTimestamp;
             row["cluster"] = counter.Host.Cluster;
-            row["machine"] = counter.Host.Name.ToLower();
+            row["machine"] = counter.Host.Address;
             row["counter_type"] = counter.CounterType;
             row["source"] = counter.Source;
             row["category"] = counter.Category;

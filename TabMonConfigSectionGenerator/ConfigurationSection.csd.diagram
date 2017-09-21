@@ -86,14 +86,14 @@
         </elementPropertyHasTypeConnector>
       </nestedChildShapes>
     </configurationElementShape>
-    <configurationElementShape Id="4cd257f9-4da9-4585-894c-1489324517a4" absoluteBounds="15.5, 5.625, 1.5, 1.2110807291666665" outlineDashStyle="Solid" outlineThickness="0.01">
+    <configurationElementShape Id="4cd257f9-4da9-4585-894c-1489324517a4" absoluteBounds="15.5, 5.625, 1.5, 1.4033821614583326" outlineDashStyle="Solid" outlineThickness="0.01">
       <configurationElementMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Host" />
       <nestedChildShapes>
-        <elementListCompartment Id="9a2a448e-abc3-4a8a-a8dc-dd1868ac0783" absoluteBounds="15.515, 6.035, 1.4700000000000002, 0.44169108072916663" name="AttributeProperties" titleTextColor="Black" itemTextColor="Black" />
-        <elementListCompartment Id="3035d1b5-71a4-4d08-801c-aa3ed2f7ff59" absoluteBounds="15.515, 6.4866910807291669, 1.4700000000000002, 0.2493896484375" name="ElementProperties" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9a2a448e-abc3-4a8a-a8dc-dd1868ac0783" absoluteBounds="15.515, 6.035, 1.4700000000000002, 0.63399251302083326" name="AttributeProperties" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3035d1b5-71a4-4d08-801c-aa3ed2f7ff59" absoluteBounds="15.515, 6.678992513020833, 1.4700000000000002, 0.2493896484375" name="ElementProperties" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </configurationElementShape>
-    <configurationElementCollectionHasItemTypeConnector edgePoints="[(14.625 : 4.96108072916667); (14.625 : 6.23054036458333); (15.5 : 6.23054036458333)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="c2b30fd0-a8b8-4b9f-abe5-fd8447c1f53e">
+    <configurationElementCollectionHasItemTypeConnector edgePoints="[(14.625 : 4.96108072916667); (14.625 : 6.32669108072917); (15.5 : 6.32669108072917)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="c2b30fd0-a8b8-4b9f-abe5-fd8447c1f53e">
       <relativeChildShapes />
       <nodes>
         <configurationElementCollectionShapeMoniker Id="52317dae-8bd9-4d84-aa65-d1955892e8d6" />

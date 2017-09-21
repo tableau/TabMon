@@ -254,7 +254,7 @@ namespace TabMon.Config
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         protected override object GetElementKey(global::System.Configuration.ConfigurationElement element)
         {
-            return ((global::TabMon.Config.Host)(element)).Name;
+            return ((global::TabMon.Config.Host)(element)).Address;
         }
         
         /// <summary>
@@ -287,13 +287,13 @@ namespace TabMon.Config
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Host"/> with the specified key.
         /// </summary>
-        /// <param name="name">The key of the <see cref="global::TabMon.Config.Host"/> to retrieve.</param>
+        /// <param name="address">The key of the <see cref="global::TabMon.Config.Host"/> to retrieve.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public global::TabMon.Config.Host this[object name]
+        public global::TabMon.Config.Host this[object address]
         {
             get
             {
-                return ((global::TabMon.Config.Host)(base.BaseGet(name)));
+                return ((global::TabMon.Config.Host)(base.BaseGet(address)));
             }
         }
         #endregion
@@ -336,11 +336,11 @@ namespace TabMon.Config
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Host"/> with the specified key.
         /// </summary>
-        /// <param name="name">The key of the <see cref="global::TabMon.Config.Host"/> to retrieve.</param>
+        /// <param name="address">The key of the <see cref="global::TabMon.Config.Host"/> to retrieve.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public global::TabMon.Config.Host GetItemByKey(string name)
+        public global::TabMon.Config.Host GetItemByKey(string address)
         {
-            return ((global::TabMon.Config.Host)(base.BaseGet(((object)(name)))));
+            return ((global::TabMon.Config.Host)(base.BaseGet(((object)(address)))));
         }
         #endregion
         
@@ -610,12 +610,39 @@ namespace TabMon.Config
         }
         #endregion
         
-        #region Name Property
+        #region ComputerName Property
         /// <summary>
-        /// The XML name of the <see cref="Name"/> property.
+        /// The XML name of the <see cref="ComputerName"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        internal const string NamePropertyName = "name";
+        internal const string ComputerNamePropertyName = "computerName";
+        
+        /// <summary>
+        /// Gets or sets the computer name of the host to monitor.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.ComponentModel.DescriptionAttribute("The computer name of the host to monitor.")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Host.ComputerNamePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="YOURCOMPUTERNAME")]
+        public virtual string ComputerName
+        {
+            get
+            {
+                return ((string)(base[global::TabMon.Config.Host.ComputerNamePropertyName]));
+            }
+            set
+            {
+                base[global::TabMon.Config.Host.ComputerNamePropertyName] = value;
+            }
+        }
+        #endregion
+        
+        #region Address Property
+        /// <summary>
+        /// The XML name of the <see cref="Address"/> property.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        internal const string AddressPropertyName = "address";
         
         /// <summary>
         /// Gets or sets the hostname or IP address of the host to monitor.
@@ -623,16 +650,16 @@ namespace TabMon.Config
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The hostname or IP address of the host to monitor.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Host.NamePropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="localhost")]
-        public virtual string Name
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Host.AddressPropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="localhost")]
+        public virtual string Address
         {
             get
             {
-                return ((string)(base[global::TabMon.Config.Host.NamePropertyName]));
+                return ((string)(base[global::TabMon.Config.Host.AddressPropertyName]));
             }
             set
             {
-                base[global::TabMon.Config.Host.NamePropertyName] = value;
+                base[global::TabMon.Config.Host.AddressPropertyName] = value;
             }
         }
         #endregion

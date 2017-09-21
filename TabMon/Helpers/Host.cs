@@ -5,18 +5,20 @@
     /// </summary>
     public sealed class Host
     {
-        public string Name { get; private set; }
+        public string Address { get; private set; }
+        public string ComputerName { get; private set; }
         public string Cluster { get; private set; }
 
-        public Host(string name, string cluster)
+        public Host(string address, string computerName, string cluster)
         {
-            Name = name;
+            Address = address;
+            ComputerName = computerName;
             Cluster = cluster;
         }
 
         public override string ToString()
         {
-            return Cluster + "\\" + Name;
+            return Cluster + "\\" + Address + "\\" + ComputerName;
         }
     }
 }

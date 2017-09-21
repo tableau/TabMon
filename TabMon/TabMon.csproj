@@ -147,7 +147,6 @@
     <Compile Include="TabMonConfig\TabMonConfigReader.cs" />
     <Compile Include="TabMonConfig\TabMonConfigSection.cs" />
     <Compile Include="TabMonOptions.cs" />
-    <Compile Include="Helpers\HostnameHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\TabMon.config">
