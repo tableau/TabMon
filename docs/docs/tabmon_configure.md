@@ -25,7 +25,7 @@ Go to the install directory and modify the `TabMon.config` file as necessary. (L
 
 The default `TabMon.config` file looks like the following:
 
-![]({{ site.baseurl }}/assets/image3.jpg)
+![]({{ site.baseurl }}/assets/TabMonConfig.PNG)
 
 
 By default, this configuration will poll the performance counters on localhost every 60 seconds and write out the results to the specified database.
