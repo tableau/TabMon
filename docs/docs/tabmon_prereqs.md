@@ -31,7 +31,7 @@ To install TabMon on your system please ensure that you have the following:
 3. Run the following tabadmin commands:
 
 ```
-    tabadmin set service.jmx\_enabled true
+    tabadmin set service.jmx_enabled true
 
     tabadmin stop
 
@@ -51,7 +51,7 @@ This step is only required if you want to use the “What’s Going On?” dashb
 3.  Run the following tabadmin commands
 
 ```
-    tabadmin dbpass --username readonly \[Password here\]
+    tabadmin dbpass --username readonly [Password here]
 
     tabadmin restart
 ```
