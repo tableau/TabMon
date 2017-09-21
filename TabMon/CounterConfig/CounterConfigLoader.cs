@@ -20,7 +20,7 @@ namespace TabMon.CounterConfig
         private const string PathToCountersConfig = @"Config\Counters.config";
         private const string PathToSchema = @"Resources\CountersConfig.xsd";
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        private static XmlDocument loadedConfigDocument; 
+        private static XmlDocument loadedConfigDocument;
 
         /// <summary>
         /// Loads the Counters.config file, validates it against the XSD schema, and news up the appropriate CounterConfigReader object for each root counter type node.
@@ -54,7 +54,7 @@ namespace TabMon.CounterConfig
                     if (countersInNode.Count > 0)
                     {
                         Log.DebugFormat("Loaded {0} {1} {2} {3} on {4}.",
-                                        countersInNode.Count, counterLifecycleType.ToString().ToLowerInvariant(), counterType, "counter".Pluralize(countersInNode.Count), host.Name);
+                                        countersInNode.Count, counterLifecycleType.ToString().ToLowerInvariant(), counterType, "counter".Pluralize(countersInNode.Count), host.Address);
                         counters.AddRange(countersInNode);
                     }
                 }

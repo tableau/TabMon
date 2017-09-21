@@ -87,7 +87,12 @@
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="TabMon.Config.HostCT">
-		<xs:attribute name="name" use="required" type="xs:string">
+		<xs:attribute name="computerName" use="required" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>The computer name of the host to monitor.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="address" use="required" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>The hostname or IP address of the host to monitor.</xs:documentation>
 			</xs:annotation>

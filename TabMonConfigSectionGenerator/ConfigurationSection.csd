@@ -99,7 +99,15 @@
     </configurationElement>
     <configurationElement name="Host" namespace="TabMon.Config" documentation="Represents an individual host.">
       <attributeProperties>
-        <attributeProperty name="Name" isRequired="true" isKey="true" isDefaultCollection="false" xmlName="name" isReadOnly="false" documentation="The hostname or IP address of the host to monitor." defaultValue="&quot;localhost&quot;">
+        <attributeProperty name="ComputerName" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="computerName" isReadOnly="false" documentation="The computer name of the host to monitor." defaultValue="&quot;YOURCOMPUTERNAME&quot;">
+          <validator>
+            <stringValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/NonEmptyString" />
+          </validator>
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/String" />
+          </type>
+        </attributeProperty>
+        <attributeProperty name="Address" isRequired="true" isKey="true" isDefaultCollection="false" xmlName="address" isReadOnly="false" documentation="The hostname or IP address of the host to monitor." defaultValue="&quot;localhost&quot;">
           <validator>
             <stringValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/NonEmptyString" />
           </validator>
