@@ -9,9 +9,9 @@ layout: default
 
 
 
-**1.  How to I connect to the TabMon workbook?**
+### 1.  How to I connect to the TabMon workbook?
 
-The TabMon workbook is included in the `Resources\\Sample Workbooks` folder in the TabMon install directory. Note that you should make sure to use the version of the Sample Workbook that matches the Tableau Server version. The SampleWorkbook is meant to fit on top of the schema set in the Counters.config file, so make sure you are using the correct Counters.config file for your version as well!
+The TabMon workbook is included in the `Resources\Sample Workbooks` folder in the TabMon install directory. Note that you should make sure to use the version of the Sample Workbook that matches the Tableau Server version. The SampleWorkbook is meant to fit on top of the schema set in the Counters.config file, so make sure you are using the correct Counters.config file for your version as well!
 
 To connect the workbook to your own server, open the workbook and enter the following:
 
@@ -21,36 +21,36 @@ To connect the workbook to your own server, open the workbook and enter the foll
 
 
 
-**2.  What do all these counters represent?**
+### 2.  What do all these counters represent?
 
-The counters collected by the default Counters.config file represent a common set of performance metrics that would be of interest to an average server admin. Information on the Perfmon counters can be found at Microsoft’s Perfmon counter reference at [*https://technet.microsoft.com/enus/library/cc768048.aspx*.](https://technet.microsoft.com/en-us/library/cc768048.aspx){:target="_blank"}
+The counters collected by the default `Counters.config` file represent a common set of performance metrics that would be of interest to an average server admin. Information on the Perfmon counters can be found at Microsoft’s Perfmon counter reference at [*https://technet.microsoft.com/enus/library/cc768048.aspx*.](https://technet.microsoft.com/en-us/library/cc768048.aspx){:target="_blank"}
 
 
-**3.  My “%Processor Time” is over 100%; how is this possible?**
+### 3.  My “%Processor Time” is over 100%; how is this possible?
 
 TabMon uses the Windows Perfmon counter “Process\\% Processor Time” to calculate the amount of CPU used by individual processes. By the nature of this counter, for a single CPU (single core) the maximum value is 100%. For a multi-core system, the maximum percentage is \#cores \* 100% (for example a 4 core system will have a max of 400%).
 
 
-**4.  The TabMon service won’t start.**
+### 4.  The TabMon service won’t start.
 
 If TabMon is failing to start, it is likely due to a permissions issue. The most common cause of this is that the user trying to start TabMon does not have admin privileges, or else the account the TabMon service is running as does not have sufficient permissions. Remember that if you are using Remote Polling, then TabMon must be running as a user with appropriate permissions on all of the remote machines.
 
 If you’ve double-checked all relevant permissions and TabMon still isn’t starting, a good way to get a clue is to check the most recent event from the application logs – see `C:\Program Files (x86)\TabMon\Logs\`.
 
 
-**5.  I’m seeing tons of counter polling failures!**
+### 5.  I’m seeing tons of counter polling failures!
 
 Make sure you are using the proper `Counters.config` file for the version of Tableau Server that you are monitoring. See the [Configuring TabMon](tabmon_configure) section for more information on this. If you’re using the proper Counters.config file and still several failures, checking the logs can provide insight.
 
 It is worth noting that systems can be very different and the machine(s) you are monitoring may simply not have certain counters.
 
 
-**6.  TabMon is dropping JMX counters after I restart Tableau Server.**
+### 6.  TabMon is dropping JMX counters after I restart Tableau Server.
 
 This is normal. Restarting the server will cycle the open JMX ports and you will experience a temporary loss in connectivity for JMX counters. TabMon includes reconnection logic which will eventually automatically re-establish all of the connections.
 
 
-**7.  Help! TabMon is generating way too much data!**
+### 7.  Help! TabMon is generating way too much data!
 
 By default, TabMon samples all performance counters every minute and keeps that data around forever. Over the long term, this can amount to a lot of data!
 
@@ -64,7 +64,7 @@ There are a couple of ways to address this:
 
 
 
-**8.  What Processes/Services does TabMon monitor?**
+### 8.  What Processes/Services does TabMon monitor?
 
 TabMon tracks all Tableau Server related processes below (taken from [*http://onlinehelp.tableau.com/current/server/en-us/processes.htm*)](http://onlinehelp.tableau.com/current/server/en-us/processes.htm){:target="_blank"}:
 
@@ -84,13 +84,13 @@ TabMon tracks all Tableau Server related processes below (taken from [*http://on
 | **VizQL Server**         | vizqlserver.exe                        | Loads and renders views, computes and executes queries                                                | Consumes noticeable resources during view loading and interactive use from a web browser. Can be CPU bound, I/O bound, or network bound. Process load can only be created by browser-based interaction. Can run out of process memory. |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
 
-**9.  How do I determine if I have system bottlenecks on my Server Instance?**
+### 9.  How do I determine if I have system bottlenecks on my Server Instance?
 
 Microsoft has some general guidelines for server health available in help documents and online articles.
 
 Refer to: [*https://technet.microsoft.com/en-us/magazine/2008.08.pulse.aspx* ](https://technet.microsoft.com/en-us/magazine/2008.08.pulse.aspx){:target="_blank"}
 
-In general, here are some common bottlenecks/general guidelines **(these are NOT an authoritative nor is this a definitive guide to the server health; actual results will vary)**:
+In general, here are some common bottlenecks/general guidelines **(this list is neither authoritative nor is it a definitive guide to the server health; actual results will vary)**:
 
 1.  Free Disk Space: Keep above 15% for critical systems
 
@@ -102,7 +102,7 @@ In general, here are some common bottlenecks/general guidelines **(these are NOT
 
 
 
-**10.  What are cache hits/misses?**
+### 10.  What are cache hits/misses?
 
    -   A Cache hit is a successful lookup in a cache server.
 
@@ -111,16 +111,16 @@ In general, here are some common bottlenecks/general guidelines **(these are NOT
    -   Generally speaking, an effective cache server has more hits than misses (aka a high Cache Hit Ratio)
    
 
-**11.  What is Request Latency and what does it mean for me?**
+### 11.  What is Request Latency and what does it mean for me?
 
 Request Latency is the time it takes for the host server to receive and process a request. Latency can be reduced by tweaking and upgrading computer hardware.
 
 
-**12.  Can I use TabMon to monitor hosts that aren’t running Tableau?**
+### 12.  Can I use TabMon to monitor hosts that aren’t running Tableau?
 
 Absolutely! Just edit your Counters.config file to remove all of the MBean counters as well as the PerfMon counters that specifically relate to Tableau processes.
 
-**13.  Where can I get additional support/feedback?**
+### 13.  Where can I get additional support/feedback?
 
 As an open source product, TabMon is **Community Supported**. Please refer to the GitHub page for TabMon for more details:
 

@@ -68,7 +68,7 @@
 
 
     <ul class="nav nav-list">
-        <li class="nav-header">TabMon User Guide</li>
+        <li class="nav-header">Getting Started</li>
 		<li>
             <a href="/TabMon/docs/tabmon_prereqs">Prerequisites for Installing TabMon</a>
         </li>
@@ -76,19 +76,21 @@
             <a href="/TabMon/docs/tabmon_install">Installing TabMon</a>
         </li>
         <li>
-            <a href="/TabMon/docs/tabmon_upgrade">Upgrading from a Previoius Version of TabMon</a>
+            <a href="/TabMon/docs/tabmon_upgrade">Upgrading from a Previous Version of TabMon</a>
         </li>
         <li>
             <a href="/TabMon/docs/tabmon_configure">Configuring TabMon</a>
         </li>
+		<li class="nav-header">Using TabMon</li>
         <li>
             <a href="/TabMon/docs/tabmon_using">Using TabMon</a>
         </li>
         <li>
             <a href="/TabMon/docs/tabmon_faq">FAQ/Troubleshooting</a>
         </li>
+		<li class="nav-header">Reference</li>
         <li>
-            <a href="/TabMon/docs/tabmon_appendix_a">Appendex A: Additional Installation Instructions</a>
+            <a href="/TabMon/docs/tabmon_appendix_a">Appendix A: Additional Installation Instructions</a>
         </li>
     </ul>
 </div>
@@ -97,15 +99,30 @@
         <div class="content .col-xs-12 .col-sm-8 .col-md-9">
             <h1>FAQ/Troubleshooting</h1>
             <div class="edit-container">
-                <a href="https://github.com/tableau/Logshark/edit/master/docs/docs/tabmon_faq.md" class="edit-links"><span class="glyphicon glyphicon-pencil"></span> Edit this page</a>
+                <a href="https://github.com/tableau/TabMon/edit/master/docs/docs/tabmon_faq.md" class="edit-links"><span class="glyphicon glyphicon-pencil"></span> Edit this page</a>
                 &nbsp;
-                <a href="https://github.com/tableau/Logshark/issues" class="edit-links"><span class="glyphicon glyphicon-flag"></span> Submit an issue</a>
+                <a href="https://github.com/tableau/TabMon/issues" class="edit-links"><span class="glyphicon glyphicon-flag"></span> Submit an issue</a>
             </div>
             <br />
-            
-<p><strong>1.  How to I connect to the TabMon workbook?</strong></p>
+            <ul id="markdown-toc">
+  <li><a href="#1--how-to-i-connect-to-the-tabmon-workbook" id="markdown-toc-1--how-to-i-connect-to-the-tabmon-workbook">1.  How to I connect to the TabMon workbook?</a></li>
+  <li><a href="#2--what-do-all-these-counters-represent" id="markdown-toc-2--what-do-all-these-counters-represent">2.  What do all these counters represent?</a></li>
+  <li><a href="#3--my-processor-time-is-over-100-how-is-this-possible" id="markdown-toc-3--my-processor-time-is-over-100-how-is-this-possible">3.  My “%Processor Time” is over 100%; how is this possible?</a></li>
+  <li><a href="#4--the-tabmon-service-wont-start" id="markdown-toc-4--the-tabmon-service-wont-start">4.  The TabMon service won’t start.</a></li>
+  <li><a href="#5--im-seeing-tons-of-counter-polling-failures" id="markdown-toc-5--im-seeing-tons-of-counter-polling-failures">5.  I’m seeing tons of counter polling failures!</a></li>
+  <li><a href="#6--tabmon-is-dropping-jmx-counters-after-i-restart-tableau-server" id="markdown-toc-6--tabmon-is-dropping-jmx-counters-after-i-restart-tableau-server">6.  TabMon is dropping JMX counters after I restart Tableau Server.</a></li>
+  <li><a href="#7--help-tabmon-is-generating-way-too-much-data" id="markdown-toc-7--help-tabmon-is-generating-way-too-much-data">7.  Help! TabMon is generating way too much data!</a></li>
+  <li><a href="#8--what-processesservices-does-tabmon-monitor" id="markdown-toc-8--what-processesservices-does-tabmon-monitor">8.  What Processes/Services does TabMon monitor?</a></li>
+  <li><a href="#9--how-do-i-determine-if-i-have-system-bottlenecks-on-my-server-instance" id="markdown-toc-9--how-do-i-determine-if-i-have-system-bottlenecks-on-my-server-instance">9.  How do I determine if I have system bottlenecks on my Server Instance?</a></li>
+  <li><a href="#10--what-are-cache-hitsmisses" id="markdown-toc-10--what-are-cache-hitsmisses">10.  What are cache hits/misses?</a></li>
+  <li><a href="#11--what-is-request-latency-and-what-does-it-mean-for-me" id="markdown-toc-11--what-is-request-latency-and-what-does-it-mean-for-me">11.  What is Request Latency and what does it mean for me?</a></li>
+  <li><a href="#12--can-i-use-tabmon-to-monitor-hosts-that-arent-running-tableau" id="markdown-toc-12--can-i-use-tabmon-to-monitor-hosts-that-arent-running-tableau">12.  Can I use TabMon to monitor hosts that aren’t running Tableau?</a></li>
+  <li><a href="#13--where-can-i-get-additional-supportfeedback" id="markdown-toc-13--where-can-i-get-additional-supportfeedback">13.  Where can I get additional support/feedback?</a></li>
+</ul>
 
-<p>The TabMon workbook is included in the <code class="highlighter-rouge">Resources\\Sample Workbooks</code> folder in the TabMon install directory. Note that you should make sure to use the version of the Sample Workbook that matches the Tableau Server version. The SampleWorkbook is meant to fit on top of the schema set in the Counters.config file, so make sure you are using the correct Counters.config file for your version as well!</p>
+<h3 id="1--how-to-i-connect-to-the-tabmon-workbook">1.  How to I connect to the TabMon workbook?</h3>
+
+<p>The TabMon workbook is included in the <code class="highlighter-rouge">Resources\Sample Workbooks</code> folder in the TabMon install directory. Note that you should make sure to use the version of the Sample Workbook that matches the Tableau Server version. The SampleWorkbook is meant to fit on top of the schema set in the Counters.config file, so make sure you are using the correct Counters.config file for your version as well!</p>
 
 <p>To connect the workbook to your own server, open the workbook and enter the following:</p>
 
@@ -118,31 +135,31 @@
   </li>
 </ol>
 
-<p><strong>2.  What do all these counters represent?</strong></p>
+<h3 id="2--what-do-all-these-counters-represent">2.  What do all these counters represent?</h3>
 
-<p>The counters collected by the default Counters.config file represent a common set of performance metrics that would be of interest to an average server admin. Information on the Perfmon counters can be found at Microsoft’s Perfmon counter reference at <a href="https://technet.microsoft.com/en-us/library/cc768048.aspx" target="_blank"><em>https://technet.microsoft.com/enus/library/cc768048.aspx</em>.</a></p>
+<p>The counters collected by the default <code class="highlighter-rouge">Counters.config</code> file represent a common set of performance metrics that would be of interest to an average server admin. Information on the Perfmon counters can be found at Microsoft’s Perfmon counter reference at <a href="https://technet.microsoft.com/en-us/library/cc768048.aspx" target="_blank"><em>https://technet.microsoft.com/enus/library/cc768048.aspx</em>.</a></p>
 
-<p><strong>3.  My “%Processor Time” is over 100%; how is this possible?</strong></p>
+<h3 id="3--my-processor-time-is-over-100-how-is-this-possible">3.  My “%Processor Time” is over 100%; how is this possible?</h3>
 
 <p>TabMon uses the Windows Perfmon counter “Process\% Processor Time” to calculate the amount of CPU used by individual processes. By the nature of this counter, for a single CPU (single core) the maximum value is 100%. For a multi-core system, the maximum percentage is #cores * 100% (for example a 4 core system will have a max of 400%).</p>
 
-<p><strong>4.  The TabMon service won’t start.</strong></p>
+<h3 id="4--the-tabmon-service-wont-start">4.  The TabMon service won’t start.</h3>
 
 <p>If TabMon is failing to start, it is likely due to a permissions issue. The most common cause of this is that the user trying to start TabMon does not have admin privileges, or else the account the TabMon service is running as does not have sufficient permissions. Remember that if you are using Remote Polling, then TabMon must be running as a user with appropriate permissions on all of the remote machines.</p>
 
 <p>If you’ve double-checked all relevant permissions and TabMon still isn’t starting, a good way to get a clue is to check the most recent event from the application logs – see <code class="highlighter-rouge">C:\Program Files (x86)\TabMon\Logs\</code>.</p>
 
-<p><strong>5.  I’m seeing tons of counter polling failures!</strong></p>
+<h3 id="5--im-seeing-tons-of-counter-polling-failures">5.  I’m seeing tons of counter polling failures!</h3>
 
 <p>Make sure you are using the proper <code class="highlighter-rouge">Counters.config</code> file for the version of Tableau Server that you are monitoring. See the <a href="tabmon_configure">Configuring TabMon</a> section for more information on this. If you’re using the proper Counters.config file and still several failures, checking the logs can provide insight.</p>
 
 <p>It is worth noting that systems can be very different and the machine(s) you are monitoring may simply not have certain counters.</p>
 
-<p><strong>6.  TabMon is dropping JMX counters after I restart Tableau Server.</strong></p>
+<h3 id="6--tabmon-is-dropping-jmx-counters-after-i-restart-tableau-server">6.  TabMon is dropping JMX counters after I restart Tableau Server.</h3>
 
 <p>This is normal. Restarting the server will cycle the open JMX ports and you will experience a temporary loss in connectivity for JMX counters. TabMon includes reconnection logic which will eventually automatically re-establish all of the connections.</p>
 
-<p><strong>7.  Help! TabMon is generating way too much data!</strong></p>
+<h3 id="7--help-tabmon-is-generating-way-too-much-data">7.  Help! TabMon is generating way too much data!</h3>
 
 <p>By default, TabMon samples all performance counters every minute and keeps that data around forever. Over the long term, this can amount to a lot of data!</p>
 
@@ -160,7 +177,7 @@
   </li>
 </ol>
 
-<p><strong>8.  What Processes/Services does TabMon monitor?</strong></p>
+<h3 id="8--what-processesservices-does-tabmon-monitor">8.  What Processes/Services does TabMon monitor?</h3>
 
 <p>TabMon tracks all Tableau Server related processes below (taken from <a href="http://onlinehelp.tableau.com/current/server/en-us/processes.htm" target="_blank"><em>http://onlinehelp.tableau.com/current/server/en-us/processes.htm</em>)</a>:</p>
 
@@ -249,13 +266,13 @@
   </tbody>
 </table>
 
-<p><strong>9.  How do I determine if I have system bottlenecks on my Server Instance?</strong></p>
+<h3 id="9--how-do-i-determine-if-i-have-system-bottlenecks-on-my-server-instance">9.  How do I determine if I have system bottlenecks on my Server Instance?</h3>
 
 <p>Microsoft has some general guidelines for server health available in help documents and online articles.</p>
 
 <p>Refer to: <a href="https://technet.microsoft.com/en-us/magazine/2008.08.pulse.aspx" target="_blank"><em>https://technet.microsoft.com/en-us/magazine/2008.08.pulse.aspx</em> </a></p>
 
-<p>In general, here are some common bottlenecks/general guidelines <strong>(these are NOT an authoritative nor is this a definitive guide to the server health; actual results will vary)</strong>:</p>
+<p>In general, here are some common bottlenecks/general guidelines <strong>(this list is neither authoritative nor is it a definitive guide to the server health; actual results will vary)</strong>:</p>
 
 <ol>
   <li>
@@ -272,7 +289,7 @@
   </li>
 </ol>
 
-<p><strong>10.  What are cache hits/misses?</strong></p>
+<h3 id="10--what-are-cache-hitsmisses">10.  What are cache hits/misses?</h3>
 
 <ul>
   <li>
@@ -286,15 +303,15 @@
   </li>
 </ul>
 
-<p><strong>11.  What is Request Latency and what does it mean for me?</strong></p>
+<h3 id="11--what-is-request-latency-and-what-does-it-mean-for-me">11.  What is Request Latency and what does it mean for me?</h3>
 
 <p>Request Latency is the time it takes for the host server to receive and process a request. Latency can be reduced by tweaking and upgrading computer hardware.</p>
 
-<p><strong>12.  Can I use TabMon to monitor hosts that aren’t running Tableau?</strong></p>
+<h3 id="12--can-i-use-tabmon-to-monitor-hosts-that-arent-running-tableau">12.  Can I use TabMon to monitor hosts that aren’t running Tableau?</h3>
 
 <p>Absolutely! Just edit your Counters.config file to remove all of the MBean counters as well as the PerfMon counters that specifically relate to Tableau processes.</p>
 
-<p><strong>13.  Where can I get additional support/feedback?</strong></p>
+<h3 id="13--where-can-i-get-additional-supportfeedback">13.  Where can I get additional support/feedback?</h3>
 
 <p>As an open source product, TabMon is <strong>Community Supported</strong>. Please refer to the GitHub page for TabMon for more details:</p>
 

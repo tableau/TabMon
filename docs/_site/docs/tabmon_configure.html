@@ -68,7 +68,7 @@
 
 
     <ul class="nav nav-list">
-        <li class="nav-header">TabMon User Guide</li>
+        <li class="nav-header">Getting Started</li>
 		<li>
             <a href="/TabMon/docs/tabmon_prereqs">Prerequisites for Installing TabMon</a>
         </li>
@@ -76,19 +76,21 @@
             <a href="/TabMon/docs/tabmon_install">Installing TabMon</a>
         </li>
         <li>
-            <a href="/TabMon/docs/tabmon_upgrade">Upgrading from a Previoius Version of TabMon</a>
+            <a href="/TabMon/docs/tabmon_upgrade">Upgrading from a Previous Version of TabMon</a>
         </li>
         <li>
             <a href="/TabMon/docs/tabmon_configure">Configuring TabMon</a>
         </li>
+		<li class="nav-header">Using TabMon</li>
         <li>
             <a href="/TabMon/docs/tabmon_using">Using TabMon</a>
         </li>
         <li>
             <a href="/TabMon/docs/tabmon_faq">FAQ/Troubleshooting</a>
         </li>
+		<li class="nav-header">Reference</li>
         <li>
-            <a href="/TabMon/docs/tabmon_appendix_a">Appendex A: Additional Installation Instructions</a>
+            <a href="/TabMon/docs/tabmon_appendix_a">Appendix A: Additional Installation Instructions</a>
         </li>
     </ul>
 </div>
@@ -97,9 +99,9 @@
         <div class="content .col-xs-12 .col-sm-8 .col-md-9">
             <h1>Configuring TabMon</h1>
             <div class="edit-container">
-                <a href="https://github.com/tableau/Logshark/edit/master/docs/docs/tabmon_configure.md" class="edit-links"><span class="glyphicon glyphicon-pencil"></span> Edit this page</a>
+                <a href="https://github.com/tableau/TabMon/edit/master/docs/docs/tabmon_configure.md" class="edit-links"><span class="glyphicon glyphicon-pencil"></span> Edit this page</a>
                 &nbsp;
-                <a href="https://github.com/tableau/Logshark/issues" class="edit-links"><span class="glyphicon glyphicon-flag"></span> Submit an issue</a>
+                <a href="https://github.com/tableau/TabMon/issues" class="edit-links"><span class="glyphicon glyphicon-flag"></span> Submit an issue</a>
             </div>
             <br />
             <p>In this section:</p>
@@ -131,7 +133,7 @@
 
 <h2 id="tabmonconfig">Tabmon.config</h2>
 
-<p>Go to the install directory and modify the <code class="highlighter-rouge">TabMon.config</code> file as necessary. (Located in <code class="highlighter-rouge">Program Files (x86)\\TabMon\\Config\\TabMon.config</code>)</p>
+<p>Go to the install directory and modify the <code class="highlighter-rouge">TabMon.config</code> file as necessary. (Located in <code class="highlighter-rouge">\Program Files (x86)\TabMon\Config\TabMon.config</code>)</p>
 
 <p>The default <code class="highlighter-rouge">TabMon.config</code> file looks like the following:</p>
 
@@ -143,7 +145,7 @@
 
 <h2 id="countersconfig">Counters.config</h2>
 
-<p>The default Counters.config file comes with a good starter set of counters for monitoring Tableau Server 9.3 &amp; 10.0. If you are using TabMon to monitor an older version of Tableau, you will need to overwrite this with the Counters.config file specific to your version, these are kept in the “Resources\Configurations” folder in the TabMon install directory. Note that if you switch your Counters.config file in this way, you should also switch to the appropriate version of the Sample Workbook (found in \Resources\Sample Workbooks).</p>
+<p>The default Counters.config file comes with a good starter set of counters for monitoring Tableau Server 9.3 and 10.0. If you are using TabMon to monitor an older version of Tableau, you will need to overwrite this with the <code class="highlighter-rouge">Counters.config</code> file specific to your version, these are kept in the <code class="highlighter-rouge">Resources\Configurations</code> folder in the TabMon install directory. Note that if you switch your <code class="highlighter-rouge">Counters.config</code> file in this way, you should also switch to the appropriate version of the Sample Workbook (found in <code class="highlighter-rouge">\Resources\Sample Workbooks</code>).</p>
 
 <p>Feel free to add or remove counters from <code class="highlighter-rouge">Counters.config</code> to suit your monitoring needs!</p>
 
@@ -183,7 +185,7 @@
 
 <p>TabMon generates a lot of data, especially when using an aggressive polling rate. To help manage this, when using TabMon to output to database, you can set a data retention threshold so that old data is automatically dropped.</p>
 
-<p>To set this, open up TabMon.config and find the following line:</p>
+<p>To set this, open up <code class="highlighter-rouge">TabMon.config</code> and find the following line:</p>
 
 <p><code class="highlighter-rouge">&lt;PurgeOldData enabled="false" thresholdDays="30"/&gt;</code></p>
 

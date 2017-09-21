@@ -21,7 +21,7 @@ TabMon utilizes two main application config files, located in the “Config” d
 
 ## Tabmon.config 
 
-Go to the install directory and modify the `TabMon.config` file as necessary. (Located in `Program Files (x86)\\TabMon\\Config\\TabMon.config`)
+Go to the install directory and modify the `TabMon.config` file as necessary. (Located in `\Program Files (x86)\TabMon\Config\TabMon.config`)
 
 The default `TabMon.config` file looks like the following:
 
@@ -35,7 +35,7 @@ By default, this configuration will poll the performance counters on localhost e
 
 ## Counters.config 
 
-The default Counters.config file comes with a good starter set of counters for monitoring Tableau Server 9.3 & 10.0. If you are using TabMon to monitor an older version of Tableau, you will need to overwrite this with the Counters.config file specific to your version, these are kept in the “Resources\\Configurations” folder in the TabMon install directory. Note that if you switch your Counters.config file in this way, you should also switch to the appropriate version of the Sample Workbook (found in \\Resources\\Sample Workbooks).
+The default Counters.config file comes with a good starter set of counters for monitoring Tableau Server 9.3 and 10.0. If you are using TabMon to monitor an older version of Tableau, you will need to overwrite this with the `Counters.config` file specific to your version, these are kept in the `Resources\Configurations` folder in the TabMon install directory. Note that if you switch your `Counters.config` file in this way, you should also switch to the appropriate version of the Sample Workbook (found in `\Resources\Sample Workbooks`).
 
 Feel free to add or remove counters from `Counters.config` to suit your monitoring needs!
 
@@ -70,7 +70,7 @@ To poll data from a machine/machines other than your local host:
 
 TabMon generates a lot of data, especially when using an aggressive polling rate. To help manage this, when using TabMon to output to database, you can set a data retention threshold so that old data is automatically dropped.
 
-To set this, open up TabMon.config and find the following line:
+To set this, open up `TabMon.config` and find the following line:
 
 `<PurgeOldData enabled="false" thresholdDays="30"/>`
 
