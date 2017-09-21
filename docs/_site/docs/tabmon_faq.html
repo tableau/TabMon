@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>FAQ/Troubleshooting</title>
+  <meta name="description" content="A Tableau Server performance monitoring service.">
+
+  <link rel="shortcut icon" type="image/png" href="/TabMon/assets/logo.png">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/TabMon/css/main.css">
+  <link rel="stylesheet" href="/TabMon/css/github-highlight.css">
+
+  <script src="/TabMon/js/redirect-to-search.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="site-header">
+    <div class="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navbar-brand-logo navbar-brand-text" href="/TabMon/#">TabMon  </a>
+                   <!-- <div class="sharkdiv">
+                        <a class="navbar-brand navbar-brand-logo" href="/TabMon/#"><img src="/TabMon/assets/Logshark.ico" alt="Logshark" class="logo" /></a>
+                    </div> -->
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a target="_blank" href="https://community.tableau.com/community/forums/server-administration/content">Forum</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="tableauIcon">
+                            <a target="_blank" href="http://tableau.com"><img src="/TabMon/assets/logo.png" alt="Tableau Developers" class="logo" /></a>
+                        </li>
+                        <li><a target="_blank" href="https://github.com/tableau/tabmon"><span class="icon icon--github" title="TabMon" alt="TabMon"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+        <div class="well docs-menu col-xs-12 col-sm-4 col-md-3">
+    <div class="search-container form-group has-feedback">
+    <form id="docs-search">
+        <input type="search" id="search-input" class="custom-search form-control" placeholder="Search the docs..." search-url="/TabMon/docs/search.html">
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+    </form>
+</div>
+
+
+    <ul class="nav nav-list">
+        <li class="nav-header">Getting Started</li>
+		<li>
+            <a href="/TabMon/docs/tabmon_prereqs">Prerequisites for Installing TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_install">Installing TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_upgrade">Upgrading from a Previous Version of TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_configure">Configuring TabMon</a>
+        </li>
+		<li class="nav-header">Using TabMon</li>
+        <li>
+            <a href="/TabMon/docs/tabmon_using">Using TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_faq">FAQ/Troubleshooting</a>
+        </li>
+		<li class="nav-header">Reference</li>
+        <li>
+            <a href="/TabMon/docs/tabmon_appendix_a">Appendix A: Additional Installation Instructions</a>
+        </li>
+    </ul>
+</div>
+
+
+        <div class="content .col-xs-12 .col-sm-8 .col-md-9">
+            <h1>FAQ/Troubleshooting</h1>
+            <div class="edit-container">
+                <a href="https://github.com/tableau/TabMon/edit/master/docs/docs/tabmon_faq.md" class="edit-links"><span class="glyphicon glyphicon-pencil"></span> Edit this page</a>
+                &nbsp;
+                <a href="https://github.com/tableau/TabMon/issues" class="edit-links"><span class="glyphicon glyphicon-flag"></span> Submit an issue</a>
+            </div>
+            <br />
+            <ul id="markdown-toc">
+  <li><a href="#1--how-to-i-connect-to-the-tabmon-workbook" id="markdown-toc-1--how-to-i-connect-to-the-tabmon-workbook">1.  How to I connect to the TabMon workbook?</a></li>
+  <li><a href="#2--what-do-all-these-counters-represent" id="markdown-toc-2--what-do-all-these-counters-represent">2.  What do all these counters represent?</a></li>
+  <li><a href="#3--my-processor-time-is-over-100-how-is-this-possible" id="markdown-toc-3--my-processor-time-is-over-100-how-is-this-possible">3.  My “%Processor Time” is over 100%; how is this possible?</a></li>
+  <li><a href="#4--the-tabmon-service-wont-start" id="markdown-toc-4--the-tabmon-service-wont-start">4.  The TabMon service won’t start.</a></li>
+  <li><a href="#5--im-seeing-tons-of-counter-polling-failures" id="markdown-toc-5--im-seeing-tons-of-counter-polling-failures">5.  I’m seeing tons of counter polling failures!</a></li>
+  <li><a href="#6--tabmon-is-dropping-jmx-counters-after-i-restart-tableau-server" id="markdown-toc-6--tabmon-is-dropping-jmx-counters-after-i-restart-tableau-server">6.  TabMon is dropping JMX counters after I restart Tableau Server.</a></li>
+  <li><a href="#7--help-tabmon-is-generating-way-too-much-data" id="markdown-toc-7--help-tabmon-is-generating-way-too-much-data">7.  Help! TabMon is generating way too much data!</a></li>
+  <li><a href="#8--what-processesservices-does-tabmon-monitor" id="markdown-toc-8--what-processesservices-does-tabmon-monitor">8.  What Processes/Services does TabMon monitor?</a></li>
+  <li><a href="#9--how-do-i-determine-if-i-have-system-bottlenecks-on-my-server-instance" id="markdown-toc-9--how-do-i-determine-if-i-have-system-bottlenecks-on-my-server-instance">9.  How do I determine if I have system bottlenecks on my Server Instance?</a></li>
+  <li><a href="#10--what-are-cache-hitsmisses" id="markdown-toc-10--what-are-cache-hitsmisses">10.  What are cache hits/misses?</a></li>
+  <li><a href="#11--what-is-request-latency-and-what-does-it-mean-for-me" id="markdown-toc-11--what-is-request-latency-and-what-does-it-mean-for-me">11.  What is Request Latency and what does it mean for me?</a></li>
+  <li><a href="#12--can-i-use-tabmon-to-monitor-hosts-that-arent-running-tableau" id="markdown-toc-12--can-i-use-tabmon-to-monitor-hosts-that-arent-running-tableau">12.  Can I use TabMon to monitor hosts that aren’t running Tableau?</a></li>
+  <li><a href="#13--where-can-i-get-additional-supportfeedback" id="markdown-toc-13--where-can-i-get-additional-supportfeedback">13.  Where can I get additional support/feedback?</a></li>
+</ul>
+
+<h3 id="1--how-to-i-connect-to-the-tabmon-workbook">1.  How to I connect to the TabMon workbook?</h3>
+
+<p>The TabMon workbook is included in the <code class="highlighter-rouge">Resources\Sample Workbooks</code> folder in the TabMon install directory. Note that you should make sure to use the version of the Sample Workbook that matches the Tableau Server version. The SampleWorkbook is meant to fit on top of the schema set in the Counters.config file, so make sure you are using the correct Counters.config file for your version as well!</p>
+
+<p>To connect the workbook to your own server, open the workbook and enter the following:</p>
+
+<ol>
+  <li>
+    <p>Your read-only password for the data source: Server Auditing</p>
+  </li>
+  <li>
+    <p>Your postgres DB name and password for you locally installed or remotely installed database (for the data source: TabMon)</p>
+  </li>
+</ol>
+
+<h3 id="2--what-do-all-these-counters-represent">2.  What do all these counters represent?</h3>
+
+<p>The counters collected by the default <code class="highlighter-rouge">Counters.config</code> file represent a common set of performance metrics that would be of interest to an average server admin. Information on the Perfmon counters can be found at Microsoft’s Perfmon counter reference at <a href="https://technet.microsoft.com/en-us/library/cc768048.aspx" target="_blank"><em>https://technet.microsoft.com/enus/library/cc768048.aspx</em>.</a></p>
+
+<h3 id="3--my-processor-time-is-over-100-how-is-this-possible">3.  My “%Processor Time” is over 100%; how is this possible?</h3>
+
+<p>TabMon uses the Windows Perfmon counter “Process\% Processor Time” to calculate the amount of CPU used by individual processes. By the nature of this counter, for a single CPU (single core) the maximum value is 100%. For a multi-core system, the maximum percentage is #cores * 100% (for example a 4 core system will have a max of 400%).</p>
+
+<h3 id="4--the-tabmon-service-wont-start">4.  The TabMon service won’t start.</h3>
+
+<p>If TabMon is failing to start, it is likely due to a permissions issue. The most common cause of this is that the user trying to start TabMon does not have admin privileges, or else the account the TabMon service is running as does not have sufficient permissions. Remember that if you are using Remote Polling, then TabMon must be running as a user with appropriate permissions on all of the remote machines.</p>
+
+<p>If you’ve double-checked all relevant permissions and TabMon still isn’t starting, a good way to get a clue is to check the most recent event from the application logs – see <code class="highlighter-rouge">C:\Program Files (x86)\TabMon\Logs\</code>.</p>
+
+<h3 id="5--im-seeing-tons-of-counter-polling-failures">5.  I’m seeing tons of counter polling failures!</h3>
+
+<p>Make sure you are using the proper <code class="highlighter-rouge">Counters.config</code> file for the version of Tableau Server that you are monitoring. See the <a href="tabmon_configure">Configuring TabMon</a> section for more information on this. If you’re using the proper Counters.config file and still several failures, checking the logs can provide insight.</p>
+
+<p>It is worth noting that systems can be very different and the machine(s) you are monitoring may simply not have certain counters.</p>
+
+<h3 id="6--tabmon-is-dropping-jmx-counters-after-i-restart-tableau-server">6.  TabMon is dropping JMX counters after I restart Tableau Server.</h3>
+
+<p>This is normal. Restarting the server will cycle the open JMX ports and you will experience a temporary loss in connectivity for JMX counters. TabMon includes reconnection logic which will eventually automatically re-establish all of the connections.</p>
+
+<h3 id="7--help-tabmon-is-generating-way-too-much-data">7.  Help! TabMon is generating way too much data!</h3>
+
+<p>By default, TabMon samples all performance counters every minute and keeps that data around forever. Over the long term, this can amount to a lot of data!</p>
+
+<p>There are a couple of ways to address this:</p>
+
+<ol>
+  <li>
+    <p>If you are using TabMon to write to a database, you can set a data retention threshold so that old/expired data is automatically dropped. See <a href="tabmon_configure#set-a-data-retention-threshold">Set a Data Retention Threshold</a> for details on how to do this.</p>
+  </li>
+  <li>
+    <p>You can set the poll interval to a lower frequency so that less data is generated. You can do this by updating <code class="highlighter-rouge">PollInterval</code> in <code class="highlighter-rouge">TabMon.config</code>.</p>
+  </li>
+  <li>
+    <p>You can update <code class="highlighter-rouge">Counters.config</code> to remove performance counters that you don’t care about, in order to reduce data volume.</p>
+  </li>
+</ol>
+
+<h3 id="8--what-processesservices-does-tabmon-monitor">8.  What Processes/Services does TabMon monitor?</h3>
+
+<p>TabMon tracks all Tableau Server related processes below (taken from <a href="http://onlinehelp.tableau.com/current/server/en-us/processes.htm" target="_blank"><em>http://onlinehelp.tableau.com/current/server/en-us/processes.htm</em>)</a>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Process</strong></th>
+      <th><strong>File Name</strong></th>
+      <th><strong>Purpose</strong></th>
+      <th><strong>Performance Characteristics</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>API Server</strong></td>
+      <td>wgserver.exe</td>
+      <td>Handles REST API calls</td>
+      <td>Unless you are using REST APIs for critical business processes, this service can be down without impacting the overall health of Tableau Server.</td>
+    </tr>
+    <tr>
+      <td><strong>Application Server</strong></td>
+      <td>vizportal.exe</td>
+      <td>Handles the web application, supports browsing and searching</td>
+      <td>Only consumes noticeable resources during infrequent operations, like publishing a workbook with an extract, or generating a static image for a view. Its load can be created by browser-based interaction and by tabcmd.</td>
+    </tr>
+    <tr>
+      <td><strong>Backgrounder</strong></td>
+      <td>backgrounder.exe</td>
+      <td>Executes server tasks, including extract refreshes, ‘Run Now’ tasks, and tasks initiated from tabcmd</td>
+      <td>A single-threaded process where multiple processes can be run on any or all machines in the cluster to expand capacity. The backgrounder normally doesn’t consume much process memory, but it can consume CPU, I/O, or network resources based on the nature of the workload presented to it. For example, performing large extract refreshes can use network bandwidth to retrieve data. CPU resources can be consumed by data retrieval or complex tabcmd tasks.</td>
+    </tr>
+    <tr>
+      <td><strong>Cache Server</strong></td>
+      <td>redis-server.exe</td>
+      <td>Query cache</td>
+      <td>A query cache distributed and shared across the server cluster. This in-memory cache speeds user experience across many scenarios. VizQL server, backgrounder, and data server (and API server and application server to a lesser extent) make cache requests to the cache server on behalf of users or jobs. The cache is single-threaded, so if you need better performance you should run additional instances of cache server.</td>
+    </tr>
+    <tr>
+      <td><strong>Cluster Controller</strong></td>
+      <td>clustercontroller.exe</td>
+      <td>Responsible for monitoring various components, detecting failures, and executing failover when needed</td>
+      <td>Included in the base install on every node.</td>
+    </tr>
+    <tr>
+      <td><strong>Coordination Service</strong></td>
+      <td>zookeeper.exe</td>
+      <td>In distributed installations, responsible for ensuring there is a quorum for making decisions during failover</td>
+      <td>Included in the base install on every node.</td>
+    </tr>
+    <tr>
+      <td><strong>Data Engine</strong></td>
+      <td>tdeserver64.exe tdeserver.exe (32-bit)</td>
+      <td>Stores data extracts and answers queries</td>
+      <td>The data engine’s workload is generated by requests from the VizQL server, application server, API server, data server, and backgrounder server processes. The data engine services request from most of the other server processes as well. It is the component that loads extracts into memory and performs queries against them. Memory consumption is primarily based on the size of the data extracts being loaded. The 64-bit binary is used as the default on 64-bit operating systems, even if 32-bit Tableau Server is installed. The data engine is multi-threaded to handle multiple requests at a time. Under high load it can consume CPU, I/O, and network resources, all of which can be a performance bottleneck under load. At high load, a single instance of the data engine can consume all CPU resources to process requests.</td>
+    </tr>
+    <tr>
+      <td><strong>Data Server</strong></td>
+      <td>dataserver.exe</td>
+      <td>Manages connections to Tableau Server data sources</td>
+      <td>Because it’s a proxy, it’s normally only bound by network, but it can be bound by CPU with enough simultaneous user sessions. Its load is generated by browser- and Tableau Desktop-based interaction and extract refresh jobs for Tableau Server data sources.</td>
+    </tr>
+    <tr>
+      <td><strong>File Store</strong></td>
+      <td>filestore.exe</td>
+      <td>Automatically replicates extracts across data engine nodes</td>
+      <td>Installed with data engine (cannot be installed separately). A file store process will always be present if there are one or more data engine processes installed.</td>
+    </tr>
+    <tr>
+      <td><strong>Repository</strong></td>
+      <td>postgres.exe</td>
+      <td>Tableau Server database, stores workbook and user metadata</td>
+      <td>Normally consumes few resources. It can become a bottleneck in rare cases for very large deployments (thousands of users) while performing operations such as viewing all workbooks by user or changing permissions. For more information, see <a href="http://onlinehelp.tableau.com/current/server/en-us/server_process_repository.htm" target="_blank"><em>Tableau</em> <em>Server Repository</em>. </a></td>
+    </tr>
+    <tr>
+      <td><strong>Search &amp; Browse</strong></td>
+      <td>searchserver.exe</td>
+      <td>Handles fast search, filter, retrieval, and display of content metadata on the server</td>
+      <td>The process is memory bound first, and IO bound second. The amount of memory used scales with the amount of content (number of sites/projects/workbooks/datasources/views/users) on the server.</td>
+    </tr>
+    <tr>
+      <td><strong>VizQL Server</strong></td>
+      <td>vizqlserver.exe</td>
+      <td>Loads and renders views, computes and executes queries</td>
+      <td>Consumes noticeable resources during view loading and interactive use from a web browser. Can be CPU bound, I/O bound, or network bound. Process load can only be created by browser-based interaction. Can run out of process memory.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="9--how-do-i-determine-if-i-have-system-bottlenecks-on-my-server-instance">9.  How do I determine if I have system bottlenecks on my Server Instance?</h3>
+
+<p>Microsoft has some general guidelines for server health available in help documents and online articles.</p>
+
+<p>Refer to: <a href="https://technet.microsoft.com/en-us/magazine/2008.08.pulse.aspx" target="_blank"><em>https://technet.microsoft.com/en-us/magazine/2008.08.pulse.aspx</em> </a></p>
+
+<p>In general, here are some common bottlenecks/general guidelines <strong>(this list is neither authoritative nor is it a definitive guide to the server health; actual results will vary)</strong>:</p>
+
+<ol>
+  <li>
+    <p>Free Disk Space: Keep above 15% for critical systems</p>
+  </li>
+  <li>
+    <p>Memory (RAM): Keep under 80% for extended periods of time</p>
+  </li>
+  <li>
+    <p>Processor %: Keep under 85% for extended periods of time</p>
+  </li>
+  <li>
+    <p>Network: Keep under 70% of the interface’s throughput (depending on network card)</p>
+  </li>
+</ol>
+
+<h3 id="10--what-are-cache-hitsmisses">10.  What are cache hits/misses?</h3>
+
+<ul>
+  <li>
+    <p>A Cache hit is a successful lookup in a cache server.</p>
+  </li>
+  <li>
+    <p>A Cache miss is an unsuccessful lookup in a cache server</p>
+  </li>
+  <li>
+    <p>Generally speaking, an effective cache server has more hits than misses (aka a high Cache Hit Ratio)</p>
+  </li>
+</ul>
+
+<h3 id="11--what-is-request-latency-and-what-does-it-mean-for-me">11.  What is Request Latency and what does it mean for me?</h3>
+
+<p>Request Latency is the time it takes for the host server to receive and process a request. Latency can be reduced by tweaking and upgrading computer hardware.</p>
+
+<h3 id="12--can-i-use-tabmon-to-monitor-hosts-that-arent-running-tableau">12.  Can I use TabMon to monitor hosts that aren’t running Tableau?</h3>
+
+<p>Absolutely! Just edit your Counters.config file to remove all of the MBean counters as well as the PerfMon counters that specifically relate to Tableau processes.</p>
+
+<h3 id="13--where-can-i-get-additional-supportfeedback">13.  Where can I get additional support/feedback?</h3>
+
+<p>As an open source product, TabMon is <strong>Community Supported</strong>. Please refer to the GitHub page for TabMon for more details:</p>
+
+<p><a href="http://github.com/tableau/TabMon" target="_blank"><em>http://github.com/tableau/TabMon</em> </a></p>
+
+
+            <!-- Footer -->
+<footer>
+    <div class="row">
+        <hr class="footer-hr">
+        <p>This site is open source. Suggestions and pull requests are welcome on our <a href="https://github.com/tableau/TabMon">GitHub page</a>.</p>
+        <p>&copy; 2017 Tableau.</p>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</body>
+
+</html>

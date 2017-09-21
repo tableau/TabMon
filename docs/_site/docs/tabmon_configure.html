@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Configuring TabMon</title>
+  <meta name="description" content="A Tableau Server performance monitoring service.">
+
+  <link rel="shortcut icon" type="image/png" href="/TabMon/assets/logo.png">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/TabMon/css/main.css">
+  <link rel="stylesheet" href="/TabMon/css/github-highlight.css">
+
+  <script src="/TabMon/js/redirect-to-search.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="site-header">
+    <div class="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navbar-brand-logo navbar-brand-text" href="/TabMon/#">TabMon  </a>
+                   <!-- <div class="sharkdiv">
+                        <a class="navbar-brand navbar-brand-logo" href="/TabMon/#"><img src="/TabMon/assets/Logshark.ico" alt="Logshark" class="logo" /></a>
+                    </div> -->
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a target="_blank" href="https://community.tableau.com/community/forums/server-administration/content">Forum</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="tableauIcon">
+                            <a target="_blank" href="http://tableau.com"><img src="/TabMon/assets/logo.png" alt="Tableau Developers" class="logo" /></a>
+                        </li>
+                        <li><a target="_blank" href="https://github.com/tableau/tabmon"><span class="icon icon--github" title="TabMon" alt="TabMon"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+        <div class="well docs-menu col-xs-12 col-sm-4 col-md-3">
+    <div class="search-container form-group has-feedback">
+    <form id="docs-search">
+        <input type="search" id="search-input" class="custom-search form-control" placeholder="Search the docs..." search-url="/TabMon/docs/search.html">
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+    </form>
+</div>
+
+
+    <ul class="nav nav-list">
+        <li class="nav-header">Getting Started</li>
+		<li>
+            <a href="/TabMon/docs/tabmon_prereqs">Prerequisites for Installing TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_install">Installing TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_upgrade">Upgrading from a Previous Version of TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_configure">Configuring TabMon</a>
+        </li>
+		<li class="nav-header">Using TabMon</li>
+        <li>
+            <a href="/TabMon/docs/tabmon_using">Using TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_faq">FAQ/Troubleshooting</a>
+        </li>
+		<li class="nav-header">Reference</li>
+        <li>
+            <a href="/TabMon/docs/tabmon_appendix_a">Appendix A: Additional Installation Instructions</a>
+        </li>
+    </ul>
+</div>
+
+
+        <div class="content .col-xs-12 .col-sm-8 .col-md-9">
+            <h1>Configuring TabMon</h1>
+            <div class="edit-container">
+                <a href="https://github.com/tableau/TabMon/edit/master/docs/docs/tabmon_configure.md" class="edit-links"><span class="glyphicon glyphicon-pencil"></span> Edit this page</a>
+                &nbsp;
+                <a href="https://github.com/tableau/TabMon/issues" class="edit-links"><span class="glyphicon glyphicon-flag"></span> Submit an issue</a>
+            </div>
+            <br />
+            <p>In this section:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#basic-configuration-options" id="markdown-toc-basic-configuration-options">Basic Configuration Options</a></li>
+  <li><a href="#tabmonconfig" id="markdown-toc-tabmonconfig">Tabmon.config</a></li>
+  <li><a href="#countersconfig" id="markdown-toc-countersconfig">Counters.config</a></li>
+  <li><a href="#advanced-configuration-options" id="markdown-toc-advanced-configuration-options">Advanced Configuration Options</a>    <ul>
+      <li><a href="#export-to-csv" id="markdown-toc-export-to-csv">Export to CSV</a></li>
+      <li><a href="#remote-polling-setup" id="markdown-toc-remote-polling-setup">Remote Polling Setup</a></li>
+      <li><a href="#set-a-data-retention-threshold" id="markdown-toc-set-a-data-retention-threshold">Set a Data Retention Threshold</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="basic-configuration-options">Basic Configuration Options</h2>
+
+<p>TabMon utilizes two main application config files, located in the “Config” directory in the TabMon install location:</p>
+
+<ul>
+  <li>
+    <p><strong>TabMon.config</strong> – Governs which machines will be monitored, how results will be written, and how often that performance will be sampled.</p>
+  </li>
+  <li>
+    <p><strong>Counters.config</strong> – Specifies the set of performance counters that will be monitored.</p>
+  </li>
+</ul>
+
+<h2 id="tabmonconfig">Tabmon.config</h2>
+
+<p>Go to the install directory and modify the <code class="highlighter-rouge">TabMon.config</code> file as necessary. (Located in <code class="highlighter-rouge">\Program Files (x86)\TabMon\Config\TabMon.config</code>)</p>
+
+<p>The default <code class="highlighter-rouge">TabMon.config</code> file looks like the following:</p>
+
+<p><img src="/TabMon/assets/image3.jpg" alt="" /></p>
+
+<p>By default, this configuration will poll the performance counters on localhost every 60 seconds and write out the results to the specified database.</p>
+
+<p><strong>NOTE:</strong> If you changed your database parameters during setup, you will need to update them here.</p>
+
+<h2 id="countersconfig">Counters.config</h2>
+
+<p>The default Counters.config file comes with a good starter set of counters for monitoring Tableau Server 9.3 and 10.0. If you are using TabMon to monitor an older version of Tableau, you will need to overwrite this with the <code class="highlighter-rouge">Counters.config</code> file specific to your version, these are kept in the <code class="highlighter-rouge">Resources\Configurations</code> folder in the TabMon install directory. Note that if you switch your <code class="highlighter-rouge">Counters.config</code> file in this way, you should also switch to the appropriate version of the Sample Workbook (found in <code class="highlighter-rouge">\Resources\Sample Workbooks</code>).</p>
+
+<p>Feel free to add or remove counters from <code class="highlighter-rouge">Counters.config</code> to suit your monitoring needs!</p>
+
+<h2 id="advanced-configuration-options">Advanced Configuration Options</h2>
+
+<p>There are a few optional advanced options you can configure TabMon with:</p>
+
+<h3 id="export-to-csv">Export to CSV</h3>
+
+<ul>
+  <li>To export to CSV file, replace “db” with “csv” in the line <code class="highlighter-rouge">&lt;OutputMode value=”db”/&gt;</code>. This causes counter data to be stored in a CSV file in a folder called “Results” in the main TabMon directory.</li>
+</ul>
+
+<h3 id="remote-polling-setup">Remote Polling Setup</h3>
+
+<p>To poll data from a machine/machines other than your local host:</p>
+
+<ol>
+  <li>
+    <p>Add a new <code class="highlighter-rouge">&lt;Host name=””&gt;</code> entry, with the name set to the network name or IP address of the target machine. You can nest multiple hosts within a “Cluster” element to logically group them.</p>
+  </li>
+  <li>
+    <p>Ensure that the “Remote Registry” and “Performance Logs &amp; Alerts” Windows services are running and set to Start Mode: Automatic on all remote machines.</p>
+  </li>
+  <li>
+    <p>On the TabMon machine, go to Services and right click and select properties for “TabMon”. Make sure that the account for logon has privileges on the machine you would like to remotely connect to. Specifically, the service account must:</p>
+
+    <p>i.  On each server you wish to remotely monitor: have admin permissions or be a member of the “Performance Monitor Users” and “Performance Log Users” domain group</p>
+
+    <p>ii.  On the machine where TabMon is installed: have permissions to run as a service and write to the TabMon install directory.</p>
+
+    <p><img src="/TabMon/assets/image4.jpg" alt="" /></p>
+  </li>
+</ol>
+
+<h3 id="set-a-data-retention-threshold">Set a Data Retention Threshold</h3>
+
+<p>TabMon generates a lot of data, especially when using an aggressive polling rate. To help manage this, when using TabMon to output to database, you can set a data retention threshold so that old data is automatically dropped.</p>
+
+<p>To set this, open up <code class="highlighter-rouge">TabMon.config</code> and find the following line:</p>
+
+<p><code class="highlighter-rouge">&lt;PurgeOldData enabled="false" thresholdDays="30"/&gt;</code></p>
+
+<p>Change the <code class="highlighter-rouge">enabled</code> attribute from <strong>false</strong> to <strong>true</strong> and set the <code class="highlighter-rouge">thresholdDays</code> attribute to the number of days beyond which you want data to be dropped. These changes will take effect on restart.</p>
+
+            <!-- Footer -->
+<footer>
+    <div class="row">
+        <hr class="footer-hr">
+        <p>This site is open source. Suggestions and pull requests are welcome on our <a href="https://github.com/tableau/TabMon">GitHub page</a>.</p>
+        <p>&copy; 2017 Tableau.</p>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</body>
+
+</html>

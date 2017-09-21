@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Search</title>
+  <meta name="description" content="A Tableau Server performance monitoring service.">
+
+  <link rel="shortcut icon" type="image/png" href="/TabMon/assets/logo.png">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/TabMon/css/main.css">
+  <link rel="stylesheet" href="/TabMon/css/github-highlight.css">
+
+  <script src="/TabMon/js/redirect-to-search.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+	<script type="text/javascript">
+        var search_blob = {
+		
+            
+                "/TabMon/": {
+                    "title": "TabMon User Guide",
+                    "content": "TabMon is a performance monitoring agent that periodically samples target hosts for a set of Perfmon and MBean counters and writes out the results to a database in a Tableau-friendly format. This information can then be used to monitor &amp; analyze performance of a Tableau Server installation, in order to detect potential issues or assess scalability &amp; sizing. TabMon can be run as both a console app and a Windows service. Ready to get set up? Get your Computer Set Up for TabMon Install TabMon Upgrading TabMon Additional Installation Information Ready to run TabMon? Using TabMon TabMon and Tableau Technical Support TabMon is made available AS-IS with no support from Tableau Technical Support. This is intended to be a self-service tool and includes this user guide. Any bugs discovered should be filed in the TabMon Git Issue tracker."
+                },
+            
+		
+            
+                "/TabMon/docs/search.html": {
+                    "title": "Search",
+                    "content": ""
+                },
+            
+		
+            
+                "/TabMon/docs/tabmon_appendix_a.html": {
+                    "title": "Appendix A - Additional Installation Instructions",
+                    "content": "In this section: Manually Installing and Configuring Postgres Follow the steps below to manually install PostgreSQL on your system. If you already have a PostgreSQL server and just need to initialize the TabMon results database, skip to step 3. Download Postgres: http://www.enterprisedb.com/products-services-training/pgdownload#windows Run the installer and use the following options in the setup wizard: Superuser password: your choice Port: 5432 Locale: English, United States If prompted to launch StackBuilder, choose no. Open PGadminIII Connect to your Postgres server using the postgres login account. Right click on Login Roles and choose New Login Role Enter the following parameters: Role name: tabmon Definition: Enter a password Role privileges: Select “Can create databases” Right click on Databases and choose New Database Enter the following parameters: Name = TabMon Owner = tabmon Encoding = UTF8 Tablespace = pg_default Collation = English_United States.1252 Character type = English_United States.1252 Connection Limit = -1 Under privileges: Give all privileges to tabmon Revoke all privileges from public Update TabMon.config Open up C:\\Program Files (x86)\\TabMon\\Config\\TabMon.config and change the configured “tabmon” database user password to whatever you set in step 3. Note that by default, Postgres does not allow any remote connections. If you want to connect to Postgres from a remote machine, you will need to add a pg_hba.conf entry to enable it. See instructions for this at: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html. Uninstalling TabMon and Postgres TabMon can be removed by simply uninstalling it through the Windows “Add/Remove Programs” interface. Application log files and CSV results are left behind and must be manually deleted. However, in order to preserve your data, this uninstall does not automatically remove Postgres. To fully remove Postgres: Open up a console window as administrator. Enter the following commands to remove the service: sc stop TabMon-Postgres sc delete TabMon-Postgres Delete the folder where you installed Postgres (default is C:\\Postgres)."
+                },
+            
+		
+            
+                "/TabMon/docs/tabmon_configure.html": {
+                    "title": "Configuring TabMon",
+                    "content": "In this section: Basic Configuration Options TabMon utilizes two main application config files, located in the “Config” directory in the TabMon install location: TabMon.config – Governs which machines will be monitored, how results will be written, and how often that performance will be sampled. Counters.config – Specifies the set of performance counters that will be monitored. Tabmon.config Go to the install directory and modify the TabMon.config file as necessary. (Located in \\Program Files (x86)\\TabMon\\Config\\TabMon.config) The default TabMon.config file looks like the following: By default, this configuration will poll the performance counters on localhost every 60 seconds and write out the results to the specified database. NOTE: If you changed your database parameters during setup, you will need to update them here. Counters.config The default Counters.config file comes with a good starter set of counters for monitoring Tableau Server 9.3 and 10.0. If you are using TabMon to monitor an older version of Tableau, you will need to overwrite this with the Counters.config file specific to your version, these are kept in the Resources\\Configurations folder in the TabMon install directory. Note that if you switch your Counters.config file in this way, you should also switch to the appropriate version of the Sample Workbook (found in \\Resources\\Sample Workbooks). Feel free to add or remove counters from Counters.config to suit your monitoring needs! Advanced Configuration Options There are a few optional advanced options you can configure TabMon with: Export to CSV To export to CSV file, replace “db” with “csv” in the line &lt;OutputMode value=”db”/&gt;. This causes counter data to be stored in a CSV file in a folder called “Results” in the main TabMon directory. Remote Polling Setup To poll data from a machine/machines other than your local host: Add a new &lt;Host name=””&gt; entry, with the name set to the network name or IP address of the target machine. You can nest multiple hosts within a “Cluster” element to logically group them. Ensure that the “Remote Registry” and “Performance Logs &amp; Alerts” Windows services are running and set to Start Mode: Automatic on all remote machines. On the TabMon machine, go to Services and right click and select properties for “TabMon”. Make sure that the account for logon has privileges on the machine you would like to remotely connect to. Specifically, the service account must: i. On each server you wish to remotely monitor: have admin permissions or be a member of the “Performance Monitor Users” and “Performance Log Users” domain group ii. On the machine where TabMon is installed: have permissions to run as a service and write to the TabMon install directory. Set a Data Retention Threshold TabMon generates a lot of data, especially when using an aggressive polling rate. To help manage this, when using TabMon to output to database, you can set a data retention threshold so that old data is automatically dropped. To set this, open up TabMon.config and find the following line: &lt;PurgeOldData enabled=\"false\" thresholdDays=\"30\"/&gt; Change the enabled attribute from false to true and set the thresholdDays attribute to the number of days beyond which you want data to be dropped. These changes will take effect on restart."
+                },
+            
+		
+            
+                "/TabMon/docs/tabmon_faq.html": {
+                    "title": "FAQ/Troubleshooting",
+                    "content": "1. How to I connect to the TabMon workbook? The TabMon workbook is included in the Resources\\Sample Workbooks folder in the TabMon install directory. Note that you should make sure to use the version of the Sample Workbook that matches the Tableau Server version. The SampleWorkbook is meant to fit on top of the schema set in the Counters.config file, so make sure you are using the correct Counters.config file for your version as well! To connect the workbook to your own server, open the workbook and enter the following: Your read-only password for the data source: Server Auditing Your postgres DB name and password for you locally installed or remotely installed database (for the data source: TabMon) 2. What do all these counters represent? The counters collected by the default Counters.config file represent a common set of performance metrics that would be of interest to an average server admin. Information on the Perfmon counters can be found at Microsoft’s Perfmon counter reference at https://technet.microsoft.com/enus/library/cc768048.aspx. 3. My “%Processor Time” is over 100%; how is this possible? TabMon uses the Windows Perfmon counter “Process\\% Processor Time” to calculate the amount of CPU used by individual processes. By the nature of this counter, for a single CPU (single core) the maximum value is 100%. For a multi-core system, the maximum percentage is #cores * 100% (for example a 4 core system will have a max of 400%). 4. The TabMon service won’t start. If TabMon is failing to start, it is likely due to a permissions issue. The most common cause of this is that the user trying to start TabMon does not have admin privileges, or else the account the TabMon service is running as does not have sufficient permissions. Remember that if you are using Remote Polling, then TabMon must be running as a user with appropriate permissions on all of the remote machines. If you’ve double-checked all relevant permissions and TabMon still isn’t starting, a good way to get a clue is to check the most recent event from the application logs – see C:\\Program Files (x86)\\TabMon\\Logs\\. 5. I’m seeing tons of counter polling failures! Make sure you are using the proper Counters.config file for the version of Tableau Server that you are monitoring. See the Configuring TabMon section for more information on this. If you’re using the proper Counters.config file and still several failures, checking the logs can provide insight. It is worth noting that systems can be very different and the machine(s) you are monitoring may simply not have certain counters. 6. TabMon is dropping JMX counters after I restart Tableau Server. This is normal. Restarting the server will cycle the open JMX ports and you will experience a temporary loss in connectivity for JMX counters. TabMon includes reconnection logic which will eventually automatically re-establish all of the connections. 7. Help! TabMon is generating way too much data! By default, TabMon samples all performance counters every minute and keeps that data around forever. Over the long term, this can amount to a lot of data! There are a couple of ways to address this: If you are using TabMon to write to a database, you can set a data retention threshold so that old/expired data is automatically dropped. See Set a Data Retention Threshold for details on how to do this. You can set the poll interval to a lower frequency so that less data is generated. You can do this by updating PollInterval in TabMon.config. You can update Counters.config to remove performance counters that you don’t care about, in order to reduce data volume. 8. What Processes/Services does TabMon monitor? TabMon tracks all Tableau Server related processes below (taken from http://onlinehelp.tableau.com/current/server/en-us/processes.htm): Process File Name Purpose Performance Characteristics API Server wgserver.exe Handles REST API calls Unless you are using REST APIs for critical business processes, this service can be down without impacting the overall health of Tableau Server. Application Server vizportal.exe Handles the web application, supports browsing and searching Only consumes noticeable resources during infrequent operations, like publishing a workbook with an extract, or generating a static image for a view. Its load can be created by browser-based interaction and by tabcmd. Backgrounder backgrounder.exe Executes server tasks, including extract refreshes, ‘Run Now’ tasks, and tasks initiated from tabcmd A single-threaded process where multiple processes can be run on any or all machines in the cluster to expand capacity. The backgrounder normally doesn’t consume much process memory, but it can consume CPU, I/O, or network resources based on the nature of the workload presented to it. For example, performing large extract refreshes can use network bandwidth to retrieve data. CPU resources can be consumed by data retrieval or complex tabcmd tasks. Cache Server redis-server.exe Query cache A query cache distributed and shared across the server cluster. This in-memory cache speeds user experience across many scenarios. VizQL server, backgrounder, and data server (and API server and application server to a lesser extent) make cache requests to the cache server on behalf of users or jobs. The cache is single-threaded, so if you need better performance you should run additional instances of cache server. Cluster Controller clustercontroller.exe Responsible for monitoring various components, detecting failures, and executing failover when needed Included in the base install on every node. Coordination Service zookeeper.exe In distributed installations, responsible for ensuring there is a quorum for making decisions during failover Included in the base install on every node. Data Engine tdeserver64.exe tdeserver.exe (32-bit) Stores data extracts and answers queries The data engine’s workload is generated by requests from the VizQL server, application server, API server, data server, and backgrounder server processes. The data engine services request from most of the other server processes as well. It is the component that loads extracts into memory and performs queries against them. Memory consumption is primarily based on the size of the data extracts being loaded. The 64-bit binary is used as the default on 64-bit operating systems, even if 32-bit Tableau Server is installed. The data engine is multi-threaded to handle multiple requests at a time. Under high load it can consume CPU, I/O, and network resources, all of which can be a performance bottleneck under load. At high load, a single instance of the data engine can consume all CPU resources to process requests. Data Server dataserver.exe Manages connections to Tableau Server data sources Because it’s a proxy, it’s normally only bound by network, but it can be bound by CPU with enough simultaneous user sessions. Its load is generated by browser- and Tableau Desktop-based interaction and extract refresh jobs for Tableau Server data sources. File Store filestore.exe Automatically replicates extracts across data engine nodes Installed with data engine (cannot be installed separately). A file store process will always be present if there are one or more data engine processes installed. Repository postgres.exe Tableau Server database, stores workbook and user metadata Normally consumes few resources. It can become a bottleneck in rare cases for very large deployments (thousands of users) while performing operations such as viewing all workbooks by user or changing permissions. For more information, see Tableau Server Repository. Search &amp; Browse searchserver.exe Handles fast search, filter, retrieval, and display of content metadata on the server The process is memory bound first, and IO bound second. The amount of memory used scales with the amount of content (number of sites/projects/workbooks/datasources/views/users) on the server. VizQL Server vizqlserver.exe Loads and renders views, computes and executes queries Consumes noticeable resources during view loading and interactive use from a web browser. Can be CPU bound, I/O bound, or network bound. Process load can only be created by browser-based interaction. Can run out of process memory. 9. How do I determine if I have system bottlenecks on my Server Instance? Microsoft has some general guidelines for server health available in help documents and online articles. Refer to: https://technet.microsoft.com/en-us/magazine/2008.08.pulse.aspx In general, here are some common bottlenecks/general guidelines (this list is neither authoritative nor is it a definitive guide to the server health; actual results will vary): Free Disk Space: Keep above 15% for critical systems Memory (RAM): Keep under 80% for extended periods of time Processor %: Keep under 85% for extended periods of time Network: Keep under 70% of the interface’s throughput (depending on network card) 10. What are cache hits/misses? A Cache hit is a successful lookup in a cache server. A Cache miss is an unsuccessful lookup in a cache server Generally speaking, an effective cache server has more hits than misses (aka a high Cache Hit Ratio) 11. What is Request Latency and what does it mean for me? Request Latency is the time it takes for the host server to receive and process a request. Latency can be reduced by tweaking and upgrading computer hardware. 12. Can I use TabMon to monitor hosts that aren’t running Tableau? Absolutely! Just edit your Counters.config file to remove all of the MBean counters as well as the PerfMon counters that specifically relate to Tableau processes. 13. Where can I get additional support/feedback? As an open source product, TabMon is Community Supported. Please refer to the GitHub page for TabMon for more details: http://github.com/tableau/TabMon"
+                },
+            
+		
+            
+                "/TabMon/docs/tabmon_install.html": {
+                    "title": "Installing TabMon",
+                    "content": "Download TabMon from GitHub. Run the installation program (be sure to Run as administrator). To install PostgreSQL along with your TabMon installation check “Install and initialize Postgres for me (recommended)”. If you choose to install PostgreSQL separately from your TabMon installation, see Appendix A. Select Options if you wish to modify your installation destination or modify your PostgreSQL database configuration parameters. Click OK and TabMon will be installed in your selected destination."
+                },
+            
+		
+            
+                "/TabMon/docs/tabmon_prereqs.html": {
+                    "title": "Prerequisites for Installing TabMon",
+                    "content": "In this section: To install TabMon on your system please ensure that you have the following: System Requirements OS: Windows Environment: Tableau Server (9.0 or above) http://www.tableau.com/products/server Microsoft .NET framework 4.5 and above (installer will install this for you) http://www.microsoft.com/en-us/download/details.aspx?id=30653 Visual C++ Redistributable Packages for VS 2013 (installer will install this for you) http://www.microsoft.com/en-us/download/details.aspx?id=40784 Windows Management Framework 3.0 http://www.microsoft.com/en-us/download/details.aspx?id=34595 Configure Tableau Server Open Tableau Server JMX ports: Open command line as administrator Navigate to Tableau Server Bin Folder Run the following tabadmin commands: tabadmin set service.jmx\\_enabled true tabadmin stop tabadmin configure tabadmin start Configure the Tableau Server “readonly” user: This step is only required if you want to use the “What’s Going On?” dashboard in the provided sample workbook. TabMon does not actually utilize this user account in any way. Open command line as administrator Navigate to Tableau Server Bin Folder Run the following tabadmin commands tabadmin dbpass --username readonly \\[Password here\\] tabadmin restart"
+                },
+            
+		
+            
+                "/TabMon/docs/tabmon_upgrade.html": {
+                    "title": "Upgrading from a Previous Version of TabMon",
+                    "content": "The TabMon installer will handle most of the upgrade work for you, but during the upgrade your TabMon.config and Counters.config files will be overwritten. Please follow the following steps for a smooth upgrade experience: Back up your TabMon.config and Counters.config files. Run the TabMon installer. Make sure to deselect Install and initialize Postgres for Me. Open up the TabMon.config file from the newly installed version and update the database and host options to match your backup copy. Note that the schema of this config can change between versions, so you shouldn’t just overwrite the full contents of TabMon.config with your backup, as there may be new options that are required. Ensure you are using the correct Counters.config and Sample Workbook files for your Tableau Server version. See Configuring TabMon. Fire up TabMon!"
+                },
+            
+		
+            
+                "/TabMon/docs/tabmon_using.html": {
+                    "title": "Using TabMon",
+                    "content": "In this section: Start &amp; Stop the TabMon Service Go to the TabMon group in the Start menu and run “Start TabMon” (make sure to run as administrator). a. TabMon can instead be run as a console application by directly executing the file “TabMon.exe” from your installation directory. To stop TabMon, go to the TabMon group in the Start menu and select “Stop TabMon” (make sure to run as administrator). Connect to TabMon via Tableau Open the sample workbook. Enter the Postgres database password you set at installation. a. If you chose to output to CSV, connect to the csv files found in the \\Results folder in your install directory. Enter the read-only credentials for your Tableau Server when prompted."
+                },
+            
+		
+            
+                "/TabMon/assets/css/style.css": {
+                    "title": null,
+                    "content": "@import “jekyll-theme-primer”;"
+                }
+            
+		
+		};
+	</script>
+
+    <script src="/TabMon/js/lunr.min.js"></script>
+    <script src="/TabMon/js/search.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="site-header">
+    <div class="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navbar-brand-logo navbar-brand-text" href="/TabMon/#">TabMon  </a>
+                   <!-- <div class="sharkdiv">
+                        <a class="navbar-brand navbar-brand-logo" href="/TabMon/#"><img src="/TabMon/assets/Logshark.ico" alt="Logshark" class="logo" /></a>
+                    </div> -->
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a target="_blank" href="https://community.tableau.com/community/forums/server-administration/content">Forum</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="tableauIcon">
+                            <a target="_blank" href="http://tableau.com"><img src="/TabMon/assets/logo.png" alt="Tableau Developers" class="logo" /></a>
+                        </li>
+                        <li><a target="_blank" href="https://github.com/tableau/tabmon"><span class="icon icon--github" title="TabMon" alt="TabMon"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+        <div class="well docs-menu col-xs-12 col-sm-4 col-md-3">
+    <div class="search-container form-group has-feedback">
+    <form id="docs-search">
+        <input type="search" id="search-input" class="custom-search form-control" placeholder="Search the docs..." search-url="/TabMon/docs/search.html">
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+    </form>
+</div>
+
+
+    <ul class="nav nav-list">
+        <li class="nav-header">Getting Started</li>
+		<li>
+            <a href="/TabMon/docs/tabmon_prereqs">Prerequisites for Installing TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_install">Installing TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_upgrade">Upgrading from a Previous Version of TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_configure">Configuring TabMon</a>
+        </li>
+		<li class="nav-header">Using TabMon</li>
+        <li>
+            <a href="/TabMon/docs/tabmon_using">Using TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_faq">FAQ/Troubleshooting</a>
+        </li>
+		<li class="nav-header">Reference</li>
+        <li>
+            <a href="/TabMon/docs/tabmon_appendix_a">Appendix A: Additional Installation Instructions</a>
+        </li>
+    </ul>
+</div>
+
+
+        <div class="content .col-xs-12 .col-sm-8 .col-md-9">
+            <h1 id="searchHeading"></h1>
+            <br />
+            <div id="searchResultsContainer">
+                <p>Loading search results...</p>
+            </div>
+
+            <!-- Footer -->
+<footer>
+    <div class="row">
+        <hr class="footer-hr">
+        <p>This site is open source. Suggestions and pull requests are welcome on our <a href="https://github.com/tableau/TabMon">GitHub page</a>.</p>
+        <p>&copy; 2017 Tableau.</p>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</body>
+</html>

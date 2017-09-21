@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Appendix A - Additional Installation Instructions</title>
+  <meta name="description" content="A Tableau Server performance monitoring service.">
+
+  <link rel="shortcut icon" type="image/png" href="/TabMon/assets/logo.png">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/TabMon/css/main.css">
+  <link rel="stylesheet" href="/TabMon/css/github-highlight.css">
+
+  <script src="/TabMon/js/redirect-to-search.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="site-header">
+    <div class="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navbar-brand-logo navbar-brand-text" href="/TabMon/#">TabMon  </a>
+                   <!-- <div class="sharkdiv">
+                        <a class="navbar-brand navbar-brand-logo" href="/TabMon/#"><img src="/TabMon/assets/Logshark.ico" alt="Logshark" class="logo" /></a>
+                    </div> -->
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a target="_blank" href="https://community.tableau.com/community/forums/server-administration/content">Forum</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="tableauIcon">
+                            <a target="_blank" href="http://tableau.com"><img src="/TabMon/assets/logo.png" alt="Tableau Developers" class="logo" /></a>
+                        </li>
+                        <li><a target="_blank" href="https://github.com/tableau/tabmon"><span class="icon icon--github" title="TabMon" alt="TabMon"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+        <div class="well docs-menu col-xs-12 col-sm-4 col-md-3">
+    <div class="search-container form-group has-feedback">
+    <form id="docs-search">
+        <input type="search" id="search-input" class="custom-search form-control" placeholder="Search the docs..." search-url="/TabMon/docs/search.html">
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+    </form>
+</div>
+
+
+    <ul class="nav nav-list">
+        <li class="nav-header">Getting Started</li>
+		<li>
+            <a href="/TabMon/docs/tabmon_prereqs">Prerequisites for Installing TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_install">Installing TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_upgrade">Upgrading from a Previous Version of TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_configure">Configuring TabMon</a>
+        </li>
+		<li class="nav-header">Using TabMon</li>
+        <li>
+            <a href="/TabMon/docs/tabmon_using">Using TabMon</a>
+        </li>
+        <li>
+            <a href="/TabMon/docs/tabmon_faq">FAQ/Troubleshooting</a>
+        </li>
+		<li class="nav-header">Reference</li>
+        <li>
+            <a href="/TabMon/docs/tabmon_appendix_a">Appendix A: Additional Installation Instructions</a>
+        </li>
+    </ul>
+</div>
+
+
+        <div class="content .col-xs-12 .col-sm-8 .col-md-9">
+            <h1>Appendix A - Additional Installation Instructions</h1>
+            <div class="edit-container">
+                <a href="https://github.com/tableau/TabMon/edit/master/docs/docs/tabmon_appendix_a.md" class="edit-links"><span class="glyphicon glyphicon-pencil"></span> Edit this page</a>
+                &nbsp;
+                <a href="https://github.com/tableau/TabMon/issues" class="edit-links"><span class="glyphicon glyphicon-flag"></span> Submit an issue</a>
+            </div>
+            <br />
+            <p>In this section:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#manually-installing-and-configuring-postgres" id="markdown-toc-manually-installing-and-configuring-postgres">Manually Installing and Configuring Postgres</a></li>
+  <li><a href="#uninstalling-tabmon-and-postgres" id="markdown-toc-uninstalling-tabmon-and-postgres">Uninstalling TabMon and Postgres</a></li>
+</ul>
+
+<h3 id="manually-installing-and-configuring-postgres">Manually Installing and Configuring Postgres</h3>
+
+<p>Follow the steps below to manually install PostgreSQL on your system. If you already have a PostgreSQL server and just need to initialize the TabMon results database, skip to step 3.</p>
+
+<ol>
+  <li>Download Postgres:</li>
+</ol>
+
+<p><a href="http://www.enterprisedb.com/products-services-training/pgdownload#windows" target="_blank">http://www.enterprisedb.com/products-services-training/pgdownload#windows</a></p>
+
+<ol>
+  <li>
+    <p>Run the installer and use the following options in the setup wizard:</p>
+
+    <ol>
+      <li>
+        <p>Superuser password: your choice</p>
+      </li>
+      <li>
+        <p>Port: 5432</p>
+      </li>
+      <li>
+        <p>Locale: English, United States</p>
+      </li>
+      <li>
+        <p>If prompted to launch StackBuilder, choose no.</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>Open PGadminIII</p>
+
+    <ol>
+      <li>
+        <p>Connect to your Postgres server using the postgres login account.</p>
+      </li>
+      <li>
+        <p>Right click on Login Roles and choose New Login Role</p>
+      </li>
+      <li>
+        <p>Enter the following parameters:</p>
+
+        <ol>
+          <li>
+            <p>Role name: tabmon</p>
+          </li>
+          <li>
+            <p>Definition: Enter a password</p>
+          </li>
+          <li>
+            <p>Role privileges: Select “Can create databases”</p>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <p>Right click on Databases and choose New Database</p>
+      </li>
+      <li>
+        <p>Enter the following parameters:</p>
+
+        <ol>
+          <li>
+            <p>Name = TabMon</p>
+          </li>
+          <li>
+            <p>Owner = tabmon</p>
+          </li>
+          <li>
+            <p>Encoding = UTF8</p>
+          </li>
+          <li>
+            <p>Tablespace = pg_default</p>
+          </li>
+          <li>
+            <p>Collation = English_United States.1252</p>
+          </li>
+          <li>
+            <p>Character type = English_United States.1252</p>
+          </li>
+          <li>
+            <p>Connection Limit = -1</p>
+          </li>
+          <li>
+            <p>Under privileges:</p>
+
+            <ol>
+              <li>
+                <p>Give all privileges to tabmon</p>
+              </li>
+              <li>
+                <p>Revoke all privileges from public</p>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>Update TabMon.config</p>
+
+    <ol>
+      <li>Open up <code class="highlighter-rouge">C:\Program Files (x86)\TabMon\Config\TabMon.config</code> and change the configured “tabmon” database user password to whatever you set in step 3.</li>
+    </ol>
+  </li>
+</ol>
+
+<p><strong>Note that by default, Postgres does not allow any remote connections</strong>. If you want to connect to Postgres from a remote machine, you will need to add a pg_hba.conf entry to enable it. See instructions for this at: <a href="https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html" target="_blank"><em>https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html</em>.</a></p>
+
+<h3 id="uninstalling-tabmon-and-postgres">Uninstalling TabMon and Postgres</h3>
+
+<p>TabMon can be removed by simply uninstalling it through the Windows “Add/Remove Programs” interface. Application log files and CSV results are left behind and must be manually deleted.</p>
+
+<p><strong>However, in order to preserve your data, this uninstall does not automatically remove Postgres.</strong></p>
+
+<p>To fully remove Postgres:</p>
+
+<ol>
+  <li>
+    <p>Open up a console window as administrator.</p>
+  </li>
+  <li>
+    <p>Enter the following commands to remove the service:</p>
+
+    <p><code class="highlighter-rouge">sc stop TabMon-Postgres</code></p>
+
+    <p><code class="highlighter-rouge">sc delete TabMon-Postgres</code></p>
+  </li>
+  <li>
+    <p>Delete the folder where you installed Postgres (default is <code class="highlighter-rouge">C:\Postgres</code>).</p>
+  </li>
+</ol>
+
+            <!-- Footer -->
+<footer>
+    <div class="row">
+        <hr class="footer-hr">
+        <p>This site is open source. Suggestions and pull requests are welcome on our <a href="https://github.com/tableau/TabMon">GitHub page</a>.</p>
+        <p>&copy; 2017 Tableau.</p>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</body>
+
+</html>
