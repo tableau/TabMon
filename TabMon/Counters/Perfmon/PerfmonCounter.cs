@@ -38,7 +38,7 @@ namespace TabMon.Counters.Perfmon
             Counter = counterName;
             Instance = instance;
             Unit = unit;
-            perfmonCounter = new PerformanceCounter(Category, Counter, Instance, Host.Name);
+            perfmonCounter = new PerformanceCounter(Category, Counter, Instance, Host.ComputerName);
         }
 
         ~PerfmonCounter()

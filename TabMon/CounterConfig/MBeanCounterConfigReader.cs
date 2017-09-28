@@ -43,7 +43,7 @@ namespace TabMon.CounterConfig
 
                     // Retrieve a collection of all available clients within the specified port range, then new up counters using those.
                     // This way, multiple counters can share a single client & connection.
-                    var mbeanClientPool = MBeanClientFactory.CreateClients(host.Name, startPort, endPort);
+                    var mbeanClientPool = MBeanClientFactory.CreateClients(host.Address, startPort, endPort);
                     foreach (var mbeanClient in mbeanClientPool)
                     {
                         var countersForSource = BuildCountersForSourceNode(sourceNode, host, mbeanClient, startPort);
@@ -123,7 +123,7 @@ namespace TabMon.CounterConfig
             catch (Exception ex)
             {
                 Log.DebugFormat(@"Failed to register MBean counter {0}\{1}\{2}\{3}\{4}: {5}",
-                                host.Name, sourceName, categoryName, counterName, instanceName, ex.Message);
+                                host.Address, sourceName, categoryName, counterName, instanceName, ex.Message);
                 return null;
             }
         }

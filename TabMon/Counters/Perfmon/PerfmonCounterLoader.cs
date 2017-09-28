@@ -32,22 +32,22 @@ namespace TabMon.Counters.Perfmon
             IList<PerfmonCounter> counters = new List<PerfmonCounter>();
 
             // If the requested category does not exist, log it and bail out.
-            if (!ExistsCategory(categoryName, host.Name))
+            if (!ExistsCategory(categoryName, host.ComputerName))
             {
                 Log.WarnFormat("PerfMon counter category '{0}' on host '{1}' does not exist.",
-                                categoryName, host.Name);
+                                categoryName, host.ComputerName);
                 return counters;
             }
 
             // If the requested counter does not exist, log it and bail out.
-            if (!ExistsCounter(counterName, categoryName, host.Name))
+            if (!ExistsCounter(counterName, categoryName, host.ComputerName))
             {
                 Log.DebugFormat("PerfMon counter '{0}' in category '{1}' on host '{2}' does not exist.",
-                                counterName, categoryName, host.Name);
+                                counterName, categoryName, host.ComputerName);
                 return counters;
             }
 
-            var category = new PerformanceCounterCategory(categoryName, host.Name);
+            var category = new PerformanceCounterCategory(categoryName, host.ComputerName);
 
             // Perfmon has both "single-instance" and "multi-instance" counter types -- we need to handle both appropriately.
             switch (category.CategoryType)
@@ -65,7 +65,7 @@ namespace TabMon.Counters.Perfmon
                     }
                     break;
                 default:
-                    Log.ErrorFormat("Unable to determine category type of PerfMon counter '{0}' in category '{1}' on host '{2}' is unknown; skipping loading it.", counterName, categoryName, host.Name);
+                    Log.ErrorFormat("Unable to determine category type of PerfMon counter '{0}' in category '{1}' on host '{2}' is unknown; skipping loading it.", counterName, categoryName, host.ComputerName);
                     break;
             }
 

@@ -73,8 +73,7 @@ namespace TabMon.Config
                     var clusterName = cluster.Name;
                     foreach (Host host in cluster)
                     {
-                        var resolvedHostname = HostnameHelper.Resolve(host.Name);
-                        options.Hosts.Add(new Helpers.Host(resolvedHostname, clusterName));
+                        options.Hosts.Add(new Helpers.Host(host.Address, host.ComputerName, clusterName));
                     }
                 }
             }

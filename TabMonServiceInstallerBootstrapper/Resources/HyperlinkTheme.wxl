@@ -47,7 +47,10 @@
   <String Id="ModifyCloseButton">&amp;Exit</String>
   <String Id="SuccessHeader">Setup Successful</String>
   <String Id="SuccessLaunchButton">&amp;Launch</String>
-  <String Id="SuccessMessage">Setup has succesfully installed [WixBundleName] on your computer. Please see the included user guide for configuration and usage instructions. You may now click Close to exit.</String>
+  <String Id="SuccessMessage">Setup has succesfully installed [WixBundleName] on your computer. Please see https://tableau.github.io/TabMon for configuration and usage instructions.
+
+You may now click Close to exit.
+  </String>
   <String Id="SuccessRestartText">You must restart your computer before you can use the software.</String>
   <String Id="SuccessRestartButton">&amp;Restart</String>
   <String Id="SuccessCloseButton">&amp;Close</String>
