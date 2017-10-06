@@ -1,4 +1,5 @@
 # TabMon #
+[![Community Supported](https://img.shields.io/badge/Support%20Level-Community%20Supported-457387.svg)](https://www.tableau.com/support-levels-it-and-developer-tools)
 
 ## What is TabMon?
 
@@ -29,7 +30,7 @@ See [Developer Notes.txt](https://github.com/tableau/TabMon/blob/master/Develope
 
 ## Is TabMon supported?
 
-TabMon is made available AS-IS with no support. This is intended to be a self service tool and includes a user guide.  Any bugs discovered should be filed in the [TabMon Git issue tracker](https://github.com/tableau/TabMon/issues).
+TabMon is supported by the community. This is intended to be a self service tool and includes a user guide.  Any bugs discovered should be filed in the [TabMon Git issue tracker](https://github.com/tableau/TabMon/issues).
 
 ## How can I contribute to TabMon?
 
