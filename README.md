@@ -9,6 +9,10 @@ TabMon can be run as both a console app and a Windows service.
 
 ## How do I set up TabMon?
 
+[![Download TabMon](https://img.shields.io/badge/Download%20TabMon-Version%201.2-blue.svg)](https://github.com/tableau/TabMon/releases/download/v1.2/InstallTabMon.exe)
+
+[![Setup TabMon](https://img.shields.io/badge/Setup%20TabMon-Installation%20and%20User%20Guide-lightgrey.svg)](https://tableau.github.io/TabMon/)
+
 TabMon is deployed via a custom installer, which manages dependencies and also bundles Postgres for ease of setup for new users.  To get up and running, follow the instructions in the [installation guide](https://tableau.github.io/TabMon/).
 
 ## How do I analyze results from TabMon?
