@@ -20,3 +20,5 @@ TabMon.v12.suo
 TabMonConfigSectionGenerator/bin/
 TabMonServiceInstaller/Generated/
 *.user
+docs/Gemfile.lock
+docs/_site
