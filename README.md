@@ -1,4 +1,5 @@
 # TabMon #
+[![Community Supported](https://img.shields.io/badge/Support%20Level-Community%20Supported-457387.svg)](https://www.tableau.com/support-levels-it-and-developer-tools)
 
 ## What is TabMon?
 
@@ -8,7 +9,11 @@ TabMon can be run as both a console app and a Windows service.
 
 ## How do I set up TabMon?
 
-TabMon is deployed via a custom installer, which manages dependencies and also bundles Postgres for ease of setup for new users.  To get up and running, follow the instructions in the [installation guide](https://github.com/tableau/TabMon/blob/master/TabMonService/Documentation/UserGuide.pdf).
+[![Download TabMon](https://img.shields.io/badge/Download%20TabMon-Version%201.2-blue.svg)](https://github.com/tableau/TabMon/releases/download/v1.2/InstallTabMon.exe)
+
+[![Setup TabMon](https://img.shields.io/badge/Setup%20TabMon-Installation%20and%20User%20Guide-lightgrey.svg)](https://tableau.github.io/TabMon/)
+
+TabMon is deployed via a custom installer, which manages dependencies and also bundles Postgres for ease of setup for new users.  To get up and running, follow the instructions in the [installation guide](https://tableau.github.io/TabMon/).
 
 ## How do I analyze results from TabMon?
 
@@ -29,7 +34,7 @@ See [Developer Notes.txt](https://github.com/tableau/TabMon/blob/master/Develope
 
 ## Is TabMon supported?
 
-TabMon is made available AS-IS with no support. This is intended to be a self service tool and includes a user guide.  Any bugs discovered should be filed in the [TabMon Git issue tracker](https://github.com/tableau/TabMon/issues).
+TabMon is supported by the community. This is intended to be a self service tool and includes a user guide.  Any bugs discovered should be filed in the [TabMon Git issue tracker](https://github.com/tableau/TabMon/issues).
 
 ## How can I contribute to TabMon?
 
