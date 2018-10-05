@@ -89,7 +89,7 @@ namespace TabMon.Sampler
         private DataTable GenerateSchema(ICollection<ICounter> counters)
         {
             var generatedSchema = new DataTable(tableName);
-
+            generatedSchema.Locale = new System.Globalization.CultureInfo("en-US");
             generatedSchema.Columns.Add(BuildColumnMetadata("timestamp", "System.DateTime", false));
             generatedSchema.Columns.Add(BuildColumnMetadata("cluster", "System.String", true, 32));
             generatedSchema.Columns.Add(BuildColumnMetadata("machine", "System.String", false, 63));
