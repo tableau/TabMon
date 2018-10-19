@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?define ApplicationName = "TabMon"?>
-<?define ProductVersion = "2.1"?>
+<?define ProductVersion = "2.2"?>
 <?define Manufacturer = "Tableau"?>
 <?define AboutURL = "http://www.tableau.com"?>
 <?define ProductUpgradeCode = "d926f2c5-3ab6-4101-a292-f1cd325e23f6"?>
@@ -24,7 +24,7 @@
       <Payload SourceFile="$(var.LogoSideFile)" />
       <Payload SourceFile="$(var.LogoFile)" />
     </BootstrapperApplicationRef>
-    
+
     <!-- Theme Resource Locations-->
     <WixVariable Id="WixExtbaLicenseUrl" Value="License.htm" />
     <WixVariable Id="WixExtbaThemeXml" Value="Resources\BundleTheme.xml" />
@@ -52,7 +52,7 @@
       <RollbackBoundary />
       <ExePackage
         SourceFile="$(var.PostgresPackageFile)"
-        InstallCommand="--mode unattended --prefix &quot;[InstallFolder2]&quot; --extract-only 1" 
+        InstallCommand="--mode unattended --prefix &quot;[InstallFolder2]&quot; --extract-only 1"
         InstallCondition="OptionInstallPostgres" />
       <RollbackBoundary />
       <MsiPackage Id="MainPackage" SourceFile="$(var.MainPackageFile)" DisplayInternalUI="no" Compressed="yes" Vital="yes">
@@ -73,12 +73,12 @@
   <!-- Dependency Management -->
   <Fragment>
     <util:RegistrySearch
-          Id='SearchForPowershell' 
-          Variable="HasPowershellVersion3" 
+          Id='SearchForPowershell'
+          Variable="HasPowershellVersion3"
           Result="exists"
           Root="HKLM"
           Key="SOFTWARE\Microsoft\PowerShell\3" />
-    <bal:Condition 
+    <bal:Condition
       Message="Windows Management Framework 3.0 is required for installation.">
       HasPowershellVersion3
     </bal:Condition>

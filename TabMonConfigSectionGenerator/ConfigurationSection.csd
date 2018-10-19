@@ -47,7 +47,7 @@
         </attributeProperty>
       </attributeProperties>
       <itemType>
-        <configurationElementMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Host" />
+        <configurationElementCollectionMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Host" />
       </itemType>
     </configurationElementCollection>
     <configurationElement name="Database" namespace="TabMon.Config" documentation="Contains configuration information for the results database.  Only required if OutputMode is &quot;DB&quot;.">
@@ -96,26 +96,6 @@
           </type>
         </elementProperty>
       </elementProperties>
-    </configurationElement>
-    <configurationElement name="Host" namespace="TabMon.Config" documentation="Represents an individual host.">
-      <attributeProperties>
-        <attributeProperty name="ComputerName" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="computerName" isReadOnly="false" documentation="The computer name of the host to monitor." defaultValue="&quot;YOURCOMPUTERNAME&quot;">
-          <validator>
-            <stringValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/NonEmptyString" />
-          </validator>
-          <type>
-            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/String" />
-          </type>
-        </attributeProperty>
-        <attributeProperty name="Address" isRequired="true" isKey="true" isDefaultCollection="false" xmlName="address" isReadOnly="false" documentation="The hostname or IP address of the host to monitor." defaultValue="&quot;localhost&quot;">
-          <validator>
-            <stringValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/NonEmptyString" />
-          </validator>
-          <type>
-            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/String" />
-          </type>
-        </attributeProperty>
-      </attributeProperties>
     </configurationElement>
     <configurationElement name="Server" namespace="TabMon.Config" documentation="Contains information about the database server location.">
       <attributeProperties>
@@ -232,6 +212,66 @@
           <validator>
             <integerValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/PositiveInteger" />
           </validator>
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Int32" />
+          </type>
+        </attributeProperty>
+      </attributeProperties>
+    </configurationElement>
+    <configurationElementCollection name="Process" namespace="TabMon.Config" documentation="Represents a group of processes on a host." xmlItemName="Port" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
+      <attributeProperties>
+        <attributeProperty name="ProcessName" isRequired="true" isKey="true" isDefaultCollection="false" xmlName="processName" isReadOnly="false" documentation="Name of the process." defaultValue="&quot;PROCESSNAME&quot;">
+          <validator>
+            <stringValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/NonEmptyString" />
+          </validator>
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/String" />
+          </type>
+        </attributeProperty>
+      </attributeProperties>
+      <itemType>
+        <configurationElementMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Port" />
+      </itemType>
+    </configurationElementCollection>
+    <configurationElementCollection name="Host" namespace="TabMon.Config" documentation="Represents an individual host." xmlItemName="Process" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
+      <attributeProperties>
+        <attributeProperty name="ComputerName" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="computerName" isReadOnly="false" documentation="The computer name of the host to monitor." defaultValue="&quot;YOURCOMPUTERNAME&quot;">
+          <validator>
+            <stringValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/NonEmptyString" />
+          </validator>
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/String" />
+          </type>
+        </attributeProperty>
+        <attributeProperty name="Address" isRequired="true" isKey="true" isDefaultCollection="false" xmlName="address" isReadOnly="false" documentation="The hostname or IP address of the host to monitor." defaultValue="&quot;localhost&quot;">
+          <validator>
+            <stringValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/NonEmptyString" />
+          </validator>
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/String" />
+          </type>
+        </attributeProperty>
+        <attributeProperty name="SpecifyPorts" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="specifyPorts" isReadOnly="false" documentation="Whether to manually specify the process ports in the config." defaultValue="&quot;false&quot;">
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Boolean" />
+          </type>
+        </attributeProperty>
+      </attributeProperties>
+      <itemType>
+        <configurationElementCollectionMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Process" />
+      </itemType>
+    </configurationElementCollection>
+    <configurationElement name="Port" namespace="TabMon.Config" documentation="Represents a port.">
+      <attributeProperties>
+        <attributeProperty name="PortNumber" isRequired="true" isKey="true" isDefaultCollection="false" xmlName="portNumber" isReadOnly="false" documentation="The number of the port." defaultValue="9999">
+          <validator>
+            <integerValidatorMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/PositiveInteger" />
+          </validator>
+          <type>
+            <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Int32" />
+          </type>
+        </attributeProperty>
+        <attributeProperty name="ProcessNumber" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="processNumber" isReadOnly="false" documentation="Process instance number." defaultValue="0">
           <type>
             <externalTypeMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Int32" />
           </type>

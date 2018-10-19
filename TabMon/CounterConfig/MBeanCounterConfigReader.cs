@@ -38,15 +38,29 @@ namespace TabMon.CounterConfig
             {
                 foreach (XmlNode sourceNode in sourceNodes)
                 {
-                    var startPort = Convert.ToInt32(sourceNode.Attributes["startport"].Value);
-                    var endPort = Convert.ToInt32(sourceNode.Attributes["endport"].Value);
+                    ICollection<IMBeanClient> mbeanClientPool;
+                    if (!host.SpecifyPorts)
+                    {
+                        var startPort = Convert.ToInt32(sourceNode.Attributes["startport"].Value);
+                        var endPort = Convert.ToInt32(sourceNode.Attributes["endport"].Value);
 
-                    // Retrieve a collection of all available clients within the specified port range, then new up counters using those.
-                    // This way, multiple counters can share a single client & connection.
-                    var mbeanClientPool = MBeanClientFactory.CreateClients(host.Address, startPort, endPort);
+                        // Retrieve a collection of all available clients within the specified port range, then new up counters using those.
+                        // This way, multiple counters can share a single client & connection.
+                        mbeanClientPool = MBeanClientFactory.CreateClients(host.Address, startPort, endPort);
+                    }
+                    else
+                    {
+                        var processName = sourceNode.Attributes["name"].Value;
+                        var ports = host.Processes[processName];
+
+                        // Retrieve a collection of all available clients within the specified port range, then new up counters using those.
+                        // This way, multiple counters can share a single client & connection.
+                        mbeanClientPool = MBeanClientFactory.CreateClients(host.Address, ports);
+                    }
+
                     foreach (var mbeanClient in mbeanClientPool)
                     {
-                        var countersForSource = BuildCountersForSourceNode(sourceNode, host, mbeanClient, startPort);
+                        var countersForSource = BuildCountersForSourceNode(sourceNode, host, mbeanClient);
                         counters.AddRange(countersForSource);
                     }
                 }
@@ -58,7 +72,7 @@ namespace TabMon.CounterConfig
         /// <summary>
         /// Builds a collection of ICounter instances from a source XML node.
         /// </summary>
-        private List<ICounter> BuildCountersForSourceNode(XmlNode sourceNode, Host host, IMBeanClient mbeanClient, int startPort)
+        private List<ICounter> BuildCountersForSourceNode(XmlNode sourceNode, Host host, IMBeanClient mbeanClient)
         {
             string sourceName = sourceNode.Attributes["name"].Value;
             var counterNodesForSource = sourceNode.SelectNodes(".//Counter");
@@ -68,7 +82,7 @@ namespace TabMon.CounterConfig
             {
                 foreach (XmlNode counterNode in counterNodesForSource)
                 {
-                    var counter = BuildCounterFromCounterNode(counterNode, mbeanClient, host, sourceName, startPort);
+                    var counter = BuildCounterFromCounterNode(counterNode, mbeanClient, host, sourceName);
                     if (counter != null)
                     {
                         counters.Add(counter);
@@ -82,7 +96,7 @@ namespace TabMon.CounterConfig
         /// <summary>
         /// Builds an ICounter instance from a counter XML node and a set of properties.
         /// </summary>
-        private static ICounter BuildCounterFromCounterNode(XmlNode counterNode, IMBeanClient mbeanClient, Host host, string sourceName, int startPort)
+        private static ICounter BuildCounterFromCounterNode(XmlNode counterNode, IMBeanClient mbeanClient, Host host, string sourceName)
         {
             var counterName = counterNode.Attributes["name"].Value;
             var categoryName = counterNode.ParentNode.Attributes["name"].Value;
@@ -94,7 +108,7 @@ namespace TabMon.CounterConfig
                 unitOfMeasurement = counterNode.Attributes["unit"].Value;
             }
 
-            var instanceName = BuildInstanceName(sourceName, startPort, mbeanClient.Connector.ConnectionInfo.Port);
+            var instanceName = BuildInstanceName(sourceName, mbeanClient.InstanceNumber);
 
             var rootCounterTypeNode = counterNode.ParentNode.ParentNode;
             var counterType = rootCounterTypeNode.Name.ToLower();
@@ -131,15 +145,14 @@ namespace TabMon.CounterConfig
         /// <summary>
         /// Builds the instance name to match what Perfmon does (i.e. a machine with two dataserver processes will have instance names "dataserver" & "dataserver#1".
         /// </summary>
-        private static string BuildInstanceName(string sourceName, int startPort, int currentPort)
+        private static string BuildInstanceName(string sourceName, int instanceNumber)
         {
-            int processIndex = currentPort - startPort;
-            if (processIndex == 0)
+            if (instanceNumber == 0)
             {
                 return sourceName;
             }
 
-            return String.Format("{0}#{1}", sourceName, processIndex);
+            return String.Format("{0}#{1}", sourceName, instanceNumber);
         }
     }
 }
