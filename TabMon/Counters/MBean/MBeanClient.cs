@@ -12,11 +12,13 @@ namespace TabMon.Counters.MBean
     internal class MBeanClient : IMBeanClient
     {
         public JmxConnectorProxy Connector { get; protected set; }
+        public int InstanceNumber { get; private set; }
         private bool disposed;
 
-        public MBeanClient(JmxConnectorProxy connector)
+        public MBeanClient(JmxConnectorProxy connector, int instanceNumber)
         {
             Connector = connector;
+            InstanceNumber = instanceNumber;
         }
 
         ~MBeanClient()

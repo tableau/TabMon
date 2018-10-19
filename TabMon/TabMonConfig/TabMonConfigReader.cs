@@ -73,7 +73,24 @@ namespace TabMon.Config
                     var clusterName = cluster.Name;
                     foreach (Host host in cluster)
                     {
-                        options.Hosts.Add(new Helpers.Host(host.Address, host.ComputerName, clusterName));
+                        if (host.SpecifyPorts)
+                        {
+                            var processes = new Dictionary<string, List<Helpers.Process>>();
+                            foreach (Process process in host)
+                            {
+                                var ports = new List<Helpers.Process>();
+                                foreach (Port port in process)
+                                {
+                                    ports.Add(new Helpers.Process(process.ProcessName, port.PortNumber, 0));
+                                }
+                                processes.Add(process.ProcessName, ports);
+                            }
+                            options.Hosts.Add(new Helpers.Host(host.Address, host.ComputerName, clusterName, host.SpecifyPorts, processes));
+                        }
+                        else
+                        {
+                            options.Hosts.Add(new Helpers.Host(host.Address, host.ComputerName, clusterName, host.SpecifyPorts));
+                        }
                     }
                 }
             }

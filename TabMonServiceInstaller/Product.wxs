@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?define ApplicationName = "TabMon"?>
-<?define ProductVersion = "2.0.3"?>
+<?define ProductVersion = "2.0.4"?>
 <?define Manufacturer = "Tableau"?>
 <?define HelpLink = "http://www.tableau.com"?>
 <?define UrlInfoAbout = "http://www.tableau.com"?>
@@ -14,7 +14,7 @@
     <Media Id="1" Cabinet="TabMon.cab" EmbedCab="yes" />
     <UIRef Id="CustomInstallDir" />
     <Icon Id="ProductIcon" SourceFile="$(var.IconFile)" />
-    
+
     <!-- Properties -->
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
     <Property Id="ARPPRODUCTICON" Value="ProductIcon" />
@@ -22,7 +22,7 @@
     <Property Id="ARPURLINFOABOUT" Value="$(var.UrlInfoAbout)" />
     <Property Id="ARPNOREPAIR" Value="1" />
     <Property Id="INSTALLSHORTCUTS" Value="1" />
-    
+
     <!-- Dependency management -->
     <PropertyRef Id="NETFRAMEWORK45" />
     <Condition Message="This application requires .NET Framework 4.5 or later. Please install the .NET Framework and then run this installer again.">
@@ -130,7 +130,7 @@
     <!-- Install/uninstall as a Windows service -->
     <CustomAction Id="RunTopShelfServiceInstall" Directory="INSTALLFOLDER" Execute="deferred" Return="ignore" Impersonate="no" ExeCommand="[INSTALLFOLDER]TabMon.exe install"/>
     <CustomAction Id="RunTopShelfServiceUninstall" Directory="INSTALLFOLDER" Execute="deferred" Return="ignore" Impersonate="no" ExeCommand="[INSTALLFOLDER]TabMon.exe uninstall"/>
-    
+
     <!-- Install Sequence -->
     <InstallExecuteSequence>
       <RemoveExistingProducts After="InstallValidate"/>

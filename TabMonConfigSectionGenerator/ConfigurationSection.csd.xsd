@@ -86,18 +86,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="TabMon.Config.HostCT">
-		<xs:attribute name="computerName" use="required" type="xs:string">
-			<xs:annotation>
-				<xs:documentation>The computer name of the host to monitor.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="address" use="required" type="xs:string">
-			<xs:annotation>
-				<xs:documentation>The hostname or IP address of the host to monitor.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
 	<xs:complexType name="TabMon.Config.ServerCT">
 		<xs:attribute name="host" use="required" type="xs:string">
 			<xs:annotation>
@@ -187,6 +175,56 @@
 		<xs:attribute name="thresholdDays" use="required" type="xs:int">
 			<xs:annotation>
 				<xs:documentation>The age in days that a row has to exceed  before it is pruged.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TabMon.Config.ProcessCT">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="Port" type="tns:TabMon.Config.PortCT">
+				<xs:annotation>
+					<xs:documentation>Represents a port.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+		<xs:attribute name="processName" use="required" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Name of the process.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TabMon.Config.HostCT">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="Process" type="tns:TabMon.Config.ProcessCT">
+				<xs:annotation>
+					<xs:documentation>Represents a group of processes on a host.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+		<xs:attribute name="computerName" use="required" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>The computer name of the host to monitor.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="address" use="required" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>The hostname or IP address of the host to monitor.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="specifyPorts" use="required" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Whether to manually specify the process ports in the config.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TabMon.Config.PortCT">
+		<xs:attribute name="portNumber" use="required" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>The number of the port.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="processNumber" use="required" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>Process instance number.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>

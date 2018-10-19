@@ -82,7 +82,7 @@ namespace TabMon.Counters.MBean
 
             Connector = JMXConnectorFactory.newJMXConnector(ConnectionInfo.GetJmxServiceUrl(), environment: null);
             Connector.connect();
-            Log.Debug(String.Format("Opened connection to JMX server at {0}", ConnectionInfo));
+            Log.Debug(String.Format("Opened connection to JMX server at {0}.", ConnectionInfo));
         }
 
         /// <summary>

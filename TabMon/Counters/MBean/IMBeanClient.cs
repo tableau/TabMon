@@ -13,6 +13,7 @@ namespace TabMon.Counters.MBean
     public interface IMBeanClient : IDisposable
     {
         JmxConnectorProxy Connector { get; }
+        int InstanceNumber { get; }
 
         IList<ObjectName> QueryObjects(string domain, string filter);
         object GetAttributeValue(ObjectName objectName, string attributeName);
