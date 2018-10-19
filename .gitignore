@@ -22,3 +22,5 @@ TabMonServiceInstaller/Generated/
 *.user
 docs/Gemfile.lock
 docs/_site
+TabMonConfigBuilder/bin/
+TabMonConfigBuilder/obj/
