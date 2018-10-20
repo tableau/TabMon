@@ -8,26 +8,26 @@ namespace TabMonConfigBuilder.Helpers
     /// </summary>
     class Host
     {
-        private IDictionary<string, Process> Processes { get; set; }
+        private IDictionary<string, ProcessType> ProcessTypes { get; set; }
         private string HostName { get; set; }
         private string HostString = "      <Host computerName=\"{0}\" address=\"{0}\" specifyPorts=\"true\">\r\n{1}      </Host>";
 
         public Host(string host, string processName, string process, int processNum, int portNum)
         {
             HostName = host;
-            Processes = new Dictionary<string, Process>();
-            Processes.Add(processName, new Process(processName, processNum, portNum));
+            ProcessTypes = new Dictionary<string, ProcessType>();
+            ProcessTypes.Add(processName, new ProcessType(processName, processNum, portNum));
         }
 
         public void Add(string processName, string process, int processNum, int portNum)
         {
-            if (!Processes.ContainsKey(processName))
+            if (!ProcessTypes.ContainsKey(processName))
             {
-                Processes.Add(processName, new Process(processName, processNum, portNum));
+                ProcessTypes.Add(processName, new ProcessType(processName, processNum, portNum));
             }
             else
             {
-                Processes[processName].Add(processNum, portNum);
+                ProcessTypes[processName].Add(processNum, portNum);
             }
         }
 
@@ -35,9 +35,9 @@ namespace TabMonConfigBuilder.Helpers
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach (Process process in Processes.Values)
+            foreach (ProcessType processType in ProcessTypes.Values)
             {
-                sb.AppendLine(process.CreateString());
+                sb.AppendLine(processType.CreateString());
             }
 
             return string.Format(HostString, HostName, sb.ToString());

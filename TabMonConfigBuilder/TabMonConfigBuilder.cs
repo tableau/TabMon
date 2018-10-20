@@ -27,21 +27,11 @@ namespace TabMonConfigBuilder
         /// </summary>
         public void Execute()
         {
-            var hosts = new Dictionary<string, Host>();
-
-            Console.WriteLine("Parsing topology file for process entries..");
             try
             {
-                ParseTopologyAndUpdateHosts(commandLineOptions.Target, hosts);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            Console.WriteLine(string.Format("Writing config section and instructions to {0}..", commandLineOptions.Output));
-            try
-            {
+                Console.WriteLine("Parsing topology file for process entries..");
+                var hosts = ParseTopologyAndUpdateHosts(commandLineOptions.Target);
+                Console.WriteLine(string.Format("Writing config section and instructions to {0}..", commandLineOptions.Output));
                 WriteToFile(commandLineOptions.Output, hosts);
             }
             catch (Exception ex)
@@ -55,11 +45,12 @@ namespace TabMonConfigBuilder
 
         #region Private Methods
 
-        private static void ParseTopologyAndUpdateHosts(string target, Dictionary<string, Host> hosts)
+        private static Dictionary<string, Host> ParseTopologyAndUpdateHosts(string target)
         {
             string line;
             int index = 0;
             Regex spaceRegex = new Regex(@"\s+");
+            var hosts = new Dictionary<string, Host>();
 
             Console.WriteLine("Building config section..");
             var input = new StreamReader(target);
@@ -71,7 +62,7 @@ namespace TabMonConfigBuilder
                     var splitLine = spaceRegex.Split(line);
                     var process = splitLine[1].Split(':')[0];
                     var portType = splitLine[1].Split(':')[1];
-                    if (portType == "jmx" && process != "searchserver")
+                    if (portType == "jmx" && StringHelpers.ProcessLookupDict.ContainsKey(process))
                     {
                         UpdateHosts(hosts, splitLine[0], process, Int32.Parse(splitLine[2]), Int32.Parse(splitLine[3]));
                     }
@@ -79,6 +70,8 @@ namespace TabMonConfigBuilder
                 index++;
             }
             input.Close();
+
+            return hosts;
         }
 
         private static void UpdateHosts(Dictionary<string, Host> hosts, string nodeName, string processName, int processNum, int portNum)

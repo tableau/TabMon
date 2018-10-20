@@ -1,38 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Text;
-
-namespace TabMonConfigBuilder.Helpers
+﻿namespace TabMonConfigBuilder.Helpers
 {
     /// <summary>
-    /// Object defining processes.
+    /// Object defining ports.
     /// </summary>
     class Process
     {
-        private string ProcessName { get; set; }
-        private IList<Port> Ports { get; set; }
-        private string ProcessString = "        <Process processName=\"{0}\">\r\n{1}        </Process>";
+        private int PortNumber { get; set; }
+        private int ProcessNumber { get; set; }
+        private string PortString = "          <Process portNumber=\"{0}\" processNumber=\"{1}\"/>";
 
-        public Process(string processName, int processNum, int portNum)
+        public Process(int portNumber, int processNumber)
         {
-            ProcessName = processName;
-            Ports = new List<Port>();
-            Ports.Add(new Port(portNum, processNum));
-        }
-
-        public void Add(int processNum, int portNum)
-        {
-            Ports.Add(new Port(portNum, processNum));
+            PortNumber = portNumber;
+            ProcessNumber = processNumber;
         }
 
         public string CreateString()
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (Port port in Ports)
-            {
-                sb.AppendLine(port.CreateString());
-            }
-
-            return string.Format(ProcessString, ProcessName, sb.ToString());
+            return string.Format(PortString, PortNumber, ProcessNumber);
         }
     }
 }

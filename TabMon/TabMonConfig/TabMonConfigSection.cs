@@ -1409,205 +1409,8 @@ namespace TabMon.Config
     /// <summary>
     /// Represents a group of processes on a host.
     /// </summary>
-    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Port), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.Process.PortPropertyName)]
-    public partial class Process : global::System.Configuration.ConfigurationElementCollection
-    {
-        
-        #region Constants
-        /// <summary>
-        /// The XML name of the individual <see cref="global::TabMon.Config.Port"/> instances in this collection.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        internal const string PortPropertyName = "Port";
-        #endregion
-        
-        #region Overrides
-        /// <summary>
-        /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
-        /// </summary>
-        /// <returns>The <see cref="global::System.Configuration.ConfigurationElementCollectionType"/> of this collection.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public override global::System.Configuration.ConfigurationElementCollectionType CollectionType
-        {
-            get
-            {
-                return global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate;
-            }
-        }
-        
-        /// <summary>
-        /// Gets the name used to identify this collection of elements
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        protected override string ElementName
-        {
-            get
-            {
-                return global::TabMon.Config.Process.PortPropertyName;
-            }
-        }
-        
-        /// <summary>
-        /// Indicates whether the specified <see cref="global::System.Configuration.ConfigurationElement"/> exists in the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
-        /// </summary>
-        /// <param name="elementName">The name of the element to verify.</param>
-        /// <returns>
-        /// <see langword="true"/> if the element exists in the collection; otherwise, <see langword="false"/>.
-        /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        protected override bool IsElementName(string elementName)
-        {
-            return (elementName == global::TabMon.Config.Process.PortPropertyName);
-        }
-        
-        /// <summary>
-        /// Gets the element key for the specified configuration element.
-        /// </summary>
-        /// <param name="element">The <see cref="global::System.Configuration.ConfigurationElement"/> to return the key for.</param>
-        /// <returns>
-        /// An <see cref="object"/> that acts as the key for the specified <see cref="global::System.Configuration.ConfigurationElement"/>.
-        /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        protected override object GetElementKey(global::System.Configuration.ConfigurationElement element)
-        {
-            return ((global::TabMon.Config.Port)(element)).PortNumber;
-        }
-        
-        /// <summary>
-        /// Creates a new <see cref="global::TabMon.Config.Port"/>.
-        /// </summary>
-        /// <returns>
-        /// A new <see cref="global::TabMon.Config.Port"/>.
-        /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        protected override global::System.Configuration.ConfigurationElement CreateNewElement()
-        {
-            return new global::TabMon.Config.Port();
-        }
-        #endregion
-        
-        #region Indexer
-        /// <summary>
-        /// Gets the <see cref="global::TabMon.Config.Port"/> at the specified index.
-        /// </summary>
-        /// <param name="index">The index of the <see cref="global::TabMon.Config.Port"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public global::TabMon.Config.Port this[int index]
-        {
-            get
-            {
-                return ((global::TabMon.Config.Port)(base.BaseGet(index)));
-            }
-        }
-        
-        /// <summary>
-        /// Gets the <see cref="global::TabMon.Config.Port"/> with the specified key.
-        /// </summary>
-        /// <param name="portNumber">The key of the <see cref="global::TabMon.Config.Port"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public global::TabMon.Config.Port this[object portNumber]
-        {
-            get
-            {
-                return ((global::TabMon.Config.Port)(base.BaseGet(portNumber)));
-            }
-        }
-        #endregion
-        
-        #region Add
-        /// <summary>
-        /// Adds the specified <see cref="global::TabMon.Config.Port"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
-        /// </summary>
-        /// <param name="Port">The <see cref="global::TabMon.Config.Port"/> to add.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public void Add(global::TabMon.Config.Port Port)
-        {
-            base.BaseAdd(Port);
-        }
-        #endregion
-        
-        #region Remove
-        /// <summary>
-        /// Removes the specified <see cref="global::TabMon.Config.Port"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
-        /// </summary>
-        /// <param name="Port">The <see cref="global::TabMon.Config.Port"/> to remove.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public void Remove(global::TabMon.Config.Port Port)
-        {
-            base.BaseRemove(this.GetElementKey(Port));
-        }
-        #endregion
-        
-        #region GetItem
-        /// <summary>
-        /// Gets the <see cref="global::TabMon.Config.Port"/> at the specified index.
-        /// </summary>
-        /// <param name="index">The index of the <see cref="global::TabMon.Config.Port"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public global::TabMon.Config.Port GetItemAt(int index)
-        {
-            return ((global::TabMon.Config.Port)(base.BaseGet(index)));
-        }
-        
-        /// <summary>
-        /// Gets the <see cref="global::TabMon.Config.Port"/> with the specified key.
-        /// </summary>
-        /// <param name="portNumber">The key of the <see cref="global::TabMon.Config.Port"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public global::TabMon.Config.Port GetItemByKey(int portNumber)
-        {
-            return ((global::TabMon.Config.Port)(base.BaseGet(((object)(portNumber)))));
-        }
-        #endregion
-        
-        #region IsReadOnly override
-        /// <summary>
-        /// Gets a value indicating whether the element is read-only.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public override bool IsReadOnly()
-        {
-            return false;
-        }
-        #endregion
-        
-        #region ProcessName Property
-        /// <summary>
-        /// The XML name of the <see cref="ProcessName"/> property.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        internal const string ProcessNamePropertyName = "processName";
-        
-        /// <summary>
-        /// Gets or sets name of the process.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        [global::System.ComponentModel.DescriptionAttribute("Name of the process.")]
-        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Process.ProcessNamePropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="PROCESSNAME")]
-        public virtual string ProcessName
-        {
-            get
-            {
-                return ((string)(base[global::TabMon.Config.Process.ProcessNamePropertyName]));
-            }
-            set
-            {
-                base[global::TabMon.Config.Process.ProcessNamePropertyName] = value;
-            }
-        }
-        #endregion
-    }
-}
-namespace TabMon.Config
-{
-    
-    
-    /// <summary>
-    /// Represents an individual host.
-    /// </summary>
-    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Process), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.Host.ProcessPropertyName)]
-    public partial class Host : global::System.Configuration.ConfigurationElementCollection
+    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Process), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.ProcessType.ProcessPropertyName)]
+    public partial class ProcessType : global::System.Configuration.ConfigurationElementCollection
     {
         
         #region Constants
@@ -1640,7 +1443,7 @@ namespace TabMon.Config
         {
             get
             {
-                return global::TabMon.Config.Host.ProcessPropertyName;
+                return global::TabMon.Config.ProcessType.ProcessPropertyName;
             }
         }
         
@@ -1654,7 +1457,7 @@ namespace TabMon.Config
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         protected override bool IsElementName(string elementName)
         {
-            return (elementName == global::TabMon.Config.Host.ProcessPropertyName);
+            return (elementName == global::TabMon.Config.ProcessType.ProcessPropertyName);
         }
         
         /// <summary>
@@ -1667,7 +1470,7 @@ namespace TabMon.Config
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         protected override object GetElementKey(global::System.Configuration.ConfigurationElement element)
         {
-            return ((global::TabMon.Config.Process)(element)).ProcessName;
+            return ((global::TabMon.Config.Process)(element)).PortNumber;
         }
         
         /// <summary>
@@ -1700,13 +1503,13 @@ namespace TabMon.Config
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Process"/> with the specified key.
         /// </summary>
-        /// <param name="processName">The key of the <see cref="global::TabMon.Config.Process"/> to retrieve.</param>
+        /// <param name="portNumber">The key of the <see cref="global::TabMon.Config.Process"/> to retrieve.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public global::TabMon.Config.Process this[object processName]
+        public global::TabMon.Config.Process this[object portNumber]
         {
             get
             {
-                return ((global::TabMon.Config.Process)(base.BaseGet(processName)));
+                return ((global::TabMon.Config.Process)(base.BaseGet(portNumber)));
             }
         }
         #endregion
@@ -1749,11 +1552,208 @@ namespace TabMon.Config
         /// <summary>
         /// Gets the <see cref="global::TabMon.Config.Process"/> with the specified key.
         /// </summary>
-        /// <param name="processName">The key of the <see cref="global::TabMon.Config.Process"/> to retrieve.</param>
+        /// <param name="portNumber">The key of the <see cref="global::TabMon.Config.Process"/> to retrieve.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
-        public global::TabMon.Config.Process GetItemByKey(string processName)
+        public global::TabMon.Config.Process GetItemByKey(int portNumber)
         {
-            return ((global::TabMon.Config.Process)(base.BaseGet(((object)(processName)))));
+            return ((global::TabMon.Config.Process)(base.BaseGet(((object)(portNumber)))));
+        }
+        #endregion
+        
+        #region IsReadOnly override
+        /// <summary>
+        /// Gets a value indicating whether the element is read-only.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        public override bool IsReadOnly()
+        {
+            return false;
+        }
+        #endregion
+        
+        #region ProcessName Property
+        /// <summary>
+        /// The XML name of the <see cref="ProcessName"/> property.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        internal const string ProcessNamePropertyName = "processName";
+        
+        /// <summary>
+        /// Gets or sets name of the process.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.ComponentModel.DescriptionAttribute("Name of the process.")]
+        [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.ProcessType.ProcessNamePropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="PROCESSNAME")]
+        public virtual string ProcessName
+        {
+            get
+            {
+                return ((string)(base[global::TabMon.Config.ProcessType.ProcessNamePropertyName]));
+            }
+            set
+            {
+                base[global::TabMon.Config.ProcessType.ProcessNamePropertyName] = value;
+            }
+        }
+        #endregion
+    }
+}
+namespace TabMon.Config
+{
+    
+    
+    /// <summary>
+    /// Represents an individual host.
+    /// </summary>
+    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.ProcessType), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.Host.ProcessTypePropertyName)]
+    public partial class Host : global::System.Configuration.ConfigurationElementCollection
+    {
+        
+        #region Constants
+        /// <summary>
+        /// The XML name of the individual <see cref="global::TabMon.Config.ProcessType"/> instances in this collection.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        internal const string ProcessTypePropertyName = "ProcessType";
+        #endregion
+        
+        #region Overrides
+        /// <summary>
+        /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
+        /// </summary>
+        /// <returns>The <see cref="global::System.Configuration.ConfigurationElementCollectionType"/> of this collection.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        public override global::System.Configuration.ConfigurationElementCollectionType CollectionType
+        {
+            get
+            {
+                return global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the name used to identify this collection of elements
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        protected override string ElementName
+        {
+            get
+            {
+                return global::TabMon.Config.Host.ProcessTypePropertyName;
+            }
+        }
+        
+        /// <summary>
+        /// Indicates whether the specified <see cref="global::System.Configuration.ConfigurationElement"/> exists in the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
+        /// </summary>
+        /// <param name="elementName">The name of the element to verify.</param>
+        /// <returns>
+        /// <see langword="true"/> if the element exists in the collection; otherwise, <see langword="false"/>.
+        /// </returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        protected override bool IsElementName(string elementName)
+        {
+            return (elementName == global::TabMon.Config.Host.ProcessTypePropertyName);
+        }
+        
+        /// <summary>
+        /// Gets the element key for the specified configuration element.
+        /// </summary>
+        /// <param name="element">The <see cref="global::System.Configuration.ConfigurationElement"/> to return the key for.</param>
+        /// <returns>
+        /// An <see cref="object"/> that acts as the key for the specified <see cref="global::System.Configuration.ConfigurationElement"/>.
+        /// </returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        protected override object GetElementKey(global::System.Configuration.ConfigurationElement element)
+        {
+            return ((global::TabMon.Config.ProcessType)(element)).ProcessName;
+        }
+        
+        /// <summary>
+        /// Creates a new <see cref="global::TabMon.Config.ProcessType"/>.
+        /// </summary>
+        /// <returns>
+        /// A new <see cref="global::TabMon.Config.ProcessType"/>.
+        /// </returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        protected override global::System.Configuration.ConfigurationElement CreateNewElement()
+        {
+            return new global::TabMon.Config.ProcessType();
+        }
+        #endregion
+        
+        #region Indexer
+        /// <summary>
+        /// Gets the <see cref="global::TabMon.Config.ProcessType"/> at the specified index.
+        /// </summary>
+        /// <param name="index">The index of the <see cref="global::TabMon.Config.ProcessType"/> to retrieve.</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        public global::TabMon.Config.ProcessType this[int index]
+        {
+            get
+            {
+                return ((global::TabMon.Config.ProcessType)(base.BaseGet(index)));
+            }
+        }
+        
+        /// <summary>
+        /// Gets the <see cref="global::TabMon.Config.ProcessType"/> with the specified key.
+        /// </summary>
+        /// <param name="processName">The key of the <see cref="global::TabMon.Config.ProcessType"/> to retrieve.</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        public global::TabMon.Config.ProcessType this[object processName]
+        {
+            get
+            {
+                return ((global::TabMon.Config.ProcessType)(base.BaseGet(processName)));
+            }
+        }
+        #endregion
+        
+        #region Add
+        /// <summary>
+        /// Adds the specified <see cref="global::TabMon.Config.ProcessType"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
+        /// </summary>
+        /// <param name="ProcessType">The <see cref="global::TabMon.Config.ProcessType"/> to add.</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        public void Add(global::TabMon.Config.ProcessType ProcessType)
+        {
+            base.BaseAdd(ProcessType);
+        }
+        #endregion
+        
+        #region Remove
+        /// <summary>
+        /// Removes the specified <see cref="global::TabMon.Config.ProcessType"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
+        /// </summary>
+        /// <param name="ProcessType">The <see cref="global::TabMon.Config.ProcessType"/> to remove.</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        public void Remove(global::TabMon.Config.ProcessType ProcessType)
+        {
+            base.BaseRemove(this.GetElementKey(ProcessType));
+        }
+        #endregion
+        
+        #region GetItem
+        /// <summary>
+        /// Gets the <see cref="global::TabMon.Config.ProcessType"/> at the specified index.
+        /// </summary>
+        /// <param name="index">The index of the <see cref="global::TabMon.Config.ProcessType"/> to retrieve.</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        public global::TabMon.Config.ProcessType GetItemAt(int index)
+        {
+            return ((global::TabMon.Config.ProcessType)(base.BaseGet(index)));
+        }
+        
+        /// <summary>
+        /// Gets the <see cref="global::TabMon.Config.ProcessType"/> with the specified key.
+        /// </summary>
+        /// <param name="processName">The key of the <see cref="global::TabMon.Config.ProcessType"/> to retrieve.</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        public global::TabMon.Config.ProcessType GetItemByKey(string processName)
+        {
+            return ((global::TabMon.Config.ProcessType)(base.BaseGet(((object)(processName)))));
         }
         #endregion
         
@@ -1856,7 +1856,7 @@ namespace TabMon.Config
     /// <summary>
     /// Represents a port.
     /// </summary>
-    public partial class Port : global::System.Configuration.ConfigurationElement
+    public partial class Process : global::System.Configuration.ConfigurationElement
     {
         
         #region IsReadOnly override
@@ -1883,16 +1883,16 @@ namespace TabMon.Config
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("The number of the port.")]
         [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange=false, MaxValue=2147483647, MinValue=1)]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Port.PortNumberPropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue=9999)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Process.PortNumberPropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue=9999)]
         public virtual int PortNumber
         {
             get
             {
-                return ((int)(base[global::TabMon.Config.Port.PortNumberPropertyName]));
+                return ((int)(base[global::TabMon.Config.Process.PortNumberPropertyName]));
             }
             set
             {
-                base[global::TabMon.Config.Port.PortNumberPropertyName] = value;
+                base[global::TabMon.Config.Process.PortNumberPropertyName] = value;
             }
         }
         #endregion
@@ -1909,16 +1909,16 @@ namespace TabMon.Config
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
         [global::System.ComponentModel.DescriptionAttribute("Process instance number.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Port.ProcessNumberPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=0)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Process.ProcessNumberPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=0)]
         public virtual int ProcessNumber
         {
             get
             {
-                return ((int)(base[global::TabMon.Config.Port.ProcessNumberPropertyName]));
+                return ((int)(base[global::TabMon.Config.Process.ProcessNumberPropertyName]));
             }
             set
             {
-                base[global::TabMon.Config.Port.ProcessNumberPropertyName] = value;
+                base[global::TabMon.Config.Process.ProcessNumberPropertyName] = value;
             }
         }
         #endregion

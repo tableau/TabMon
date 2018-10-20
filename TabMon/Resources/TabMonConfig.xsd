@@ -178,9 +178,9 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="TabMon.Config.ProcessCT">
+	<xs:complexType name="TabMon.Config.ProcessTypeCT">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element minOccurs="0" maxOccurs="unbounded" name="Port" type="tns:TabMon.Config.PortCT">
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="Process" type="tns:TabMon.Config.ProcessCT">
 				<xs:annotation>
 					<xs:documentation>Represents a port.</xs:documentation>
 				</xs:annotation>
@@ -194,7 +194,7 @@
 	</xs:complexType>
 	<xs:complexType name="TabMon.Config.HostCT">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element minOccurs="0" maxOccurs="unbounded" name="Process" type="tns:TabMon.Config.ProcessCT">
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="ProcessType" type="tns:TabMon.Config.ProcessTypeCT">
 				<xs:annotation>
 					<xs:documentation>Represents a group of processes on a host.</xs:documentation>
 				</xs:annotation>
@@ -216,7 +216,7 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="TabMon.Config.PortCT">
+	<xs:complexType name="TabMon.Config.ProcessCT">
 		<xs:attribute name="portNumber" use="required" type="xs:int">
 			<xs:annotation>
 				<xs:documentation>The number of the port.</xs:documentation>
