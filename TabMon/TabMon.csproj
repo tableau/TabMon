@@ -167,10 +167,10 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Config\TabMon.Config">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>TabMon.Designer.cs</LastGenOutput>
-    </None>
+    <Content Include="Config\TabMon.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
