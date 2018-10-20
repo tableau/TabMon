@@ -114,11 +114,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\TabMon.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>TabMon.Config</DependentUpon>
-    </Compile>
     <Compile Include="CounterConfig\CounterConfigLoader.cs" />
     <Compile Include="CounterConfig\CounterConfigReaderFactory.cs" />
     <Compile Include="CounterConfig\CounterLifecycleType.cs" />
