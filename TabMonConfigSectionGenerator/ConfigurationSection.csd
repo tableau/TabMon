@@ -218,7 +218,7 @@
         </attributeProperty>
       </attributeProperties>
     </configurationElement>
-    <configurationElementCollection name="Process" namespace="TabMon.Config" documentation="Represents a group of processes on a host." xmlItemName="Port" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
+    <configurationElementCollection name="ProcessType" namespace="TabMon.Config" documentation="Represents a group of processes on a host." xmlItemName="Process" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
       <attributeProperties>
         <attributeProperty name="ProcessName" isRequired="true" isKey="true" isDefaultCollection="false" xmlName="processName" isReadOnly="false" documentation="Name of the process." defaultValue="&quot;PROCESSNAME&quot;">
           <validator>
@@ -230,10 +230,10 @@
         </attributeProperty>
       </attributeProperties>
       <itemType>
-        <configurationElementMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Port" />
+        <configurationElementMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Process" />
       </itemType>
     </configurationElementCollection>
-    <configurationElementCollection name="Host" namespace="TabMon.Config" documentation="Represents an individual host." xmlItemName="Process" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
+    <configurationElementCollection name="Host" namespace="TabMon.Config" documentation="Represents an individual host." xmlItemName="ProcessType" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
       <attributeProperties>
         <attributeProperty name="ComputerName" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="computerName" isReadOnly="false" documentation="The computer name of the host to monitor." defaultValue="&quot;YOURCOMPUTERNAME&quot;">
           <validator>
@@ -258,10 +258,10 @@
         </attributeProperty>
       </attributeProperties>
       <itemType>
-        <configurationElementCollectionMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/Process" />
+        <configurationElementCollectionMoniker name="/d0ed9acb-0435-4532-afdd-b5115bc4d562/ProcessType" />
       </itemType>
     </configurationElementCollection>
-    <configurationElement name="Port" namespace="TabMon.Config" documentation="Represents a port.">
+    <configurationElement name="Process" namespace="TabMon.Config" documentation="Represents a port.">
       <attributeProperties>
         <attributeProperty name="PortNumber" isRequired="true" isKey="true" isDefaultCollection="false" xmlName="portNumber" isReadOnly="false" documentation="The number of the port." defaultValue="9999">
           <validator>
