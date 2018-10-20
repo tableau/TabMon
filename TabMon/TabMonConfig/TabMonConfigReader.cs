@@ -75,17 +75,17 @@ namespace TabMon.Config
                     {
                         if (host.SpecifyPorts)
                         {
-                            var processes = new Dictionary<string, List<Helpers.Process>>();
-                            foreach (Process process in host)
+                            var processTypes = new Dictionary<string, List<Helpers.Process>>();
+                            foreach (ProcessType processType in host)
                             {
-                                var ports = new List<Helpers.Process>();
-                                foreach (Port port in process)
+                                var processes = new List<Helpers.Process>();
+                                foreach (Process process in processType)
                                 {
-                                    ports.Add(new Helpers.Process(process.ProcessName, port.PortNumber, 0));
+                                    processes.Add(new Helpers.Process(processType.ProcessName, process.PortNumber, 0));
                                 }
-                                processes.Add(process.ProcessName, ports);
+                                processTypes.Add(processType.ProcessName, processes);
                             }
-                            options.Hosts.Add(new Helpers.Host(host.Address, host.ComputerName, clusterName, host.SpecifyPorts, processes));
+                            options.Hosts.Add(new Helpers.Host(host.Address, host.ComputerName, clusterName, host.SpecifyPorts, processTypes));
                         }
                         else
                         {
