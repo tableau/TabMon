@@ -31,6 +31,7 @@ To install TabMon on your system please ensure that you have the following:
 3. Run the following tabadmin commands:
 
 ```
+Tableau Server 2018.1 and Older
     tabadmin set service.jmx_enabled true
 
     tabadmin stop
@@ -38,6 +39,13 @@ To install TabMon on your system please ensure that you have the following:
     tabadmin configure
 
     tabadmin start
+```
+
+```
+Tableau Server 2018.2+
+    tsm configuration set -k service.jmx_enabled -v true
+    
+    tsm pending-changes apply
 ```
 
 **Configure the Tableau Server “readonly” user:**
@@ -51,7 +59,13 @@ This step is only required if you want to use the “What’s Going On?” dashb
 3.  Run the following tabadmin commands
 
 ```
+Tableau Server 2018.1 and Older
     tabadmin dbpass --username readonly [Password here]
 
     tabadmin restart
+```
+
+```
+Tableau Server 2018.2+
+    tsm data-access repository-access enable --repository-username readonly --repository-password <PASSWORD>
 ```
