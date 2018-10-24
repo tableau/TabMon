@@ -45,6 +45,8 @@ To manually configure the JMX ports, run the command below and copy the jmx port
 
 The four jmx processes that will need to be configured for full TabMon functionality are vizqlserver, vizportal, dataserver, and backgrounder. Each node in the topology output will need their own host entry in the TabMon config (including port numbers per jmx counter). Another option for creating the host section of the TabMon config is using the TabMonConfigBuilder utility that is included in TabMon version 1.3.
 
+For more information on TabMonConfigBuilder, [click here](https://tableau.github.io/TabMon/docs/tabmon_appendix_a#using-tabmonconfigbuilderexe-to-help-build-tabmonconfig){:target="_blank"}.
+
 **NOTE:** If you changed your database parameters during setup, you will need to update them here.
 
 
