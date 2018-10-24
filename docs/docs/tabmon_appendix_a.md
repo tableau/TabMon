@@ -109,30 +109,27 @@ To run TabMonConfigBuilder.exe follow the steps below:
 
 4.  Log into tsm on the cluster that you wish to add to the TabMon config.
 
-Command: tsm login -u `[USERNAME]`
+      `tsm login -u [USERNAME]`
       
-5.  Pipe tsm topology list-ports to a file.
+5.  Pipe tsm topology list-ports to a file. 
 
-      Command: tsm topology list-ports > `[OUTPUT_FILE]`
-
-      Example: tsm topology list-ports > "C:\topology_out.txt"
-      
-File topology_out.txt output:
-
-![]({{ site.baseurl }}/assets/TabMonConfigSpecifyPorts.PNG)
-      
+      `tsm topology list-ports > [OUTPUT_FILE]`   
       
 6. Run TabMonConfigBuilder with topology output and output file.
 
-      Command: tabmonconfigbuilder `[TARGET]` `[OUTPUT]`
-
-      Example: tabmonconfigbuilder "C:\topology_out.txt" "C:\output.txt"
+      `tabmonconfigbuilder [TARGET] [OUTPUT]`
       
 7.  Open "output.txt" and verify that the host and process count are correct. If there are any discrepancies, you may need to manually add or remove hosts and processes.
 
 8.  For each host, replace the worker in `computerName` and `address` entry to reflect the correct host information.
 
 9.  Copy the information below the line into the `Cluster` section of the TabMon.Config.
+
+
+
+File topology_out.txt output:
+
+![]({{ site.baseurl }}/assets/TopologyOut.PNG)
 
 
 
