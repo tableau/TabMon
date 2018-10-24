@@ -90,3 +90,45 @@ To fully remove Postgres:
     `sc delete TabMon-Postgres`
 
 3.  Delete the folder where you installed Postgres (default is `C:\Postgres`).
+
+
+### Using TabMonConfigBuilder.exe To Help Build TabMon.config
+
+With the release of TabMon v1.3, TabMon.Config now allows users to specify JMX ports. This means that the configuration can be more complicated to create. TabMonConfigBuilder.exe is a small utility that parses the results from `tsm topology list-ports` and creates the framework for a cluster in the TabMon.Config.
+
+To run TabMonConfigBuilder.exe follow the steps below:
+
+1.  Download TabMonConfigBuilder.zip at this link:
+      [*https://github.com/tableau/TabMon/releases/download/v1.3/TabMonConfigBuilder.zip*.](https://github.com/tableau/TabMon/releases/download/v1.3/TabMonConfigBuilder.zip){:target="_blank"}
+      
+2.  Unzip TabMonConfigBuilder.zip.
+
+3.  Open a command prompt in administrator mode and navigate to the directory that TabMonConfigBuilder was unzipped into.
+
+NOTE: Anything between `[]` should be replaced with the description.
+
+4.  Log into tsm on the cluster that you wish to add to the TabMon config.
+      Command: tsm login -u `[USERNAME]`
+      
+5.  Pipe tsm topology list-ports to a file.
+      Command: tsm topology list-ports > `[OUTPUT_FILE]`
+      Example: tsm topology list-ports > "C:\topology_out.txt"
+      
+File topology_out.txt output:
+![]({{ site.baseurl }}/assets/TabMonConfigSpecifyPorts.PNG)
+      
+      
+6. Run TabMonConfigBuilder with topology output and output file.
+      Command: tabmonconfigbuilder `[TARGET]` `[OUTPUT]`
+      Example: tabmonconfigbuilder "C:\topology_out.txt" "C:\output.txt"
+      
+7.  Open "output.txt" and verify that the host and process count are correct. If there are any discrepancies, you may need to manually add or remove hosts and processes.
+
+8.  For each host, replace the worker in `computerName` and `address` entry to reflect the correct host information.
+
+9.  Copy the information below the line into the `Cluster` section of the TabMon.Config.
+
+
+TabMonConfigBuilder.exe output should look something like this:
+![]({{ site.baseurl }}/assets/TabMonConfigBuilderOut.PNG)
+
