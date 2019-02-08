@@ -193,9 +193,6 @@
     <Content Include="Resources\CounterConfigurations\9.3 - 10.1\Counters.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Sample Workbooks\9.3 - 10.2+\TabMon.twb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Resources\TabMonConfigurations\TabMon_SpecifyPorts.config">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -204,6 +201,8 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Sample Workbooks\2018.2+\TabMon.twb" />
+    <None Include="Resources\Sample Workbooks\9.3 - 2018.1\TabMon.twb" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\Counters.config">

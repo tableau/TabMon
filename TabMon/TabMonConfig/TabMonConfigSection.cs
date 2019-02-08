@@ -22,19 +22,19 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the TabMonConfig Configuration Section.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string TabMonConfigSectionName = "TabMonConfig";
         
         /// <summary>
         /// The XML path of the TabMonConfig Configuration Section.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string TabMonConfigSectionPath = "TabMonConfig";
         
         /// <summary>
         /// Gets the TabMonConfig instance.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public static global::TabMon.Config.TabMonConfig Instance
         {
             get
@@ -48,7 +48,7 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Xmlns"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string XmlnsPropertyName = "xmlns";
         
         /// <summary>
@@ -58,7 +58,7 @@ namespace TabMon.Config
         /// This property makes sure that if the configuration file contains the XML namespace,
         /// the parser doesn't throw an exception because it encounters the unknown "xmlns" attribute.
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.XmlnsPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
         public string Xmlns
         {
@@ -73,7 +73,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -84,13 +84,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Database"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string DatabasePropertyName = "Database";
         
         /// <summary>
         /// Gets or sets contains configuration information for the results database.  Only required if OutputMode is "DB".
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Contains configuration information for the results database.  Only required if Ou" +
             "tputMode is \"DB\".")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.DatabasePropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
@@ -111,13 +111,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Clusters"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ClustersPropertyName = "Clusters";
         
         /// <summary>
         /// Gets or sets contains definitions of which machines to monitor and their logical clustering.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Contains definitions of which machines to monitor and their logical clustering.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.ClustersPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual global::TabMon.Config.Clusters Clusters
@@ -137,13 +137,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="PollInterval"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string PollIntervalPropertyName = "PollInterval";
         
         /// <summary>
         /// Gets or sets contains information about the polling frequency.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Contains information about the polling frequency.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.PollIntervalPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual global::TabMon.Config.PollInterval PollInterval
@@ -163,13 +163,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="OutputMode"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string OutputModePropertyName = "OutputMode";
         
         /// <summary>
         /// Gets or sets contains information about the result output mode.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Contains information about the result output mode.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.TabMonConfig.OutputModePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual global::TabMon.Config.OutputMode OutputMode
@@ -193,6 +193,7 @@ namespace TabMon.Config
     /// <summary>
     /// Represents a logical grouping of hosts.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Represents a logical grouping of hosts.")]
     [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Host), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.Cluster.HostPropertyName)]
     public partial class Cluster : global::System.Configuration.ConfigurationElementCollection
     {
@@ -201,7 +202,7 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.Host"/> instances in this collection.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string HostPropertyName = "Host";
         #endregion
         
@@ -210,7 +211,7 @@ namespace TabMon.Config
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <returns>The <see cref="global::System.Configuration.ConfigurationElementCollectionType"/> of this collection.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override global::System.Configuration.ConfigurationElementCollectionType CollectionType
         {
             get
@@ -222,7 +223,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets the name used to identify this collection of elements
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override string ElementName
         {
             get
@@ -238,7 +239,7 @@ namespace TabMon.Config
         /// <returns>
         /// <see langword="true"/> if the element exists in the collection; otherwise, <see langword="false"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override bool IsElementName(string elementName)
         {
             return (elementName == global::TabMon.Config.Cluster.HostPropertyName);
@@ -251,7 +252,7 @@ namespace TabMon.Config
         /// <returns>
         /// An <see cref="object"/> that acts as the key for the specified <see cref="global::System.Configuration.ConfigurationElement"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override object GetElementKey(global::System.Configuration.ConfigurationElement element)
         {
             return ((global::TabMon.Config.Host)(element)).Address;
@@ -263,7 +264,7 @@ namespace TabMon.Config
         /// <returns>
         /// A new <see cref="global::TabMon.Config.Host"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override global::System.Configuration.ConfigurationElement CreateNewElement()
         {
             return new global::TabMon.Config.Host();
@@ -275,7 +276,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Host"/> at the specified index.
         /// </summary>
         /// <param name="index">The index of the <see cref="global::TabMon.Config.Host"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Host this[int index]
         {
             get
@@ -288,7 +289,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Host"/> with the specified key.
         /// </summary>
         /// <param name="address">The key of the <see cref="global::TabMon.Config.Host"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Host this[object address]
         {
             get
@@ -303,7 +304,7 @@ namespace TabMon.Config
         /// Adds the specified <see cref="global::TabMon.Config.Host"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <param name="Host">The <see cref="global::TabMon.Config.Host"/> to add.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public void Add(global::TabMon.Config.Host Host)
         {
             base.BaseAdd(Host);
@@ -315,7 +316,7 @@ namespace TabMon.Config
         /// Removes the specified <see cref="global::TabMon.Config.Host"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <param name="Host">The <see cref="global::TabMon.Config.Host"/> to remove.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public void Remove(global::TabMon.Config.Host Host)
         {
             base.BaseRemove(this.GetElementKey(Host));
@@ -327,7 +328,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Host"/> at the specified index.
         /// </summary>
         /// <param name="index">The index of the <see cref="global::TabMon.Config.Host"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Host GetItemAt(int index)
         {
             return ((global::TabMon.Config.Host)(base.BaseGet(index)));
@@ -337,7 +338,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Host"/> with the specified key.
         /// </summary>
         /// <param name="address">The key of the <see cref="global::TabMon.Config.Host"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Host GetItemByKey(string address)
         {
             return ((global::TabMon.Config.Host)(base.BaseGet(((object)(address)))));
@@ -348,7 +349,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -359,13 +360,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string NamePropertyName = "name";
         
         /// <summary>
         /// Gets or sets the name of the cluster.  Used to logically group multiple hosts.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The name of the cluster.  Used to logically group multiple hosts.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Cluster.NamePropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="Primary")]
@@ -390,6 +391,8 @@ namespace TabMon.Config
     /// <summary>
     /// Contains configuration information for the results database.  Only required if OutputMode is "DB".
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Contains configuration information for the results database.  Only required if Ou" +
+        "tputMode is \"DB\".")]
     public partial class Database : global::System.Configuration.ConfigurationElement
     {
         
@@ -397,7 +400,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -408,13 +411,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Type"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string TypePropertyName = "type";
         
         /// <summary>
         /// Gets or sets the type of database that this is.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The type of database that this is.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.TypePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="Postgres")]
@@ -435,13 +438,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string NamePropertyName = "name";
         
         /// <summary>
         /// Gets or sets the name of the instantiated database.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The name of the instantiated database.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.NamePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="TabMon")]
@@ -462,13 +465,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Server"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ServerPropertyName = "Server";
         
         /// <summary>
         /// Gets or sets contains information about the database server location.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Contains information about the database server location.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.ServerPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual global::TabMon.Config.Server Server
@@ -488,13 +491,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="User"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string UserPropertyName = "User";
         
         /// <summary>
         /// Gets or sets contains information about the database user.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Contains information about the database user.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.UserPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual global::TabMon.Config.User User
@@ -514,13 +517,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Table"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string TablePropertyName = "Table";
         
         /// <summary>
         /// Gets or sets contains information about the results table.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Contains information about the results table.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.TablePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual global::TabMon.Config.Table Table
@@ -540,13 +543,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Indexes"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string IndexesPropertyName = "Indexes";
         
         /// <summary>
         /// Gets or sets contains columns to be indexed upon table creation.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Contains columns to be indexed upon table creation.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.IndexesPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual global::TabMon.Config.Indexes Indexes
@@ -566,13 +569,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="PurgeOldData"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string PurgeOldDataPropertyName = "PurgeOldData";
         
         /// <summary>
         /// Gets or sets the PurgeOldData.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The PurgeOldData.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Database.PurgeOldDataPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual global::TabMon.PurgeOldData PurgeOldData
@@ -596,6 +599,7 @@ namespace TabMon.Config
     /// <summary>
     /// Contains information about the database server location.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Contains information about the database server location.")]
     public partial class Server : global::System.Configuration.ConfigurationElement
     {
         
@@ -603,7 +607,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -614,13 +618,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Host"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string HostPropertyName = "host";
         
         /// <summary>
         /// Gets or sets the hostname or IP address of the database server.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The hostname or IP address of the database server.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Server.HostPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="localhost")]
@@ -641,13 +645,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Port"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string PortPropertyName = "port";
         
         /// <summary>
         /// Gets or sets the port number of the database server.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The port number of the database server.")]
         [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange=false, MaxValue=2147483647, MinValue=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Server.PortPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false, DefaultValue=5432)]
@@ -672,6 +676,7 @@ namespace TabMon.Config
     /// <summary>
     /// Contains information about the database user.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Contains information about the database user.")]
     public partial class User : global::System.Configuration.ConfigurationElement
     {
         
@@ -679,7 +684,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -690,13 +695,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Login"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string LoginPropertyName = "login";
         
         /// <summary>
         /// Gets or sets the login for the database user.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The login for the database user.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.User.LoginPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="tabmon")]
@@ -717,13 +722,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Password"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string PasswordPropertyName = "password";
         
         /// <summary>
         /// Gets or sets the password of the database user.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The password of the database user.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.User.PasswordPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="password")]
         public virtual string Password
@@ -747,6 +752,7 @@ namespace TabMon.Config
     /// <summary>
     /// Contains information about the results table.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Contains information about the results table.")]
     public partial class Table : global::System.Configuration.ConfigurationElement
     {
         
@@ -754,7 +760,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -765,13 +771,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string NamePropertyName = "name";
         
         /// <summary>
         /// Gets or sets the name of the database table to write results to.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The name of the database table to write results to.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Table.NamePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="countersamples")]
@@ -796,6 +802,7 @@ namespace TabMon.Config
     /// <summary>
     /// Contains information about the polling frequency.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Contains information about the polling frequency.")]
     public partial class PollInterval : global::System.Configuration.ConfigurationElement
     {
         
@@ -803,7 +810,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -814,13 +821,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Value"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ValuePropertyName = "value";
         
         /// <summary>
         /// Gets or sets the interval between polling cycles, in seconds.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The interval between polling cycles, in seconds.")]
         [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange=false, MaxValue=2147483647, MinValue=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.PollInterval.ValuePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=30)]
@@ -845,6 +852,7 @@ namespace TabMon.Config
     /// <summary>
     /// Contains information about the result output mode.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Contains information about the result output mode.")]
     public partial class OutputMode : global::System.Configuration.ConfigurationElement
     {
         
@@ -852,7 +860,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -863,13 +871,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Value"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ValuePropertyName = "value";
         
         /// <summary>
         /// Gets or sets the output mode.  "CSV" for local flat file output, or "DB" for database output.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The output mode.  \"CSV\" for local flat file output, or \"DB\" for database output.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.OutputMode.ValuePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="db")]
@@ -894,6 +902,8 @@ namespace TabMon.Config
     /// <summary>
     /// Contains definitions of which machines to monitor and their logical clustering.  Each cluster may contain multiple hosts.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Contains definitions of which machines to monitor and their logical clustering.  " +
+        "Each cluster may contain multiple hosts.")]
     [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Cluster), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.Clusters.ClusterPropertyName)]
     public partial class Clusters : global::System.Configuration.ConfigurationElementCollection
     {
@@ -902,7 +912,7 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.Cluster"/> instances in this collection.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ClusterPropertyName = "Cluster";
         #endregion
         
@@ -911,7 +921,7 @@ namespace TabMon.Config
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <returns>The <see cref="global::System.Configuration.ConfigurationElementCollectionType"/> of this collection.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override global::System.Configuration.ConfigurationElementCollectionType CollectionType
         {
             get
@@ -923,7 +933,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets the name used to identify this collection of elements
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override string ElementName
         {
             get
@@ -939,7 +949,7 @@ namespace TabMon.Config
         /// <returns>
         /// <see langword="true"/> if the element exists in the collection; otherwise, <see langword="false"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override bool IsElementName(string elementName)
         {
             return (elementName == global::TabMon.Config.Clusters.ClusterPropertyName);
@@ -952,7 +962,7 @@ namespace TabMon.Config
         /// <returns>
         /// An <see cref="object"/> that acts as the key for the specified <see cref="global::System.Configuration.ConfigurationElement"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override object GetElementKey(global::System.Configuration.ConfigurationElement element)
         {
             return ((global::TabMon.Config.Cluster)(element)).Name;
@@ -964,7 +974,7 @@ namespace TabMon.Config
         /// <returns>
         /// A new <see cref="global::TabMon.Config.Cluster"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override global::System.Configuration.ConfigurationElement CreateNewElement()
         {
             return new global::TabMon.Config.Cluster();
@@ -976,7 +986,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Cluster"/> at the specified index.
         /// </summary>
         /// <param name="index">The index of the <see cref="global::TabMon.Config.Cluster"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Cluster this[int index]
         {
             get
@@ -989,7 +999,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Cluster"/> with the specified key.
         /// </summary>
         /// <param name="name">The key of the <see cref="global::TabMon.Config.Cluster"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Cluster this[object name]
         {
             get
@@ -1004,7 +1014,7 @@ namespace TabMon.Config
         /// Adds the specified <see cref="global::TabMon.Config.Cluster"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <param name="Cluster">The <see cref="global::TabMon.Config.Cluster"/> to add.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public void Add(global::TabMon.Config.Cluster Cluster)
         {
             base.BaseAdd(Cluster);
@@ -1016,7 +1026,7 @@ namespace TabMon.Config
         /// Removes the specified <see cref="global::TabMon.Config.Cluster"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <param name="Cluster">The <see cref="global::TabMon.Config.Cluster"/> to remove.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public void Remove(global::TabMon.Config.Cluster Cluster)
         {
             base.BaseRemove(this.GetElementKey(Cluster));
@@ -1028,7 +1038,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Cluster"/> at the specified index.
         /// </summary>
         /// <param name="index">The index of the <see cref="global::TabMon.Config.Cluster"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Cluster GetItemAt(int index)
         {
             return ((global::TabMon.Config.Cluster)(base.BaseGet(index)));
@@ -1038,7 +1048,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Cluster"/> with the specified key.
         /// </summary>
         /// <param name="name">The key of the <see cref="global::TabMon.Config.Cluster"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Cluster GetItemByKey(string name)
         {
             return ((global::TabMon.Config.Cluster)(base.BaseGet(((object)(name)))));
@@ -1049,7 +1059,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -1064,6 +1074,7 @@ namespace TabMon.Config
     /// <summary>
     /// Contains columns to be indexed upon table creation.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Contains columns to be indexed upon table creation.")]
     [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Index), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.Indexes.IndexPropertyName)]
     public partial class Indexes : global::System.Configuration.ConfigurationElementCollection
     {
@@ -1072,7 +1083,7 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.Index"/> instances in this collection.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string IndexPropertyName = "Index";
         #endregion
         
@@ -1081,7 +1092,7 @@ namespace TabMon.Config
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <returns>The <see cref="global::System.Configuration.ConfigurationElementCollectionType"/> of this collection.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override global::System.Configuration.ConfigurationElementCollectionType CollectionType
         {
             get
@@ -1093,7 +1104,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets the name used to identify this collection of elements
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override string ElementName
         {
             get
@@ -1109,7 +1120,7 @@ namespace TabMon.Config
         /// <returns>
         /// <see langword="true"/> if the element exists in the collection; otherwise, <see langword="false"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override bool IsElementName(string elementName)
         {
             return (elementName == global::TabMon.Config.Indexes.IndexPropertyName);
@@ -1122,7 +1133,7 @@ namespace TabMon.Config
         /// <returns>
         /// An <see cref="object"/> that acts as the key for the specified <see cref="global::System.Configuration.ConfigurationElement"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override object GetElementKey(global::System.Configuration.ConfigurationElement element)
         {
             return ((global::TabMon.Config.Index)(element)).Column;
@@ -1134,7 +1145,7 @@ namespace TabMon.Config
         /// <returns>
         /// A new <see cref="global::TabMon.Config.Index"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override global::System.Configuration.ConfigurationElement CreateNewElement()
         {
             return new global::TabMon.Config.Index();
@@ -1146,7 +1157,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Index"/> at the specified index.
         /// </summary>
         /// <param name="index">The index of the <see cref="global::TabMon.Config.Index"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Index this[int index]
         {
             get
@@ -1159,7 +1170,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Index"/> with the specified key.
         /// </summary>
         /// <param name="column">The key of the <see cref="global::TabMon.Config.Index"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Index this[object column]
         {
             get
@@ -1174,7 +1185,7 @@ namespace TabMon.Config
         /// Adds the specified <see cref="global::TabMon.Config.Index"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <param name="Index">The <see cref="global::TabMon.Config.Index"/> to add.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public void Add(global::TabMon.Config.Index Index)
         {
             base.BaseAdd(Index);
@@ -1186,7 +1197,7 @@ namespace TabMon.Config
         /// Removes the specified <see cref="global::TabMon.Config.Index"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <param name="Index">The <see cref="global::TabMon.Config.Index"/> to remove.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public void Remove(global::TabMon.Config.Index Index)
         {
             base.BaseRemove(this.GetElementKey(Index));
@@ -1198,7 +1209,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Index"/> at the specified index.
         /// </summary>
         /// <param name="index">The index of the <see cref="global::TabMon.Config.Index"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Index GetItemAt(int index)
         {
             return ((global::TabMon.Config.Index)(base.BaseGet(index)));
@@ -1208,7 +1219,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Index"/> with the specified key.
         /// </summary>
         /// <param name="column">The key of the <see cref="global::TabMon.Config.Index"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Index GetItemByKey(string column)
         {
             return ((global::TabMon.Config.Index)(base.BaseGet(((object)(column)))));
@@ -1219,7 +1230,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -1230,13 +1241,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Generate"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string GeneratePropertyName = "generate";
         
         /// <summary>
         /// Gets or sets whether TabMon will generate and validate indexes upon startup.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Whether TabMon will generate and validate indexes upon startup.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Indexes.GeneratePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=true)]
         public virtual bool Generate
@@ -1260,6 +1271,7 @@ namespace TabMon.Config
     /// <summary>
     /// Represents an individual index.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Represents an individual index.")]
     public partial class Index : global::System.Configuration.ConfigurationElement
     {
         
@@ -1267,7 +1279,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -1278,13 +1290,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Column"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ColumnPropertyName = "column";
         
         /// <summary>
         /// Gets or sets the column name to be indexed.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The column name to be indexed.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Index.ColumnPropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="")]
         public virtual string Column
@@ -1304,13 +1316,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Clustered"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ClusteredPropertyName = "clustered";
         
         /// <summary>
         /// Gets or sets whether the index is clustered or not.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Whether the index is clustered or not.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Index.ClusteredPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=false)]
         public virtual bool Clustered
@@ -1341,7 +1353,7 @@ namespace TabMon
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -1352,13 +1364,13 @@ namespace TabMon
         /// <summary>
         /// The XML name of the <see cref="Enabled"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string EnabledPropertyName = "enabled";
         
         /// <summary>
         /// Gets or sets whether TabMon will purge data after a certain time.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Whether TabMon will purge data after a certain time.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.PurgeOldData.EnabledPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=true)]
         public virtual bool Enabled
@@ -1378,13 +1390,13 @@ namespace TabMon
         /// <summary>
         /// The XML name of the <see cref="ThresholdDays"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ThresholdDaysPropertyName = "thresholdDays";
         
         /// <summary>
         /// Gets or sets the age in days that a row has to exceed  before it is pruged.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The age in days that a row has to exceed  before it is pruged.")]
         [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange=false, MaxValue=2147483647, MinValue=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.PurgeOldData.ThresholdDaysPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=30)]
@@ -1409,6 +1421,7 @@ namespace TabMon.Config
     /// <summary>
     /// Represents a group of processes on a host.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Represents a group of processes on a host.")]
     [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.Process), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.ProcessType.ProcessPropertyName)]
     public partial class ProcessType : global::System.Configuration.ConfigurationElementCollection
     {
@@ -1417,7 +1430,7 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.Process"/> instances in this collection.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ProcessPropertyName = "Process";
         #endregion
         
@@ -1426,7 +1439,7 @@ namespace TabMon.Config
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <returns>The <see cref="global::System.Configuration.ConfigurationElementCollectionType"/> of this collection.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override global::System.Configuration.ConfigurationElementCollectionType CollectionType
         {
             get
@@ -1438,7 +1451,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets the name used to identify this collection of elements
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override string ElementName
         {
             get
@@ -1454,7 +1467,7 @@ namespace TabMon.Config
         /// <returns>
         /// <see langword="true"/> if the element exists in the collection; otherwise, <see langword="false"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override bool IsElementName(string elementName)
         {
             return (elementName == global::TabMon.Config.ProcessType.ProcessPropertyName);
@@ -1467,7 +1480,7 @@ namespace TabMon.Config
         /// <returns>
         /// An <see cref="object"/> that acts as the key for the specified <see cref="global::System.Configuration.ConfigurationElement"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override object GetElementKey(global::System.Configuration.ConfigurationElement element)
         {
             return ((global::TabMon.Config.Process)(element)).PortNumber;
@@ -1479,7 +1492,7 @@ namespace TabMon.Config
         /// <returns>
         /// A new <see cref="global::TabMon.Config.Process"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override global::System.Configuration.ConfigurationElement CreateNewElement()
         {
             return new global::TabMon.Config.Process();
@@ -1491,7 +1504,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Process"/> at the specified index.
         /// </summary>
         /// <param name="index">The index of the <see cref="global::TabMon.Config.Process"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Process this[int index]
         {
             get
@@ -1504,7 +1517,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Process"/> with the specified key.
         /// </summary>
         /// <param name="portNumber">The key of the <see cref="global::TabMon.Config.Process"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Process this[object portNumber]
         {
             get
@@ -1519,7 +1532,7 @@ namespace TabMon.Config
         /// Adds the specified <see cref="global::TabMon.Config.Process"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <param name="Process">The <see cref="global::TabMon.Config.Process"/> to add.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public void Add(global::TabMon.Config.Process Process)
         {
             base.BaseAdd(Process);
@@ -1531,7 +1544,7 @@ namespace TabMon.Config
         /// Removes the specified <see cref="global::TabMon.Config.Process"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <param name="Process">The <see cref="global::TabMon.Config.Process"/> to remove.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public void Remove(global::TabMon.Config.Process Process)
         {
             base.BaseRemove(this.GetElementKey(Process));
@@ -1543,7 +1556,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Process"/> at the specified index.
         /// </summary>
         /// <param name="index">The index of the <see cref="global::TabMon.Config.Process"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Process GetItemAt(int index)
         {
             return ((global::TabMon.Config.Process)(base.BaseGet(index)));
@@ -1553,7 +1566,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.Process"/> with the specified key.
         /// </summary>
         /// <param name="portNumber">The key of the <see cref="global::TabMon.Config.Process"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.Process GetItemByKey(int portNumber)
         {
             return ((global::TabMon.Config.Process)(base.BaseGet(((object)(portNumber)))));
@@ -1564,7 +1577,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -1575,13 +1588,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="ProcessName"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ProcessNamePropertyName = "processName";
         
         /// <summary>
         /// Gets or sets name of the process.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Name of the process.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.ProcessType.ProcessNamePropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="PROCESSNAME")]
@@ -1606,6 +1619,7 @@ namespace TabMon.Config
     /// <summary>
     /// Represents an individual host.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Represents an individual host.")]
     [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::TabMon.Config.ProcessType), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::TabMon.Config.Host.ProcessTypePropertyName)]
     public partial class Host : global::System.Configuration.ConfigurationElementCollection
     {
@@ -1614,7 +1628,7 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the individual <see cref="global::TabMon.Config.ProcessType"/> instances in this collection.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ProcessTypePropertyName = "ProcessType";
         #endregion
         
@@ -1623,7 +1637,7 @@ namespace TabMon.Config
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <returns>The <see cref="global::System.Configuration.ConfigurationElementCollectionType"/> of this collection.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override global::System.Configuration.ConfigurationElementCollectionType CollectionType
         {
             get
@@ -1635,7 +1649,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets the name used to identify this collection of elements
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override string ElementName
         {
             get
@@ -1651,7 +1665,7 @@ namespace TabMon.Config
         /// <returns>
         /// <see langword="true"/> if the element exists in the collection; otherwise, <see langword="false"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override bool IsElementName(string elementName)
         {
             return (elementName == global::TabMon.Config.Host.ProcessTypePropertyName);
@@ -1664,7 +1678,7 @@ namespace TabMon.Config
         /// <returns>
         /// An <see cref="object"/> that acts as the key for the specified <see cref="global::System.Configuration.ConfigurationElement"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override object GetElementKey(global::System.Configuration.ConfigurationElement element)
         {
             return ((global::TabMon.Config.ProcessType)(element)).ProcessName;
@@ -1676,7 +1690,7 @@ namespace TabMon.Config
         /// <returns>
         /// A new <see cref="global::TabMon.Config.ProcessType"/>.
         /// </returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         protected override global::System.Configuration.ConfigurationElement CreateNewElement()
         {
             return new global::TabMon.Config.ProcessType();
@@ -1688,7 +1702,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.ProcessType"/> at the specified index.
         /// </summary>
         /// <param name="index">The index of the <see cref="global::TabMon.Config.ProcessType"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.ProcessType this[int index]
         {
             get
@@ -1701,7 +1715,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.ProcessType"/> with the specified key.
         /// </summary>
         /// <param name="processName">The key of the <see cref="global::TabMon.Config.ProcessType"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.ProcessType this[object processName]
         {
             get
@@ -1716,7 +1730,7 @@ namespace TabMon.Config
         /// Adds the specified <see cref="global::TabMon.Config.ProcessType"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <param name="ProcessType">The <see cref="global::TabMon.Config.ProcessType"/> to add.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public void Add(global::TabMon.Config.ProcessType ProcessType)
         {
             base.BaseAdd(ProcessType);
@@ -1728,7 +1742,7 @@ namespace TabMon.Config
         /// Removes the specified <see cref="global::TabMon.Config.ProcessType"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
         /// <param name="ProcessType">The <see cref="global::TabMon.Config.ProcessType"/> to remove.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public void Remove(global::TabMon.Config.ProcessType ProcessType)
         {
             base.BaseRemove(this.GetElementKey(ProcessType));
@@ -1740,7 +1754,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.ProcessType"/> at the specified index.
         /// </summary>
         /// <param name="index">The index of the <see cref="global::TabMon.Config.ProcessType"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.ProcessType GetItemAt(int index)
         {
             return ((global::TabMon.Config.ProcessType)(base.BaseGet(index)));
@@ -1750,7 +1764,7 @@ namespace TabMon.Config
         /// Gets the <see cref="global::TabMon.Config.ProcessType"/> with the specified key.
         /// </summary>
         /// <param name="processName">The key of the <see cref="global::TabMon.Config.ProcessType"/> to retrieve.</param>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public global::TabMon.Config.ProcessType GetItemByKey(string processName)
         {
             return ((global::TabMon.Config.ProcessType)(base.BaseGet(((object)(processName)))));
@@ -1761,7 +1775,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -1772,13 +1786,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="ComputerName"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ComputerNamePropertyName = "computerName";
         
         /// <summary>
         /// Gets or sets the computer name of the host to monitor.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The computer name of the host to monitor.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Host.ComputerNamePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="YOURCOMPUTERNAME")]
@@ -1799,13 +1813,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="Address"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string AddressPropertyName = "address";
         
         /// <summary>
         /// Gets or sets the hostname or IP address of the host to monitor.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The hostname or IP address of the host to monitor.")]
         [global::System.Configuration.StringValidatorAttribute(InvalidCharacters="", MaxLength=2147483647, MinLength=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Host.AddressPropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue="localhost")]
@@ -1826,13 +1840,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="SpecifyPorts"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string SpecifyPortsPropertyName = "specifyPorts";
         
         /// <summary>
         /// Gets or sets whether to manually specify the process ports in the config.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Whether to manually specify the process ports in the config.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Host.SpecifyPortsPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue="false")]
         public virtual bool SpecifyPorts
@@ -1856,6 +1870,7 @@ namespace TabMon.Config
     /// <summary>
     /// Represents a port.
     /// </summary>
+    [global::System.ComponentModel.DescriptionAttribute("Represents a port.")]
     public partial class Process : global::System.Configuration.ConfigurationElement
     {
         
@@ -1863,7 +1878,7 @@ namespace TabMon.Config
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         public override bool IsReadOnly()
         {
             return false;
@@ -1874,13 +1889,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="PortNumber"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string PortNumberPropertyName = "portNumber";
         
         /// <summary>
         /// Gets or sets the number of the port.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("The number of the port.")]
         [global::System.Configuration.IntegerValidatorAttribute(ExcludeRange=false, MaxValue=2147483647, MinValue=1)]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Process.PortNumberPropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false, DefaultValue=9999)]
@@ -1901,13 +1916,13 @@ namespace TabMon.Config
         /// <summary>
         /// The XML name of the <see cref="ProcessNumber"/> property.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         internal const string ProcessNumberPropertyName = "processNumber";
         
         /// <summary>
         /// Gets or sets process instance number.
         /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.7")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.801")]
         [global::System.ComponentModel.DescriptionAttribute("Process instance number.")]
         [global::System.Configuration.ConfigurationPropertyAttribute(global::TabMon.Config.Process.ProcessNumberPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false, DefaultValue=0)]
         public virtual int ProcessNumber
