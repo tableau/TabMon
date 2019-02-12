@@ -9,7 +9,7 @@ TabMon can be run as both a console app and a Windows service.
 
 ## How do I set up TabMon?
 
-[![Download TabMon](https://img.shields.io/badge/Download%20TabMon-Version%201.2-blue.svg)](https://github.com/tableau/TabMon/releases/download/v1.2/InstallTabMon.exe)
+[![Download TabMon](https://img.shields.io/badge/Download%20TabMon-Version%201.3-blue.svg)](https://github.com/tableau/TabMon/releases/download/v1.3/InstallTabMon.exe)
 
 [![Setup TabMon](https://img.shields.io/badge/Setup%20TabMon-Installation%20and%20User%20Guide-lightgrey.svg)](https://tableau.github.io/TabMon/)
 

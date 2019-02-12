@@ -28,9 +28,24 @@ The default `TabMon.config` file looks like the following:
 ![]({{ site.baseurl }}/assets/TabMonConfig.PNG)
 
 
-By default, this configuration will not poll PerfMon counters. In order to poll PerfMon counters, the `computerName` attribute must be changed to the specified host's computer name in the TabMon configuration file. To learn how to find the computer name, [click here](https://tableau.github.io/TabMon/docs/tabmon_faq#2--how-do-i-find-the-computer-name-of-a-host){:target="_blank"}
+By default, this configuration will not poll PerfMon counters and will use base ports from the Counter.config. This configuration will not work with Tableau Server 2018.2+. In order to poll PerfMon counters, the `computerName` attribute must be changed to the specified host's computer name (the FQDN may be necessary for environments with multiple domains) in the TabMon configuration file. To learn how to find the computer name, [click here](https://tableau.github.io/TabMon/docs/tabmon_faq#2--how-do-i-find-the-computer-name-of-a-host){:target="_blank"}
 
 Once the change above is complete, this configuration will poll the performance counters on localhost every 60 seconds and write out the results to the specified database.
+
+In order to poll JMX counters from Tableau Server 2018.2+, `specifyPorts` will need to be enabled in the 'Host' entry of 'TabMon.Config' and the ports will need to be specified. The default 'TabMon.Config' with 'specifyPorts' enabled will look like this:
+
+![]({{ site.baseurl }}/assets/TabMonConfigSpecifyPorts.PNG)
+
+
+To manually configure the JMX ports, run the command below and copy the jmx port numbers from the output.
+
+```
+    tsm topology list-ports
+```
+
+The four jmx processes that will need to be configured for full TabMon functionality are vizqlserver, vizportal, dataserver, and backgrounder. Each node in the topology output will need their own host entry in the TabMon config (including port numbers per jmx counter). Another option for creating the host section of the TabMon config is using the TabMonConfigBuilder utility that is included in TabMon version 1.3.
+
+For more information on TabMonConfigBuilder, [click here](https://tableau.github.io/TabMon/docs/tabmon_appendix_a#using-tabmonconfigbuilderexe-to-help-build-tabmonconfig){:target="_blank"}.
 
 **NOTE:** If you changed your database parameters during setup, you will need to update them here.
 
