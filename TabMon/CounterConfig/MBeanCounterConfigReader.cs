@@ -38,7 +38,7 @@ namespace TabMon.CounterConfig
             {
                 foreach (XmlNode sourceNode in sourceNodes)
                 {
-                    ICollection<IMBeanClient> mbeanClientPool;
+                    ICollection<IMBeanClient> mbeanClientPool = null;
                     if (!host.SpecifyPorts)
                     {
                         var startPort = Convert.ToInt32(sourceNode.Attributes["startport"].Value);
@@ -51,17 +51,27 @@ namespace TabMon.CounterConfig
                     else
                     {
                         var processName = sourceNode.Attributes["name"].Value;
-                        var ports = host.Processes[processName];
+                        if (host.Processes.ContainsKey(processName))
+                        {
+                            var ports = host.Processes[processName];
 
-                        // Retrieve a collection of all available clients within the specified port range, then new up counters using those.
-                        // This way, multiple counters can share a single client & connection.
-                        mbeanClientPool = MBeanClientFactory.CreateClients(host.Address, ports);
+                            // Retrieve a collection of all available clients within the specified port range, then new up counters using those.
+                            // This way, multiple counters can share a single client & connection.
+                            mbeanClientPool = MBeanClientFactory.CreateClients(host.Address, ports);
+                        }
+                        else
+                        {
+                            Log.DebugFormat("Process \"{0}\" is not contained in host section. Continuing..", processName);
+                        }
                     }
 
-                    foreach (var mbeanClient in mbeanClientPool)
+                    if (mbeanClientPool != null)
                     {
-                        var countersForSource = BuildCountersForSourceNode(sourceNode, host, mbeanClient);
-                        counters.AddRange(countersForSource);
+                        foreach (var mbeanClient in mbeanClientPool)
+                        {
+                            var countersForSource = BuildCountersForSourceNode(sourceNode, host, mbeanClient);
+                            counters.AddRange(countersForSource);
+                        }
                     }
                 }
             }

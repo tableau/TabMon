@@ -1,6 +1,4 @@
-﻿using System.Data;
-
-namespace DataTableWriter.Writers
+﻿namespace DataTableWriter.Writers
 {
     public interface IPurgeableDatasource
     {
