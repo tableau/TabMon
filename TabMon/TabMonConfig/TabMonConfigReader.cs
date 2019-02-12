@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Reflection;
-using TabMon.Helpers;
 
 namespace TabMon.Config
 {
